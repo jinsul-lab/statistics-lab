@@ -2,6 +2,7 @@ const fs=require('fs');let s=fs.readFileSync('jinsulmap/JINSUL_MAP_v3.5.11.html'
 function replace(a,b){if(!s.includes(a))throw Error('Missing anchor '+a.slice(0,90));s=s.replace(a,b);}
 replace('<div class="brand">JINSUL MAP v3.6.0</div>','<div class="brand">JINSUL MAP</div>');
 replace('function scanReportScores(result){',fs.readFileSync('work/audit_v360.js','utf8')+'\nfunction scanReportScores(result){');
+replace("btn.textContent='경쟁의원 상세 더 수집 / 재조회 (최대 20곳)'","btn.id='siteCollectMore';btn.textContent='경쟁의원 상세 더 수집 / 재조회 (최대 20곳)'");
 replace("const parking=['indrMechUtcnt','oudrMechUtcnt','indrAutoUtcnt','oudrAutoUtcnt'].reduce((sum,key)=>sum+(scanNumber(row[key])||0),0);","const parking=scanKnownBuildingCount(row,['indrMechUtcnt','oudrMechUtcnt','indrAutoUtcnt','oudrAutoUtcnt']);");
 replace("elevators:(scanNumber(scanPick(row,'rideUseElvtCnt'))||0)+(scanNumber(scanPick(row,'emgenUseElvtCnt'))||0)","elevators:scanKnownBuildingCount(row,['rideUseElvtCnt','emgenUseElvtCnt'])");
 for(const name of ['b.parking','b.elevators','item.building.parking'])s=s.replaceAll('${'+name+'.toLocaleString()}대','${scanBuildingCountLabel('+name+')}');

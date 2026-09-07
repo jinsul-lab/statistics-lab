@@ -6184,7 +6184,7 @@ async function scanSiteCollect(d,limit){
 const scanSiteRenderBeforeEnrich=scanSiteRender;
 scanSiteRender=function(){scanSiteRenderBeforeEnrich();const d=scanSite.active;if(!d)return;
   document.querySelectorAll('[data-site-field]').forEach(el=>{const k=el.dataset.siteField,a=d.autoFields?.[k];if(a&&a.value===d.fields[k]){const label=document.createElement('small');label.className='scanCaption';label.textContent='자동 반영 · '+a.source+' · '+a.checkedAt.slice(0,10);el.parentElement.appendChild(label);}const previous=el.oninput;el.oninput=()=>{if(d.autoFields)delete d.autoFields[k];previous();};});
-  const box=$('siteHiraDetail');if(box&&scanSite.result){const btn=document.createElement('button');btn.className='btn outline';btn.textContent='경쟁의원 상세 더 수집 / 재조회 (최대 20곳)';box.before(btn);btn.onclick=async()=>{btn.disabled=true;scanEgenApprovalError=false;await scanSiteCollect(d,20);btn.disabled=false;};}
+  const box=$('siteHiraDetail');if(box&&scanSite.result){const btn=document.createElement('button');btn.className='btn outline';btn.id='siteCollectMore';btn.textContent='경쟁의원 상세 더 수집 / 재조회 (최대 20곳)';box.before(btn);btn.onclick=async()=>{btn.disabled=true;scanEgenApprovalError=false;await scanSiteCollect(d,20);btn.disabled=false;};}
 };
 const scanSiteValidBeforeEnrich=scanSiteValidDraft;
 scanSiteValidDraft=function(raw){const d=scanSiteValidBeforeEnrich(raw);d.autoFields={};for(const [k] of scanSiteFields){const a=raw.autoFields?.[k];if(a&&String(a.value)===d.fields[k])d.autoFields[k]={value:d.fields[k],source:scanSiteText(a.source),checkedAt:scanSiteText(a.checkedAt)};}d.clinicFacts=d.snapshot.facts.filter(r=>r.name.startsWith('진료시간 · '));return d;};
@@ -6263,6 +6263,8 @@ function scanSiteMergeEvidence(facts,draft){
 }
 const scanSiteSnapshotBeforeAudit=scanSiteSnapshot;
 scanSiteSnapshot=function(result,draft){const snapshot=scanSiteSnapshotBeforeAudit(result,draft);snapshot.facts=scanSiteMergeEvidence(snapshot.facts,draft);return snapshot;};
+const scanSiteCompetitionBeforeAudit=scanSiteRenderCompetition;
+scanSiteRenderCompetition=function(){const more=$('siteCollectMore');scanSiteCompetitionBeforeAudit();if(more)$('siteHiraDetail')?.before(more);};
 function scanRegistryAcceptPage(data,state){
   if(!Number.isInteger(data.total)||data.total<0)throw Error('대장 전체 건수 확인 불가');
   if(state.total!==null&&state.total!==data.total)throw Error('조회 도중 대장 건수가 변경되어 재조회 필요');

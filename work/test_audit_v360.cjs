@@ -1,6 +1,6 @@
 const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
 const html=fs.readFileSync('jinsulmap/JINSUL_MAP_v3.6.0.html','utf8');
-const c=vm.createContext({URLSearchParams,PUBLIC_DATA_API_KEY:'fixture',scanSiteNum:v=>v===null||v===undefined||String(v).trim()===''?null:Number.isFinite(Number(v))&&Number(v)>=0?Number(v):null,scanSiteSnapshot:()=>({facts:[{name:'현재 API',scope:'필지',source:'대장'}]}),scanSiteRender:()=>{},scanSitePreview:()=>{},scanSiteStatus:()=>{}});
+const c=vm.createContext({URLSearchParams,PUBLIC_DATA_API_KEY:'fixture',scanSiteNum:v=>v===null||v===undefined||String(v).trim()===''?null:Number.isFinite(Number(v))&&Number(v)>=0?Number(v):null,scanSiteSnapshot:()=>({facts:[{name:'현재 API',scope:'필지',source:'대장'}]}),scanSiteRenderCompetition:()=>{},scanSiteRender:()=>{},scanSitePreview:()=>{},scanSiteStatus:()=>{}});
 vm.runInContext(fs.readFileSync('work/audit_v360.js','utf8'),c);let n=0;const t=(name,fn)=>{fn();n++;console.log('PASS '+name)};
 t('version exactly three single digit fields',()=>{assert.ok(html.includes('<title>JINSUL MAP v3.6.0</title>'));assert.ok(!html.includes('3.5.11'));assert.ok(html.includes('<div class="brand">JINSUL MAP</div>'))});
 t('all inline scripts parse',()=>{for(const m of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))if(m[1].trim())new vm.Script(m[1])});
@@ -14,6 +14,7 @@ t('snapshot reset retains clinic and registry evidence',()=>{const d={clinicFact
 t('repeated restoration does not duplicate facts',()=>{const fact={name:'층',scope:'필지',source:'대장'};assert.equal(c.scanSiteMergeEvidence([fact],{registryFacts:[fact]}).length,1)});
 t('same name different scope retained',()=>assert.equal(c.scanSiteMergeEvidence([{name:'층',scope:'A',source:'대장'}],{registryFacts:[{name:'층',scope:'B',source:'대장'}]}).length,2));
 t('same floor multiple uses retained',()=>assert.equal(c.scanSiteMergeEvidence([],{registryFacts:[{name:'1층',scope:'필지',source:'대장',value:'사무실100㎡'},{name:'1층',scope:'필지',source:'대장',value:'상가50㎡'}]}).length,2));
+t('competition refresh retains collect button',()=>{const button={id:'siteCollectMore'};let retained;c.$=id=>id==='siteCollectMore'?button:{before:x=>{retained=x}};c.scanSiteRenderCompetition();assert.equal(retained,button)});
 t('duplicate page row rejected',()=>{const state={total:null,count:0,seen:new Set()};c.scanRegistryAcceptPage({total:2,rows:[{rnum:1,area:100}]},state);assert.throws(()=>c.scanRegistryAcceptPage({total:2,rows:[{rnum:1,area:100}]},state),/중복/)});
 t('total change rejected',()=>{const state={total:2,count:0,seen:new Set()};assert.throws(()=>c.scanRegistryAcceptPage({total:3,rows:[]},state),/변경/)});
 t('overflow and unknown total rejected',()=>{assert.throws(()=>c.scanRegistryAcceptPage({total:0,rows:[{rnum:1}]},{total:null,count:0,seen:new Set()}),/초과/);assert.throws(()=>c.scanRegistryAcceptPage({total:NaN,rows:[]},{total:null,count:0,seen:new Set()}),/확인 불가/)});

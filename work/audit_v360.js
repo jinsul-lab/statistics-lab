@@ -8,6 +8,8 @@ function scanSiteMergeEvidence(facts,draft){
 }
 const scanSiteSnapshotBeforeAudit=scanSiteSnapshot;
 scanSiteSnapshot=function(result,draft){const snapshot=scanSiteSnapshotBeforeAudit(result,draft);snapshot.facts=scanSiteMergeEvidence(snapshot.facts,draft);return snapshot;};
+const scanSiteCompetitionBeforeAudit=scanSiteRenderCompetition;
+scanSiteRenderCompetition=function(){const more=$('siteCollectMore');scanSiteCompetitionBeforeAudit();if(more)$('siteHiraDetail')?.before(more);};
 function scanRegistryAcceptPage(data,state){
   if(!Number.isInteger(data.total)||data.total<0)throw Error('대장 전체 건수 확인 불가');
   if(state.total!==null&&state.total!==data.total)throw Error('조회 도중 대장 건수가 변경되어 재조회 필요');
