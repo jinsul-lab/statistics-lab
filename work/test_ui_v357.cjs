@@ -1,0 +1,25 @@
+const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
+const html=fs.readFileSync('jinsulmap/JINSUL_MAP_v3.5.7.html','utf8');
+const prior=fs.readFileSync('jinsulmap/JINSUL_MAP_v3.5.6.html','utf8').replace(/\r\n/g,'\n');
+const results=[];const charts={};
+const c=vm.createContext({scanReportChart:(key,id,config)=>charts[key]=config,scanEscapeHTML:s=>String(s).replaceAll('<','&lt;'),scanIsSeoulCandidate:p=>p?.isSeoul,scanCongestionTone:()=> 'normal',scanFormatDistance:n=>n+'m',scanFormatPopulationRange:(a,b)=>a+'~'+b+'명',scanReportTable:rows=>JSON.stringify(rows)});
+for(const name of ['scanDetailNumber','scanDetailMetric','scanDetailChartSection','scanRealtimeReport','scanVisitorDetail','scanFloatingDetail','scanRenderPopulationDetailCharts','scanPeriodLabel','scanNormalizePopulation','scanNumber','scanRealtimeNumber'])vm.runInContext(html.match(new RegExp('^function '+name+'\\([^]*?^}','m'))[0],c);
+function test(name,fn){fn();results.push({name,status:'PASS'});}
+test('Core scan, score, map rendering and network functions unchanged',()=>{for(const name of ['scanNetworkRequest','runMarketScan','scanFetchSeoulPopulation','scanRenderVisitors','scanReportScores','scanBuildCommerceData','scanRenderResult'])assert.equal(html.match(new RegExp('^(?:async )?function '+name+'\\([^]*?^}','m'))[0],prior.match(new RegExp('^(?:async )?function '+name+'\\([^]*?^}','m'))[0]);});
+test('Null remains unavailable; zero is retained',()=>{assert.equal(c.scanDetailNumber(null),'자료 없음');assert.equal(c.scanDetailNumber(undefined),'자료 없음');assert.equal(c.scanDetailNumber(0),'0명');});
+test('Missing realtime age fields remain null',()=>{assert.equal(c.scanNormalizePopulation({}, {name:'test'}).ages[20],null)});
+test('Non-Seoul explanatory state and no fake zero chart',()=>{const t=c.scanRealtimeReport(null,{isSeoul:false});assert.ok(t.includes('제공 범위'));assert.ok(!t.includes('<canvas'));});
+test('Seoul unavailable differs from non-Seoul',()=>assert.ok(c.scanRealtimeReport(null,{isSeoul:true}).includes('조회 상태')));
+const p={areaName:'<fixture>',min:100,max:200,updateTime:'2026-09-07 16:00',distance:400,congestion:'보통',ages:{20:25,30:30},femaleRate:52,maleRate:48,residentRate:20,nonResidentRate:80,forecast:[{time:'2026-09-07 17:00',min:120,max:240,congestion:'보통'}]};
+test('Realtime report includes source, timestamp, forecast table, escaped title',()=>{const t=c.scanRealtimeReport(p,{});assert.ok(t.includes('&lt;fixture>'));assert.ok(t.includes('2026-09-07 16:00'));assert.ok(t.includes('17:00'));assert.ok(t.includes('반경 내 인구 합계가 아닙니다'));assert.equal((t.match(/<canvas/g)||[]).length,4)});
+const r={population:p,visitors:{rows:[{date:'20260630',kind:'외지인',value:10},{date:'20260731',kind:'외지인',value:0}],missingDates:['20260831']},commerce:{floating:{breakdown:{times:[['00~06',null],['06~11',10]],days:[['월',0]],ages:[['20대',5]]}}}};
+c.scanRenderPopulationDetailCharts(r);
+test('Forecast minimum/maximum and current vs forecast labels retained',()=>{assert.deepEqual([...charts.realtimeForecast.data.datasets[0].data],[100,120]);assert.deepEqual([...charts.realtimeForecast.data.datasets[1].data],[200,240]);assert.ok(charts.realtimeForecast.data.labels[1].includes('예측'));});
+test('Tourism missing day stays null and zero remains zero without interpolation',()=>{assert.deepEqual([...charts.visitorTrend0.data.datasets[0].data],[10,0,null]);assert.equal(charts.visitorTrend0.data.datasets[0].spanGaps,false)});
+test('Realtime gender and resident charts keep source percentages',()=>{assert.deepEqual([...charts.realtimeGender.data.datasets[0].data],[52,48]);assert.equal(charts.realtimeResident.options.scales.x.max,100)});
+test('Official flow charts preserve unavailable and real zero values',()=>{assert.equal(charts.floatingTime.data.datasets[0].data[0],null);assert.equal(charts.floatingDay.data.datasets[0].data[0],0)});
+test('Empty source creates no fictitious population chart',()=>{Object.keys(charts).forEach(k=>delete charts[k]);c.scanRenderPopulationDetailCharts({});assert.equal(Object.keys(charts).length,0)});
+test('Missing latest visitor category does not reuse stale category value',()=>{assert.ok(c.scanVisitorDetail({rows:[{date:'20260630',kind:'외국인',value:999},{date:'20260731',kind:'외지인',value:10}]}).includes('자료 없음'))});
+function contrast(a,b){const L=s=>{const rgb=s.match(/../g).map(v=>parseInt(v,16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722};return (Math.max(L(a),L(b))+.05)/(Math.min(L(a),L(b))+.05)}
+test('New primary, pill, body, muted and heading palette exceeds 4.5 contrast',()=>{for(const [a,b] of [['ffffff','1d4ed8'],['ffffff','4338ca'],['ffffff','7e22ce'],['465971','f8fbff'],['52627a','ffffff'],['172b49','ffffff'],['243b68','ffffff']])assert.ok(contrast(a,b)>=4.5,a+' '+b)});
+fs.writeFileSync('work/ui-test-results-v357.json',JSON.stringify({type:'Local unit and palette checks; fixture data, not live API',results},null,2));console.log(results.length+' UI/data presentation checks passed');

@@ -812,6 +812,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 #statsModal .tabBar{flex-wrap:wrap;gap:8px}
 #statsModal .tabBtn{font-size:14px;padding:10px 16px}
 #statsModal .miniTable{font-size:14px;color:#172b49}
+#tblSummary td:first-child{color:#172b49!important}
 #scanReportModal .modalHeader{padding:18px 24px;font-size:20px;flex-shrink:0}
 .scanReportTitle small{font-size:13px;color:#e0e7ff;line-height:1.6}
 .scanReportClose{width:42px;height:42px;flex-shrink:0;background:#ffffff26}
@@ -834,6 +835,10 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 .scanCaption{display:block;font-size:13px;color:#465971;line-height:1.7;margin:10px 0}
 .scanMetricHeading{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}.scanMetricHeading strong{font-size:23px;color:#172b49}
 .scanStatBridge{padding:24px;background:#fff;border:1px solid #cddbed;border-radius:16px;color:#172b49}.scanStatBridge p{font-size:15px;line-height:1.8}.scanStatBridge button{max-width:320px}
+#scanReportModal .modalPanel{container-type:inline-size;container-name:report}
+#scanRealtimeScope .scanDetailGrid>section:last-child .scanChartBox{height:180px}
+#scanVisitorReport .scanDetailGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@container report (max-width:850px){.scanMetricGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.scanReportGrid,.scanDetailGrid,#scanVisitorReport .scanDetailGrid{grid-template-columns:1fr}.scanDetailGrid .wide{grid-column:auto}.scanReportCard .scanVisualGrid{grid-template-columns:1fr}.scanReportHero{grid-template-columns:1fr}.scanScoreRing{display:none}.scanReportKpis{grid-template-columns:repeat(2,minmax(0,1fr))}.scanReportPane{padding:12px}.scanReportCard{padding:14px}}
 @media(min-width:1200px){.scanReportKpis{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:850px){.scanMetricGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.scanReportGrid,.scanDetailGrid{grid-template-columns:1fr}.scanDetailGrid .wide{grid-column:auto}.scanReportCard .scanVisualGrid{grid-template-columns:1fr}.scanReportPane{padding:14px}.scanReportCard{padding:16px}.scanReportHero{padding:16px;gap:12px}.scanReportKpi b{font-size:21px}}
 @media(max-width:560px){#scanReportModal .modalPanel,#statsModal .modalPanel{width:100vw;height:100vh;height:100dvh;border-radius:0}.scanReportHero{grid-template-columns:1fr}.scanScoreRing{display:none}.scanReportKpis{grid-template-columns:repeat(2,minmax(0,1fr))}.scanReportTabs{padding:10px 12px}.scanReportTab{padding:9px 13px}.scanMetric b{font-size:20px}.scanChartBox{height:300px}}
@@ -882,19 +887,19 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <div class="toggle on" data-toggle="all"></div>
 </div>
 <div class="row">
-<span style="color:var(--c-new)">● 신환 (1회만)</span>
+<span style="color:#172b49"><span style="color:var(--c-new)" aria-hidden="true">●</span> 신환 (1회만)</span>
 <div class="toggle on" data-toggle="new_only"></div>
 </div>
 <div class="row">
-<span style="color:var(--c-conv)">● 신환 ▶ 재진 전환</span>
+<span style="color:#172b49"><span style="color:var(--c-conv)" aria-hidden="true">●</span> 신환 ▶ 재진 전환</span>
 <div class="toggle on" data-toggle="new_conv"></div>
 </div>
 <div class="row">
-<span style="color:var(--c-90)">● 90일초</span>
+<span style="color:#172b49"><span style="color:var(--c-90)" aria-hidden="true">●</span> 90일초</span>
 <div class="toggle on" data-toggle="bit_90"></div>
 </div>
 <div class="row">
-<span style="color:var(--c-ret)">● 재진</span>
+<span style="color:#172b49"><span style="color:var(--c-ret)" aria-hidden="true">●</span> 재진</span>
 <div class="toggle on" data-toggle="old"></div>
 </div>
 <button class="btn outline" id="btnFit" style="width:100%;margin-top:10px;">지도 범위 최적화</button>
@@ -2919,7 +2924,7 @@ function buildVisiblePatients(){
 }
 
 $('btnStats').onclick = () => {
-  if(!patients.length) return toast("데이터 없음"); $('statsModal').style.display = 'flex';
+  if(!patients.length){ if(scanState.result)return scanOpenReport(scanState.result,"population"); return toast("환자 업로드 또는 상권 스캔을 먼저 실행해주세요."); } $('statsModal').style.display = 'flex';
   const data = drawingManager.getData(); const circles = (data.circle || []).map(c => ({ center: new kakao.maps.LatLng(c.center.y, c.center.x), radius: c.radius }));
   const visible = patients.filter(p => {
     let key = p.type==="신환 (1회만)"?"new_only":p.type==="신환 ▶ 재진 전환"?"new_conv":p.type==="90일초"?"bit_90":"old";
@@ -2930,7 +2935,7 @@ $('btnStats').onclick = () => {
   visible.forEach(p => { if(p.type==='신환 (1회만)') {cn++; vn+=p.total;} else if(p.type==='신환 ▶ 재진 전환') {cc++; vc+=p.total;} else if(p.type==='90일초') {cb++; vb+=p.total;} else {cr++; vr+=p.total;} });
   const tu = cn+cc+cb+cr; const tv = vn+vc+vb+vr;
   $('tblSummary').innerHTML = `<tr><td style="color:${REP_COLOR['신환 (1회만)']}">신환 (1회만)</td><td>${cn} / ${vn}</td><td>${pct(cn, tu)}%</td></tr><tr><td style="color:${REP_COLOR['신환 ▶ 재진 전환']}">전환</td><td>${cc} / ${vc}</td><td>${pct(cc, tu)}%</td></tr><tr><td style="color:${REP_COLOR['90일초']}">90일초</td><td>${cb} / ${vb}</td><td>${pct(cb, tu)}%</td></tr><tr><td style="color:${REP_COLOR['재진']}">재진</td><td>${cr} / ${vr}</td><td>${pct(cr, tu)}%</td></tr><tr style="background:#f1f3f5;font-weight:bold;"><td>합계</td><td>${tu} / ${tv}</td><td>100%</td></tr>`;
-  if(chartObj1) chartObj1.destroy(); chartObj1 = new Chart($('chartType'), { type: 'doughnut', data: { labels: ['신환', '전환', '90일', '재진'], datasets: [{ data: [cn, cc, cb, cr], backgroundColor: Object.values(REP_COLOR) }] }, options: { plugins: { datalabels: { color:'white', font:{weight:'bold'} } } }, plugins: [ChartDataLabels] });
+  if(chartObj1) chartObj1.destroy(); chartObj1 = new Chart($('chartType'), { type: 'doughnut', data: { labels: ['신환', '전환', '90일', '재진'], datasets: [{ data: [cn, cc, cb, cr], backgroundColor: Object.values(REP_COLOR) }] }, options: { plugins: { datalabels: { color:'#172b49', backgroundColor:'rgba(255,255,255,.94)', borderRadius:4, padding:4, font:{weight:'bold'} } } }, plugins: [ChartDataLabels] });
 
   // ===== 동별 분포 (Top5 + 기타) =====
   const dongMap = {};
@@ -5953,7 +5958,7 @@ function scanRealtimeNumber(value){
   return value===undefined||value===null||String(value).trim()===''?null:scanNumber(value);
 }
 function scanDetailNumber(value,unit='명'){
-  return value!==null&&value!==undefined&&Number.isFinite(value)?value.toLocaleString('ko-KR',{maximumFractionDigits:1})+unit:'자료 없음';
+  return value!==null&&value!==undefined&&Number.isFinite(value)?value.toLocaleString('ko-KR',{maximumFractionDigits:unit==='명'?0:1})+unit:'자료 없음';
 }
 function scanDetailMetric(label,value,note=''){
   return `<div class="scanMetric"><span>${scanEscapeHTML(label)}</span><b>${scanEscapeHTML(value)}</b><small>${scanEscapeHTML(note)}</small></div>`;
@@ -5997,10 +6002,12 @@ function scanRenderPopulationDetailCharts(result){
   const data=result.population;
   if(data){
     const forecast=[{time:(data.updateTime||'시각 미제공')+' (현재)',min:data.min,max:data.max},...(data.forecast||[]).map(r=>({...r,time:r.time+' (예측)'}))];
-    chart('realtimeForecast','scanRealtimeForecastChart','line',forecast.map(r=>r.time),[{label:'최소 추정',data:forecast.map(r=>r.min),borderColor:'#0369a1',backgroundColor:'#0369a1',tension:0},{label:'최대 추정',data:forecast.map(r=>r.max),borderColor:'#6d28d9',backgroundColor:'rgba(109,40,217,.14)',fill:'-1',tension:0,borderDash:[6,4]}]);
+    const forecastOptions=base();forecastOptions.scales.x={ticks:{maxRotation:0,maxTicksLimit:6}};
+    chart('realtimeForecast','scanRealtimeForecastChart','line',forecast.map(r=>r.time.replace(/^\d{4}-(\d{2})-(\d{2}) /,'$1.$2 ')),[{label:'최소 추정',data:forecast.map(r=>r.min),borderColor:'#0369a1',backgroundColor:'#0369a1',tension:0},{label:'최대 추정',data:forecast.map(r=>r.max),borderColor:'#6d28d9',backgroundColor:'rgba(109,40,217,.14)',fill:'-1',tension:0,borderDash:[6,4]}],forecastOptions);
     const percent=()=>{const o=base();o.scales.y={beginAtZero:true,max:100,title:{display:true,text:'%'}};return o;};
-    chart('realtimeAge','scanRealtimeAgeChart','bar',[0,10,20,30,40,50,60,70].map(a=>a===0?'10세 미만':a===70?'70대 이상':a+'대'),[{label:'연령 비율(%)',data:[0,10,20,30,40,50,60,70].map(a=>data.ages?.[a]??null),backgroundColor:'#6d28d9'}],percent());
-    chart('realtimeGender','scanRealtimeGenderChart','doughnut',['여성','남성'],[{label:'비율(%)',data:[data.femaleRate,data.maleRate],backgroundColor:['#be185d','#0369a1'],borderColor:'#fff',borderWidth:3}],{responsive:true,maintainAspectRatio:false,cutout:'64%',plugins:{legend:{position:'bottom'},datalabels:{display:false}}});
+    const ageOptions=percent();ageOptions.scales.y.max=Math.min(100,Math.max(10,Math.ceil(Math.max(0,...Object.values(data.ages||{}).filter(Number.isFinite))*1.15/10)*10));
+    chart('realtimeAge','scanRealtimeAgeChart','bar',[0,10,20,30,40,50,60,70].map(a=>a===0?'10세 미만':a===70?'70대 이상':a+'대'),[{label:'연령 비율(%)',data:[0,10,20,30,40,50,60,70].map(a=>data.ages?.[a]??null),backgroundColor:'#6d28d9'}],ageOptions);
+    chart('realtimeGender','scanRealtimeGenderChart','doughnut',['여성 '+scanDetailNumber(data.femaleRate,'%'),'남성 '+scanDetailNumber(data.maleRate,'%')],[{label:'비율(%)',data:[data.femaleRate,data.maleRate],backgroundColor:['#be185d','#0369a1'],borderColor:'#fff',borderWidth:3}],{responsive:true,maintainAspectRatio:false,cutout:'64%',plugins:{legend:{position:'bottom'},datalabels:{display:false}}});
     chart('realtimeResident','scanRealtimeResidentChart','bar',['현재 구성'],[{label:'상주(%)',data:[data.residentRate],backgroundColor:'#047857'},{label:'비상주(%)',data:[data.nonResidentRate],backgroundColor:'#6d28d9'}],{...percent(),indexAxis:'y',scales:{x:{stacked:true,beginAtZero:true,max:100,title:{display:true,text:'%'}},y:{stacked:true,grid:{display:false}}}});
   }
   const rows=result.visitors?.rows||[],kinds=[...new Set(rows.map(r=>r.kind))];
