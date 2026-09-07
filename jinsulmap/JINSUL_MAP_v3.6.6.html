@@ -6829,7 +6829,7 @@ scanSitePreview=function(){
   sitePhotoPanos.get(key).then(id=>{
     if(!slot.isConnected||scanSite.active!==d)return;
     if(!id){sitePhotoPanos.delete(key);slot.innerHTML='주변 100m 로드뷰를 확보하지 못했습니다.<br>'+scanSiteStreetLinks(c);return;}
-    slot.textContent='';const viewer=new kakao.maps.Roadview(slot);viewer.setPanoId(id,new kakao.maps.LatLng(c.lat,c.lng));
+    slot.textContent='';const viewer=new kakao.maps.Roadview(slot);const target=new kakao.maps.LatLng(c.lat,c.lng);kakao.maps.event.addListener(viewer,'init',()=>{const view=viewer.getProjection().viewpointFromCoords(target,0);viewer.setViewpoint(view);});viewer.setPanoId(id,target);
     const caption=document.createElement('p');caption.className='siteFine';caption.textContent='카카오 로드뷰 · 건물 외관 참고(호실 내부 사진 아님). 촬영일은 원문에서 확인. 인쇄·저장본은 원문 링크로 제공.';slot.after(caption);
   });
 };
