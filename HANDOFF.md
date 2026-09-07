@@ -80,3 +80,6 @@
 
 ## v3.6.4 최신 기준
 - jinsulmap/JINSUL_MAP_v3.6.4.html. 지도·AI UX 개선. Cloudflare 키/결제 변경 없음.
+
+## v3.6.5 최신 기준
+- jinsulmap/JINSUL_MAP_v3.6.5.html. 유료 AI 제거. 심평원 집계는 의원급/신고 진료과/선택 직선반경 기준 유지.
