@@ -6126,7 +6126,7 @@ function scanClinicHours(hira,egen){
 async function scanFetchEgen(place){
   if(scanEgenApprovalError)throw Error('국립중앙의료원 API 활용승인 확인 필요');
   const params=new URLSearchParams({serviceKey:PUBLIC_DATA_API_KEY,QN:place.name,pageNo:'1',numOfRows:'100'});
-  let payload;try{payload=await scanFetchApiDocument('https://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlMdcncListInfoInqire?'+params,30000);}catch(error){if(error.httpStatus===403){scanEgenApprovalError=true;throw Error('국립중앙의료원 API HTTP 403 · 활용승인 및 인증키 확인 필요');}throw error;}
+  let payload;try{payload=await scanFetchApiDocument('https://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlMdcncListInfoInqire?'+params,30000);}catch(error){if(error.httpStatus===403||/HTTP.*\b403\b/i.test(error.message||'')){scanEgenApprovalError=true;throw Error('국립중앙의료원 API HTTP 403 · 활용승인 및 인증키 확인 필요');}throw error;}
   const data=scanApiEnvelope(payload),matches=data.rows.filter(r=>scanClinicIdentity(place,r));
   if(matches.length!==1)throw Error(matches.length?'동일 의료기관을 하나로 확정하지 못함':'전화·주소가 일치하는 의료기관 자료 없음');
   return matches[0];
