@@ -1,0 +1,19 @@
+import assert from 'node:assert/strict';
+import worker from '../workers/seoul/worker.mjs';
+const origin='https://jinsul-lab.github.io';
+const body={service:'citydata_ppltn',key:'fixturekey123456',start:1,end:5,tail:'왕십리역'};
+const request=(data=body,headers={Origin:origin})=>new Request('https://fixture/seoul',{method:'POST',headers,body:JSON.stringify(data)});
+let count=0;
+async function test(name,fn){await fn();count++;console.log('PASS '+name);}
+await test('health',async()=>assert.equal((await worker.fetch(new Request('https://fixture/health'))).status,200));
+await test('preflight',async()=>{const r=await worker.fetch(new Request('https://fixture/seoul',{method:'OPTIONS',headers:{Origin:origin}}));assert.equal(r.status,204);assert.equal(r.headers.get('Access-Control-Allow-Origin'),origin);});
+await test('unapproved origin',async()=>assert.equal((await worker.fetch(request(body,{Origin:'https://evil.test'}))).status,403));
+await test('unsupported service',async()=>assert.equal((await worker.fetch(request({...body,service:'https://evil.test'}))).status,400));
+await test('invalid quarter',async()=>assert.equal((await worker.fetch(request({...body,service:'VwsmTrdarStorQq',tail:'20265'}))).status,400));
+await test('upstream success and key redaction',async()=>{globalThis.fetch=async(url)=>{assert.ok(url.startsWith('http://openapi.seoul.go.kr:8088/'));return Response.json({data:[1],echo:body.key});};const r=await worker.fetch(request());assert.equal(r.status,200);assert.ok(!(await r.text()).includes(body.key));});
+await test('1000 row page accepted',async()=>assert.equal((await worker.fetch(request({...body,service:'VwsmTrdarFlpopQq',start:1,end:1000,tail:'20261'}))).status,200));
+await test('overlarge page rejected',async()=>assert.equal((await worker.fetch(request({...body,service:'VwsmTrdarFlpopQq',start:1,end:1001,tail:'20261'}))).status,400));
+await test('upstream HTTP error with CORS',async()=>{globalThis.fetch=async()=>new Response('',{status:503});const r=await worker.fetch(request());assert.equal(r.status,502);assert.equal(r.headers.get('Access-Control-Allow-Origin'),origin);});
+await test('upstream code preserved',async()=>{globalThis.fetch=async()=>Response.json({RESULT:{CODE:'INFO-200'}});assert.equal((await (await worker.fetch(request())).json()).RESULT.CODE,'INFO-200');});
+await test('invalid JSON rejected',async()=>{globalThis.fetch=async()=>new Response('<html>error</html>');assert.equal((await worker.fetch(request())).status,502);});
+console.log(count+' Worker mock tests passed; no live API requests.');

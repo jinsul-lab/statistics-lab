@@ -1,0 +1,41 @@
+# JINSUL MAP 현재 작업 상태
+
+기록일: 2026-09-07
+
+## 기준 파일
+- 현재 로컬 버전: `3.5.3`
+- 다음 작업 기준: `jinsulmap/JINSUL_MAP_v3.5.3.html`
+- 기존 루트 사본: `JINSUL_MAP_v3.5.2.html`. 이전 작업에서 함께 업로드한 사본이며, 별도의 개발 기준으로 사용하지 않는다.
+- 상세 검증: `jinsulmap/API_VERIFICATION_v3.5.2.md`
+- 실행 주소: https://jinsul-lab.github.io/statistics-lab/jinsulmap/JINSUL_MAP_v3.5.2.html
+
+## 검증과 저장소 상태
+- v3.5.3: 지역 판별·서울 HTTPS 중계·지역별 자료 상태 개선. 상세 검증은 `jinsulmap/API_VERIFICATION_v3.5.3.md`.
+- v3.5.3 로컬/모의 검증 55개 통과. 새 서울 Worker `3bba09a9` Active 확인. 공개 주소 접근 차단으로 실제 데이터 수신 미검증.
+- v3.5.3 GitHub 업로드는 아직 확인되지 않았다. 위 실행 주소는 기존 v3.5.2이다.
+- 앱 업로드 커밋: `1a7cdad` — `Fix JINSUL MAP v3.5.2 API handling`.
+- GitHub push 성공은 사용자의 PowerShell 결과와 로컬 원격 추적 상태로 확인했다.
+- 코드 검증 34개 통과. 실제 함수와 모의 응답을 사용한 로컬 검증이며 운영 API 전체 성공을 의미하지 않는다.
+- 왕십리본정형외과의원 1km 반경에서 왕십리역 실시간 인구 지정지점 및 주변 공식 상권 선택을 로컬 계산으로 확인했다.
+- 테스트 실행: 저장소 루트에서 `node work/test_api_v352.cjs`.
+- 기존 작업·검증 스크립트는 루트의 v3.5.1/v3.5.2 파일을 참조한다. 다음 HTML 수정 시 기준 경로에 맞게 스크립트를 정리하고 검증해야 한다.
+
+## R-ONE 프록시
+- 운영 요청 주소: https://jinsul-rone-proxy.yms0127.workers.dev/rone
+- 사용자의 통신 시험에서 404와 CORS 헤더 부재가 확인됐다.
+- HTML 저장소 변경이 R-ONE Worker 자동 배포를 실행한 이력이 확인됐다.
+- 사용자가 이전 정상 이력의 `7d3de591` 버전으로 복구했으며, 당시 화면에서 운영 트래픽 100%를 확인했다.
+- 이후 Worker Settings에서 Git 연결을 직접 해제했고, Git repository 항목이 `Connect`로 바뀐 것을 확인했다.
+- 이 연결 해제는 해당 Worker의 자동 배포를 중단한 것이며, GitHub 저장소나 Pages 배포를 삭제한 것이 아니다.
+- 복구 이후 실제 임대료·공실률·투자수익률 수신 성공은 아직 확인하지 못했다.
+
+## 남은 확인
+- GitHub Pages 실행 주소에서 왕십리본정형외과 / 1km 스캔 후 실제 R-ONE 및 다른 API 응답을 확인한다.
+- `file://`로 열린 로컬 HTML의 오류와 배포 주소의 오류를 구분한다.
+- 실행 환경의 외부 네트워크 제한으로 발생한 실패를 사용자 API 미승인으로 단정하지 않는다.
+- 전국 버스정류장 API는 현재 앱에 통합되지 않았다. 연결 실패 항목과 구분한다.
+
+## 이번 문서 정리
+- `AGENTS.md`에 합의된 보존·오류 수정·검증·배포 규칙을 기록했다.
+- 현재 상태와 변경 이력을 각각 `HANDOFF.md`, `CHANGELOG.md`로 분리했다.
+- 문서 변경만 있으므로 앱 버전은 유지한다.
