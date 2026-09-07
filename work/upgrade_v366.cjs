@@ -1,0 +1,11 @@
+const fs=require('fs'),vm=require('vm'),a=require('assert/strict');let h=fs.readFileSync('jinsulmap/JINSUL_MAP_v3.6.5.html','utf8').replaceAll('3.6.5','3.6.6');
+h=h.replace("encodeURIComponent(place.name+' '+(place.address||''))","encodeURIComponent(scanPlaceSearchQuery(place))");
+h=h.replace('<div class="sitePhotoEmpty">현장 사진을 첨부하세요</div>',"<div class=\"sitePhotoEmpty\">외관 참고 · 로드뷰<br>'+scanSiteStreetLinks(c)+'</div>");
+const pos=h.lastIndexOf('</script>');h=h.slice(0,pos)+fs.readFileSync('work/links_v366.js','utf8')+'\n'+h.slice(pos);
+for(const m of h.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))if(m[1].trim())new vm.Script(m[1]);
+const c=vm.createContext({scanSitePreview:()=>{}});vm.runInContext(fs.readFileSync('work/links_v366.js','utf8'),c);
+a.equal(c.scanPlaceSearchQuery({name:'정도정형외과의원',address:'경기도 시흥시 정왕동 123 101호'}),'시흥시 정도정형외과의원');
+a.equal(c.scanKakaoMapUrl({placeUrl:'http://place.kakao.com/123'}),'https://place.kakao.com/123');
+a.ok(c.scanKakaoMapUrl({name:'정도정형외과의원',address:'경기 시흥시 정왕동'}).includes('/link/search/'));
+a.ok(!h.includes('id="aiDrawer"'));a.ok(h.includes('sitePhotoPanos'));a.ok(h.includes("'+scanSiteStreetLinks(c)+'</div>"));
+fs.writeFileSync('jinsulmap/JINSUL_MAP_v3.6.6.html',h);fs.writeFileSync('jinsulmap/index.html',fs.readFileSync('jinsulmap/index.html','utf8').replaceAll('3.6.5','3.6.6'));console.log('PASS query, place URL, search fallback, no AI, inline roadview and syntax');

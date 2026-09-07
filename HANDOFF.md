@@ -83,3 +83,6 @@
 
 ## v3.6.5 최신 기준
 - jinsulmap/JINSUL_MAP_v3.6.5.html. 유료 AI 제거. 심평원 집계는 의원급/신고 진료과/선택 직선반경 기준 유지.
+
+## v3.6.6 최신 기준
+- jinsulmap/JINSUL_MAP_v3.6.6.html. 링크 및 사진 칸 로드뷰 연결. PDF 래스터 사진 삽입은 미구현.
