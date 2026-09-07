@@ -1,6 +1,7 @@
 const scanRegistryCache=new Map();
+function scanRegistryParcel(candidate){return scanParcelParams({...candidate,legCode:candidate.legalCode||candidate.legCode});}
 function scanRegistryPublicReference(candidate){
-  const p=scanParcelParams(candidate);if(!p||p.sigunguCd!=='41192'||p.bjdongCd!=='10800'||p.bun!=='1140'||p.ji!=='0005'||p.platGbCd!=='0')return null;
+  const p=scanRegistryParcel(candidate);if(!p||p.sigunguCd!=='41192'||p.bjdongCd!=='10800'||p.bun!=='1140'||p.ji!=='0005'||p.platGbCd!=='0')return null;
   return {url:'https://officefind.co.kr/중동1140-5삼성화재부천사옥',title:'오피스파인드 · 삼성화재부천사옥',checked:'2026-09-07',text:'중개법인 공개 자료에 2026년 기준층 임대시세가 있습니다. 기준 전용면적 528.43㎡이며 제공 샘플의 1층 일부 100.49평과 다릅니다. 해당 시세를 이 호실의 보증금·월세로 자동 입력하지 않습니다. 중앙 냉난방은 중개자료 표기이며 현장 미확인. 문의: 오피스파인드부동산중개법인 02-517-2277. 현재 1층 공실·입주일·임대조건은 미확인.'};
 }
 function scanRegistrySameParcel(row,parcel){return ['sigunguCd','bjdongCd','platGbCd','bun','ji'].every(k=>String(row[k]??'').padStart(k==='bun'||k==='ji'?4:1,'0')===String(parcel[k]));}
@@ -26,7 +27,7 @@ function scanRegistryUnits(rows,complete){
   return [...map.values()].filter(u=>u.valid).map(u=>({...u,floors:[...new Set(u.floors)],uses:[...new Set(u.uses)]}));
 }
 async function scanRegistryLoad(result){
-  const parcel=scanParcelParams(result.candidate);if(!parcel||result.candidate.searchScope)throw Error('구체적인 도로명주소·지번이 필요합니다.');
+  const parcel=scanRegistryParcel(result.candidate);if(!parcel||result.candidate.searchScope)throw Error('구체적인 도로명주소·지번이 필요합니다.');
   const key=Object.values(parcel).join('|');if(scanRegistryCache.has(key))return scanRegistryCache.get(key);
   const promise=Promise.allSettled(['getBrFlrOulnInfo','getBrExposPubuseAreaInfo'].map(p=>scanRegistryFetch(p,parcel))).then(([f,u])=>({floors:f.status==='fulfilled'?f.value:{rows:[],complete:false},units:u.status==='fulfilled'?u.value:{rows:[],complete:false},errors:[f.status==='rejected'?'층별개요: '+scanApiErrorMessage(f.reason):'',u.status==='rejected'?'전유면적: '+scanApiErrorMessage(u.reason):''].filter(Boolean),checkedAt:new Date().toISOString()}));
   scanRegistryCache.set(key,promise);promise.then(d=>{if(d.errors.length||!d.floors.complete||!d.units.complete)scanRegistryCache.delete(key);},()=>scanRegistryCache.delete(key));return promise;

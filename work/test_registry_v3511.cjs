@@ -3,6 +3,8 @@ const c=vm.createContext({URLSearchParams,PUBLIC_DATA_API_KEY:'fixture',scanSite
 vm.runInContext(fs.readFileSync('work/registry_v3511.js','utf8'),c);let n=0;const t=(name,fn)=>{fn();console.log('PASS '+name);n++};
 const parcel={sigunguCd:'41192',bjdongCd:'10800',platGbCd:'0',bun:'1140',ji:'0005'};
 const row={...parcel,mgmBldrgstPk:'1',dongNm:'A',hoNm:'101',exposPubuseGbCdNm:'전유',area:100,flrNoNm:'1층',etcPurps:'업무',crtnDay:'20230101'};
+c.scanParcelParams=x=>x.legCode;
+t('scan candidate legalCode adapted to parcel API',()=>assert.equal(c.scanRegistryParcel({legalCode:'4119210800'}),'4119210800'));
 t('parcel identity required',()=>{assert.equal(c.scanRegistrySameParcel(row,parcel),true);assert.equal(c.scanRegistrySameParcel({...row,ji:'0006'},parcel),false)});
 t('common area excluded',()=>assert.equal(c.scanRegistryUnits([row,{...row,exposPubuseGbCdNm:'공용',area:30}],true)[0].area,100));
 t('incomplete results cannot become area',()=>assert.equal(c.scanRegistryUnits([row],false).length,0));
