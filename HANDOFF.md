@@ -70,3 +70,6 @@
 ## v3.6.1 최신 기준
 - jinsulmap/JINSUL_MAP_v3.6.1.html. 서울 외 의원 현황 및 호실 표기 수정.
 - 139건 로컬/모의 검사 통과. 전국 매출 데이터 신규 연결은 아님.
+
+## v3.6.2 최신 기준
+- jinsulmap/JINSUL_MAP_v3.6.2.html. 호실 자연 정렬 적용. work/upgrade_v362.cjs 재현·검증.
