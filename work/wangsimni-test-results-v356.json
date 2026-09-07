@@ -1,0 +1,38 @@
+{
+  "candidate": {
+    "name": "왕십리본정형외과의원",
+    "address": "서울특별시 성동구 왕십리로 320",
+    "lat": 37.5623492,
+    "lng": 127.0343485
+  },
+  "radiusMeters": 1000,
+  "hotspots": [
+    {
+      "name": "왕십리역",
+      "distanceMeters": 401
+    }
+  ],
+  "areas": [
+    {
+      "name": "행당시장상점가",
+      "distanceMeters": 158
+    },
+    {
+      "name": "왕십리도선동상점가",
+      "distanceMeters": 209
+    },
+    {
+      "name": "왕십리역(왕십리)",
+      "distanceMeters": 299
+    },
+    {
+      "name": "무학봉상점가",
+      "distanceMeters": 334
+    },
+    {
+      "name": "상왕십리역 3번",
+      "distanceMeters": 412
+    }
+  ],
+  "testType": "Local geographic selection using embedded reference data; live API responses not tested"
+}
