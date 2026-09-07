@@ -1,0 +1,24 @@
+const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
+const html=fs.readFileSync('jinsulmap/JINSUL_MAP_v3.6.0.html','utf8');
+const c=vm.createContext({URLSearchParams,PUBLIC_DATA_API_KEY:'fixture',scanSiteNum:v=>v===null||v===undefined||String(v).trim()===''?null:Number.isFinite(Number(v))&&Number(v)>=0?Number(v):null,scanSiteSnapshot:()=>({facts:[{name:'현재 API',scope:'필지',source:'대장'}]}),scanSiteRender:()=>{},scanSitePreview:()=>{},scanSiteStatus:()=>{}});
+vm.runInContext(fs.readFileSync('work/audit_v360.js','utf8'),c);let n=0;const t=(name,fn)=>{fn();n++;console.log('PASS '+name)};
+t('version exactly three single digit fields',()=>{assert.ok(html.includes('<title>JINSUL MAP v3.6.0</title>'));assert.ok(!html.includes('3.5.11'));assert.ok(html.includes('<div class="brand">JINSUL MAP</div>'))});
+t('all inline scripts parse',()=>{for(const m of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))if(m[1].trim())new vm.Script(m[1])});
+t('absent count not zero',()=>assert.equal(c.scanKnownBuildingCount({},['a','b']),null));
+t('partial count not complete total',()=>assert.equal(c.scanKnownBuildingCount({a:10},['a','b']),null));
+t('actual zero remains zero',()=>assert.equal(c.scanKnownBuildingCount({a:'0',b:0},['a','b']),0));
+t('known complete count sums',()=>assert.equal(c.scanKnownBuildingCount({a:79,b:6},['a','b']),85));
+t('negative count rejected',()=>assert.equal(c.scanKnownBuildingCount({a:-1,b:1},['a','b']),null));
+t('missing and zero labels distinct',()=>{assert.equal(c.scanBuildingCountLabel(null),'미제공');assert.equal(c.scanBuildingCountLabel(0),'0대')});
+t('snapshot reset retains clinic and registry evidence',()=>{const d={clinicFacts:[{name:'의원',scope:'주소',source:'심평원'}],registryFacts:[{name:'층',scope:'필지',source:'대장'}]};assert.equal(c.scanSiteSnapshot({},d).facts.length,3)});
+t('repeated restoration does not duplicate facts',()=>{const fact={name:'층',scope:'필지',source:'대장'};assert.equal(c.scanSiteMergeEvidence([fact],{registryFacts:[fact]}).length,1)});
+t('same name different scope retained',()=>assert.equal(c.scanSiteMergeEvidence([{name:'층',scope:'A',source:'대장'}],{registryFacts:[{name:'층',scope:'B',source:'대장'}]}).length,2));
+t('same floor multiple uses retained',()=>assert.equal(c.scanSiteMergeEvidence([],{registryFacts:[{name:'1층',scope:'필지',source:'대장',value:'사무실100㎡'},{name:'1층',scope:'필지',source:'대장',value:'상가50㎡'}]}).length,2));
+t('duplicate page row rejected',()=>{const state={total:null,count:0,seen:new Set()};c.scanRegistryAcceptPage({total:2,rows:[{rnum:1,area:100}]},state);assert.throws(()=>c.scanRegistryAcceptPage({total:2,rows:[{rnum:1,area:100}]},state),/중복/)});
+t('total change rejected',()=>{const state={total:2,count:0,seen:new Set()};assert.throws(()=>c.scanRegistryAcceptPage({total:3,rows:[]},state),/변경/)});
+t('overflow and unknown total rejected',()=>{assert.throws(()=>c.scanRegistryAcceptPage({total:0,rows:[{rnum:1}]},{total:null,count:0,seen:new Set()}),/초과/);assert.throws(()=>c.scanRegistryAcceptPage({total:NaN,rows:[]},{total:null,count:0,seen:new Set()}),/확인 불가/)});
+function editFixture(areaAuto){const d={fields:{unit:'101호',area:'30'},autoFields:areaAuto?{area:{value:'30',source:'국토교통부 전유공용면적'}}:{},registryFacts:[{name:'대장 선택 호실'}],snapshot:{facts:[{name:'대장 선택 호실'},{name:'다른 자료'}]}};const parent={querySelector:()=>({remove:()=>{}})};const area={value:'30',parentElement:parent};const unit={dataset:{siteField:'unit'},parentElement:parent,oninput:()=>{d.fields.unit='102호'}};c.scanSite={active:d};c.document={querySelectorAll:()=>[unit],querySelector:()=>area};c.scanSiteRender();unit.oninput();return {d,area};}
+t('changing unit clears only previous automatically filled area',()=>{const {d,area}=editFixture(true);assert.equal(d.fields.area,'');assert.equal(area.value,'');assert.equal(d.snapshot.facts.length,1)});
+t('changing unit preserves manual area',()=>assert.equal(editFixture(false).d.fields.area,'30'));
+vm.runInContext(html.match(/^async function scanRegistryFetch[^]*?^}/m)[0],c);c.scanRegistrySameParcel=()=>true;c.scanApiEnvelope=x=>x;
+(async()=>{let calls=0;c.scanFetchApiDocument=async()=>({total:101,rows:++calls===1?Array.from({length:100},(_,i)=>({rnum:i+1,area:i+1})):[{rnum:101,area:3}]});const d=await c.scanRegistryFetch('test',{});t('final generated fetch completes valid pagination',()=>{assert.equal(d.rows.length,101);assert.equal(d.complete,true)});fs.writeFileSync('work/audit-test-results-v360.json',JSON.stringify({type:'local and mocked tests',passed:n}));console.log(n+' audit checks passed');})().catch(e=>{console.error(e);process.exitCode=1});

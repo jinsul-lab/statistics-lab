@@ -1,0 +1,17 @@
+const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');const source=fs.readFileSync('jinsulmap/JINSUL_MAP_v3.6.0.html','utf8');
+const c=vm.createContext({Document:class{},scanNumber:v=>Number(v),scanApiCodeError:code=>Error('code '+code)});
+for(const name of ['scanApiEnvelope','scanVisitorEnvelope'])vm.runInContext(source.match(new RegExp('^(?:async )?function '+name+'\\([^]*?^}', 'm'))[0],c);
+const payload={response:{header:{resultCode:'0000',resultMsg:'OK'},body:{totalCount:1,items:{item:[{signguCode:'11200',baseYmd:'20260831',touNum:'123'}]}}}};
+assert.equal(c.scanVisitorEnvelope(payload).rows.length,1);
+assert.equal(c.scanVisitorEnvelope(payload).rows[0].touNum,'123');
+assert.equal(payload.response.header.resultCode,'0000');
+assert.throws(()=>c.scanVisitorEnvelope({response:{header:{resultCode:'30'},body:{}}}),/30/);
+assert.throws(()=>c.scanVisitorEnvelope({response:{header:{resultCode:'0000'}}}),/0000/);
+assert.equal(c.scanVisitorEnvelope({header:{resultCode:'0000'},body:{totalCount:0,items:{}}}).rows.length,0);
+assert.throws(()=>c.scanApiEnvelope(payload),/0000/);
+console.log('7 tourism envelope checks passed; fixture responses only.');
+c.scanState={requestToken:1};c.scanEscapeHTML=v=>String(v);c.scanApiErrorMessage=e=>e.message;
+for(const name of ['scanVisitorSelect','scanPrepareVisitors','scanRenderVisitors','scanVisualBars'])vm.runInContext(source.match(new RegExp('^(?:async )?function '+name+'\\([^]*?^}', 'm'))[0],c);
+c.scanVisitorDates=()=>['20260831','20260731','20260630'];
+c.scanVisitorDay=async day=>day==='20260731'?[{signguCode:'11200',baseYmd:day,touDivNm:'외지인',touNum:123}]:[];
+(async()=>{await c.scanPrepareVisitors({legalCode:'1120010100'},1);assert.equal(c.scanState.visitors.missingDates.length,2);const html=c.scanRenderVisitors(c.scanState.visitors);assert.ok(html.includes('자료 미제공 기준일: 2026.08.31, 2026.06.30'));assert.ok(html.includes('123명</b><small></small>'));console.log('3 missing-date and visitor chart checks passed; total 10.');})().catch(e=>{console.error(e);process.exitCode=1});

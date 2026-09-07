@@ -1,0 +1,18 @@
+const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
+const c=vm.createContext({URLSearchParams,PUBLIC_DATA_API_KEY:'fixture',scanSiteNum:v=>v===null||v===undefined||String(v).trim()===''?null:Number.isFinite(Number(v))?Number(v):null,scanSiteRender:()=>{},scanSiteValidDraft:x=>x,scanApiErrorMessage:e=>e.message,scanApiEnvelope:x=>x});
+vm.runInContext(fs.readFileSync('work/registry_v3511.js','utf8'),c);let n=0;const t=(name,fn)=>{fn();console.log('PASS '+name);n++};
+const parcel={sigunguCd:'41192',bjdongCd:'10800',platGbCd:'0',bun:'1140',ji:'0005'};
+const row={...parcel,mgmBldrgstPk:'1',dongNm:'A',hoNm:'101',exposPubuseGbCdNm:'전유',area:100,flrNoNm:'1층',etcPurps:'업무',crtnDay:'20230101'};
+c.scanParcelParams=x=>x.legCode;
+t('scan candidate legalCode adapted to parcel API',()=>assert.equal(c.scanRegistryParcel({legalCode:'4119210800'}),'4119210800'));
+t('parcel identity required',()=>{assert.equal(c.scanRegistrySameParcel(row,parcel),true);assert.equal(c.scanRegistrySameParcel({...row,ji:'0006'},parcel),false)});
+t('common area excluded',()=>assert.equal(c.scanRegistryUnits([row,{...row,exposPubuseGbCdNm:'공용',area:30}],true)[0].area,100));
+t('incomplete results cannot become area',()=>assert.equal(c.scanRegistryUnits([row],false).length,0));
+t('unknown area not zero',()=>assert.equal(c.scanRegistryUnits([{...row,area:''}],true).length,0));
+t('different units remain separate',()=>assert.equal(c.scanRegistryUnits([row,{...row,hoNm:'102'}],true).length,2));
+t('all exclusive components added',()=>assert.equal(c.scanRegistryUnits([row,{...row,area:20}],true)[0].area,120));
+t('preserve manually selected room',()=>assert.throws(()=>c.scanRegistryApply({fields:{unit:'1층 일부'}},c.scanRegistryUnits([row],true)[0],'now')));
+t('exact unit applied with source',()=>{const d={fields:{},snapshot:{facts:[]}};c.scanRegistryApply(d,c.scanRegistryUnits([row],true)[0],'2026-09-07');assert.equal(d.fields.area,'30.25');assert.ok(d.autoFields.area.source.includes('전유'));assert.ok(d.snapshot.facts[0].scope.includes('일부 임대'))});
+t('floor area never called exclusive',()=>{const f=c.scanRegistryFacts({floors:{rows:[row],total:1,complete:true},units:{rows:[],total:0,complete:true},errors:[],checkedAt:'2026-09-07'});assert.ok(f[0].scope.includes('전용면적 아님'));assert.ok(f[1].value.includes('등록 전유면적 없음'))});
+t('inline script syntax',()=>{for(const m of fs.readFileSync('jinsulmap/JINSUL_MAP_v3.6.0.html','utf8').matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))if(m[1].trim())new vm.Script(m[1])});
+(async()=>{let calls=0;c.scanFetchApiDocument=async()=>{calls++;return {rows:calls===1?Array.from({length:100},()=>row):[row],total:101}};const data=await c.scanRegistryFetch('fixture',parcel);t('all pages collected',()=>{assert.equal(data.rows.length,101);assert.equal(calls,2)});c.scanFetchApiDocument=async()=>({rows:[{...row,bun:'9999'}],total:1});await assert.rejects(c.scanRegistryFetch('fixture',parcel),/다른 대장/);n++;console.log(n+' passed');fs.writeFileSync('work/registry-test-results-v360.json',JSON.stringify({type:'mock and local tests',passed:n}));})().catch(e=>{console.error(e);process.exitCode=1});

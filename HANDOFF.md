@@ -3,8 +3,8 @@
 기록일: 2026-09-07
 
 ## 기준 파일
-- 현재 로컬 버전: `3.5.11`
-- 다음 작업 기준: `jinsulmap/JINSUL_MAP_v3.5.11.html`
+- 현재 로컬 버전: `3.6.0`
+- 다음 작업 기준: `jinsulmap/JINSUL_MAP_v3.6.0.html`
 - 기존 루트 사본: `JINSUL_MAP_v3.5.2.html`. 이전 작업에서 함께 업로드한 사본이며, 별도의 개발 기준으로 사용하지 않는다.
 - 상세 검증: `jinsulmap/SITE_VERIFICATION_v3.5.9.md`
 - 실행 주소: https://jinsul-lab.github.io/statistics-lab/jinsulmap/
@@ -62,3 +62,7 @@
 - 실제 임대 호실의 가격/공실은 아직 미확인. 메디게이트 샘플 링크 요청 중.
 
 - v3.5.11 최종 앱 d6b7fabf307dba9dc1e229c6f49dc8573a772e32. 최종 HTML 실제 대장 수신·화면 표시 검증 완료. 교차확인 문서 outputs/부천_신흥로197_입지자료_교차확인.md.
+
+## v3.6.0 최신 작업
+- 한 자리 x.x.x 자리올림 규칙 적용. 출처 스냅샷 보존·주차/승강기 미제공 구분·대장 중복 감지·호실 변경 시 자동 면적 정합성 수정.
+- 로컬/모의123개 통과. 상세 자체 점검과 다음 개발 항목은 jinsulmap/AUDIT_v3.6.0.md.
