@@ -77,3 +77,6 @@
 ## v3.6.3 최신 기준
 - jinsulmap/JINSUL_MAP_v3.6.3.html. 온라인 사전 확인·로드뷰·의원 범위 선택 통합.
 - 실데이터 부천 유관21/전체102곳 확인. 로드뷰 렌더링 확인. PDF 이미지화·네이버 최신일 자동 비교는 남은 항목.
+
+## v3.6.4 최신 기준
+- jinsulmap/JINSUL_MAP_v3.6.4.html. 지도·AI UX 개선. Cloudflare 키/결제 변경 없음.
