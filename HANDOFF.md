@@ -11,9 +11,10 @@
 
 ## 검증과 저장소 상태
 - v3.5.3: 지역 판별·서울 HTTPS 중계·지역별 자료 상태 개선. 상세 검증은 `jinsulmap/API_VERIFICATION_v3.5.3.md`.
-- v3.5.3 로컬/모의 검증 55개 통과. 새 서울 Worker `3bba09a9` Active 확인. 공개 주소 접근 차단으로 실제 데이터 수신 미검증.
+- v3.5.3 로컬/모의 검증 56개 통과. 서울 Worker 최종 `37bade34` Active 확인. 운영 사이트에서 서울 실시간 인구·분기 유동인구·점포 수신 확인.
 - v3.5.3 GitHub 앱을 통해 `main` 업로드 완료: `260bdc6d276439a68ab260e70efb357e406abfe6`. 원격 HTML blob `09c312b96819af3be87e7683cda659b64a3e25fb` 재조회 확인.
-- 새 실행 주소: https://jinsul-lab.github.io/statistics-lab/jinsulmap/JINSUL_MAP_v3.5.3.html . 업로드 직후 Pages는 404였으며 사이트 배포 완료와 실제 데이터 수신은 별도 확인이 필요하다.
+- 새 실행 주소: https://jinsul-lab.github.io/statistics-lab/jinsulmap/JINSUL_MAP_v3.5.3.html . Pages 배포 및 서울·부산 실제 스캔 확인 완료. 상세 결과는 v3.5.3 검증 보고서에 기록.
+- 전국 SGIS·반경 상가·R-ONE의 화면 수신 확인. 서울 Worker의 미지원 `redirect: 'error'`를 `manual`로 수정하여 HTTP 504를 해결했다. 왕십리역 실시간 18,000~20,000명, 행당시장상점가 분기 유동인구 855,133명·점포 323곳을 화면에서 확인했다. 기준 시점과 범위는 검증 보고서 참조.
 - 로컬 앱 커밋은 `fec2233`이다. 명령줄 GitHub:443 연결 실패로 GitHub 앱을 사용하여 원격 커밋을 따로 생성했다. 로컬과 원격 커밋 ID가 다르므로 다음 Git 동기화 시 원격 상태를 먼저 확인하고 강제 push하지 않는다.
 - 앱 업로드 커밋: `1a7cdad` — `Fix JINSUL MAP v3.5.2 API handling`.
 - GitHub push 성공은 사용자의 PowerShell 결과와 로컬 원격 추적 상태로 확인했다.

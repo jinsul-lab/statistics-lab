@@ -10,10 +10,11 @@ await test('preflight',async()=>{const r=await worker.fetch(new Request('https:/
 await test('unapproved origin',async()=>assert.equal((await worker.fetch(request(body,{Origin:'https://evil.test'}))).status,403));
 await test('unsupported service',async()=>assert.equal((await worker.fetch(request({...body,service:'https://evil.test'}))).status,400));
 await test('invalid quarter',async()=>assert.equal((await worker.fetch(request({...body,service:'VwsmTrdarStorQq',tail:'20265'}))).status,400));
-await test('upstream success and key redaction',async()=>{globalThis.fetch=async(url)=>{assert.ok(url.startsWith('http://openapi.seoul.go.kr:8088/'));return Response.json({data:[1],echo:body.key});};const r=await worker.fetch(request());assert.equal(r.status,200);assert.ok(!(await r.text()).includes(body.key));});
+await test('upstream success and key redaction',async()=>{globalThis.fetch=async(url,options)=>{assert.equal(options.redirect,'manual');assert.ok(url.startsWith('http://openapi.seoul.go.kr:8088/'));return Response.json({data:[1],echo:body.key});};const r=await worker.fetch(request());assert.equal(r.status,200);assert.ok(!(await r.text()).includes(body.key));});
 await test('1000 row page accepted',async()=>assert.equal((await worker.fetch(request({...body,service:'VwsmTrdarFlpopQq',start:1,end:1000,tail:'20261'}))).status,200));
 await test('overlarge page rejected',async()=>assert.equal((await worker.fetch(request({...body,service:'VwsmTrdarFlpopQq',start:1,end:1001,tail:'20261'}))).status,400));
 await test('upstream HTTP error with CORS',async()=>{globalThis.fetch=async()=>new Response('',{status:503});const r=await worker.fetch(request());assert.equal(r.status,502);assert.equal(r.headers.get('Access-Control-Allow-Origin'),origin);});
 await test('upstream code preserved',async()=>{globalThis.fetch=async()=>Response.json({RESULT:{CODE:'INFO-200'}});assert.equal((await (await worker.fetch(request())).json()).RESULT.CODE,'INFO-200');});
 await test('invalid JSON rejected',async()=>{globalThis.fetch=async()=>new Response('<html>error</html>');assert.equal((await worker.fetch(request())).status,502);});
+await test('transport diagnostics redact credentials',async()=>{globalThis.fetch=async()=>{throw Error('connection failed '+body.key)};const r=await worker.fetch(request());assert.equal(r.status,504);assert.ok(!(await r.text()).includes(body.key));});
 console.log(count+' Worker mock tests passed; no live API requests.');

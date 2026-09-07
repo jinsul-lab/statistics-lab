@@ -7,7 +7,7 @@ export default {
     const headers={'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','Vary':'Origin'};
     if(ORIGINS.has(origin))Object.assign(headers,{'Access-Control-Allow-Origin':origin,'Access-Control-Allow-Methods':'POST, OPTIONS','Access-Control-Allow-Headers':'Content-Type','Access-Control-Max-Age':'86400'});
     const reply=(body,status=200)=>new Response(JSON.stringify(body),{status,headers});
-    if(new URL(request.url).pathname==='/health')return reply({ok:true,service:'jinsul-seoul-proxy',version:'1.0.0'});
+    if(new URL(request.url).pathname==='/health')return reply({ok:true,service:'jinsul-seoul-proxy',version:'1.0.2'});
     if(!ORIGINS.has(origin))return reply({error:'허용되지 않은 접속 주소입니다.'},403);
     if(new URL(request.url).pathname!=='/seoul')return reply({error:'존재하지 않는 경로입니다.'},404);
     if(request.method==='OPTIONS')return new Response(null,{status:204,headers});
@@ -20,7 +20,7 @@ export default {
     if(service==='citydata_ppltn'?(!/^[가-힣A-Za-z0-9 ·ㆍ()&–·-]+$/.test(tail)||start!==1||end>5):!new RegExp('^[0-9]{4}[1-4](/[0-9]{6,10})?$').test(tail))return reply({error:'조회 대상 또는 분기가 올바르지 않습니다.'},400);
     const url='http://openapi.seoul.go.kr:8088/'+encodeURIComponent(key)+'/json/'+service+'/'+start+'/'+end+'/'+tail.split('/').map(encodeURIComponent).join('/');
     try{
-      const response=await fetch(url,{signal:AbortSignal.timeout(18000),redirect:'error'});
+      const response=await fetch(url,{signal:AbortSignal.timeout(18000),redirect:'manual'});
       if(!response.ok)return reply({error:'서울시 원본 API HTTP 오류',upstreamStatus:response.status},502);
       let payload;try{payload=await response.json();}catch{return reply({error:'서울시 원본 API 응답이 JSON이 아닙니다.'},502);}
       // Redact any upstream echo of the supplied credential.
