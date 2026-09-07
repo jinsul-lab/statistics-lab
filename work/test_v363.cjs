@@ -1,0 +1,25 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
+const h=fs.readFileSync('jinsulmap/JINSUL_MAP_v3.6.3.html','utf8');
+const c=vm.createContext({scanSiteRender:()=>{},scanSiteEscape:s=>String(s??'').replaceAll('<','&lt;'),scanSite:{active:{}},scanSiteSameClinic:()=>false,URLSearchParams,HIRA_API_KEY:'fixture',HIRA_HOSPITAL_API_BASE:'https://example.test',HIRA_SPECIALTY_CODES:{'정형외과':'05'},scanApiEnvelope:x=>x,scanHiraRows:x=>x.rows,scanNumber:Number,scanPick:(r,...keys)=>keys.map(k=>r[k]).find(x=>x!==undefined),scanHaversineMeters:()=>20});
+vm.runInContext(fs.readFileSync('work/online_v363.js','utf8'),c);
+vm.runInContext(h.slice(h.indexOf('function scanSiteCompetition('),h.indexOf('function scanSiteFacts(')),c);
+vm.runInContext(h.slice(h.indexOf('async function scanFetchHiraSpecialty('),h.indexOf('async function scanFetchHiraCompetition(')),c);
+let n=0;const t=(name,f)=>{f();n++;console.log('PASS '+name)};
+const d={snapshot:{candidate:{address:'서울 <test>',lat:37,lng:127},facts:[{name:'건물 전체 주차',value:'85대',scope:'건물 전체',source:'건축물대장',when:'2026'}],facilities:[],radius:800},checks:['미확인']};
+t('online evidence preserves source scope and time',()=>{const s=c.scanSiteOnlineReview(d);for(const v of ['85대','건축물대장','2026','건물 전체'])assert.ok(s.includes(v))});
+t('manual assessment unchanged',()=>{c.scanSiteOnlineReview(d);assert.equal(d.checks[0],'미확인')});
+t('missing evidence explicit',()=>assert.ok(c.scanSiteOnlineReview(d).includes('온라인 근거 미확보')));
+t('provider links encoded',()=>{const s=c.scanSiteStreetLinks(d.snapshot.candidate);assert.ok(s.includes('37,127'));assert.ok(!s.includes('<test>'))});
+const result={hira:{places:[{name:'유관',distance:30}]},siteAllHira:{places:[{name:'유관',distance:30},{name:'타과',distance:50}]}};
+t('pain default',()=>assert.equal(c.scanSiteCompetition(result,false,{competitionMode:'pain'}).rows.length,1));
+t('all departments switches table data',()=>assert.equal(c.scanSiteCompetition(result,false,{competitionMode:'all'}).rows.length,2));
+t('all departments bins coherent',()=>assert.equal(c.scanSiteCompetition(result,false,{competitionMode:'all'}).bins[0].count,2));
+t('print and export include evidence and links',()=>{assert.ok(h.includes("'+scanSiteOnlineReview(d)+'"));assert.ok(h.includes("'+scanSiteStreetLinks(c)+'"))});
+t('mode persisted on import',()=>assert.ok(h.includes("competitionMode:raw.competitionMode==='all'?'all':'pain'")));
+t('inline parse',()=>{for(const m of h.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))if(m[1].trim())new vm.Script(m[1])});
+(async()=>{
+let request;c.scanFetchApiDocument=async u=>{request=u;return {total:1,rows:[{YPos:37,XPos:127,ykiho:'x',yadmNm:'test'}]}};
+const rows=await c.scanFetchHiraSpecialty(null,{lat:37,lng:127},800);assert.ok(!new URL(request).searchParams.has('dgsbjtCd'));assert.equal(rows.length,1);n++;console.log('PASS all specialty request omits filter');
+c.scanFetchApiDocument=async()=>({total:1001,rows:[]});await assert.rejects(c.scanFetchHiraSpecialty(null,{lat:37,lng:127},800),/누락/);n++;console.log('PASS incomplete all query rejected');
+console.log(n+' checks passed; fixture tests, no live API');
+})();
