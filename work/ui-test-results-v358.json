@@ -1,0 +1,57 @@
+{
+  "type": "Local unit and palette checks; fixture data, not live API",
+  "results": [
+    {
+      "name": "Core scan, score, map rendering and network functions unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Null remains unavailable; zero is retained",
+      "status": "PASS"
+    },
+    {
+      "name": "Missing realtime age fields remain null",
+      "status": "PASS"
+    },
+    {
+      "name": "Non-Seoul explanatory state and no fake zero chart",
+      "status": "PASS"
+    },
+    {
+      "name": "Seoul unavailable differs from non-Seoul",
+      "status": "PASS"
+    },
+    {
+      "name": "Realtime report includes source, timestamp, forecast table, escaped title",
+      "status": "PASS"
+    },
+    {
+      "name": "Forecast minimum/maximum and current vs forecast labels retained",
+      "status": "PASS"
+    },
+    {
+      "name": "Tourism missing day stays null and zero remains zero without interpolation",
+      "status": "PASS"
+    },
+    {
+      "name": "Realtime gender and resident charts keep source percentages",
+      "status": "PASS"
+    },
+    {
+      "name": "Official flow charts preserve unavailable and real zero values",
+      "status": "PASS"
+    },
+    {
+      "name": "Empty source creates no fictitious population chart",
+      "status": "PASS"
+    },
+    {
+      "name": "Missing latest visitor category does not reuse stale category value",
+      "status": "PASS"
+    },
+    {
+      "name": "New primary, pill, body, muted and heading palette exceeds 4.5 contrast",
+      "status": "PASS"
+    }
+  ]
+}

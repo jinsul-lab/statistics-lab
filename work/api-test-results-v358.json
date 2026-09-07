@@ -1,0 +1,142 @@
+{
+  "executedAt": "2026-09-07T08:20:41.445Z",
+  "type": "Offline regression; stubbed API responses, not live service validation",
+  "results": [
+    {
+      "name": "All inline JavaScript compiles",
+      "status": "PASS"
+    },
+    {
+      "name": "All 212 original static IDs preserved; no duplicates",
+      "status": "PASS"
+    },
+    {
+      "name": "All original named functions preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "Existing credentials, SDK libraries and R-ONE endpoint preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "Public API JSON array response",
+      "status": "PASS"
+    },
+    {
+      "name": "Public API single-item response",
+      "status": "PASS"
+    },
+    {
+      "name": "SDSC header.code failure is not a zero result",
+      "status": "PASS"
+    },
+    {
+      "name": "Empty public response is rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Valid zero count is retained",
+      "status": "PASS"
+    },
+    {
+      "name": "R-ONE top-level error is rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "R-ONE proxy error does not leak upstream text",
+      "status": "PASS"
+    },
+    {
+      "name": "Valid R-ONE table parsed",
+      "status": "PASS"
+    },
+    {
+      "name": "Trade LAWD_CD uses legal code, not SGIS code",
+      "status": "PASS"
+    },
+    {
+      "name": "Trade does not substitute SGIS code for missing legal code",
+      "status": "PASS"
+    },
+    {
+      "name": "All trade months failing rejects instead of zero success",
+      "status": "PASS"
+    },
+    {
+      "name": "Partial trade failure leaves a gap, not zero, in series",
+      "status": "PASS"
+    },
+    {
+      "name": "HTTP failure retains status without request URL",
+      "status": "PASS"
+    },
+    {
+      "name": "Network failure is not diagnosed as unapproved key",
+      "status": "PASS"
+    },
+    {
+      "name": "Timeout has a distinct user-facing message",
+      "status": "PASS"
+    },
+    {
+      "name": "Invalid JSON body cannot leak contents",
+      "status": "PASS"
+    },
+    {
+      "name": "Seoul unknown schema rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Seoul explicit no-data response accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "Keyword candidate obtains B legal code and parcel separately",
+      "status": "PASS"
+    },
+    {
+      "name": "Region-code failure still returns usable map candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "Property loading starts separately and is awaited",
+      "status": "PASS"
+    },
+    {
+      "name": "R-ONE survives building and trade failures",
+      "status": "PASS"
+    },
+    {
+      "name": "Late property response cannot overwrite a new candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "Failed HIRA detail cache is evicted and can retry",
+      "status": "PASS"
+    },
+    {
+      "name": "Failed Seoul store request remains unavailable, not zero stores",
+      "status": "PASS"
+    },
+    {
+      "name": "Partial Seoul result preserves available floating data",
+      "status": "PASS"
+    },
+    {
+      "name": "Empty R-ONE result is evicted rather than cached permanently",
+      "status": "PASS"
+    },
+    {
+      "name": "Wangsimni clinic: Seoul hotspot and trade-area selection at 1 km",
+      "status": "PASS"
+    },
+    {
+      "name": "Wangsimni clinic: a smaller radius excludes out-of-radius hotspots",
+      "status": "PASS"
+    },
+    {
+      "name": "Address search retains local names for R-ONE automatic matching",
+      "status": "PASS"
+    }
+  ]
+}
