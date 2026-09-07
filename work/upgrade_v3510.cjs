@@ -1,5 +1,6 @@
 const fs=require('fs');let s=fs.readFileSync('jinsulmap/JINSUL_MAP_v3.5.9.html','utf8').replaceAll('3.5.9','3.5.10');
 function replace(a,b){if(!s.includes(a))throw Error('Missing anchor '+a.slice(0,70));s=s.replace(a,b);}
+replace('</style>','.siteDetailButtons{align-items:flex-start}#siteHiraDetail{flex-basis:100%;width:100%;min-width:0}#siteHiraDetail .siteClinicBox{margin-top:12px;width:100%;color:#172b49;background:#f0f7ff}#siteHiraDetail table{width:100%;border-collapse:collapse}#siteHiraDetail th,#siteHiraDetail td{padding:9px;text-align:left;border-bottom:1px solid #cbd5e1}\n</style>');
 replace('name:p.name,address:p.address,lat:p.lat,lng:p.lng,distance:p.distance,doctorCount:p.doctorCount,establishedDate:p.establishedDate,specialties:p.specialties,ykiho:p.ykiho','name:p.name,address:p.address,phone:p.phone,lat:p.lat,lng:p.lng,distance:p.distance,doctorCount:p.doctorCount,establishedDate:p.establishedDate,specialties:p.specialties,ykiho:p.ykiho');
 replace('function scanReportScores(result){',fs.readFileSync('work/enrich_v3510.js','utf8')+'\nfunction scanReportScores(result){');
 replace('const data=await scanFetchHiraDetails(place.ykiho);','const data=await scanFetchClinicEnriched(place);');
