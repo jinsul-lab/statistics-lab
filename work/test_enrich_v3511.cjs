@@ -1,0 +1,33 @@
+const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
+const c=vm.createContext({URLSearchParams,scanApiErrorMessage:e=>e.message,scanEscapeHTML:s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;'),scanFormatHiraDate:s=>s,scanFormatDate8:s=>s,scanKakaoMapUrl:()=> 'https://map.kakao.com/',PUBLIC_DATA_API_KEY:'fixture-only'});
+vm.runInContext(fs.readFileSync('work/site_v359.js','utf8')+'\n'+fs.readFileSync('work/enrich_v3510.js','utf8'),c);
+let n=0;function test(name,fn){fn();n++;console.log('PASS '+name)}
+const p={name:'테스트정형외과의원',phone:'031-123-4567',address:'경기도 용인시 처인구 도로 1',lat:37.2,lng:127.2};
+test('identity uses matching name and phone',()=>assert.ok(c.scanClinicIdentity(p,{dutyName:p.name,dutyTel1:'0311234567'})));
+test('same name and conflicting phone rejected even at same coordinates',()=>assert.equal(c.scanClinicIdentity(p,{dutyName:p.name,dutyTel1:'021234567',wgs84Lat:37.2,wgs84Lon:127.2}),false));
+test('other hospital with same phone rejected',()=>assert.equal(c.scanClinicIdentity(p,{dutyName:'다른병원',dutyTel1:p.phone}),false));
+test('no identity evidence rejected',()=>assert.equal(c.scanClinicIdentity(p,{dutyName:p.name}),false));
+test('missing phone permits exact address match',()=>assert.ok(c.scanClinicIdentity(p,{dutyName:p.name,dutyAddr:p.address})));
+test('distant namesake rejected',()=>assert.equal(c.scanClinicIdentity(p,{dutyName:p.name,wgs84Lat:38,wgs84Lon:128}),false));
+test('times normalized',()=>{assert.equal(c.scanClinicTime('900'),'09:00');assert.equal(c.scanClinicTime('18:30'),'18:30');assert.equal(c.scanClinicTime('2400'),'24:00')});
+test('invalid times remain missing',()=>{for(const x of ['2560','2460','휴진','',null,'2401'])assert.equal(c.scanClinicTime(x),'')});
+test('missing is not closed',()=>assert.ok(c.scanClinicHours({},{}).every(r=>r.value.includes('휴진 여부 미확인'))));
+test('eight days including holidays',()=>assert.equal(c.scanClinicHours({},{}).length,8));
+test('fallback whole interval avoids mixed providers',()=>{const h=c.scanClinicHours({trmtMonStart:'0900'},{dutyTime1s:'1000',dutyTime1c:'1800'})[0];assert.equal(h.value,'10:00 ~ 18:00');assert.equal(h.source,'국립중앙의료원')});
+test('complete HIRA retained',()=>assert.equal(c.scanClinicHours({trmtMonStart:'0900',trmtMonEnd:'1900'},{dutyTime1s:'1000',dutyTime1c:'1800'})[0].source,'심평원'));
+test('building auto fill preserves scope',()=>{const d={fields:{}};c.scanSiteAutoFill(d,{candidate:{},building:{parking:85,elevators:2},createdAt:'2026-09-07'});assert.ok(d.fields.parking.includes('건물 전체 85'));assert.ok(d.fields.elevator.includes('동선 미확인'));assert.equal(d.fields.rent,undefined);assert.equal(d.fields.area,undefined)});
+test('manual fields not overwritten',()=>{const d={fields:{parking:'직접 확인 3대'}};c.scanSiteAutoFill(d,{candidate:{},building:{parking:85}});assert.equal(d.fields.parking,'직접 확인 3대')});
+test('regional representative not building candidate',()=>{const d={fields:{}};c.scanSiteAutoFill(d,{candidate:{searchScope:'regional'},building:{parking:85}});assert.equal(d.fields.parking,undefined)});
+test('ambiguous zero building count not auto asserted',()=>{const d={fields:{}};c.scanSiteAutoFill(d,{candidate:{},building:{parking:0,elevators:0}});assert.equal(d.fields.parking,undefined)});
+test('nearby competitor not candidate contact',()=>{const d={fields:{}};c.scanSiteAutoFill(d,{candidate:{name:'후보'},hira:{places:[{...p,distance:1}]}});assert.equal(d.fields.contact,undefined)});
+test('HTML injection escaped',()=>{const d={hira:{detail:{},departments:[],specialists:[]},egen:{},hours:[],checkedAt:'2026',errors:['<img>']};assert.ok(!c.scanClinicEnrichedHTML({...p,name:'<script>'},d).includes('<script>'));assert.ok(c.scanClinicEnrichedHTML(p,d).includes('&lt;img&gt;'))});
+const html=fs.readFileSync('jinsulmap/JINSUL_MAP_v3.5.11.html','utf8');
+test('all inline scripts parse',()=>{for(const m of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))if(m[1].trim())new vm.Script(m[1]);});
+(async()=>{
+  c.scanFetchHiraDetails=async()=>({detail:{trmtMonStart:'0900',trmtMonEnd:'1800'},departments:[],specialists:[],partial:false});
+  c.scanFetchApiDocument=async()=>{const e=Error('HTTP403');e.httpStatus=403;throw e};
+  const d=await c.scanFetchClinicEnriched({...p,ykiho:'fixture'});
+  test('Egen failure does not lose HIRA hours',()=>{assert.equal(d.hours[0].value,'09:00 ~ 18:00');assert.ok(d.errors[0].includes('활용승인'))});
+  test('report knows partial source failure',()=>assert.equal(d.errors.length,1));
+  fs.writeFileSync('work/enrich-test-results-v3511.json',JSON.stringify({type:'Local and mocked tests, not live API',passed:n},null,2));console.log(n+' passed');
+})().catch(e=>{console.error(e);process.exitCode=1});
