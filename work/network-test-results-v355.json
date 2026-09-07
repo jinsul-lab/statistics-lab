@@ -1,0 +1,50 @@
+[
+  {
+    "name": "slow first attempt recovers with longer second deadline",
+    "status": "PASS"
+  },
+  {
+    "name": "response body timeout remains covered",
+    "status": "PASS"
+  },
+  {
+    "name": "403 has no automatic retry",
+    "status": "PASS"
+  },
+  {
+    "name": "503 recovers once",
+    "status": "PASS"
+  },
+  {
+    "name": "HTTP 200 upstream timeout code retries",
+    "status": "PASS"
+  },
+  {
+    "name": "daily quota code does not retry",
+    "status": "PASS"
+  },
+  {
+    "name": "family concurrency is capped and queued calls complete",
+    "status": "PASS"
+  },
+  {
+    "name": "cancel aborts active and queued calls without retry",
+    "status": "PASS"
+  },
+  {
+    "name": "nationwide rows match legal district and exact day only",
+    "status": "PASS"
+  },
+  {
+    "name": "missing visitor metric is not zero",
+    "status": "PASS"
+  },
+  {
+    "name": "month-end dates handle year rollover and leap day",
+    "status": "PASS"
+  },
+  {
+    "name": "authorization failure stops extra date requests",
+    "status": "PASS"
+  }
+]

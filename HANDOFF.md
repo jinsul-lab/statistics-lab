@@ -3,13 +3,14 @@
 기록일: 2026-09-07
 
 ## 기준 파일
-- 현재 로컬 버전: `3.5.4`
-- 다음 작업 기준: `jinsulmap/JINSUL_MAP_v3.5.4.html`
+- 현재 로컬 버전: `3.5.5`
+- 다음 작업 기준: `jinsulmap/JINSUL_MAP_v3.5.5.html`
 - 기존 루트 사본: `JINSUL_MAP_v3.5.2.html`. 이전 작업에서 함께 업로드한 사본이며, 별도의 개발 기준으로 사용하지 않는다.
-- 상세 검증: `jinsulmap/API_VERIFICATION_v3.5.4.md`
+- 상세 검증: `jinsulmap/API_VERIFICATION_v3.5.5.md`
 - 실행 주소: https://jinsul-lab.github.io/statistics-lab/jinsulmap/
 
 ## 검증과 저장소 상태
+- v3.5.5: API 동시성·30초/45초 재시도·취소·응답시간 진단, 전국 방문자 API 연결 코드, 차트 개선. 운영 왕십리 심평원 최대 23.1초 수신으로 기존 18초 제한 문제 확인. 관광공사 API는 HTTP 403으로 활용승인 확인 필요; 전국 수신 성공은 아직 아님. 상세 v3.5.5 보고서 참조.
 - v3.5.4: 서울 자동 재시도·실패 캐시 제거·최신 분기 자동 선택·유동인구 세부 표시. 로컬/모의 검증 66개 통과. 앱 업로드 `37d404a92c1fb5aaf9bce4a1c845ae9ef38cefe2`. 운영 검증은 v3.5.4 보고서 참조.
 - v3.5.3: 지역 판별·서울 HTTPS 중계·지역별 자료 상태 개선. 상세 검증은 `jinsulmap/API_VERIFICATION_v3.5.3.md`.
 - v3.5.3 로컬/모의 검증 56개 통과. 서울 Worker 최종 `37bade34` Active 확인. 운영 사이트에서 서울 실시간 인구·분기 유동인구·점포 수신 확인.

@@ -1,0 +1,18 @@
+/* v3.5.5 · chart-focused theme; preserves map, filters and clinical marker colors */
+.scanReportModal .scanReportCard,.scanReportCard{border:1px solid #dce5f3;border-radius:20px;background:linear-gradient(150deg,#fff 65%,#f3f7ff);box-shadow:0 8px 28px #243a6610;overflow:hidden}
+.scanReportCard h3{font-size:15px;letter-spacing:-.3px;color:#193355;display:flex;align-items:center;gap:9px}
+.scanReportCard h3:before{content:'';width:5px;height:18px;border-radius:9px;background:linear-gradient(#6366f1,#22d3ee)}
+.scanReportHero{background:radial-gradient(ellipse at 95% 0,#dff9ff,transparent 60%),linear-gradient(130deg,#f0edff,#f8fbff);border-bottom:1px solid #dbe6f7}
+.scanReportKpi{border-radius:16px;box-shadow:0 4px 15px #4050800b;border-top:3px solid #6366f1}
+.scanReportKpi:nth-child(2){border-top-color:#14b8a6}.scanReportKpi:nth-child(3){border-top-color:#f59e0b}.scanReportKpi:nth-child(4){border-top-color:#ec4899}
+.scanReportKpi b{font-variant-numeric:tabular-nums;letter-spacing:-.8px}
+.scanReportTabs button.active{background:linear-gradient(110deg,#4f46e5,#0284c7);color:white;box-shadow:0 4px 12px #4f46e52b}
+.scanDetailCharts summary{color:#334b76;cursor:pointer;font-weight:800;padding:10px 0}
+.scanVisual{--c1:#0891b2;--c2:#67e8f9;padding:14px;margin:12px 0;border:1px solid #dfebf3;border-radius:15px;background:linear-gradient(130deg,#f6fbff,#fff)}
+.scanVisual.violet{--c1:#7c3aed;--c2:#c4b5fd}.scanVisual.rose{--c1:#db2777;--c2:#fda4af}
+.scanVisual h4{margin:0 0 14px;color:#1e3555;font-size:13px}.scanVisualRow{margin:10px 0}.scanVisualRow>div:first-child{display:flex;gap:6px;align-items:baseline;font-size:11px}.scanVisualRow span{flex:1;color:#526580}.scanVisualRow b{color:#203854;font-variant-numeric:tabular-nums}.scanVisualRow small{min-width:38px;text-align:right;color:#64748b}
+.scanVisualTrack{height:8px;border-radius:8px;background:#e8eef5;margin-top:5px;overflow:hidden}.scanVisualTrack i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--c1),var(--c2));box-shadow:0 1px 5px #50607020}
+.scanNetworkPanel{margin-top:16px;padding:12px;background:#f4f7fc;border:1px solid #dbe5f3;border-radius:14px;font-size:12px;overflow:auto}.scanNetworkPanel summary{cursor:pointer;font-weight:700;color:#334b76}.scanNetworkPanel p{color:#64748b;line-height:1.7}
+@media(prefers-reduced-motion:reduce){.scanVisual *{animation:none!important;transition:none!important}}
+.scanReportCard .scanDetailCharts[open]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scanReportCard .scanDetailCharts>summary,.scanReportCard .scanDetailCharts>p,.scanReportCard .scanDetailCharts>a{grid-column:1/-1}.scanReportCard .scanDetailCharts .scanVisual{margin:0;min-width:0}
+@media(max-width:800px){.scanReportCard .scanDetailCharts[open]{grid-template-columns:1fr}}

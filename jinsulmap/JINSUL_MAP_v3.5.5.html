@@ -784,6 +784,8 @@
 .scanVisualTrack{height:8px;border-radius:8px;background:#e8eef5;margin-top:5px;overflow:hidden}.scanVisualTrack i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--c1),var(--c2));box-shadow:0 1px 5px #50607020}
 .scanNetworkPanel{margin-top:16px;padding:12px;background:#f4f7fc;border:1px solid #dbe5f3;border-radius:14px;font-size:12px;overflow:auto}.scanNetworkPanel summary{cursor:pointer;font-weight:700;color:#334b76}.scanNetworkPanel p{color:#64748b;line-height:1.7}
 @media(prefers-reduced-motion:reduce){.scanVisual *{animation:none!important;transition:none!important}}
+.scanReportCard .scanDetailCharts[open]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scanReportCard .scanDetailCharts>summary,.scanReportCard .scanDetailCharts>p,.scanReportCard .scanDetailCharts>a{grid-column:1/-1}.scanReportCard .scanDetailCharts .scanVisual{margin:0;min-width:0}
+@media(max-width:800px){.scanReportCard .scanDetailCharts[open]{grid-template-columns:1fr}}
 
 </style>
 </head>
@@ -4841,7 +4843,7 @@ function scanRenderNetwork(){
   const holder=document.getElementById('scanNetworkReport');if(!holder)return;
   const groups=new Map();
   for(const m of scanNetwork.metrics){const a=groups.get(m.family)||[];a.push(m);groups.set(m.family,a);}
-  holder.innerHTML='<p>전송·본문 수신 기준입니다. HTTP 성공과 실제 자료 유무는 각 항목에서 별도로 확인하세요.</p>'+scanReportTable([['API','요청','성공','재시도','최대 응답','대기','최근 상태'],...[...groups].map(([name,a])=>[name,a.length,a.filter(x=>x.status==='수신').length,a.filter(x=>x.attempt>1).length,(Math.max(...a.map(x=>x.ms))/1000).toFixed(1)+'초',(Math.max(...a.map(x=>x.queueMs))/1000).toFixed(1)+'초',a.at(-1).status])]);
+  holder.innerHTML='<p>전송·본문 수신 기준입니다. HTTP 성공과 실제 자료 유무는 각 항목에서 별도로 확인하세요.</p>'+scanReportTable([['API','요청','수신','실패','재시도','최대 응답','대기','최근 오류'],...[...groups].map(([name,a])=>[name,a.length,a.filter(x=>x.status==='수신').length,a.filter(x=>x.status!=='수신').length,a.filter(x=>x.attempt>1).length,(Math.max(...a.map(x=>x.ms))/1000).toFixed(1)+'초',(Math.max(...a.map(x=>x.queueMs))/1000).toFixed(1)+'초',a.filter(x=>x.status!=='수신').at(-1)?.status||'없음'])]);
 }
 
 async function scanNetworkRequest(url,options={},timeoutMs=15000){
@@ -4862,6 +4864,9 @@ async function scanNetworkRequest(url,options={},timeoutMs=15000){
         const response=await fetch(url,{...options,signal:controller.signal});
         if(!response.ok){const e=new Error('API HTTP 응답 오류 ('+response.status+')');e.retryable=response.status===408||response.status===429||response.status>=500;e.httpStatus=response.status;throw e;}
         const text=await response.text();
+        let upstreamCode='';
+        try{const p=JSON.parse(text);upstreamCode=String(p?.response?.header?.resultCode??p?.header?.resultCode??'');}catch{upstreamCode=text.match(/<(?:resultCode|returnReasonCode)>\s*(05|23)\s*<\//)?.[1]||'';}
+        if(['05','23'].includes(upstreamCode)){const e=new Error('제공기관 응답 지연 또는 초당 호출 제한 (코드 '+upstreamCode+')');e.retryable=true;throw e;}
         if(generation!==scanNetwork.generation)throw cancelled();
         status='수신';return text;
       }catch(error){
@@ -5935,12 +5940,12 @@ function scanOpenReport(result=scanState.result){
   $('scanScoreRing').style.setProperty('--score',scoreData.total);$('scanScoreValue').textContent=scoreData.total;
   const hiraKpi=result.hira?.unavailable?'조회 불가':result.hira?`${result.hira.places.length.toLocaleString()}곳`:'-';
   $('scanReportKpis').innerHTML=`<div class="scanReportKpi"><span>카카오 경쟁</span><b>${result.competitors.length.toLocaleString()}곳</b><small>${result.density.toFixed(2)}곳/㎢</small></div><div class="scanReportKpi"><span>심평원 공식</span><b>${hiraKpi}</b><small>의원급·선택 진료과</small></div><div class="scanReportKpi"><span>반경 영업 상가</span><b>${result.radiusCommerce?result.radiusCommerce.total.toLocaleString()+'곳':'-'}</b><small>후보지 중심 ${radiusLabel}</small></div><div class="scanReportKpi"><span>배후 인구</span><b>${result.sgis?scanFormatSgisNumber(result.sgis.population,0,'명'):'-'}</b><small>${scanEscapeHTML(result.sgis?.regionName||'SGIS 미조회')}</small></div>`;
-  $('scanVisitorReport').innerHTML=scanRenderVisitors(result.visitors);$('scanFloatingReport').innerHTML=result.commerce?.floating?scanRenderFloatingBreakdown(result.commerce.floating):'<div class="scanEmpty">해당 지역의 공식상권 유동인구 자료가 없습니다.</div>';
+  $('scanVisitorReport').innerHTML=scanRenderVisitors(result.visitors);$('scanFloatingReport').innerHTML=result.commerce?.floating?'<div class="scanInsight">'+scanEscapeHTML(result.commerce.area.name)+' · '+scanEscapeHTML(scanPeriodLabel(result.commerce.floatingPeriod))+' · 공식 상권 전체 통계</div>'+scanRenderFloatingBreakdown(result.commerce.floating):'<div class="scanEmpty">해당 지역의 공식상권 유동인구 자료가 없습니다.</div>';
   $('scanReportInsights').innerHTML=scanReportInsights(result,scoreData);scanRenderNetwork();
   const statuses=[['카카오 경쟁·동선',true,'선택 반경'],['심평원 의원',result.hira&&!result.hira.unavailable,'선택 반경'],['소상공인 상가',Boolean(result.radiusCommerce),'선택 반경'],['SGIS 센서스',Boolean(result.sgis),'행정구역'],['건축물대장',Boolean(result.building),'후보 필지'],['상업용 실거래',Boolean(result.realty),'시군구'],['R-ONE 임대지표',Boolean(result.rone),result.rone?.selectedScope||'조사권역'],['서울 실시간',Boolean(result.population),'반경 내 지정지점'],['서울 공식상권',Boolean(result.commerce?.apiConnected),'반경 내 중심점']];
   const region=scanCandidateRegion(result.candidate);
   const regionLabel=scanEscapeHTML([region.name,result.candidate?.sggName,result.candidate?.admName].filter(Boolean).join(' '));
-  const coverage=scanRegionalCoverage(result);
+  const coverage=scanRegionalCoverage(result);if(result.hira?.specialties?.some(item=>item.error)&&!result.hira?.unavailable)coverage['심평원 의원']='일부 연결';
   $('scanReportCoverage').innerHTML='<div class="scanLimitNote" style="display:block">검색 지역: '+regionLabel+' · SGIS는 기준연도 행정구역 인구, 상가는 선택 반경 내 업소입니다. 실시간 인구·분기 유동인구와 구분해서 확인하세요.</div>'+scanReportTable([['데이터','상태','공간 기준'],...statuses.map(([name,ok,scope])=>[name,coverage[name]|| (ok?'연결':'조회 불가'),scope])]);
   $('scanCompetitionTable').innerHTML=scanReportTable([['구분','카카오 검색','심평원 공식'],...(result.specialties||[]).map(item=>{const h=(result.hira?.specialties||[]).find(v=>v.name===item.name);return[item.name,`${item.count.toLocaleString()}곳`,h?.error?'<span style="color:#b45309">조회 불가</span>':h?`${h.count.toLocaleString()}곳`:'-'];})]);
   const rc=result.radiusCommerce;
