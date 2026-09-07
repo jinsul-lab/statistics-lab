@@ -784,8 +784,8 @@
 .scanVisualTrack{height:8px;border-radius:8px;background:#e8eef5;margin-top:5px;overflow:hidden}.scanVisualTrack i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--c1),var(--c2));box-shadow:0 1px 5px #50607020}
 .scanNetworkPanel{margin-top:16px;padding:12px;background:#f4f7fc;border:1px solid #dbe5f3;border-radius:14px;font-size:12px;overflow:auto}.scanNetworkPanel summary{cursor:pointer;font-weight:700;color:#334b76}.scanNetworkPanel p{color:#64748b;line-height:1.7}
 @media(prefers-reduced-motion:reduce){.scanVisual *{animation:none!important;transition:none!important}}
-.scanReportCard .scanDetailCharts[open]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scanReportCard .scanDetailCharts>summary,.scanReportCard .scanDetailCharts>p,.scanReportCard .scanDetailCharts>a{grid-column:1/-1}.scanReportCard .scanDetailCharts .scanVisual{margin:0;min-width:0}
-@media(max-width:800px){.scanReportCard .scanDetailCharts[open]{grid-template-columns:1fr}}
+.scanReportCard .scanVisualGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scanReportCard .scanVisualGrid .scanVisual{margin:0;min-width:0}
+@media(max-width:800px){.scanReportCard .scanVisualGrid{grid-template-columns:1fr}}
 
 </style>
 </head>
@@ -5404,7 +5404,7 @@ function scanVisualBars(title,rows,tone='cyan'){
 
 function scanRenderFloatingBreakdown(f){
   if(!f?.breakdown)return '';
-  return '<details class="scanCommerceFoot scanDetailCharts" open><summary>유동인구 시간대·요일·연령 상세</summary>'+scanVisualBars('시간대 흐름',f.breakdown.times,'cyan')+scanVisualBars('요일 비교',f.breakdown.days,'violet')+scanVisualBars('연령 분포',f.breakdown.ages,'rose')+'<p>분기 공식상권 단위 · 표시된 항목 합계 대비 비중. 시간대별 구간 길이가 달라 시간당 밀도와는 다릅니다.</p><a href="https://golmok.seoul.go.kr/owner/owner.do" target="_blank" rel="noopener noreferrer">서울시 상권분석서비스에서 비교 ↗</a></details>';
+  return '<details class="scanCommerceFoot scanDetailCharts" open><summary>유동인구 시간대·요일·연령 상세</summary><div class="scanVisualGrid">'+scanVisualBars('시간대 흐름',f.breakdown.times,'cyan')+scanVisualBars('요일 비교',f.breakdown.days,'violet')+scanVisualBars('연령 분포',f.breakdown.ages,'rose')+'</div><p>분기 공식상권 단위 · 표시된 항목 합계 대비 비중. 시간대별 구간 길이가 달라 시간당 밀도와는 다릅니다.</p><a href="https://golmok.seoul.go.kr/owner/owner.do" target="_blank" rel="noopener noreferrer">서울시 상권분석서비스에서 비교 ↗</a></details>';
 }
 
 function scanBuildCommerceData(area,floatingRows,storeRows){

@@ -32,7 +32,7 @@ s=s.replace('</style>',fs.readFileSync('work/design_v355.css','utf8')+'\n</style
 s=s.replace('function scanRenderFloatingBreakdown(',fs.readFileSync('work/charts_v355.js','utf8')+'\nfunction scanRenderFloatingBreakdown(');
 fn('scanRenderFloatingBreakdown',`function scanRenderFloatingBreakdown(f){
   if(!f?.breakdown)return '';
-  return '<details class="scanCommerceFoot scanDetailCharts" open><summary>유동인구 시간대·요일·연령 상세</summary>'+scanVisualBars('시간대 흐름',f.breakdown.times,'cyan')+scanVisualBars('요일 비교',f.breakdown.days,'violet')+scanVisualBars('연령 분포',f.breakdown.ages,'rose')+'<p>분기 공식상권 단위 · 표시된 항목 합계 대비 비중. 시간대별 구간 길이가 달라 시간당 밀도와는 다릅니다.</p><a href="https://golmok.seoul.go.kr/owner/owner.do" target="_blank" rel="noopener noreferrer">서울시 상권분석서비스에서 비교 ↗</a></details>';
+  return '<details class="scanCommerceFoot scanDetailCharts" open><summary>유동인구 시간대·요일·연령 상세</summary><div class="scanVisualGrid">'+scanVisualBars('시간대 흐름',f.breakdown.times,'cyan')+scanVisualBars('요일 비교',f.breakdown.days,'violet')+scanVisualBars('연령 분포',f.breakdown.ages,'rose')+'</div><p>분기 공식상권 단위 · 표시된 항목 합계 대비 비중. 시간대별 구간 길이가 달라 시간당 밀도와는 다릅니다.</p><a href="https://golmok.seoul.go.kr/owner/owner.do" target="_blank" rel="noopener noreferrer">서울시 상권분석서비스에서 비교 ↗</a></details>';
 }`);
 s=s.replace("result.commerce?.floating?scanRenderFloatingBreakdown(result.commerce.floating)","result.commerce?.floating?'<div class=\"scanInsight\">'+scanEscapeHTML(result.commerce.area.name)+' · '+scanEscapeHTML(scanPeriodLabel(result.commerce.floatingPeriod))+' · 공식 상권 전체 통계</div>'+scanRenderFloatingBreakdown(result.commerce.floating)");
 fs.writeFileSync('jinsulmap/JINSUL_MAP_v3.5.5.html',s);
