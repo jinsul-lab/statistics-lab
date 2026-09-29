@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>JINSUL MAP v3.7.3</title>
+<title>JINSUL MAP v3.7.4</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=587d3b22c3896f92f134d03253e685bd&amp;libraries=services,drawing,clusterer&amp;autoload=false"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -612,7 +612,7 @@
     @media (max-width: 820px){ .rightDrawer{width:92vw;} }
 
     /* ===========================
-       상권 스캔 v3.7.3
+       상권 스캔 v3.7.4
        =========================== */
     .sidebarTabs{
       display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:8px 10px;
@@ -772,7 +772,7 @@
       .scanReportHero{grid-template-columns:1fr;}.scanReportKpis{grid-template-columns:1fr 1fr;}.scanReportGrid{grid-template-columns:1fr;}.scanReportCard.wide{grid-column:auto;}
     }
 
-/* v3.7.3 · chart-focused theme; preserves map, filters and clinical marker colors */
+/* v3.7.4 · chart-focused theme; preserves map, filters and clinical marker colors */
 .scanReportModal .scanReportCard,.scanReportCard{border:1px solid #dce5f3;border-radius:20px;background:linear-gradient(150deg,#fff 65%,#f3f7ff);box-shadow:0 8px 28px #243a6610;overflow:hidden}
 .scanReportCard h3{font-size:15px;letter-spacing:-.3px;color:#193355;display:flex;align-items:center;gap:9px}
 .scanReportCard h3:before{content:'';width:5px;height:18px;border-radius:9px;background:linear-gradient(#6366f1,#22d3ee)}
@@ -791,7 +791,7 @@
 .scanReportCard .scanVisualGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scanReportCard .scanVisualGrid .scanVisual{margin:0;min-width:0}
 @media(max-width:800px){.scanReportCard .scanVisualGrid{grid-template-columns:1fr}}
 
-/* v3.7.3: explicit foregrounds prevent inherited transparent text. */
+/* v3.7.4: explicit foregrounds prevent inherited transparent text. */
 :root{color-scheme:light}
 .sectionTitle{background:none;-webkit-background-clip:initial;-webkit-text-fill-color:currentColor;color:#243b68}
 .sectionTitle .pill{background:#1d4ed8;color:#fff;-webkit-text-fill-color:#fff}
@@ -880,13 +880,32 @@ if(typeof Chart!=='undefined'){
   Chart.defaults.plugins.tooltip.bodyFont={size:13};
   document.fonts?.ready.then(()=>Object.values(Chart.instances).forEach(chart=>chart.update('none')));
 }
-</script></head>
+</script><style id="mapUI374">
+#map{position:relative;z-index:0}.mapArea{min-width:0;isolation:isolate}
+.scanPlacePanel{position:absolute;z-index:200;left:12px;top:64px;width:calc(100% - 98px);max-width:440px;max-height:calc(100% - 170px);display:flex;flex-direction:column;background:#fff;border:1px solid #c9d5e2;border-radius:16px;box-shadow:0 12px 36px #14283e33;overflow:hidden;color:#172b49}
+.scanPlaceHeader{display:flex;gap:10px;align-items:center;padding:12px 14px;background:#f5f8fb;border-bottom:1px solid #dce4ed;flex-shrink:0}
+.scanPlaceHeader>div{flex:1;min-width:0}.scanPlaceHeader small{display:block;font-size:12px;font-weight:600;margin-bottom:4px}.scanPlaceHeader strong{font-size:16px;line-height:1.4;overflow-wrap:anywhere}
+.scanPlaceClose{flex:0 0 40px;width:40px;height:40px;border:1px solid #d5dfea;border-radius:10px;background:white;color:#233e54;font-size:24px;cursor:pointer}
+.scanPlaceClose:focus-visible{outline:3px solid #0067c5;outline-offset:-3px}
+.scanPlaceBody{padding:14px;min-height:0;overflow:auto;overscroll-behavior:contain;line-height:1.65;font-size:13px;overflow-wrap:anywhere}
+.scanPlaceBody>div{width:auto!important;max-height:none!important;padding:0!important;overflow:visible!important}
+.scanPlaceBody .siteClinicBox{border:0;background:white;padding:0;margin:0;min-width:0}.scanPlaceBody .siteClinicBox h4{display:none}
+.scanPlaceBody .siteClinicBox table,.scanPlaceBody .siteClinicBox tbody{display:block;width:100%;min-width:0;table-layout:fixed}.scanPlaceBody .siteClinicBox thead{display:none}
+.scanPlaceBody .siteClinicBox tr{display:grid;grid-template-columns:76px minmax(0,1fr);border-bottom:1px solid #e2e8f0;padding:8px 0;gap:2px 10px}
+.scanPlaceBody .siteClinicBox th,.scanPlaceBody .siteClinicBox td{display:block;border:0;background:transparent;padding:0;font-size:13px;line-height:1.6;text-align:left;width:auto;white-space:normal;word-break:normal;overflow-wrap:anywhere}
+.scanPlaceBody .siteClinicBox th{font-weight:600;color:#31465b}.scanPlaceBody .siteClinicBox td:nth-child(3){grid-column:2;font-size:11px;color:#526475}
+.scanHoursUnavailable{padding:12px;background:#f1f6fa;border-radius:10px;margin-bottom:10px;font-size:13px}.scanHoursUnavailable p{margin:5px 0}.scanHoursUnavailable summary{cursor:pointer;color:#005bb0}.scanPlaceBody .siteFine{font-size:12px;line-height:1.65;color:#526475}.scanPlaceBody a{display:inline-block;padding:5px 0;color:#005bb0}
+.scanSwatch[data-scan-icon],#scanLegend [data-scan-icon]{display:inline-flex;width:28px;height:28px;flex:0 0 28px;background:none!important;border-radius:0;box-shadow:none}
+[data-scan-icon] svg{width:100%;height:100%}.scanLayerGrid{gap:8px}.scanLayerGrid .scanCheck{gap:7px;min-height:46px;line-height:1.4}
+.seniorSearchOption{display:block;background:#f3f6fa;border:1px solid #d7e0ea;border-radius:10px;padding:10px;margin-top:10px;font-size:12px;line-height:1.6;color:#334155}.seniorSearchOption input{vertical-align:middle}.seniorSearchOption small{display:block;color:#526475;margin-top:3px}
+@media(max-height:550px){.scanPlacePanel{top:52px;max-height:calc(100% - 95px)}}
+</style></head>
 <body>
 <div class="app">
 <div class="sidebar">
 <div class="sidebarHeader">
 <div class="brand">JINSUL MAP</div>
-<div style="font-size:11px;color:#868e96;">v3.7.3</div>
+<div style="font-size:11px;color:#868e96;">v3.7.4</div>
 </div>
 <div class="sidebarTabs" role="tablist" aria-label="분석 모드">
 <button class="sidebarModeBtn active" id="btnModePatients" type="button" role="tab" aria-selected="true" aria-controls="patientSidebarPanel">환자 분석</button>
@@ -949,7 +968,7 @@ if(typeof Chart!=='undefined'){
 <div class="search-grid">
 <div class="search-btn" data-target="senior">
 <span>🏠</span>
-<span>경로당</span>
+<span>경로당·쉼터</span>
 </div>
 <div class="search-btn" data-target="welfare">
 <span>💜</span>
@@ -964,7 +983,7 @@ if(typeof Chart!=='undefined'){
 <span>현수막게시대</span>
 </div>
 </div>
-<div id="searchStatus" style="font-size:11px;color:#868e96;text-align:center;margin:8px 0;">대기</div>
+<label class="seniorSearchOption"><input id="seniorAuxSearch" type="checkbox"/> 관리사무소·경비실 보조 검색<small>경로당·노인정·마을회관·무더위쉼터를 기본 조회합니다. 보조 결과는 실제 노인시설 여부를 확인할 문의처이며, 별도로 표시·저장합니다.</small></label><div class="siteFine" style="margin-top:8px">현재 지도 범위 · 키워드별 공개 API 결과 최대 45건. 미검색이 시설 부재를 뜻하지는 않습니다.</div><div id="searchStatus" style="font-size:11px;color:#868e96;text-align:center;margin:8px 0;">대기</div>
 <div class="btnRow">
 <button class="btn primary" id="btnSearch">시설 스캔</button>
 <button class="btn outline" id="btnResetSearch">초기화</button>
@@ -1101,12 +1120,12 @@ if(typeof Chart!=='undefined'){
 <div class="section">
 <div class="sectionTitle">지도 표시 <span class="pill">필터</span></div>
 <div class="scanLayerGrid" id="scanLayerFilters">
-<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="candidate" checked/><span class="scanSwatch" style="background:#4f46e5"></span>후보지·반경</label>
-<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="competitor" checked/><span class="scanSwatch" style="background:#e11d48"></span>경쟁 의원</label>
-<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="hira" checked/><span class="scanSwatch" style="background:#0f766e"></span>심평원 의원</label>
-<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="subway" checked/><span class="scanSwatch" style="background:#0284c7"></span>지하철역</label>
-<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="parking" checked/><span class="scanSwatch" style="background:#059669"></span>주차장</label>
-<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="pharmacy" checked/><span class="scanSwatch" style="background:#7c3aed"></span>약국</label>
+<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="candidate" checked/><span class="scanSwatch" style="background:#b45309"></span>후보지·반경</label>
+<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="competitor" checked/><span class="scanSwatch" style="background:#d51f49"></span>경쟁 의원</label>
+<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="hira" checked/><span class="scanSwatch" style="background:#00796b"></span>심평원 의원</label>
+<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="subway" checked/><span class="scanSwatch" style="background:#0067c5"></span>지하철역</label>
+<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="parking" checked/><span class="scanSwatch" style="background:#334155"></span>주차장</label>
+<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="pharmacy" checked/><span class="scanSwatch" style="background:#7935cc"></span>약국</label>
 </div>
 </div>
 
@@ -1135,7 +1154,7 @@ if(typeof Chart!=='undefined'){
 </div>
 </div>
 <div style="padding:10px;text-align:center;font-size:10px;color:#adb5bd;border-top:1px solid #eee;">
-      JINSUL MAP v3.7.3<br/>All Rights Reserved.
+      JINSUL MAP v3.7.4<br/>All Rights Reserved.
     </div>
 </div>
 <div class="mapArea">
@@ -1147,12 +1166,12 @@ if(typeof Chart!=='undefined'){
 <div class="legend-item"><div class="dot" style="background:#228be6"></div>기존 분류</div>
 </div>
 <div id="scanLegend">
-<div class="legend-item"><div class="dot" style="background:#4f46e5"></div>후보지</div>
-<div class="legend-item"><div class="dot" style="background:#e11d48"></div>경쟁 의원</div>
-<div class="legend-item"><div class="dot" style="background:#0f766e"></div>심평원 의원</div>
-<div class="legend-item"><div class="dot" style="background:#0284c7"></div>지하철역</div>
-<div class="legend-item"><div class="dot" style="background:#059669"></div>주차장</div>
-<div class="legend-item"><div class="dot" style="background:#7c3aed"></div>약국</div>
+<div class="legend-item"><div class="dot" data-scan-icon="candidate"></div>후보지</div>
+<div class="legend-item"><div class="dot" data-scan-icon="competitor"></div>경쟁 의원</div>
+<div class="legend-item"><div class="dot" data-scan-icon="hira"></div>심평원 의원</div>
+<div class="legend-item"><div class="dot" data-scan-icon="subway"></div>지하철역</div>
+<div class="legend-item"><div class="dot" data-scan-icon="parking"></div>주차장</div>
+<div class="legend-item"><div class="dot" data-scan-icon="pharmacy"></div>약국</div>
 </div>
 <div class="map-controls-container">
 <div class="map-type-group">
@@ -1687,17 +1706,17 @@ const toggleState = { all: true, new_only: true, new_conv: true, bit_90: true, o
 
 const SCAN_SPECIALTY_ORDER = ['정형외과','신경외과','마취통증의학과','재활의학과'];
 const SCAN_FACILITY_CONFIG = {
-  subway: { code:'SW8', label:'지하철역', color:'#0284c7' },
-  parking: { code:'PK6', label:'주차장', color:'#059669' },
-  pharmacy: { code:'PM9', label:'약국', color:'#7c3aed' }
+  subway: { code:'SW8', label:'지하철역', color:'#0067c5' },
+  parking: { code:'PK6', label:'주차장', color:'#334155' },
+  pharmacy: { code:'PM9', label:'약국', color:'#7935cc' }
 };
 const SCAN_LAYER_CONFIG = {
-  candidate: { label:'후보지', color:'#4f46e5', glyph:'★', size:46 },
-  competitor: { label:'경쟁 의원', color:'#e11d48', glyph:'의', size:38 },
-  hira: { label:'심평원 의원', color:'#0f766e', glyph:'심', size:38 },
-  subway: { label:'지하철역', color:'#0284c7', glyph:'역', size:38 },
-  parking: { label:'주차장', color:'#059669', glyph:'P', size:38 },
-  pharmacy: { label:'약국', color:'#7c3aed', glyph:'약', size:38 }
+  candidate: { label:'후보지', color:'#b45309', glyph:'★', size:46 },
+  competitor: { label:'경쟁 의원', color:'#d51f49', glyph:'의', size:38 },
+  hira: { label:'심평원 의원', color:'#00796b', glyph:'심', size:38 },
+  subway: { label:'지하철역', color:'#0067c5', glyph:'역', size:38 },
+  parking: { label:'주차장', color:'#334155', glyph:'P', size:38 },
+  pharmacy: { label:'약국', color:'#7935cc', glyph:'약', size:38 }
 };
 const HIRA_API_KEY = 'c8955eba86e3853af8e9d4c6ca072b7d7d0158630d11296129824c3eb4f4c426';
 const HIRA_HOSPITAL_API_BASE = 'https://apis.data.go.kr/B551182/hospInfoServicev2/getHospBasisList';
@@ -1897,7 +1916,7 @@ function initKakao(){
     roadviewClient = new kakao.maps.RoadviewClient();
     setupMapListeners(); setupToolbar();
     setScanReady(true);
-    toast("시스템 준비 완료 (v3.7.3)");
+    toast("시스템 준비 완료 (v3.7.4)");
   });
 }
 initKakao();
@@ -2350,10 +2369,11 @@ async function loadBannerPoints(){
     __bannerIdleAttached = false;
   };
 
-  async function drawBannerLayerForBounds(bounds){
+  async function drawBannerLayerForBounds(bounds,isCurrent=()=>isBannerActive()){
     if(!bounds || !window.map) return;
 
     const ptsAll = await loadBannerPoints();
+    if(!isCurrent())return;
     if(!ptsAll || !ptsAll.length){
       clearBannerLayerOnly();
       toast('현수막 게시대 CSV를 불러오지 못했습니다.', 2500);
@@ -2439,11 +2459,118 @@ async function loadBannerPoints(){
     }
   });
 
-async function keywordSearchAllEnhanced(keyword, bounds, depth=0){
-  return new Promise((resolve)=>{
-    const collected = []; places.keywordSearch(keyword, (data, status, pagination)=>{
-      if(status===kakao.maps.services.Status.OK){ collected.push(...data); if(pagination.hasNextPage) pagination.nextPage(); else resolve(collected); } else resolve(collected);
-    }, { bounds: bounds, useMapBounds: false });
+// v3.7.4 facility-search helpers. Inlined into the single HTML at release time.
+const SENIOR_DIRECT_KEYWORDS = ['경로당', '노인정', '마을회관', '무더위쉼터'];
+const SENIOR_AUXILIARY_KEYWORDS = ['관리사무소', '관리실', '경비실'];
+
+function seniorFacilityKind(place){
+  const name = String(place && place.place_name || '');
+  const category = String(place && place.category_name || '').split('>').pop().trim();
+  const facilityName = /(?:경로당|노인정|마을회관|무더위\s*쉼터)(?:\s*(?:제?\d+(?:호|동)?|\([^)]*\)))*\s*$/;
+  if(facilityName.test(name) || /경로당|노인정|마을회관|무더위\s*쉼터/.test(category) || /^무더위\s*쉼터(?:\s|[-:(])/.test(name)) return 'direct';
+  if(/(?:관리사무소|관리실|경비실)(?:\s*(?:제?\d+(?:호|동)?|\([^)]*\)))*\s*$/.test(name) || /관리사무소|관리실|경비실/.test(category)) return 'auxiliary';
+  return 'unclassified';
+}
+
+function seniorNormalizedText(value){
+  return String(value || '').normalize('NFKC').replace(/\s+/g, '').trim();
+}
+
+function seniorPlaceIdentity(place){
+  if(place && place.id != null && String(place.id).trim()) return 'id:' + String(place.id);
+  // Missing IDs must not merge unrelated records, including same-named apartments.
+  return JSON.stringify([seniorNormalizedText(place.place_name), seniorNormalizedText(place.road_address_name || place.address_name), String(place.x || ''), String(place.y || '')]);
+}
+
+function seniorComplexAddressKey(place){
+  // Only exact road-address + recognizable complex-name matches qualify.
+  // A parcel, coordinates alone, or apartment name alone cannot identify a building.
+  const address = String(place && place.road_address_name || '').normalize('NFKC').trim().replace(/\s+/g, ' ');
+  if(!address || !/(?:대로|로|길)\s*\d+(?:-\d+)?(?:\s|$)/.test(address)) return null;
+  const name = seniorNormalizedText(place && place.place_name).replace(/\([^)]*\)/g, '');
+  const match = name.match(/^(.+(?:아파트|주공|단지))(?:제?\d+(?:동|통)?)?(?:경로당|노인정|마을회관|무더위쉼터|관리사무소|관리실|경비실)(?:.*)$/);
+  if(!match) return null;
+  return JSON.stringify([address, match[1]]);
+}
+
+function selectSeniorSearchResults(results, includeAuxiliary=false){
+  const identities = new Set();
+  const unique = [];
+  for(const place of results || []){
+    if(!place) continue;
+    const identity = seniorPlaceIdentity(place);
+    if(identities.has(identity)) continue;
+    identities.add(identity);
+    unique.push(place);
+  }
+  const direct = unique.filter(p => seniorFacilityKind(p) === 'direct');
+  const directKeys = new Set(direct.map(seniorComplexAddressKey).filter(Boolean));
+  const auxiliary = [];
+  const auxiliaryGroups = new Map();
+  let suppressedAuxiliaryCount = 0;
+  const auxiliaryPriority = p => /관리사무소/.test(p.place_name) ? 0 : /관리실/.test(p.place_name) ? 1 : 2;
+  if(includeAuxiliary){
+    for(const place of unique.filter(p => seniorFacilityKind(p) === 'auxiliary')){
+      const key = seniorComplexAddressKey(place);
+      if(key && directKeys.has(key)){ suppressedAuxiliaryCount++; continue; }
+      if(!key){ auxiliary.push(place); continue; }
+      const current = auxiliaryGroups.get(key);
+      if(!current) auxiliaryGroups.set(key, place);
+      else{
+        suppressedAuxiliaryCount++;
+        if(auxiliaryPriority(place) < auxiliaryPriority(current)) auxiliaryGroups.set(key, place);
+      }
+    }
+    auxiliary.push(...auxiliaryGroups.values());
+  }
+  const mark = (p, kind) => ({...p, seniorKind:kind, seniorLabel:kind === 'direct' ? '경로당·노인정·회관·쉼터 검색 결과' : '관리·경비 문의처 · 노인시설 여부 미확인'});
+  return {
+    places:[...direct.map(p => mark(p, 'direct')), ...auxiliary.map(p => mark(p, 'auxiliary'))],
+    directCount:direct.length,
+    auxiliaryCount:auxiliary.length,
+    excludedCount:unique.filter(p => seniorFacilityKind(p) === 'unclassified').length,
+    suppressedAuxiliaryCount
+  };
+}
+
+async function keywordSearchAllEnhanced(keyword, bounds, options={}){
+  return new Promise(resolve => {
+    const collected = [];
+    let settled = false;
+    let totalCount = null;
+    let timer;
+    const timeoutMs = options && Number.isFinite(options.timeoutMs) ? Math.max(1, options.timeoutMs) : 15000;
+    const finish = status => {
+      if(settled) return;
+      settled = true;
+      clearTimeout(timer);
+      const truncated = totalCount != null && totalCount > collected.length;
+      Object.defineProperty(collected, 'searchFailed', {value:!['OK', 'ZERO_RESULT'].includes(status), enumerable:false});
+      Object.defineProperty(collected, 'truncated', {value:truncated, enumerable:false});
+      Object.defineProperty(collected, 'searchMeta', {value:{
+        keyword, status, totalCount, receivedCount:collected.length,
+        incomplete:!['OK', 'ZERO_RESULT'].includes(status) || truncated,
+        truncated
+      }, enumerable:false});
+      resolve(collected);
+    };
+    timer = setTimeout(() => finish(collected.length ? 'PARTIAL_TIMEOUT' : 'TIMEOUT'), timeoutMs);
+    try{
+      places.keywordSearch(keyword, (data, status, pagination) => {
+        if(settled) return;
+        if(status === kakao.maps.services.Status.OK){
+          if(!Array.isArray(data)){ finish(collected.length ? 'PARTIAL_ERROR' : 'ERROR'); return; }
+          collected.push(...data);
+          if(pagination && pagination.totalCount != null && Number.isFinite(Number(pagination.totalCount))) totalCount = Number(pagination.totalCount);
+          if(pagination && pagination.hasNextPage){
+            try { pagination.nextPage(); }
+            catch(e){ finish('PARTIAL_ERROR'); }
+          }else finish('OK');
+        }else if(status === kakao.maps.services.Status.ZERO_RESULT){
+          finish(collected.length ? 'PARTIAL_ERROR' : 'ZERO_RESULT');
+        }else finish(collected.length ? 'PARTIAL_ERROR' : 'ERROR');
+      }, {bounds, useMapBounds:false});
+    }catch(e){ finish(collected.length ? 'PARTIAL_ERROR' : 'ERROR'); }
   });
 }
 
@@ -2462,28 +2589,14 @@ function dedupPlacesByDistance(list, meters=50){
   return kept;
 }
 
-function extractComplexName(name){
-  const m = name.match(/(.+?(아파트|주공|단지))/);
-  return m ? m[1] : null;
-}
-
-function pickSeniorRepresentative(list){
-  const senior = list.find(p => /경로당/.test(p.place_name));
-  if (senior) return senior;
-
-  const mgmt = list.find(p => /관리사무소|관리실/.test(p.place_name));
-  if (mgmt) return mgmt;
-
-  const guard = list.find(p => /경비실/.test(p.place_name));
-  if (guard) return guard;
-
-  return list[0];
-}
-
-
+let facilitySearchRequestToken=0;
 
 $('btnSearch').onclick = async () => {
   const actives = document.querySelectorAll('.search-btn.active'); if(!actives.length) return toast("대상 선택");
+  const requestToken=++facilitySearchRequestToken;lastRoute=[];$('tblRoute').innerHTML='';
+  const includeAuxiliary=!!$('seniorAuxSearch')?.checked;
+  $('btnSearch').disabled=true;
+  try{
   Object.values(targetMarkers).forEach(arr => arr.forEach(m => m.setMap(null)));
   try{ Object.values(targetOverlays).forEach(a=>a.forEach(o=>o && o.setMap && o.setMap(null))); }catch(e){}
   targetMarkers = { senior:[], welfare:[], ortho:[], banner:[], recommend:[] };
@@ -2507,46 +2620,51 @@ const __waitMapIdle = (timeout=700) => new Promise((resolve) => {
   }, timeout);
 });
 await __waitMapIdle();
+  if(requestToken!==facilitySearchRequestToken)return;
   const bounds = map.getBounds(); $('searchStatus').innerText = "스캔 중..."; 
+  const searchIssues=[],searchNotes=[];
   for(const btn of actives){
     const t = btn.dataset.target;
     let k = [], imageSrc;
     if(t === 'banner') { imageSrc = SVG_MARKERS.banner; }
-    else if(t === 'senior') { k = ['경로당','마을회관','무더위쉼터','관리사무소','관리실','경비실']; imageSrc = SVG_MARKERS.senior; }
+    else if(t === 'senior') { k = [...SENIOR_DIRECT_KEYWORDS,...(includeAuxiliary?SENIOR_AUXILIARY_KEYWORDS:[])]; imageSrc = SVG_MARKERS.senior; }
     else if (t === 'welfare') { k = ['노인복지','주간보호']; imageSrc = SVG_MARKERS.welfare; }
     else if (t === 'ortho') { k = ['정형외과','통증의학과','재활의학과','신경외과']; imageSrc = SVG_MARKERS.ortho; }
     const imageSize = new kakao.maps.Size(30, 30); const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
     // banner는 CSV 데이터 로드로 처리
     if(t === 'banner'){
-      await drawBannerLayerForBounds(bounds);
+      await drawBannerLayerForBounds(bounds,()=>requestToken===facilitySearchRequestToken);
+      if(requestToken!==facilitySearchRequestToken)return;
       startBannerAuto();
       continue;
     }
 
-    let rawResults = []; for(const kw of k){ const data = await keywordSearchAllEnhanced(kw, bounds); rawResults.push(...data); }
+    let rawResults = []; for(const kw of k){
+      const data=await keywordSearchAllEnhanced(kw,bounds);
+      if(requestToken!==facilitySearchRequestToken)return;
+      rawResults.push(...data);
+      if(data.searchFailed)searchIssues.push(kw+' 조회 실패/시간 초과');
+      else if(data.truncated||data.length>=45)searchIssues.push(kw+' 검색 한도 도달 가능');
+    }
     let unique = rawResults.filter((v,i,a)=>a.findIndex(t=>t.id===v.id)===i);
 
 if(t === 'senior') {
-  const grouped = {};
-  unique.forEach(p => {
-    const key = extractComplexName(p.place_name) || p.id;
-    grouped[key] ??= [];
-    grouped[key].push(p);
-  });
-
-  unique = Object.values(grouped).map(list => pickSeniorRepresentative(list));
+  const selected=selectSeniorSearchResults(rawResults,includeAuxiliary);unique=selected.places;
+  searchNotes.push('경로당·쉼터 '+selected.directCount+'곳'+(includeAuxiliary?' / 보조 문의처 '+selected.auxiliaryCount+'곳':''));
+  if(selected.excludedCount)searchNotes.push('분류 불명확 '+selected.excludedCount+'건 제외');
 }
 
-
-
     unique.forEach(p => {
-       const latlng = new kakao.maps.LatLng(p.y, p.x); const marker = new kakao.maps.Marker({ position: latlng, image: markerImage, map: map, zIndex: 200000 }); const label = new kakao.maps.CustomOverlay({ position: latlng, content: `<div style="background:white;border:1px solid #aaa;font-size:11px;padding:2px;transform:translateY(-30px);">${p.place_name}</div>`, map: map, zIndex: 200001 }); targetMarkers[t].push(marker); targetOverlays[t].push(label); searchedData.push({ name: p.place_name, addr: p.address_name, phone: p.phone, type: t, lat: p.y, lng: p.x, latlng: latlng, id: p.id });
+       const latlng = new kakao.maps.LatLng(p.y, p.x); const marker = new kakao.maps.Marker({ position: latlng, image: p.seniorKind==='auxiliary'?new kakao.maps.MarkerImage("data:image/svg+xml;charset=utf-8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"><circle cx="15" cy="15" r="13" fill="#475569" stroke="white" stroke-width="2"/><text x="15" y="21" text-anchor="middle" fill="white" font-size="20">?</text></svg>'),imageSize):markerImage, map: map, zIndex: 200000 }); const label = new kakao.maps.CustomOverlay({ position: latlng, content: `<div style="background:white;border:1px solid #aaa;font-size:11px;padding:2px;transform:translateY(-30px);">${p.seniorKind==='auxiliary'?'[보조 문의처] ':''}${scanEscapeHTML(p.place_name)}</div>`, map: map, zIndex: 200001 }); targetMarkers[t].push(marker); targetOverlays[t].push(label); searchedData.push({ name: p.place_name, addr: p.address_name, phone: p.phone, type: t, seniorKind:p.seniorKind, seniorLabel:p.seniorLabel, lat: p.y, lng: p.x, latlng: latlng, id: p.id });
     });
   }
-  $('searchStatus').innerText = "완료"; toast("스캔 완료");
+  $('searchStatus').innerText=[searchedData.length?'공개 API 검색 결과 '+searchedData.length+'곳':'공개 API 검색 결과 없음',...searchNotes,...searchIssues].join(' · ');
+  toast(searchIssues.length?'일부 검색 결과를 확인하세요':'시설 검색 완료');
+  }catch(error){if(requestToken===facilitySearchRequestToken)$('searchStatus').innerText='시설 검색 오류 · 다시 시도하세요';}
+  finally{if(requestToken===facilitySearchRequestToken)$('btnSearch').disabled=false;}
 };
 
-$('btnResetSearch').onclick = () => { searchBtns.forEach(b=>b.classList.remove('active')); Object.values(targetMarkers).forEach(a=>a.forEach(m=>m.setMap(null)));
+$('btnResetSearch').onclick = () => { facilitySearchRequestToken++;$('btnSearch').disabled=false;lastRoute=[];$('tblRoute').innerHTML=''; searchBtns.forEach(b=>b.classList.remove('active')); Object.values(targetMarkers).forEach(a=>a.forEach(m=>m.setMap(null)));
   try{ Object.values(targetOverlays).forEach(a=>a.forEach(o=>o && o.setMap && o.setMap(null))); }catch(e){}
   targetMarkers = { senior:[], welfare:[], ortho:[], banner:[], recommend:[] };
 targetOverlays = { senior:[], welfare:[], ortho:[], banner:[], recommend:[] };
@@ -2635,7 +2753,7 @@ $('btnRouteOpt').onclick = () => {
 
   $('tblRoute').innerHTML = route.map(r => {
     const ord = `D${r.day}-${r.orderInDay}`;
-    return `<tr><td>${ord}</td><td>${r.name}</td><td>${r.addr}</td><td>${r.distFromPrev}m</td></tr>`;
+    return `<tr><td>${ord}</td><td>${r.seniorKind==='auxiliary'?'[보조 문의처] ':''}${scanEscapeHTML(r.name)}</td><td>${scanEscapeHTML(r.addr)}</td><td>${r.distFromPrev}m</td></tr>`;
   }).join("");
   $('routeModal').style.display = 'flex';
 };
@@ -2656,7 +2774,7 @@ $('btnExportExcel').onclick = () => {
           distM = Math.round(line.getLength());
         }catch(e){}
       }
-      const typeLabel = (p.type === 'senior') ? '경로당' : (p.type === 'welfare') ? '복지관' : (p.type === 'ortho') ? '경쟁병원' : (p.type === 'banner') ? '현수막게시대' : (p.type || '');
+      const typeLabel = (p.type === 'senior') ? (p.seniorLabel||'경로당·쉼터 검색 결과') : (p.type === 'welfare') ? '복지관' : (p.type === 'ortho') ? '경쟁병원' : (p.type === 'banner') ? '현수막게시대' : (p.type || '');
       return {
         '번호': i + 1,
         '구분': typeLabel,
@@ -2696,7 +2814,7 @@ $('btnExportRoute').onclick = () => {
         rows.push({ 'DAY': `DAY ${currentDay}`, '순서': 0, '구분': '출발', '시설명': hospName, '주소': '', '이동거리(m)': 0, '누적거리(m)': cum, '위도': '', '경도': '' });
       }
       cum += (r.distFromPrev || 0);
-      const typeLabel = (r.type === 'senior') ? '경로당' : (r.type === 'welfare') ? '복지관' : (r.type === 'ortho') ? '경쟁병원' : (r.type === 'banner') ? '현수막게시대' : (r.type || '');
+      const typeLabel = (r.type === 'senior') ? (r.seniorLabel||'경로당·쉼터 검색 결과') : (r.type === 'welfare') ? '복지관' : (r.type === 'ortho') ? '경쟁병원' : (r.type === 'banner') ? '현수막게시대' : (r.type || '');
       rows.push({
         'DAY': `DAY ${r.day}`,
         '순서': r.orderInDay,
@@ -4299,7 +4417,7 @@ window.switchTab = (id) => {
 };
 
 
-/* ===========================   [상권 스캔 v3.7.3]   =========================== */
+/* ===========================   [상권 스캔 v3.7.4]   =========================== */
 function setScanReady(ready){
   scanState.ready = !!ready;
   const btn = $('btnRunScan');
@@ -4378,7 +4496,7 @@ function scanIsSeoulCandidate(candidate){
 }
 
 async function scanSeoulRequest(service,key,start,end,tail=''){
-  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.3]');
+  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.4]');
   const text=await scanNetworkRequest('https://jinsul-seoul-proxy.yms0127.workers.dev/seoul',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service,key,start,end,tail:decodeURIComponent(tail)}),cache:'no-store'},22000);
   let payload;try{payload=JSON.parse(text);}catch{throw new Error('서울 API JSON 응답 형식 오류');}
   if(payload?.error)throw new Error('서울 중계 요청 처리 실패');return payload;
@@ -5245,16 +5363,41 @@ function scanHiraInfoHTML(place,data=null,error=false){
   return `<div style="width:260px;padding:11px 12px;font-size:12px;line-height:1.5;color:#1f2937;"><div style="font-size:10px;font-weight:800;color:#0f766e;margin-bottom:3px;">심평원 신고자료 의원</div><b style="font-size:13px;">${scanEscapeHTML(place.name)}</b><div style="margin-top:4px;color:#64748b;">${scanEscapeHTML(place.address||'주소 정보 없음')}</div><div style="margin-top:4px;"><b>${scanFormatDistance(place.distance)}</b> · 의사 ${place.doctorCount===null?'자료 없음':place.doctorCount.toLocaleString()+'명'} · ${scanEscapeHTML(scanFormatHiraDate(place.establishedDate))}</div>${!data&&!error?'<div style="margin-top:7px;color:#0f766e;font-weight:700;">상세 정보를 불러오는 중…</div>':''}${data?`<div style="margin-top:7px;padding-top:7px;border-top:1px solid #ccfbf1;"><b>진료과</b> ${scanEscapeHTML(departments.join(', ')||place.specialties.join(', '))}<br><b>전문의</b> ${specialistTotal===null?'자료 없음':specialistTotal.toLocaleString()+'명'}<br><b>주차</b> ${scanEscapeHTML(d.parkQty?`${d.parkQty}대 · ${d.parkEtc||'상세 없음'}`:(d.parkEtc||'정보 없음'))}${hours?`<br><b>진료시간</b> ${scanEscapeHTML(hours)}`:''}${data.partial?'<br><span style="color:#b45309;">일부 상세 조회 실패</span>':''}</div>`:''}${error?'<div style="margin-top:7px;color:#b91c1c;">상세 정보를 불러오지 못했습니다.</div>':''}<a href="${scanEscapeHTML(scanKakaoMapUrl(place))}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:7px;color:#2563eb;font-weight:800;">카카오맵에서 보기 ↗</a></div>`;
 }
 
-async function scanOpenHiraInfo(place,marker=null){
+
+function scanShowPlacePanel(place,type,content){
   if(scanState.infoWindow){try{scanState.infoWindow.close();}catch(e){}}
+  document.querySelector('.scanPlacePanel')?.remove();
+  const panel=document.createElement('section');panel.className='scanPlacePanel';panel.setAttribute('role','dialog');panel.setAttribute('aria-label',place.name+' 상세 정보');
+  const conf=SCAN_LAYER_CONFIG[type];
+  panel.innerHTML='<header class="scanPlaceHeader"><span data-scan-icon="'+type+'" style="width:36px;height:36px;flex:0 0 36px">'+scanMarkerSVG(type)+'</span><div><small style="color:'+conf.color+'">'+scanEscapeHTML(conf.label)+'</small><strong>'+scanEscapeHTML(place.name)+'</strong></div><button class="scanPlaceClose" aria-label="상세 정보 닫기" title="닫기">×</button></header><div class="scanPlaceBody"></div>';
+  const body=panel.querySelector('.scanPlaceBody');body.innerHTML=content;
+  const close=()=>{panel.remove();scanState.hiraDetailRequestToken++;};
+  panel.querySelector('button').onclick=close;panel.onkeydown=e=>{if(e.key==='Escape'){e.stopPropagation();close();}};
+  document.querySelector('.mapArea').appendChild(panel);
+  const adapter={close,setContent(html){if(panel.isConnected)body.innerHTML=html;},open(){}};
+  scanState.infoWindow=adapter;panel.querySelector('button').focus({preventScroll:true});return adapter;
+}
+function scanInitMarkerLegend(){
+  document.querySelectorAll('.scanLayerFilter').forEach(input=>{const swatch=input.parentElement.querySelector('.scanSwatch');if(swatch)swatch.dataset.scanIcon=input.value;});
+  document.querySelectorAll('[data-scan-icon]').forEach(node=>{const type=node.dataset.scanIcon;if(SCAN_LAYER_CONFIG[type])node.innerHTML=scanMarkerSVG(type);});
+}
+
+function scanClinicPanelHTML(place,data){
+  const html=scanClinicEnrichedHTML(place,data);
+  if(data.hours?.length&&data.hours.every(r=>r.value==='미제공 · 휴진 여부 미확인')){
+    return html.replace(/<table>[\s\S]*?<\/table>/,table=>'<div class="scanHoursUnavailable"><b>진료시간 공개자료 없음</b><p>휴진을 뜻하지 않습니다. 병원 또는 지도 원문에서 확인하세요.</p><details><summary>요일별 조회 결과 보기</summary>'+table+'</details></div>');
+  }
+  return html;
+}
+
+async function scanOpenHiraInfo(place,marker=null){
+  const panel=scanShowPlacePanel(place,'hira',scanHiraInfoHTML(place));
   const token=++scanState.hiraDetailRequestToken;
-  scanState.infoWindow=new kakao.maps.InfoWindow({content:scanHiraInfoHTML(place),removable:true,position:new kakao.maps.LatLng(place.lat,place.lng)});
-  if(marker) scanState.infoWindow.open(map,marker); else scanState.infoWindow.open(map);
   try{
     const data=await scanFetchClinicEnriched(place);
     if(token!==scanState.hiraDetailRequestToken)return;
-    if(typeof scanState.infoWindow.setContent==='function') scanState.infoWindow.setContent('<div style="width:360px;max-height:480px;overflow:auto;padding:12px;background:white;color:#172b49;font-size:12px">'+scanClinicEnrichedHTML(place,data)+'</div>');
-  }catch(error){ if(token===scanState.hiraDetailRequestToken&&typeof scanState.infoWindow.setContent==='function') scanState.infoWindow.setContent(scanHiraInfoHTML(place,null,true)); }
+    panel.setContent(scanClinicPanelHTML(place,data));
+  }catch(error){if(token===scanState.hiraDetailRequestToken)panel.setContent(scanHiraInfoHTML(place,null,true));}
 }
 
 function scanWgs84ToWtm(lat,lng){
@@ -5683,9 +5826,7 @@ function scanOpenPlaceInfo(place,type,marker=null){
   const title = type === 'candidate' ? '후보지' : SCAN_LAYER_CONFIG[type].label;
   const url = scanKakaoMapUrl(place);
   const content = `<div style="width:230px;padding:11px 12px;font-size:12px;line-height:1.5;color:#1f2937;"><div style="font-size:10px;font-weight:800;color:${SCAN_LAYER_CONFIG[type].color};margin-bottom:3px;">${scanEscapeHTML(title)}</div><b style="font-size:13px;">${scanEscapeHTML(place.name)}</b><div style="margin-top:4px;color:#64748b;">${scanEscapeHTML(place.address || '주소 정보 없음')}</div>${type==='candidate'?'':`<div style="margin-top:4px;"><b>${scanFormatDistance(place.distance)}</b> · 직선거리</div>`}<a href="${scanEscapeHTML(url)}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:7px;color:#2563eb;font-weight:800;">카카오맵에서 보기 ↗</a></div>`;
-  scanState.infoWindow = new kakao.maps.InfoWindow({ content, removable:true, position:new kakao.maps.LatLng(place.lat,place.lng) });
-  if(marker) scanState.infoWindow.open(map,marker);
-  else scanState.infoWindow.open(map);
+  scanShowPlacePanel(place,type,content);
 }
 
 function scanAddMarker(place,type){
@@ -5705,8 +5846,8 @@ function scanDrawCandidate(candidate,radius){
   const position = new kakao.maps.LatLng(candidate.lat,candidate.lng);
   scanState.circle = new kakao.maps.Circle({
     center:position,radius,
-    strokeWeight:2,strokeColor:'#4f46e5',strokeOpacity:.9,strokeStyle:'solid',
-    fillColor:'#6366f1',fillOpacity:.12,
+    strokeWeight:2,strokeColor:SCAN_LAYER_CONFIG.candidate.color,strokeOpacity:.9,strokeStyle:'solid',
+    fillColor:SCAN_LAYER_CONFIG.candidate.color,fillOpacity:.07,
     map:scanState.layerVisible.candidate ? map : null,
     zIndex:100
   });
@@ -6000,7 +6141,7 @@ async function scanSiteDetail(index){
   try{const data=await scanFetchHiraDetails(p.ykiho);if(token!==scanSite.detailToken||draft!==scanSite.active)return;const d=data.detail||{},e=scanSiteEscape;const hours=[['월',d.trmtMonStart,d.trmtMonEnd],['화',d.trmtTueStart,d.trmtTueEnd],['수',d.trmtWedStart,d.trmtWedEnd],['목',d.trmtThuStart,d.trmtThuEnd],['금',d.trmtFriStart,d.trmtFriEnd],['토',d.trmtSatStart,d.trmtSatEnd]].map(([day,a,b])=>day+' '+(a||'미제공')+'~'+(b||'미제공')).join(' · ');node.innerHTML='<h4>'+e(p.name)+'</h4><p>'+e(hours)+'</p><p>주차 '+e(d.parkQty??'미제공')+' · '+e(d.parkEtc||'세부 안내 없음')+'</p><p>신고 진료과: '+e(data.departments.map(r=>r.dgsbjtCdNm).filter(Boolean).join(', ')||'미제공')+'</p><p>'+e(data.partial?'일부 상세 API 조회 실패 · 표시되지 않은 항목은 확인 필요':'심평원 상세 수신 · 실제 운영시간은 방문 전 확인')+'</p>';}catch(err){if(token===scanSite.detailToken&&draft===scanSite.active)node.textContent=p.name+' · '+scanApiErrorMessage(err);}
 }
 function scanSiteDownload(content,type,ext){const blob=new Blob([content],{type:type+';charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(scanSite.active.fields.title||'입지자료').replace(/[\\/:*?"<>|]/g,'_')+'.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}
-function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.3 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
+function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.4 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
 function scanSitePrint(){try{const doc=scanSiteDocument(scanSiteValidDraft(scanSite.active));$('sitePrintFrame')?.remove();const frame=document.createElement('iframe');frame.id='sitePrintFrame';frame.title='입지자료 인쇄';frame.style.cssText='position:fixed;left:-10000px;width:794px;height:1123px;border:0';frame.onload=()=>{Promise.all([frame.contentDocument.fonts.ready,...Array.from(frame.contentDocument.images,img=>img.decode().catch(()=>{}))]).then(()=>{frame.contentWindow.focus();frame.contentWindow.print();});};frame.srcdoc=doc;document.body.appendChild(frame);scanSiteStatus('인쇄 대화상자를 요청했습니다. 앱에서 지원하지 않으면 HTML 저장 후 Edge·Chrome에서 인쇄하세요.');}catch(e){scanSiteStatus(e.message);}}
 async function scanSiteExplore(){
   const d=scanSite.active,query=d.snapshot.candidate.searchQuery,node=$('siteExploreResults');if(!query||!node)return;node.textContent='지역 의료기관 검색 중…';
@@ -6772,7 +6913,7 @@ function initMarketScan(){
   scanRenderComparisons();
 }
 
-setTimeout(initMarketScan,0);
+setTimeout(()=>{initMarketScan();scanInitMarkerLegend();},0);
 
 
 function mapUXInstall(){

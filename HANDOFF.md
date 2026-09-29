@@ -1,3 +1,16 @@
+# 현재 기준 · JINSUL MAP 3.7.4
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+상세: jinsulmap/MAP_SEARCH_REVIEW_v3.7.4.md
+
+- 시설 마커 6색·그림 범례, 지도 안 병원 상세 패널·스크롤·겹침 수정.
+- 경로당·노인정·쉼터 기본 검색, 관리·경비실 선택 보조 검색 및 정확한 내보내기 분류.
+- 74개 검색 통합 검사와 반응형 패널·기존 통계 회귀 통과. 정왕대로74 주변 실제 SDK 조회 확인.
+- 경비실 대체는 API 정책상 의무가 아님. 전국 전수 시설/API/PDF 검증은 미수행.
+
+아래는 과거 기록입니다.
+
 # 현재 기준 · JINSUL MAP 3.7.3
 
 기준 파일: jinsulmap/jinsulmap.html
