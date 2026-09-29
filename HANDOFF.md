@@ -1,3 +1,11 @@
+# 현재 기준 · JINSUL MAP 3.7.2
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+상세: jinsulmap/CHART_REVIEW_v3.7.2.md
+
+아래는 과거 기록입니다.
+
 # 현재 기준 · JINSUL MAP 3.7.1
 
 기준 파일: jinsulmap/jinsulmap.html

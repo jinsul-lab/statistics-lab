@@ -7,7 +7,12 @@ const scripts=['work/chart-test.umd.js','work/chart-test-labels.js'].map(p=>'<sc
 const decl=h.match(/let chartObj1[^;]+;/)[0];
 const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
 const page=await browser.newPage({ignoreHTTPSErrors:true,viewport:{width:1280,height:900}});const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+// Font transport is checked separately; keep analytical rendering deterministic offline.
+await page.route('**/Paperlogy-*.woff2',route=>{const name=route.request().url().match(/Paperlogy-(.+)\.woff2/)[1];const file={'4Regular':'regular','6SemiBold':'semibold','8ExtraBold':'extrabold'}[name];return route.fulfill({path:'work/paperlogy-'+file+'.woff2',contentType:'font/woff2',headers:{'Access-Control-Allow-Origin':'*'}})});
 await page.setContent('<html><head>'+scripts+[...h.matchAll(/<style[^>]*>[\s\S]*?<\/style>/g)].map(m=>m[0]).join('')+'</head><body><button id="btnStats">Stats</button><button id="btnClear"></button>'+body+'</body></html>',{waitUntil:'load'});
+await page.addScriptTag({content:h.match(/<script id="chartTypography372">([\s\S]*?)<\/script>/)[1]});
+await page.evaluate(()=>document.fonts.ready);
+if(!await page.evaluate(()=>document.fonts.check('400 14px Paperlogy')&&Chart.defaults.font.family.includes('Paperlogy')))throw Error('Paperlogy not loaded');
 await page.addScriptTag({content:`const $=id=>document.getElementById(id);${decl} const REP_COLOR={"신환 (1회만)":"#ff0000","신환 ▶ 재진 전환":"#00c853","90일초":"#ffd400","재진":"#228be6"};let patients=[],myHospitalMarker=null;const drawingManager={getData:()=>({circle:[]})},toggleState={new_only:true,new_conv:true,bit_90:true,old:true},scanState={};const toast=()=>{};`+stats+'\n'+h.slice(h.indexOf('function patientTypeLabel('),h.indexOf('function patientNewFlag('))+'\n'+h.slice(h.indexOf('function patientStatsEscape('),h.lastIndexOf('</script>'))});
 await page.evaluate(()=>{if(typeof Chart==='undefined'){window.Chart=class{constructor(el,c){this.data=c.data;this.options=c.options;this.destroy=()=>{};this.resize=()=>{}}};window.ChartDataLabels={};}patients=Array.from({length:80},(_,i)=>({type:['신환 (1회만)','신환 ▶ 재진 전환','90일초','재진'][i%4],total:i%5+1,age:20+i%60,dong:'검증동'+i%8}));$('btnStats').click()});
 // Final app functions already loaded.
