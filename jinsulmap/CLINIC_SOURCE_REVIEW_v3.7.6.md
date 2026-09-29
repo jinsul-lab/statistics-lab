@@ -29,3 +29,4 @@
 
 - 단일 기준 파일 `jinsulmap/jinsulmap.html`, 화면 버전 3.7.6.
 - GitHub Pages 고정 URL 사용. Worker 코드·Secret 변경 없음.
+- GitHub 커밋 `220427a5b2ca602a6e0873ac57375febf12e1630`, Pages 작업 `36585851735` 성공. 공개 HTML HTTP 200·버전 3.7.6 확인. 실제 브라우저의 상권 스캔 필터·출처 안내 확인.
