@@ -122,4 +122,6 @@ isnrSbdCnt, anvirTrrmSbdCnt, dtrmSbdCnt
 
 - 기준 앱: `jinsulmap/jinsulmap.html`, 버전 `3.7.7`.
 - 고정 주소: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
-- GitHub 업로드 및 Pages 배포 최종 확인 진행 중. Worker 코드·Secret 변경 없음.
+- 로컬 앱 커밋 `6c2f556`, GitHub 앱 커밋 `e243af58eae74aa1c6bf57028bad0c7cdd674271` 업로드 및 Pages 배포 성공.
+- 운영 브라우저에서 `v3.7.7`, 지도 초기화, 경쟁병원/심평원 신고의원 필터와 판정 기준 표시를 확인했다. 실제 500m 조회는 위 로컬 HTTP 환경에서 수행했고, 배포 후 같은 전체 스캔을 중복 수행하지 않았다.
+- Worker 코드·Secret 변경 없음. 로컬과 원격의 이력은 서로 다르므로 강제 push하지 않는다.
