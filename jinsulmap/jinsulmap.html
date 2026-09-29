@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>JINSUL MAP v3.7.4</title>
+<title>JINSUL MAP v3.7.5</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=587d3b22c3896f92f134d03253e685bd&amp;libraries=services,drawing,clusterer&amp;autoload=false"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -612,7 +612,7 @@
     @media (max-width: 820px){ .rightDrawer{width:92vw;} }
 
     /* ===========================
-       상권 스캔 v3.7.4
+       상권 스캔 v3.7.5
        =========================== */
     .sidebarTabs{
       display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:8px 10px;
@@ -772,7 +772,7 @@
       .scanReportHero{grid-template-columns:1fr;}.scanReportKpis{grid-template-columns:1fr 1fr;}.scanReportGrid{grid-template-columns:1fr;}.scanReportCard.wide{grid-column:auto;}
     }
 
-/* v3.7.4 · chart-focused theme; preserves map, filters and clinical marker colors */
+/* v3.7.5 · chart-focused theme; preserves map, filters and clinical marker colors */
 .scanReportModal .scanReportCard,.scanReportCard{border:1px solid #dce5f3;border-radius:20px;background:linear-gradient(150deg,#fff 65%,#f3f7ff);box-shadow:0 8px 28px #243a6610;overflow:hidden}
 .scanReportCard h3{font-size:15px;letter-spacing:-.3px;color:#193355;display:flex;align-items:center;gap:9px}
 .scanReportCard h3:before{content:'';width:5px;height:18px;border-radius:9px;background:linear-gradient(#6366f1,#22d3ee)}
@@ -791,7 +791,7 @@
 .scanReportCard .scanVisualGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scanReportCard .scanVisualGrid .scanVisual{margin:0;min-width:0}
 @media(max-width:800px){.scanReportCard .scanVisualGrid{grid-template-columns:1fr}}
 
-/* v3.7.4: explicit foregrounds prevent inherited transparent text. */
+/* v3.7.5: explicit foregrounds prevent inherited transparent text. */
 :root{color-scheme:light}
 .sectionTitle{background:none;-webkit-background-clip:initial;-webkit-text-fill-color:currentColor;color:#243b68}
 .sectionTitle .pill{background:#1d4ed8;color:#fff;-webkit-text-fill-color:#fff}
@@ -854,7 +854,9 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 #scanSiteBody *{box-sizing:border-box}.siteSheet table{font-size:13px}.siteExploreRow{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid #c7d8f0}.siteExploreRow p{font-size:13px;margin:4px 0}.siteExploreRow button{width:auto;white-space:nowrap}.siteActions{margin-top:18px}
 
 .siteDetailButtons{align-items:flex-start}#siteHiraDetail{flex-basis:100%;width:100%;min-width:0}#siteHiraDetail .siteClinicBox{margin-top:12px;width:100%;color:#172b49;background:#f0f7ff}#siteHiraDetail table{width:100%;border-collapse:collapse}#siteHiraDetail th,#siteHiraDetail td{padding:9px;text-align:left;border-bottom:1px solid #cbd5e1}
-.v-tool-btn{width:52px;min-height:52px;gap:4px}.v-tool-btn svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.v-tool-btn .lbl{font-size:11px;color:inherit}.v-tool-btn.active{background:#e5f1ff;color:#075bb5;box-shadow:inset 3px 0 #1674df}.v-tool-btn:focus-visible, #mapToolStatus button:focus-visible{outline:3px solid #2563eb;outline-offset:2px}#btnRoadview,#btnClearTools{border-top:2px solid #d6dfeb}#mapToolStatus{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:12;background:#fff;color:#243447;border:1px solid #cad4e0;box-shadow:0 3px 16px #10294422;border-radius:12px;padding:10px;max-width:calc(100% - 40px);font-size:12px}#mapToolStatus button,#mapToolStatus select{padding:7px 10px;border:1px solid #cbd5e1;border-radius:6px;background:white;color:#243447;margin:3px}#mapToolStatus summary{cursor:pointer;padding:5px}.vertical-toolbar{max-height:calc(100vh - 145px);overflow-y:auto}button:disabled{opacity:.55;cursor:wait}.vertical-toolbar{width:64px;overflow-x:hidden;scrollbar-width:thin}.v-tool-btn{width:100%;flex-shrink:0;padding:4px 0}.v-tool-btn .lbl{white-space:nowrap}#mapToolStatus{width:360px}</style>
+.v-tool-btn{width:52px;min-height:52px;gap:4px}.v-tool-btn svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.v-tool-btn .lbl{font-size:11px;color:inherit}.v-tool-btn.active{background:#e5f1ff;color:#075bb5;box-shadow:inset 3px 0 #1674df}.v-tool-btn:focus-visible, #mapToolStatus button:focus-visible{outline:3px solid #2563eb;outline-offset:2px}#btnRoadview,#btnClearTools{border-top:2px solid #d6dfeb}#mapToolStatus{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:12;background:#fff;color:#243447;border:1px solid #cad4e0;box-shadow:0 3px 16px #10294422;border-radius:12px;padding:10px;max-width:calc(100% - 40px);font-size:12px}#mapToolStatus button,#mapToolStatus select{padding:7px 10px;border:1px solid #cbd5e1;border-radius:6px;background:white;color:#243447;margin:3px}#mapToolStatus summary{cursor:pointer;padding:5px}.vertical-toolbar{max-height:calc(100vh - 145px);overflow-y:auto}button:disabled{opacity:.55;cursor:wait}.vertical-toolbar{width:64px;overflow-x:hidden;scrollbar-width:thin}.v-tool-btn{width:100%;flex-shrink:0;padding:4px 0}.v-tool-btn .lbl{white-space:nowrap}#mapToolStatus{width:360px}
+.facility-source-note{font-size:12px;line-height:1.6;color:#475569;margin:8px 0}.facility-source-list{max-height:320px;overflow:auto;overscroll-behavior:contain}.facility-source-card{padding:12px 0;border-top:1px solid #dce3eb;font-size:12px;line-height:1.7;overflow-wrap:anywhere}.facility-source-card strong{display:block;font-size:14px;color:#172b42}.facility-source-card small{color:#526475}.facility-web-links,.facility-source-card nav{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.facility-web-links a,.facility-source-card a{padding:6px 9px;border:1px solid #c6d6e8;border-radius:7px;color:#15549b;background:white;text-decoration:none}.facility-web-links a:focus-visible,.facility-source-card a:focus-visible{outline:3px solid #287acc}.facility-source-badge{display:inline-block;font-size:11px;padding:2px 7px;border-radius:5px;font-weight:700}.facility-source-badge.official{background:#e0efff;color:#174d85}.facility-source-badge.map{background:#fff2d5;color:#704600}.facility-source-badge.aux{background:#e9edf2;color:#435064}.facility-hours{margin-top:4px;color:#30465b}#facilitySourceResults{padding:10px;background:#f7fafc;border:1px solid #d6e2ee;border-radius:10px;margin:8px 0}#facilitySourceResults summary{cursor:pointer;color:#203d5a;font-size:13px;font-weight:600}
+</style>
 <style>#patientStatsStatus{padding:10px;background:#eaf2ff;color:#19365c;border-radius:8px}.patientKpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:12px 0 20px}.patientKpis>div{padding:16px;background:#f0f5ff;border:1px solid #cfdbef;border-radius:14px}.patientKpis b{display:block;font-size:25px;color:#17335a}.patientContribution{display:grid;grid-template-columns:150px 1fr 150px;align-items:center;gap:12px;margin:12px 0}.patientContribution>div{height:12px;background:#e2e8f0;border-radius:6px;overflow:hidden}.patientContribution i{display:block;height:100%}#patientStatsOverview{padding-bottom:22px}#patientScatterDetails{overflow:auto;max-height:320px;margin:12px 0}#patientScatterDetails p{padding:12px;background:#eef4ff;color:#233e68}#statsModal .tabPane{min-width:0}#statsModal canvas{background:#fff}@media(max-width:700px){.patientKpis{grid-template-columns:repeat(2,1fr)}.patientContribution{grid-template-columns:110px 1fr}.patientContribution b{grid-column:2;font-size:12px}#tabType>div{flex-wrap:wrap}}</style><style>.patientMixCard{padding:20px;margin:18px 0;background:#fff;border:1px solid #dae4f2;border-radius:16px}.patientMixCard h3{margin:0 0 10px;color:#16365b}.patientMixCard p,.patientMixNotice{color:#475569;line-height:1.65}.patientMixNotice{padding:12px;background:#edf4ff;border-radius:10px}.patientMixScroll{overflow:auto}.patientMixScroll table{min-width:580px}.patientHeat{min-width:780px!important}.patientHeat th:first-child{min-width:150px}.patientMixChart{height:340px;margin:20px 0}#patientMixMode{padding:9px;border:1px solid #9cabc0;border-radius:8px;background:white;color:#17335a}@media(max-width:700px){.patientMixCard{padding:12px}.patientMixChart{height:300px}}</style><style>.scoreDefinitions{margin:12px 0;padding:14px;background:#f0f5ff;border:1px solid #ccdaef;border-radius:10px;color:#17335a;line-height:1.7}.scoreDefinitions summary{cursor:pointer;font-weight:700}.scoreDefinitions dt{font-weight:800;margin-top:12px}.scoreDefinitions dd{margin:4px 0 10px}.scoreDefinitions p{font-size:13px}</style><style>.scanReportHero{grid-template-columns:minmax(0,1fr)}</style><style id="chartDesign372">
 /* Preserve the existing map and category colors; improve analytical reading. */
 #statsModal,#scanReportModal{font-variant-numeric:tabular-nums}
@@ -905,7 +907,7 @@ if(typeof Chart!=='undefined'){
 <div class="sidebar">
 <div class="sidebarHeader">
 <div class="brand">JINSUL MAP</div>
-<div style="font-size:11px;color:#868e96;">v3.7.4</div>
+<div style="font-size:11px;color:#868e96;">v3.7.5</div>
 </div>
 <div class="sidebarTabs" role="tablist" aria-label="분석 모드">
 <button class="sidebarModeBtn active" id="btnModePatients" type="button" role="tab" aria-selected="true" aria-controls="patientSidebarPanel">환자 분석</button>
@@ -983,7 +985,8 @@ if(typeof Chart!=='undefined'){
 <span>현수막게시대</span>
 </div>
 </div>
-<label class="seniorSearchOption"><input id="seniorAuxSearch" type="checkbox"/> 관리사무소·경비실 보조 검색<small>경로당·노인정·마을회관·무더위쉼터를 기본 조회합니다. 보조 결과는 실제 노인시설 여부를 확인할 문의처이며, 별도로 표시·저장합니다.</small></label><div class="siteFine" style="margin-top:8px">현재 지도 범위 · 키워드별 공개 API 결과 최대 45건. 미검색이 시설 부재를 뜻하지는 않습니다.</div><div id="searchStatus" style="font-size:11px;color:#868e96;text-align:center;margin:8px 0;">대기</div>
+<label class="seniorSearchOption"><input id="seniorAuxSearch" type="checkbox"/> 관리사무소·경비실 보조 검색<small>경로당·노인정·마을회관·무더위쉼터를 조회하고, 서울 지도 범위에서는 공식 지정 쉼터를 함께 불러옵니다. 보조 결과는 실제 노인시설 여부를 확인할 문의처이며, 별도로 표시·저장합니다.</small></label><div class="siteFine" style="margin-top:8px">현재 지도 범위 · 카카오 키워드별 최대 45건. 서울 공식자료는 별도 전체 페이지 조회 후 지도 범위로 필터합니다. 미검색이 시설 부재를 뜻하지는 않습니다.</div><div id="searchStatus" style="font-size:11px;color:#868e96;text-align:center;margin:8px 0;">대기</div>
+<div id="facilitySourceResults" hidden></div>
 <div class="btnRow">
 <button class="btn primary" id="btnSearch">시설 스캔</button>
 <button class="btn outline" id="btnResetSearch">초기화</button>
@@ -1154,7 +1157,7 @@ if(typeof Chart!=='undefined'){
 </div>
 </div>
 <div style="padding:10px;text-align:center;font-size:10px;color:#adb5bd;border-top:1px solid #eee;">
-      JINSUL MAP v3.7.4<br/>All Rights Reserved.
+      JINSUL MAP v3.7.5<br/>All Rights Reserved.
     </div>
 </div>
 <div class="mapArea">
@@ -1916,7 +1919,7 @@ function initKakao(){
     roadviewClient = new kakao.maps.RoadviewClient();
     setupMapListeners(); setupToolbar();
     setScanReady(true);
-    toast("시스템 준비 완료 (v3.7.4)");
+    toast("시스템 준비 완료 (v3.7.5)");
   });
 }
 initKakao();
@@ -2459,25 +2462,93 @@ async function loadBannerPoints(){
     }
   });
 
-// v3.7.4 facility-search helpers. Inlined into the single HTML at release time.
+// v3.7.5 facility-search helpers. Inlined into the single HTML at release time.
 const SENIOR_DIRECT_KEYWORDS = ['경로당', '노인정', '마을회관', '무더위쉼터'];
 const SENIOR_AUXILIARY_KEYWORDS = ['관리사무소', '관리실', '경비실'];
 
-function seniorFacilityKind(place){
-  const name = String(place && place.place_name || '');
-  const category = String(place && place.category_name || '').split('>').pop().trim();
-  const facilityName = /(?:경로당|노인정|마을회관|무더위\s*쉼터)(?:\s*(?:제?\d+(?:호|동)?|\([^)]*\)))*\s*$/;
-  if(facilityName.test(name) || /경로당|노인정|마을회관|무더위\s*쉼터/.test(category) || /^무더위\s*쉼터(?:\s|[-:(])/.test(name)) return 'direct';
-  if(/(?:관리사무소|관리실|경비실)(?:\s*(?:제?\d+(?:호|동)?|\([^)]*\)))*\s*$/.test(name) || /관리사무소|관리실|경비실/.test(category)) return 'auxiliary';
-  return 'unclassified';
+/* Optional v3.7.5 helpers. Integrate into the release HTML only after review.
+ * No network calls, no credentials, no inference that a cooling shelter is a senior facility.
+ */
+function seniorFacilityDetails(place){
+  const name=String(place&&place.place_name||'').normalize('NFKC').trim();
+  const category=String(place&&place.category_name||'').split('>').pop().normalize('NFKC').trim();
+  // Some places use a combined name such as "무더위,한파쉼터 부산이동...".
+  // The phrase must be a complete prefix, suffix or category, not part of a cafe name.
+  const shelterPhrase='(?:한파\\s*[,·ㆍ/＆&・]\\s*)?(?:무더위|폭염)(?:\\s*[,·ㆍ/＆&・]\\s*(?:무더위|폭염|한파))*\\s*쉼터';
+  const prefix=new RegExp('^'+shelterPhrase+'(?=\\s|[-:([（]|$)');
+  const suffix=new RegExp(shelterPhrase+'(?:\\s*(?:제?\\d+(?:호|동)?|\\([^)]*\\)))*\\s*$');
+  const official=!!(place&&place.sourceProvider==='official'&&place.officialShelter===true);
+  const cooling=official||prefix.test(name)||suffix.test(name)||new RegExp('^'+shelterPhrase+'$').test(category);
+  const elderName=/(?:경로당|노인정)(?:\s*(?:제?\d+(?:호|동)?|\([^)]*\)))*\s*$/;
+  const elder=elderName.test(name)||/경로당|노인정/.test(category);
+  const community=/(?:마을회관)(?:\s*(?:제?\d+(?:호|동)?|\([^)]*\)))*\s*$/.test(name)||/마을회관/.test(category);
+  if(cooling||elder||community)return {
+    kind:'direct',facilityType:cooling?'냉방쉼터':elder?'경로당·노인정':'마을회관',
+    isCoolingShelter:cooling,isSeniorFacility:elder?true:null,
+    designationStatus:official?'공공자료 지정':cooling?'지도 명칭·분류 기준 · 공공 지정 미대조':'쉼터 지정 여부 미확인'
+  };
+  const auxiliary=/(?:관리사무소|관리실|경비실)(?:\s*(?:제?\d+(?:호|동)?|\([^)]*\)))*\s*$/.test(name)||/관리사무소|관리실|경비실/.test(category);
+  return {kind:auxiliary?'auxiliary':'unclassified',facilityType:auxiliary?'관리·경비 문의처':'분류 미확인',isCoolingShelter:false,isSeniorFacility:null,designationStatus:'쉼터 지정 여부 미확인'};
 }
+
+function seniorFacilityKind(place){return seniorFacilityDetails(place).kind;}
+
+function facilityDistrictQuery(address){
+  const tokens=String(address||'').normalize('NFKC').trim().split(/\s+/);
+  if(!tokens[0])return '';
+  const province=/^(?:서울(?:특별시)?|부산(?:광역시)?|대구(?:광역시)?|인천(?:광역시)?|광주(?:광역시)?|대전(?:광역시)?|울산(?:광역시)?|세종(?:특별자치시)?|경기(?:도)?|강원(?:도|특별자치도)?|충북|충남|충청북도|충청남도|전북|전남|전북특별자치도|전라북도|전라남도|경북|경남|경상북도|경상남도|제주(?:도|특별자치도)?)$/;
+  if(!province.test(tokens[0]))return '';
+  const keep=[tokens[0]];
+  for(let i=1;i<Math.min(tokens.length,3);i++){
+    if(!/^[가-힣]+(?:시|군|구)$/.test(tokens[i]))break;
+    keep.push(tokens[i]);
+  }
+  return keep.join(' ');
+}
+
+function facilityMapSearchQuery(place){
+  const name=String(place&& (place.place_name||place.name)||'').normalize('NFKC').replace(/\s+/g,' ').trim();
+  const address=String(place&&(place.road_address_name||place.address_name||place.addr)||'').trim();
+  const district=facilityDistrictQuery(address);
+  // District + exact name avoids over-constraining provider search with floor/unit text.
+  return [...(district&&!name.includes(district)?[district]:[]),name].filter(Boolean).join(' ')||address;
+}
+
+function facilitySafeHttpUrl(value){
+  try{const url=new URL(String(value||''));return /^https?:$/.test(url.protocol)?url.href:'';}catch(e){return '';}
+}
+
+function facilitySourceRecord(place,type='senior',options={}){
+  const p=place||{},details=seniorFacilityDetails(p);
+  const provider=String(p.sourceProvider||options.sourceProvider||'kakao');
+  const rawId=String(p.sourceRecordId||p.id||'');
+  const query=facilityMapSearchQuery(p);
+  const kakaoPlace=provider==='kakao'&&/^\d+$/.test(rawId)?'https://place.map.kakao.com/'+rawId:'';
+  const sourceUrl=facilitySafeHttpUrl(p.sourceUrl||p.place_url||options.sourceUrl||kakaoPlace);
+  const refs=Array.isArray(p.sourceRefs)?p.sourceRefs.map(ref=>({...ref,sourceUrl:facilitySafeHttpUrl(ref.sourceUrl)})):[];
+  if(sourceUrl&&!refs.some(ref=>ref.sourceUrl===sourceUrl))refs.push({provider,recordId:rawId,sourceUrl,recordDate:String(p.recordDate||''),retrievedAt:String(p.retrievedAt||options.retrievedAt||'')});
+  const coord=value=>value==null||String(value).trim()===''?null:Number.isFinite(Number(value))?Number(value):null;
+  const lat=coord(p.y??p.lat),lng=coord(p.x??p.lng);
+  const validCoordinates=lat!==null&&lng!==null&&lat>=-90&&lat<=90&&lng>=-180&&lng<=180;
+  return {
+    name:String(p.place_name||p.name||''),addr:String(p.road_address_name||p.address_name||p.addr||''),phone:String(p.phone||''),type,
+    seniorKind:p.seniorKind||details.kind,seniorLabel:p.seniorLabel||(details.kind==='auxiliary'?'관리·경비 문의처 · 노인시설 여부 미확인':details.facilityType),
+    facilityType:details.facilityType,isCoolingShelter:details.isCoolingShelter,isSeniorFacility:details.isSeniorFacility,designationStatus:details.designationStatus,
+    lat,lng,validCoordinates,id:provider+':'+(rawId||JSON.stringify([p.place_name,p.road_address_name||p.address_name,lat,lng])),sourceRecordId:rawId,
+    sourceProvider:provider,sourceUrl,sourceRefs:refs,recordDate:String(p.recordDate||''),retrievedAt:String(p.retrievedAt||options.retrievedAt||''),
+    sourceFacilityType:provider==='official'?String(p.facilityType||''):'',sourceFacilitySubtype:provider==='official'?String(p.facilitySubtype||''):'',
+    comparisonStatus:String(p.comparisonStatus||'대조 미확인'),comparisonNote:String(p.comparisonNote||''),
+    mapLinks:{naver:'https://map.naver.com/p/search/'+encodeURIComponent(query),kakao:kakaoPlace||'https://map.kakao.com/?q='+encodeURIComponent(query),official:provider==='official'?sourceUrl:facilitySafeHttpUrl(p.officialSourceUrl)}
+  };
+}
+
 
 function seniorNormalizedText(value){
   return String(value || '').normalize('NFKC').replace(/\s+/g, '').trim();
 }
 
 function seniorPlaceIdentity(place){
-  if(place && place.id != null && String(place.id).trim()) return 'id:' + String(place.id);
+  if(place && place.id != null && String(place.id).trim()) return (place.sourceProvider||'kakao')+':id:' + String(place.id);
   // Missing IDs must not merge unrelated records, including same-named apartments.
   return JSON.stringify([seniorNormalizedText(place.place_name), seniorNormalizedText(place.road_address_name || place.address_name), String(place.x || ''), String(place.y || '')]);
 }
@@ -2523,7 +2594,7 @@ function selectSeniorSearchResults(results, includeAuxiliary=false){
     }
     auxiliary.push(...auxiliaryGroups.values());
   }
-  const mark = (p, kind) => ({...p, seniorKind:kind, seniorLabel:kind === 'direct' ? '경로당·노인정·회관·쉼터 검색 결과' : '관리·경비 문의처 · 노인시설 여부 미확인'});
+  const mark = (p, kind) => ({...p, seniorKind:kind, seniorLabel:kind === 'direct' ? seniorFacilityDetails(p).facilityType : '관리·경비 문의처 · 노인시설 여부 미확인'});
   return {
     places:[...direct.map(p => mark(p, 'direct')), ...auxiliary.map(p => mark(p, 'auxiliary'))],
     directCount:direct.length,
@@ -2589,11 +2660,184 @@ function dedupPlacesByDistance(list, meters=50){
   return kept;
 }
 
+/* Seoul official cooling shelters. Include after scanSeoulRequest is defined.
+ * Data source: Seoul Open Data Plaza, OA-21065 / TbGtnHwcwP.
+ * This source covers Seoul only. A completed API snapshot is not live opening status.
+ */
+const SEOUL_SHELTER_SOURCE_URL='https://data.seoul.go.kr/dataList/OA-21065/S/1/datasetView.do?tab=A';
+const SEOUL_SHELTER_BOUNDS={south:37.40,north:37.75,west:126.70,east:127.30};
+const seoulShelterMemory={snapshot:null,expiresAt:0,pending:null};
+
+function seoulShelterReadBounds(bounds){
+  const sw=bounds?.getSouthWest?.(),ne=bounds?.getNorthEast?.();
+  const box={south:Number(sw?.getLat?.()),north:Number(ne?.getLat?.()),west:Number(sw?.getLng?.()),east:Number(ne?.getLng?.())};
+  if(!Object.values(box).every(Number.isFinite)||box.south>box.north||box.west>box.east||box.south< -90||box.north>90||box.west< -180||box.east>180)throw new Error('공식 쉼터 조회 범위를 확인하지 못했습니다.');
+  return box;
+}
+
+function seoulShelterIntersects(box){
+  const area=SEOUL_SHELTER_BOUNDS;
+  return box.north>=area.south&&box.south<=area.north&&box.east>=area.west&&box.west<=area.east;
+}
+
+function seoulShelterText(value){return value==null?'':String(value).trim().replace(/\s+/g,' ');}
+
+function seoulShelterOperatingHours(row){
+  const parts=[];
+  const add=(label,days,start,end)=>{
+    days=seoulShelterText(days);start=seoulShelterText(start);end=seoulShelterText(end);
+    if(days||start||end)parts.push(label+' '+[days,(start||end)?(start||'미제공')+'–'+(end||'미제공'):''].filter(Boolean).join(' '));
+  };
+  add('기본',row.OPR_DAYS,row.OPR_START_TIME,row.OPR_END_TIME);
+  if(seoulShelterText(row.EXT_OPR_YN).toUpperCase()==='Y')add('연장',row.EXT_OPR_DAYS,row.EXT_OPR_START_TIME,row.EXT_OPR_END_TIME);
+  if(seoulShelterText(row.ADD_OPR_YN).toUpperCase()==='Y')add('추가',row.ADD_OPR_DAYS,row.ADD_OPR_START_TIME,row.ADD_OPR_END_TIME);
+  return parts.join(' / ')||'공식 자료 운영시간 미제공';
+}
+
+function seoulShelterOfficialPlace(row){
+  if(!row||typeof row!=='object'||Array.isArray(row))throw new Error('서울 공식 쉼터 개별 자료 형식이 올바르지 않습니다.');
+  const name=seoulShelterText(row.R_AREA_NM),road=seoulShelterText(row.R_DETL_ADD),address=seoulShelterText(row.LOTNO_ADDR);
+  if(!name)throw new Error('서울 공식 쉼터 자료에 시설명이 없는 항목이 있습니다.');
+  const lonText=seoulShelterText(row.LON),latText=seoulShelterText(row.LAT),x=Number(lonText),y=Number(latText);
+  // Empty strings must not be converted into a real zero coordinate.
+  if(!lonText||!latText||!Number.isFinite(x)||!Number.isFinite(y)||x<124||x>132||y<33||y>39)return null;
+  const year=seoulShelterText(row.YEAR),areaCode=seoulShelterText(row.AREA_CD);
+  // AREA_CD identifies an area, not an individual shelter. Keep the full compound key.
+  const identity=JSON.stringify([year,areaCode,name.normalize('NFC'),road.normalize('NFC'),address.normalize('NFC'),x,y]);
+  return {
+    id:'seoul-cooling:'+encodeURIComponent(identity),x:String(x),y:String(y),place_name:name,
+    road_address_name:road,address_name:address,phone:'',place_url:SEOUL_SHELTER_SOURCE_URL,
+    category_name:'공식 지정 무더위쉼터',sourceProvider:'official',sourceName:'서울 열린데이터광장',
+    officialShelter:true,sourceScope:'서울특별시',sourceURL:SEOUL_SHELTER_SOURCE_URL,sourceUrl:SEOUL_SHELTER_SOURCE_URL,
+    recordDate:year,recordDateLabel:'기준연도',areaCode,
+    facilityType:seoulShelterText(row.FACILITY_TYPE1),facilitySubtype:seoulShelterText(row.FACILITY_TYPE2),
+    operatingHours:seoulShelterOperatingHours(row),operatingDays:seoulShelterText(row.OPR_DAYS),
+    operatingStart:seoulShelterText(row.OPR_START_TIME),operatingEnd:seoulShelterText(row.OPR_END_TIME),
+    extendedOperation:seoulShelterText(row.EXT_OPR_YN),extendedDays:seoulShelterText(row.EXT_OPR_DAYS),
+    extendedStart:seoulShelterText(row.EXT_OPR_START_TIME),extendedEnd:seoulShelterText(row.EXT_OPR_END_TIME),
+    additionalOperation:seoulShelterText(row.ADD_OPR_YN),additionalDays:seoulShelterText(row.ADD_OPR_DAYS),
+    additionalStart:seoulShelterText(row.ADD_OPR_START_TIME),additionalEnd:seoulShelterText(row.ADD_OPR_END_TIME),
+    openingStatus:'현재 개방 여부 미확인'
+  };
+}
+
+async function seoulShelterFetchPage(start,end,expectedTotal=null){
+  const service='TbGtnHwcwP';
+  const payload=await scanSeoulRequest(service,SEOUL_COMMERCE_API_KEY,start,end);
+  const block=payload?.[service],code=String(block?.RESULT?.CODE||payload?.RESULT?.CODE||'');
+  if(code==='INFO-200'&&start===1&&expectedTotal===null){
+    if(block?.row?.length||(block?.list_total_count!=null&&String(block.list_total_count).trim()!=='0'))throw new Error('서울 공식 쉼터 자료 없음 응답에 데이터가 섞여 있습니다.');
+    return {rows:[],total:0};
+  }
+  if(code!=='INFO-000')throw new Error('서울 공식 쉼터 조회 실패'+(code?' ('+code.replace(/[^A-Za-z0-9_-]/g,'').slice(0,40)+')':' (응답코드 미확인)')+'. 일부 결과를 전체로 표시하지 않았습니다.');
+  if(!block||!Array.isArray(block.row))throw new Error('서울 공식 쉼터 응답 구조를 확인하지 못했습니다.');
+  const totalText=seoulShelterText(block.list_total_count),total=Number(totalText);
+  if(!/^\d+$/.test(totalText)||!Number.isSafeInteger(total)||total<0||total>100000)throw new Error('서울 공식 쉼터 전체 건수를 확인하지 못했습니다.');
+  if(expectedTotal!==null&&total!==expectedTotal)throw new Error('서울 공식 쉼터 자료가 조회 중 변경되었습니다. 다시 조회해 주세요.');
+  const expectedRows=Math.max(0,Math.min(end,total)-start+1);
+  if(block.row.length!==expectedRows)throw new Error('서울 공식 쉼터 일부 페이지가 누락되었습니다. 다시 조회해 주세요.');
+  return {rows:block.row,total};
+}
+
+async function seoulShelterCompleteSnapshot(){
+  if(seoulShelterMemory.snapshot&&Date.now()<seoulShelterMemory.expiresAt)return seoulShelterMemory.snapshot;
+  if(seoulShelterMemory.pending)return seoulShelterMemory.pending;
+  const pending=(async()=>{
+    const first=await seoulShelterFetchPage(1,1000),rows=first.rows.slice();
+    const pages=[];
+    for(let start=1001;start<=first.total;start+=1000)pages.push({start,end:Math.min(start+999,first.total)});
+    for(let i=0;i<pages.length;i+=2){
+      // Await both responses even on failure; a retry never overlaps an unfinished batch.
+      const settled=await Promise.allSettled(pages.slice(i,i+2).map(page=>seoulShelterFetchPage(page.start,page.end,first.total)));
+      const failed=settled.find(result=>result.status==='rejected');
+      if(failed)throw failed.reason;
+      settled.forEach(result=>rows.push(...result.value.rows));
+    }
+    if(rows.length!==first.total)throw new Error('서울 공식 쉼터 전체 자료가 완성되지 않았습니다.');
+    const unique=new Map();let invalidCoordinateCount=0,duplicateCount=0;
+    for(const row of rows){
+      const place=seoulShelterOfficialPlace(row);
+      if(!place){invalidCoordinateCount++;continue;}
+      if(unique.has(place.id)){duplicateCount++;continue;}
+      unique.set(place.id,place);
+    }
+    const snapshot={places:Array.from(unique.values()),total:first.total,invalidCoordinateCount,duplicateCount,fetchedAt:new Date().toISOString(),recordYears:Array.from(new Set(rows.map(row=>seoulShelterText(row.YEAR)).filter(Boolean))).sort()};
+    // Only a fully validated snapshot is cached. Errors never replace it with an empty list.
+    seoulShelterMemory.snapshot=snapshot;seoulShelterMemory.expiresAt=Date.now()+60*60*1000;
+    return snapshot;
+  })();
+  seoulShelterMemory.pending=pending;
+  try{return await pending;}finally{if(seoulShelterMemory.pending===pending)seoulShelterMemory.pending=null;}
+}
+
+async function fetchSeoulOfficialShelters(bounds){
+  const box=seoulShelterReadBounds(bounds);
+  const base={scope:'서울특별시',sourceUrl:SEOUL_SHELTER_SOURCE_URL,sourceProvider:'official'};
+  if(!seoulShelterIntersects(box))return {...base,status:'out-of-coverage',places:[],total:null,matched:0,fetchedAt:null,recordYears:[],invalidCoordinateCount:0,duplicateCount:0,note:'현재 공식 연계는 서울특별시 자료입니다. 이 지역의 공식 지정 시설 전체를 조회한 결과가 아닙니다.'};
+  const snapshot=await seoulShelterCompleteSnapshot();
+  const places=snapshot.places.filter(place=>Number(place.y)>=box.south&&Number(place.y)<=box.north&&Number(place.x)>=box.west&&Number(place.x)<=box.east).map(place=>({...place,retrievedAt:snapshot.fetchedAt}));
+  const note='서울특별시 공식 지정 자료 중 현재 지도 범위에 포함된 시설입니다. 전국 전체 자료나 실시간 개방 여부가 아닙니다.'+(snapshot.invalidCoordinateCount?' 좌표 미제공·오류 '+snapshot.invalidCoordinateCount+'건은 지도에 표시하지 못했습니다.':'');
+  return {...base,status:'complete',places,total:snapshot.total,matched:places.length,fetchedAt:snapshot.fetchedAt,recordYears:snapshot.recordYears.slice(),invalidCoordinateCount:snapshot.invalidCoordinateCount,duplicateCount:snapshot.duplicateCount,note};
+}
+
+function facilityWithinBounds(place,bounds){
+  const lat=Number(place.y),lng=Number(place.x);
+  if(!String(place.y??'').trim()||!String(place.x??'').trim()||!Number.isFinite(lat)||!Number.isFinite(lng))return false;
+  const sw=bounds.getSouthWest(),ne=bounds.getNorthEast();
+  return lat>=sw.getLat()&&lat<=ne.getLat()&&lng>=sw.getLng()&&lng<=ne.getLng();
+}
+async function facilitySearchRegionAt(bounds){
+  if(typeof geocoder==='undefined'||typeof geocoder?.coord2RegionCode!=='function')return '';
+  const sw=bounds.getSouthWest(),ne=bounds.getNorthEast();
+  return new Promise(resolve=>{
+    let done=false;const finish=value=>{if(done)return;done=true;clearTimeout(timer);resolve(value);};
+    const timer=setTimeout(()=>finish(''),4000);
+    try{geocoder.coord2RegionCode((sw.getLng()+ne.getLng())/2,(sw.getLat()+ne.getLat())/2,(rows,status)=>{
+      const row=status===kakao.maps.services.Status.OK&&(rows.find(r=>r.region_type==='B')||rows[0]);
+      finish(row?[row.region_1depth_name,row.region_2depth_name].filter(Boolean).join(' '):'');
+    });}catch(e){finish('');}
+  });
+}
+function updateFacilityCompareLinks(){
+  const query=String($('facilityCompareQuery')?.value||'').trim();
+  for(const [id,base] of [['facilityNaverSearch','https://map.naver.com/p/search/'],['facilityKakaoSearch','https://map.kakao.com/?q=']]){
+    const link=$(id);if(!link)continue;link.hidden=!query;link.href=base+encodeURIComponent(query);
+  }
+}
+function facilitySourceColumns(p){
+  if(!p.sourceProvider)return {};
+  return {'출처':p.sourceProvider==='official'?'서울 열린데이터광장':'카카오 장소 검색','지정 구분':p.designationStatus||'',
+    '자료 기준':p.recordDate||'미제공','조회 시각':p.retrievedAt||'','공식 시설 유형':[p.sourceFacilityType,p.sourceFacilitySubtype].filter(Boolean).join(' · '),'운영 안내':p.operatingHours||'미제공',
+    '지도 대조':p.comparisonStatus||'대조 미확인','원문':p.sourceUrl||'','네이버 확인':p.mapLinks?.naver||'',
+    '카카오 확인':p.mapLinks?.kakao||''};
+}
+function renderFacilitySources(region='',hasSenior=searchedData.some(p=>p.type==='senior')){
+  const host=$('facilitySourceResults');if(!host)return;
+  const rows=searchedData.filter(p=>p.type==='senior');
+  host.hidden=!hasSenior;
+  if(!hasSenior){host.innerHTML='';return;}
+  const official=rows.filter(p=>p.sourceProvider==='official').length;
+  const cooling=rows.filter(p=>p.isCoolingShelter&&p.sourceProvider!=='official').length;
+  const safe=scanEscapeHTML;
+  host.innerHTML=`<strong>지도 웹에서 쉼터 추가 확인</strong><p class="facility-source-note">네이버·카카오 지도 웹에는 공개 API에 없는 쉼터가 표시될 수 있습니다. 아래 검색은 지도 중심의 시군구 기준이며 현재 지도 범위와 다릅니다.</p>
+    <label class="facility-source-note" for="facilityCompareQuery">${region?'지도 중심 시군구 · 검색어 수정 가능':'지역명 확인 실패 · 시군구를 입력해 주세요'}</label><input id="facilityCompareQuery" class="input-box" aria-label="쉼터 지도 대조 검색어" value="${safe(region?region+' 무더위쉼터':'')}" placeholder="예: 경기 시흥시 무더위쉼터"/>
+    <nav class="facility-web-links"><a id="facilityNaverSearch" target="_blank" rel="noopener noreferrer">네이버 쉼터 검색</a><a id="facilityKakaoSearch" target="_blank" rel="noopener noreferrer">카카오 쉼터 검색</a></nav>
+    <details><summary>시설 출처·지도 대조 <strong>${rows.length}건</strong></summary>
+    <p class="facility-source-note">공식 지정 ${official}건 · 카카오 쉼터 명칭 ${cooling}건. 다른 출처의 같은 시설이 중복될 수 있습니다. 네이버 검색 결과와의 일치 여부는 아직 확인하지 않았습니다.</p>
+    <p class="facility-source-note">서울 공식자료만 자동 보완합니다. 쉼터 지정은 노인시설 여부·현재 운영 여부와 다릅니다. 운영기간·이용대상은 원문 또는 시설에 확인하세요.</p>
+    <div class="facility-source-list">${rows.slice(0,100).map(p=>{
+      const official=p.sourceProvider==='official';
+      const links=[['naver','네이버 대조'],['kakao','카카오 원문'],['official','공식 자료']].filter(([key])=>p.mapLinks?.[key]).map(([key,label])=>`<a href="${safe(p.mapLinks[key])}" target="_blank" rel="noopener noreferrer">${label}</a>`).join('');
+      return `<article class="facility-source-card"><span class="facility-source-badge ${official?'official':p.seniorKind==='auxiliary'?'aux':'map'}">${official?'서울 공식 지정':safe(p.facilityType)}</span><strong>${safe(p.name)}</strong><div>${safe(p.addr)}</div><small>${official?'공식 시설 유형: '+safe([p.sourceFacilityType,p.sourceFacilitySubtype].filter(Boolean).join(' · ')||'미제공')+'<br>':''}${safe(p.designationStatus)} · ${safe(p.recordDate||'기준일 미제공')}</small>${p.operatingHours?`<div class="facility-hours">공개 운영 안내: ${safe(p.operatingHours)}</div>`:''}<nav aria-label="${safe(p.name)} 출처 확인">${links}</nav></article>`;
+    }).join('')}</div>${rows.length>100?'<p class="facility-source-note">화면에는 처음 100건을 표시합니다. 전체 결과와 원문 링크는 시설목록 엑셀로 저장할 수 있습니다.</p>':''}</details>`;
+  $('facilityCompareQuery').oninput=updateFacilityCompareLinks;updateFacilityCompareLinks();
+}
+
 let facilitySearchRequestToken=0;
 
 $('btnSearch').onclick = async () => {
   const actives = document.querySelectorAll('.search-btn.active'); if(!actives.length) return toast("대상 선택");
-  const requestToken=++facilitySearchRequestToken;lastRoute=[];$('tblRoute').innerHTML='';
+  const requestToken=++facilitySearchRequestToken;$('facilitySourceResults').hidden=true;$('facilitySourceResults').innerHTML='';lastRoute=[];$('tblRoute').innerHTML='';
   const includeAuxiliary=!!$('seniorAuxSearch')?.checked;
   $('btnSearch').disabled=true;
   try{
@@ -2623,6 +2867,8 @@ await __waitMapIdle();
   if(requestToken!==facilitySearchRequestToken)return;
   const bounds = map.getBounds(); $('searchStatus').innerText = "스캔 중..."; 
   const searchIssues=[],searchNotes=[];
+  const officialTask=Array.from(actives).some(b=>b.dataset.target==='senior')?fetchSeoulOfficialShelters(bounds).then(value=>({value}),()=>({failed:true})):null;
+  const regionTask=officialTask?facilitySearchRegionAt(bounds):Promise.resolve('');
   for(const btn of actives){
     const t = btn.dataset.target;
     let k = [], imageSrc;
@@ -2642,29 +2888,35 @@ await __waitMapIdle();
     let rawResults = []; for(const kw of k){
       const data=await keywordSearchAllEnhanced(kw,bounds);
       if(requestToken!==facilitySearchRequestToken)return;
-      rawResults.push(...data);
+      rawResults.push(...data.filter(p=>facilityWithinBounds(p,bounds)));
       if(data.searchFailed)searchIssues.push(kw+' 조회 실패/시간 초과');
       else if(data.truncated||data.length>=45)searchIssues.push(kw+' 검색 한도 도달 가능');
     }
     let unique = rawResults.filter((v,i,a)=>a.findIndex(t=>t.id===v.id)===i);
 
 if(t === 'senior') {
+  const official=await officialTask;if(requestToken!==facilitySearchRequestToken)return;
+  if(official?.failed)searchIssues.push('서울 공식 쉼터 조회 실패 · 카카오 결과만 표시');
+  else if(official?.value?.status==='complete'){rawResults.push(...official.value.places);searchNotes.push('서울 공식 지정 '+official.value.matched+'건');if(official.value.invalidCoordinateCount)searchNotes.push('서울 자료 좌표 미확인 '+official.value.invalidCoordinateCount+'건 제외');}
+  else searchNotes.push('서울 밖 공식 쉼터 자동 연결 미지원 · 지도 원문 대조 필요');
   const selected=selectSeniorSearchResults(rawResults,includeAuxiliary);unique=selected.places;
-  searchNotes.push('경로당·쉼터 '+selected.directCount+'곳'+(includeAuxiliary?' / 보조 문의처 '+selected.auxiliaryCount+'곳':''));
+  searchNotes.push('시설 자료 '+selected.directCount+'건'+(includeAuxiliary?' / 보조 문의처 '+selected.auxiliaryCount+'건':'')+' · 출처 간 중복 가능');
   if(selected.excludedCount)searchNotes.push('분류 불명확 '+selected.excludedCount+'건 제외');
 }
 
     unique.forEach(p => {
-       const latlng = new kakao.maps.LatLng(p.y, p.x); const marker = new kakao.maps.Marker({ position: latlng, image: p.seniorKind==='auxiliary'?new kakao.maps.MarkerImage("data:image/svg+xml;charset=utf-8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"><circle cx="15" cy="15" r="13" fill="#475569" stroke="white" stroke-width="2"/><text x="15" y="21" text-anchor="middle" fill="white" font-size="20">?</text></svg>'),imageSize):markerImage, map: map, zIndex: 200000 }); const label = new kakao.maps.CustomOverlay({ position: latlng, content: `<div style="background:white;border:1px solid #aaa;font-size:11px;padding:2px;transform:translateY(-30px);">${p.seniorKind==='auxiliary'?'[보조 문의처] ':''}${scanEscapeHTML(p.place_name)}</div>`, map: map, zIndex: 200001 }); targetMarkers[t].push(marker); targetOverlays[t].push(label); searchedData.push({ name: p.place_name, addr: p.address_name, phone: p.phone, type: t, seniorKind:p.seniorKind, seniorLabel:p.seniorLabel, lat: p.y, lng: p.x, latlng: latlng, id: p.id });
+       const latlng = new kakao.maps.LatLng(p.y, p.x); const marker = new kakao.maps.Marker({ position: latlng, image: p.seniorKind==='auxiliary'?new kakao.maps.MarkerImage("data:image/svg+xml;charset=utf-8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"><circle cx="15" cy="15" r="13" fill="#475569" stroke="white" stroke-width="2"/><text x="15" y="21" text-anchor="middle" fill="white" font-size="20">?</text></svg>'),imageSize):markerImage, map: map, zIndex: 200000 }); const label = new kakao.maps.CustomOverlay({ position: latlng, content: `<div style="background:white;border:1px solid #aaa;font-size:11px;padding:2px;transform:translateY(-30px);">${p.sourceProvider==='official'?'[공식 쉼터] ':p.seniorKind==='auxiliary'?'[보조 문의처] ':''}${scanEscapeHTML(p.place_name)}</div>`, map: map, zIndex: 200001 }); targetMarkers[t].push(marker); targetOverlays[t].push(label); searchedData.push({...facilitySourceRecord(p,t,{retrievedAt:new Date().toISOString()}),operatingHours:p.operatingHours||'',latlng});
     });
   }
-  $('searchStatus').innerText=[searchedData.length?'공개 API 검색 결과 '+searchedData.length+'곳':'공개 API 검색 결과 없음',...searchNotes,...searchIssues].join(' · ');
+  const searchRegion=await regionTask;if(requestToken!==facilitySearchRequestToken)return;
+  renderFacilitySources(searchRegion,!!officialTask);
+  $('searchStatus').innerText=[searchedData.length?'공개 자료 검색 결과 '+searchedData.length+'건':'공개 자료 검색 결과 없음',...searchNotes,...searchIssues].join(' · ');
   toast(searchIssues.length?'일부 검색 결과를 확인하세요':'시설 검색 완료');
   }catch(error){if(requestToken===facilitySearchRequestToken)$('searchStatus').innerText='시설 검색 오류 · 다시 시도하세요';}
   finally{if(requestToken===facilitySearchRequestToken)$('btnSearch').disabled=false;}
 };
 
-$('btnResetSearch').onclick = () => { facilitySearchRequestToken++;$('btnSearch').disabled=false;lastRoute=[];$('tblRoute').innerHTML=''; searchBtns.forEach(b=>b.classList.remove('active')); Object.values(targetMarkers).forEach(a=>a.forEach(m=>m.setMap(null)));
+$('btnResetSearch').onclick = () => { facilitySearchRequestToken++;$('facilitySourceResults').hidden=true;$('facilitySourceResults').innerHTML='';$('btnSearch').disabled=false;lastRoute=[];$('tblRoute').innerHTML=''; searchBtns.forEach(b=>b.classList.remove('active')); Object.values(targetMarkers).forEach(a=>a.forEach(m=>m.setMap(null)));
   try{ Object.values(targetOverlays).forEach(a=>a.forEach(o=>o && o.setMap && o.setMap(null))); }catch(e){}
   targetMarkers = { senior:[], welfare:[], ortho:[], banner:[], recommend:[] };
 targetOverlays = { senior:[], welfare:[], ortho:[], banner:[], recommend:[] };
@@ -2783,7 +3035,8 @@ $('btnExportExcel').onclick = () => {
         '전화': p.phone || '',
         [`${hospName}거리(m)`]: distM,
         '위도': p.lat || '',
-        '경도': p.lng || ''
+        '경도': p.lng || '',
+        ...facilitySourceColumns(p)
       };
     });
 
@@ -2824,7 +3077,8 @@ $('btnExportRoute').onclick = () => {
         '이동거리(m)': r.distFromPrev || 0,
         '누적거리(m)': cum,
         '위도': r.lat || '',
-        '경도': r.lng || ''
+        '경도': r.lng || '',
+        ...facilitySourceColumns(r)
       });
     });
 
@@ -4417,7 +4671,7 @@ window.switchTab = (id) => {
 };
 
 
-/* ===========================   [상권 스캔 v3.7.4]   =========================== */
+/* ===========================   [상권 스캔 v3.7.5]   =========================== */
 function setScanReady(ready){
   scanState.ready = !!ready;
   const btn = $('btnRunScan');
@@ -4496,7 +4750,7 @@ function scanIsSeoulCandidate(candidate){
 }
 
 async function scanSeoulRequest(service,key,start,end,tail=''){
-  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.4]');
+  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.5]');
   const text=await scanNetworkRequest('https://jinsul-seoul-proxy.yms0127.workers.dev/seoul',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service,key,start,end,tail:decodeURIComponent(tail)}),cache:'no-store'},22000);
   let payload;try{payload=JSON.parse(text);}catch{throw new Error('서울 API JSON 응답 형식 오류');}
   if(payload?.error)throw new Error('서울 중계 요청 처리 실패');return payload;
@@ -6141,7 +6395,7 @@ async function scanSiteDetail(index){
   try{const data=await scanFetchHiraDetails(p.ykiho);if(token!==scanSite.detailToken||draft!==scanSite.active)return;const d=data.detail||{},e=scanSiteEscape;const hours=[['월',d.trmtMonStart,d.trmtMonEnd],['화',d.trmtTueStart,d.trmtTueEnd],['수',d.trmtWedStart,d.trmtWedEnd],['목',d.trmtThuStart,d.trmtThuEnd],['금',d.trmtFriStart,d.trmtFriEnd],['토',d.trmtSatStart,d.trmtSatEnd]].map(([day,a,b])=>day+' '+(a||'미제공')+'~'+(b||'미제공')).join(' · ');node.innerHTML='<h4>'+e(p.name)+'</h4><p>'+e(hours)+'</p><p>주차 '+e(d.parkQty??'미제공')+' · '+e(d.parkEtc||'세부 안내 없음')+'</p><p>신고 진료과: '+e(data.departments.map(r=>r.dgsbjtCdNm).filter(Boolean).join(', ')||'미제공')+'</p><p>'+e(data.partial?'일부 상세 API 조회 실패 · 표시되지 않은 항목은 확인 필요':'심평원 상세 수신 · 실제 운영시간은 방문 전 확인')+'</p>';}catch(err){if(token===scanSite.detailToken&&draft===scanSite.active)node.textContent=p.name+' · '+scanApiErrorMessage(err);}
 }
 function scanSiteDownload(content,type,ext){const blob=new Blob([content],{type:type+';charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(scanSite.active.fields.title||'입지자료').replace(/[\\/:*?"<>|]/g,'_')+'.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}
-function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.4 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
+function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.5 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
 function scanSitePrint(){try{const doc=scanSiteDocument(scanSiteValidDraft(scanSite.active));$('sitePrintFrame')?.remove();const frame=document.createElement('iframe');frame.id='sitePrintFrame';frame.title='입지자료 인쇄';frame.style.cssText='position:fixed;left:-10000px;width:794px;height:1123px;border:0';frame.onload=()=>{Promise.all([frame.contentDocument.fonts.ready,...Array.from(frame.contentDocument.images,img=>img.decode().catch(()=>{}))]).then(()=>{frame.contentWindow.focus();frame.contentWindow.print();});};frame.srcdoc=doc;document.body.appendChild(frame);scanSiteStatus('인쇄 대화상자를 요청했습니다. 앱에서 지원하지 않으면 HTML 저장 후 Edge·Chrome에서 인쇄하세요.');}catch(e){scanSiteStatus(e.message);}}
 async function scanSiteExplore(){
   const d=scanSite.active,query=d.snapshot.candidate.searchQuery,node=$('siteExploreResults');if(!query||!node)return;node.textContent='지역 의료기관 검색 중…';

@@ -11,7 +11,7 @@ const source = html.slice(start, end);
 let callback;
 let calls = 0;
 const ctx = {
-  setTimeout, clearTimeout,
+  setTimeout, clearTimeout, URL,
   kakao:{maps:{services:{Status:{OK:'OK', ZERO_RESULT:'ZERO_RESULT', ERROR:'ERROR'}}}},
   places:{keywordSearch(keyword, cb, options){ calls++; callback = cb; }}
 };
@@ -21,26 +21,42 @@ const h = ctx.helpers;
 let checks = 0;
 function check(value, expected, message){ assert.deepEqual(JSON.parse(JSON.stringify(value)), expected, message); checks++; }
 const p = (id, name, address='경기도 시흥시 정왕대로 74', more={}) => ({id,place_name:name,road_address_name:address,address_name:'경기도 시흥시 정왕동 1',x:'126.7',y:'37.3',...more});
-const handlerStart=html.indexOf('let facilitySearchRequestToken=');
+const handlerStart=html.indexOf('function facilityWithinBounds(');
 const handlerEnd=html.indexOf("const uploadBox = $('uploadBox');",handlerStart);
 assert.ok(handlerStart>=0 && handlerEnd>handlerStart,'actual facility scan/route/export handlers located');
 const handlerSource=html.slice(handlerStart,handlerEnd);
 function makeApp(reply, options={}){
   const elements=new Map();
-  const element=id=>{if(!elements.has(id))elements.set(id,{checked:false,disabled:false,innerText:'',innerHTML:'',value:'',style:{}});return elements.get(id);};
-  const calls=[],exports=[],toasts=[],allMarkers=[],allOverlays=[];
+  // Minimal DOM fixture: mirror the dynamically inserted comparison input's value.
+  const decodeAttribute=value=>String(value||'').replaceAll('&quot;','"').replaceAll('&lt;','<').replaceAll('&gt;','>').replaceAll('&amp;','&');
+  const element=id=>{
+    if(!elements.has(id)){
+      const node={checked:false,disabled:false,innerText:'',value:'',style:{}};
+      let markup='';
+      Object.defineProperty(node,'innerHTML',{get:()=>markup,set:value=>{
+        markup=String(value);
+        if(id==='facilitySourceResults'){
+          const input=markup.match(/<input\s+id="facilityCompareQuery"[^>]*\svalue="([^"]*)"/);
+          element('facilityCompareQuery').value=input?decodeAttribute(input[1]):'';
+        }
+      }});
+      elements.set(id,node);
+    }
+    return elements.get(id);
+  };
+  const calls=[],exports=[],toasts=[],allMarkers=[],allOverlays=[],officialCalls=[],regionCalls=[];
   const buttons=(options.targets||['senior']).map(target=>({dataset:{target},active:true,classList:{remove(){buttons.find(b=>b.dataset.target===target).active=false;}}}));
   class LatLng {constructor(y,x){this.y=Number(y);this.x=Number(x);}getLat(){return this.y;}getLng(){return this.x;}}
   class Drawable {constructor(props={}){Object.assign(this,props);this.props=props;}setMap(value){this.map=value;}}
   class Marker extends Drawable {constructor(props){super(props);allMarkers.push(this);}getPosition(){return this.position;}}
   class Overlay extends Drawable {constructor(props){super(props);allOverlays.push(this);}}
   class Polyline extends Drawable {getLength(){return 100;}}
-  class Bounds {extend(){}}
+  class Bounds {extend(){}getSouthWest(){return new LatLng(37.25,126.65);}getNorthEast(){return new LatLng(37.35,126.75);}}
   const sandbox={
-    $,console,Date,encodeURIComponent,
-    setTimeout:(fn,ms)=>setTimeout(fn,ms===700?1:ms),clearTimeout,
+    $,console,Date,encodeURIComponent,URL,
+    setTimeout:(fn,ms)=>setTimeout(fn,ms===700?1:ms===4000&&options.regionTimeoutMs?options.regionTimeoutMs:ms),clearTimeout,
     document:{querySelectorAll(){return buttons.filter(b=>b.active);}},
-    map:{getBounds:()=>({}),setBounds(){}},
+    map:{getBounds:()=>new Bounds(),setBounds(){}},
     searchBtns:buttons,
     targetMarkers:{senior:[],welfare:[],ortho:[],banner:[],recommend:[]},
     targetOverlays:{senior:[],welfare:[],ortho:[],banner:[],recommend:[]},
@@ -50,6 +66,12 @@ function makeApp(reply, options={}){
     toast:message=>toasts.push(message),
     myHospitalMarker:{getPosition:()=>new LatLng(37.3,126.7)},
     drawBannerLayerForBounds:options.drawBanner||(()=>Promise.resolve()),
+    fetchSeoulOfficialShelters:bounds=>{officialCalls.push(bounds);return options.fetchOfficial?options.fetchOfficial(bounds):Promise.resolve({places:[],status:'out-of-coverage',matched:0});},
+    geocoder:options.geocoder===false?undefined:{coord2RegionCode(x,y,cb){
+      regionCalls.push({x,y});
+      if(options.regionReply)return options.regionReply(x,y,cb);
+      cb([{region_type:'B',region_1depth_name:'경기도',region_2depth_name:'시흥시'}],'OK');
+    }},
     startBannerAuto:()=>{sandbox.bannerStarts++;},bannerStarts:0,
     clearBannerLayerOnly(){},stopBannerAuto(){},
     places:{keywordSearch(keyword,cb,query){calls.push(keyword);reply(keyword,cb,query);}},
@@ -64,7 +86,7 @@ function makeApp(reply, options={}){
   function $(id){return element(id);}
   vm.createContext(sandbox);
   vm.runInContext(source+'\n'+handlerSource,sandbox);
-  return {sandbox,element,calls,exports,toasts,allMarkers,allOverlays,buttons};
+  return {sandbox,element,calls,exports,toasts,allMarkers,allOverlays,buttons,officialCalls,regionCalls};
 }
 const tick=()=>new Promise(resolve=>setTimeout(resolve,5));
 (async () => {
@@ -152,13 +174,14 @@ const tick=()=>new Promise(resolve=>setTimeout(resolve,5));
   check(app.allOverlays.some(overlay=>overlay.content.includes('&lt;b&gt;검증&lt;/b&gt;')),true,'map labels escape place markup');
   check(app.element('searchStatus').innerText.includes('조회 실패'),false,'normal zero-result keyword is not a failure');
   app.element('btnExportExcel').onclick();
-  check(app.exports.at(-1).every(row=>row['구분']==='경로당·노인정·회관·쉼터 검색 결과'),true,'facility export retains source classification');
+  check(app.exports.at(-1).every(row=>row['구분']==='경로당·노인정'),true,'facility export retains specific facility classification');
+  check(app.exports.at(-1).every(row=>row['출처']==='카카오 장소 검색'&&row['지도 대조']==='대조 미확인'),true,'facility export does not assert NAVER confirmation');
   app.element('seniorAuxSearch').checked=true;
   await app.element('btnSearch').onclick();
   check(app.calls.slice(-7),['경로당','노인정','마을회관','무더위쉼터','관리사무소','관리실','경비실'],'opt-in enables only explicit auxiliary keywords');
-  check(app.sandbox.searchedData.filter(row=>row.seniorKind==='auxiliary').map(row=>row.id),['g2'],'matching direct complex suppresses its auxiliary, other area retained');
+  check(app.sandbox.searchedData.filter(row=>row.seniorKind==='auxiliary').map(row=>row.id),['kakao:g2'],'matching direct complex suppresses its auxiliary, other area retained');
   check(app.allOverlays.some(overlay=>overlay.content.includes('[보조 문의처]')),true,'auxiliary map labels visibly distinguished');
-  check(app.element('searchStatus').innerText.includes('보조 문의처 1곳'),true,'status separates auxiliary count');
+  check(/보조 문의처\s+1건/.test(app.element('searchStatus').innerText),true,'status separates auxiliary record count');
   app.element('btnExportExcel').onclick();
   check(app.exports.at(-1).find(row=>row['시설명']===distant.place_name&&row['구분'].includes('미확인'))['구분'],'관리·경비 문의처 · 노인시설 여부 미확인');
   app.element('btnRouteOpt').onclick();
@@ -187,8 +210,195 @@ const tick=()=>new Promise(resolve=>setTimeout(resolve,5));
     else cb([],'ZERO_RESULT');
   });
   await app.element('btnSearch').onclick();
-  check(app.sandbox.searchedData.map(row=>row.id),['d1'],'partial response stays visible in real scan');
+  check(app.sandbox.searchedData.map(row=>row.id),['kakao:d1'],'partial response stays visible in real scan');
   check(app.element('searchStatus').innerText.includes('경로당 조회 실패/시간 초과'),true,'partial result warning names failed query');
+
+  // Actual handler integration with a mocked official-data network boundary.
+  // Coordinates and metadata below are synthetic and are not operational source assertions.
+  const officialPlace=p('d1','시민도서관','서울특별시 성동구 왕십리로 1',{
+    sourceProvider:'official',officialShelter:true,sourceRecordId:'d1',
+    sourceUrl:'https://data.seoul.go.kr/',recordDate:'2026-06-01',retrievedAt:'2026-09-29T00:00:00Z',
+    operatingHours:'평일 09:00~18:00'
+  });
+  const officialReply=places=>({places,status:'complete',matched:places.length,invalidCoordinateCount:0});
+  const kakaoSourcePlace=p('529000628','무더위,한파쉼터 부산이동(플랫폼)노동자지원센터해운대센터','부산 해운대구 구남로29번길 38',{
+    place_url:'http://place.map.kakao.com/529000628'
+  });
+  app=makeApp((keyword,cb)=>{
+    const rows=keyword==='경로당'?[d1]:keyword==='무더위쉼터'?[kakaoSourcePlace]:[];
+    cb(rows,rows.length?'OK':'ZERO_RESULT',{totalCount:rows.length,hasNextPage:false});
+  },{fetchOfficial:async()=>officialReply([officialPlace])});
+  await app.element('btnSearch').onclick();
+  check(app.officialCalls.length,1,'one official request supplements the senior scan');
+  check(app.sandbox.searchedData.map(row=>row.id),['kakao:d1','kakao:529000628','official:d1'],'same provider-local ID remains distinct across sources');
+  const officialRow=app.sandbox.searchedData.find(row=>row.sourceProvider==='official');
+  const coolingRow=app.sandbox.searchedData.find(row=>row.id==='kakao:529000628');
+  check(officialRow.facilityType,'냉방쉼터','official library survives the name classifier without a shelter keyword');
+  check(officialRow.isSeniorFacility,null,'official shelter designation does not imply senior facility');
+  check(coolingRow.isSeniorFacility,null,'combined-prefix worker shelter does not imply senior facility');
+  check(officialRow.sourceUrl,officialPlace.sourceUrl);
+  check(officialRow.recordDate,'2026-06-01');
+  check(officialRow.retrievedAt,'2026-09-29T00:00:00Z');
+  check(officialRow.sourceRefs.length,1,'official source evidence survives normalization');
+  check(officialRow.comparisonStatus,'대조 미확인');
+  check(coolingRow.mapLinks.kakao,'https://place.map.kakao.com/529000628','known provider ID opens the actual place');
+  check(decodeURIComponent(coolingRow.mapLinks.naver).includes('구남로29번길'),false,'map search avoids appending full street address');
+  check(app.element('facilitySourceResults').hidden,false,'source panel appears for senior records');
+  check(app.element('facilitySourceResults').innerHTML.includes('네이버 검색 결과와의 일치 여부는 아직 확인하지 않았습니다.'),true,'UI does not claim unperformed browser comparison');
+  check(app.element('facilitySourceResults').innerHTML.includes('출처의 같은 시설이 중복될 수 있습니다'),true,'cross-source duplicate risk disclosed');
+  check(app.allOverlays.some(overlay=>overlay.content.includes('[공식 쉼터]')),true,'official marker labels are explicit');
+  app.element('btnExportExcel').onclick();
+  const officialExport=app.exports.at(-1).find(row=>row['시설명']===officialPlace.place_name);
+  const kakaoExport=app.exports.at(-1).find(row=>row['시설명']===kakaoSourcePlace.place_name);
+  check(officialExport['구분'],'냉방쉼터');
+  check(officialExport['출처'],'서울 열린데이터광장');
+  check(officialExport['지정 구분'],'공공자료 지정');
+  check(officialExport['자료 기준'],'2026-06-01');
+  check(officialExport['조회 시각'],'2026-09-29T00:00:00Z');
+  check(officialExport['운영 안내'],'평일 09:00~18:00');
+  check(officialExport['원문'],officialPlace.sourceUrl);
+  check(officialExport['지도 대조'],'대조 미확인');
+  check(kakaoExport['원문'],kakaoSourcePlace.place_url);
+  check(kakaoExport['자료 기준'],'미제공','retrieval date cannot masquerade as source freshness');
+  check(kakaoExport['네이버 확인'],coolingRow.mapLinks.naver);
+  check(kakaoExport['카카오 확인'],coolingRow.mapLinks.kakao);
+  app.element('btnRouteOpt').onclick();
+  check(app.sandbox.lastRoute.find(row=>row.sourceProvider==='official').sourceUrl,officialPlace.sourceUrl,'route preserves official evidence');
+  app.element('btnExportRoute').onclick();
+  const officialRouteExport=app.exports.at(-1).find(row=>row['시설명']===officialPlace.place_name);
+  for(const key of ['출처','지정 구분','자료 기준','조회 시각','운영 안내','원문','지도 대조','네이버 확인','카카오 확인'])check(officialRouteExport[key],officialExport[key],'route export retains '+key);
+
+  app=makeApp(replySuccess,{fetchOfficial:async()=>{throw Error('synthetic upstream failure');}});
+  await app.element('btnSearch').onclick();
+  check(app.sandbox.searchedData.length,3,'official failure does not discard successful Kakao results');
+  check(app.element('searchStatus').innerText.includes('서울 공식 쉼터 조회 실패'),true,'official failure explicitly shown');
+  check(app.element('btnSearch').disabled,false,'button restored on official source failure');
+  app=makeApp((keyword,cb)=>cb([],'ZERO_RESULT'),{fetchOfficial:async()=>officialReply([])});
+  await app.element('btnSearch').onclick();
+  check(app.sandbox.searchedData.length,0,'successful empty source remains empty');
+  check(app.element('searchStatus').innerText.includes('서울 공식 지정 0건'),true,'successful empty official coverage differs from unsupported region');
+  check(app.element('searchStatus').innerText.includes('조회 실패'),false,'empty is not source failure');
+  check(app.element('facilitySourceResults').hidden,false,'API zero still offers direct map-web comparison');
+  check(app.element('facilityCompareQuery').value,'경기도 시흥시 무더위쉼터','empty-result map links use the viewport center district');
+  check(app.element('facilityNaverSearch').hidden,false,'NAVER web link remains available with zero API results');
+  check(app.element('facilityKakaoSearch').hidden,false,'Kakao web link remains available with zero API results');
+  check(app.element('facilityNaverSearch').href,'https://map.naver.com/p/search/'+encodeURIComponent('경기도 시흥시 무더위쉼터'));
+  check(app.element('facilityKakaoSearch').href,'https://map.kakao.com/?q='+encodeURIComponent('경기도 시흥시 무더위쉼터'));
+  check(app.element('facilitySourceResults').innerHTML.includes('현재 지도 범위와 다릅니다'),true,'district web-search scope is not presented as viewport results');
+  check(app.regionCalls.map(({x,y})=>[Number(x.toFixed(3)),Number(y.toFixed(3))]),[[126.7,37.3]],'region geocoder uses viewport center');
+  app.element('facilityCompareQuery').value='대전광역시 서구 무더위쉼터';
+  app.element('facilityCompareQuery').oninput();
+  check(app.element('facilityNaverSearch').href,'https://map.naver.com/p/search/'+encodeURIComponent('대전광역시 서구 무더위쉼터'),'editing region immediately updates NAVER link');
+  check(app.element('facilityKakaoSearch').href,'https://map.kakao.com/?q='+encodeURIComponent('대전광역시 서구 무더위쉼터'),'editing region immediately updates Kakao link');
+  app.element('facilityCompareQuery').value='   ';
+  app.element('facilityCompareQuery').oninput();
+  check(app.element('facilityNaverSearch').hidden,true,'empty comparison query hides NAVER link');
+  check(app.element('facilityKakaoSearch').hidden,true,'empty comparison query hides Kakao link');
+
+  const emptyPlaces=(keyword,cb)=>cb([],'ZERO_RESULT');
+  app=makeApp(emptyPlaces,{regionReply:(x,y,cb)=>cb([
+    {region_type:'H',region_1depth_name:'경기도',region_2depth_name:'행정 테스트시'},
+    {region_type:'B',region_1depth_name:'서울특별시',region_2depth_name:'성동구'}
+  ],'OK')});
+  await app.element('btnSearch').onclick();
+  check(app.element('facilityCompareQuery').value,'서울특별시 성동구 무더위쉼터','legal district row is preferred over fallback geocoder row');
+  app=makeApp(emptyPlaces,{regionReply:(x,y,cb)=>cb([{region_type:'H',region_1depth_name:'부산광역시',region_2depth_name:'해운대구'}],'OK')});
+  await app.element('btnSearch').onclick();
+  check(app.element('facilityCompareQuery').value,'부산광역시 해운대구 무더위쉼터','first valid row works if legal district entry unavailable');
+  for(const regionOptions of [
+    {regionReply:(x,y,cb)=>cb([],'ERROR')},
+    {regionReply:(x,y,cb)=>cb([],'OK')},
+    {regionReply:()=>{throw Error('synthetic geocoder failure');}},
+    {geocoder:false}
+  ]){
+    app=makeApp(emptyPlaces,regionOptions);
+    await app.element('btnSearch').onclick();
+    check(app.element('facilitySourceResults').hidden,false,'failed or missing geocoder retains editable web search');
+    check(app.element('facilityCompareQuery').value,'','failed region lookup does not invent or reuse a district');
+    check(app.element('facilityNaverSearch').hidden,true,'unknown district has no misleading search URL');
+    check(app.element('facilitySourceResults').innerHTML.includes('지역명 확인 실패'),true,'failed lookup prompts region input');
+    check(app.element('btnSearch').disabled,false,'geocoder fallback restores scan button');
+  }
+  let delayedRegion;
+  app=makeApp(emptyPlaces,{regionTimeoutMs:8,regionReply:(x,y,cb)=>{delayedRegion=cb;}});
+  await app.element('btnSearch').onclick();
+  check(app.element('facilityCompareQuery').value,'','region timeout resolves to an editable blank query');
+  check(app.element('btnSearch').disabled,false,'region timeout cannot hang the facility scan');
+  app.element('facilityCompareQuery').value='경기도 용인시 처인구 무더위쉼터';
+  app.element('facilityCompareQuery').oninput();
+  delayedRegion([{region_type:'B',region_1depth_name:'서울특별시',region_2depth_name:'성동구'}],'OK');
+  await tick();
+  check(app.element('facilityCompareQuery').value,'경기도 용인시 처인구 무더위쉼터','callback after timeout cannot overwrite manual query');
+  check(app.element('facilityNaverSearch').href,'https://map.naver.com/p/search/'+encodeURIComponent('경기도 용인시 처인구 무더위쉼터'),'late geocoder does not change manual NAVER URL');
+
+  let pendingRegion;
+  app=makeApp(replySuccess,{regionReply:(x,y,cb)=>{pendingRegion=cb;}});
+  const canceledRegionRun=app.element('btnSearch').onclick();
+  await tick();
+  app.element('btnResetSearch').onclick();
+  pendingRegion([{region_type:'B',region_1depth_name:'서울특별시',region_2depth_name:'성동구'}],'OK');
+  await canceledRegionRun;
+  check(app.element('facilitySourceResults').hidden,true,'late region lookup cannot reopen a reset source panel');
+  check(app.element('searchStatus').innerText,'대기','late region lookup preserves reset status');
+  check(app.sandbox.searchedData.length,0,'reset still clears facilities while geocoder is pending');
+  check(app.allMarkers.every(marker=>marker.map===null),true,'reset clears markers created before geocoder completed');
+  const pendingRegions=[];
+  app=makeApp(emptyPlaces,{regionReply:(x,y,cb)=>pendingRegions.push(cb)});
+  const oldRegionRun=app.element('btnSearch').onclick();
+  await tick();
+  app.element('btnResetSearch').onclick();
+  app.buttons.forEach(button=>button.active=true);
+  const currentRegionRun=app.element('btnSearch').onclick();
+  await tick();
+  pendingRegions[0]([{region_type:'B',region_1depth_name:'서울특별시',region_2depth_name:'성동구'}],'OK');
+  await oldRegionRun;
+  check(app.element('btnSearch').disabled,true,'old geocoder completion cannot enable a newer scan');
+  check(app.element('facilitySourceResults').hidden,true,'old geocoder result cannot render the wrong region');
+  pendingRegions[1]([{region_type:'B',region_1depth_name:'대전광역시',region_2depth_name:'서구'}],'OK');
+  await currentRegionRun;
+  check(app.element('facilityCompareQuery').value,'대전광역시 서구 무더위쉼터','newest geocoder response controls the web-search district');
+  check(app.element('btnSearch').disabled,false);
+  app=makeApp(emptyPlaces,{targets:['welfare']});
+  await app.element('btnSearch').onclick();
+  check(app.regionCalls.length,0,'non-senior scan does not add an unrelated region request');
+  check(app.officialCalls.length,0,'non-senior scan does not request cooling shelter data');
+  check(app.element('facilitySourceResults').hidden,true,'shelter comparison panel stays hidden for other facility types');
+  app=makeApp((keyword,cb)=>{
+    const rows=keyword==='경로당'?[d1,p('outside','다른 지역 경로당','',{x:'127.1',y:'37.5'}),p('missing','좌표 미상 경로당','',{x:'',y:''})]:[];
+    cb(rows,rows.length?'OK':'ZERO_RESULT',{totalCount:rows.length,hasNextPage:false});
+  });
+  await app.element('btnSearch').onclick();
+  check(app.sandbox.searchedData.map(row=>row.id),['kakao:d1'],'actual viewport filter excludes remote and coordinate-missing provider results');
+
+  let releaseOfficial;
+  app=makeApp(replySuccess,{fetchOfficial:()=>new Promise(resolve=>{releaseOfficial=resolve;})});
+  let pendingOfficialRun=app.element('btnSearch').onclick();
+  await tick();
+  check(app.calls.length,4,'Kakao keywords complete while official source is pending');
+  app.element('btnResetSearch').onclick();
+  releaseOfficial(officialReply([officialPlace]));
+  await pendingOfficialRun;
+  check(app.sandbox.searchedData.length,0,'late official result cannot restore reset facilities');
+  check(app.element('searchStatus').innerText,'대기','late official completion preserves reset status');
+  check(app.element('facilitySourceResults').hidden,true,'late official completion cannot reopen source panel');
+  check(app.allMarkers.length,0,'no stale markers created after reset');
+
+  const officialReleases=[];
+  app=makeApp((keyword,cb)=>cb([],'ZERO_RESULT'),{fetchOfficial:()=>new Promise(resolve=>officialReleases.push(resolve))});
+  pendingOfficialRun=app.element('btnSearch').onclick();
+  await tick();
+  app.element('btnResetSearch').onclick();
+  app.buttons.forEach(button=>button.active=true);
+  const newOfficialRun=app.element('btnSearch').onclick();
+  await tick();
+  officialReleases[0](officialReply([officialPlace]));
+  await pendingOfficialRun;
+  check(app.element('btnSearch').disabled,true,'stale official completion cannot enable a newer active scan');
+  check(app.sandbox.searchedData.length,0,'stale official rows excluded while newer scan waits');
+  officialReleases[1](officialReply([{...officialPlace,id:'new',sourceRecordId:'new',place_name:'새 시민센터'}]));
+  await newOfficialRun;
+  check(app.sandbox.searchedData.map(row=>row.id),['official:new'],'new official request wins over previous response');
+  check(app.element('btnSearch').disabled,false);
 
   // A pending request cannot repopulate the map or alter the status after reset.
   let heldCallback;
@@ -219,7 +429,7 @@ const tick=()=>new Promise(resolve=>setTimeout(resolve,5));
   held[1]([d2],'OK',{hasNextPage:false,totalCount:1});
   for(let index=2;index<5;index++){await tick();held[index]([],'ZERO_RESULT');}
   await nextRunning;
-  check(app.sandbox.searchedData.map(row=>row.id),['d2'],'new request wins after old request canceled');
+  check(app.sandbox.searchedData.map(row=>row.id),['kakao:d2'],'new request wins after old request canceled');
   check(app.element('btnSearch').disabled,false);
 
   let releaseBanner;

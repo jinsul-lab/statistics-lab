@@ -1,13 +1,13 @@
 // Seoul-only relay. No credentials are stored in source or client request URLs.
 const ORIGINS=new Set(['https://jinsul-lab.github.io','http://localhost:5500','http://127.0.0.1:5500']);
-const SERVICES=new Set(['citydata_ppltn','VwsmTrdarFlpopQq','VwsmTrdarStorQq','VwsmTrdarSelngQq']);
+const SERVICES=new Set(['citydata_ppltn','VwsmTrdarFlpopQq','VwsmTrdarStorQq','VwsmTrdarSelngQq','TbGtnHwcwP']);
 export default {
   async fetch(request){
     const origin=request.headers.get('Origin')||'';
     const headers={'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','Vary':'Origin'};
     if(ORIGINS.has(origin))Object.assign(headers,{'Access-Control-Allow-Origin':origin,'Access-Control-Allow-Methods':'POST, OPTIONS','Access-Control-Allow-Headers':'Content-Type','Access-Control-Max-Age':'86400'});
     const reply=(body,status=200)=>new Response(JSON.stringify(body),{status,headers});
-    if(new URL(request.url).pathname==='/health')return reply({ok:true,service:'jinsul-seoul-proxy',version:'1.0.4'});
+    if(new URL(request.url).pathname==='/health')return reply({ok:true,service:'jinsul-seoul-proxy',version:'1.0.5'});
     if(!ORIGINS.has(origin))return reply({error:'허용되지 않은 접속 주소입니다.'},403);
     if(new URL(request.url).pathname!=='/seoul')return reply({error:'존재하지 않는 경로입니다.'},404);
     if(request.method==='OPTIONS')return new Response(null,{status:204,headers});
@@ -18,7 +18,9 @@ export default {
     if(typeof clinicOnly!=='boolean'||(clinicOnly&&service!=='VwsmTrdarSelngQq'))return reply({error:'의원 필터 조건이 올바르지 않습니다.'},400);
     if(!SERVICES.has(service)||typeof key!=='string'||!/^[A-Za-z0-9]{10,80}$/.test(key)||!Number.isInteger(start)||!Number.isInteger(end)||start<1||end<start||end-start>=1000||end>100000)return reply({error:'조회 조건이 올바르지 않습니다.'},400);
     if(typeof tail!=='string'||tail.length>100)return reply({error:'조회 대상이 올바르지 않습니다.'},400);
-    if(service==='citydata_ppltn'?(!/^[가-힣A-Za-z0-9 ·ㆍ()&–·-]+$/.test(tail)||start!==1||end>5):!new RegExp('^[0-9]{4}[1-4](/[0-9]{6,10})?$').test(tail))return reply({error:'조회 대상 또는 분기가 올바르지 않습니다.'},400);
+    // TbGtnHwcwP documents pagination only; district/bounds filtering happens in the client.
+    const invalidTail=service==='TbGtnHwcwP'?tail!=='':service==='citydata_ppltn'?(!/^[가-힣A-Za-z0-9 ·ㆍ()&–·-]+$/.test(tail)||start!==1||end>5):!new RegExp('^[0-9]{4}[1-4](/[0-9]{6,10})?$').test(tail);
+    if(invalidTail)return reply({error:'조회 대상 또는 분기가 올바르지 않습니다.'},400);
     const url='http://openapi.seoul.go.kr:8088/'+encodeURIComponent(key)+'/json/'+service+'/'+start+'/'+end+'/'+tail.split('/').map(encodeURIComponent).join('/');
     try{
       const response=await fetch(url,{signal:AbortSignal.timeout(18000),redirect:'manual'});

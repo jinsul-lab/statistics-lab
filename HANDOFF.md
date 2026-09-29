@@ -1,3 +1,17 @@
+# 현재 기준 · JINSUL MAP 3.7.5
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+상세: jinsulmap/SHELTER_REVIEW_v3.7.5.md
+
+- 5개 시군구 네이버·카카오 실제 브라우저 대조: 양쪽 웹에는 쉼터 목록이 있으나 동일 검색어 공개 API는 0~1건. 웹 표시 건수는 공식 시설 수가 아님.
+- 서울 공식 4,092건 전체 페이지·CORS 실검증, 지도범위 자동 보완 및 출처·운영안내 보존. 전국 공식 API는 별도키 필요.
+- 복합 쉼터명 누락 수정, API 0건에도 중심 시군구 웹 검색 제공, 관리·경비실은 선택 보조 유지.
+- 248개 모의검사·출처 UI·기존 환자/분석 회귀 통과. 실제 브라우저·API 결과와 모의검증을 보고서에 구분.
+- 서울 Worker 1.0.5 배포 완료. 단일 HTML 고정 주소 사용.
+
+아래는 과거 기록입니다.
+
 # 현재 기준 · JINSUL MAP 3.7.4
 
 기준 파일: jinsulmap/jinsulmap.html
