@@ -1,3 +1,16 @@
+# 현재 기준 · JINSUL MAP 3.7.1
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+
+## 3.7.1 · 분석 정의·계산 검토 (2026-09-29)
+- 환자 고유번호·신환 부정표기·나이·동명지역·수동반경·비동기 완료 수정.
+- 원평균/선택지표 일치, 빈 결과·0분모·실패 null, 차트 장애 수치표 수정.
+- 기록 수/반복기록 비율로 명칭 정리하고 임의 입지 종합점수 제거.
+- 실제 원본·전체 API·PDF 재검증은 미수행. ANALYSIS_REVIEW_v3.7.1.md 참고.
+
+아래는 과거 기록입니다.
+
 # 현재 기준 · JINSUL MAP 3.7.0
 
 고정 실행 주소: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html

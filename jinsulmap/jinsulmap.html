@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>JINSUL MAP v3.7.0</title>
+<title>JINSUL MAP v3.7.1</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=587d3b22c3896f92f134d03253e685bd&amp;libraries=services,drawing,clusterer&amp;autoload=false"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -608,7 +608,7 @@
     @media (max-width: 820px){ .rightDrawer{width:92vw;} }
 
     /* ===========================
-       상권 스캔 v3.7.0
+       상권 스캔 v3.7.1
        =========================== */
     .sidebarTabs{
       display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:8px 10px;
@@ -768,7 +768,7 @@
       .scanReportHero{grid-template-columns:1fr;}.scanReportKpis{grid-template-columns:1fr 1fr;}.scanReportGrid{grid-template-columns:1fr;}.scanReportCard.wide{grid-column:auto;}
     }
 
-/* v3.7.0 · chart-focused theme; preserves map, filters and clinical marker colors */
+/* v3.7.1 · chart-focused theme; preserves map, filters and clinical marker colors */
 .scanReportModal .scanReportCard,.scanReportCard{border:1px solid #dce5f3;border-radius:20px;background:linear-gradient(150deg,#fff 65%,#f3f7ff);box-shadow:0 8px 28px #243a6610;overflow:hidden}
 .scanReportCard h3{font-size:15px;letter-spacing:-.3px;color:#193355;display:flex;align-items:center;gap:9px}
 .scanReportCard h3:before{content:'';width:5px;height:18px;border-radius:9px;background:linear-gradient(#6366f1,#22d3ee)}
@@ -787,7 +787,7 @@
 .scanReportCard .scanVisualGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scanReportCard .scanVisualGrid .scanVisual{margin:0;min-width:0}
 @media(max-width:800px){.scanReportCard .scanVisualGrid{grid-template-columns:1fr}}
 
-/* v3.7.0: explicit foregrounds prevent inherited transparent text. */
+/* v3.7.1: explicit foregrounds prevent inherited transparent text. */
 :root{color-scheme:light}
 .sectionTitle{background:none;-webkit-background-clip:initial;-webkit-text-fill-color:currentColor;color:#243b68}
 .sectionTitle .pill{background:#1d4ed8;color:#fff;-webkit-text-fill-color:#fff}
@@ -851,13 +851,13 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 
 .siteDetailButtons{align-items:flex-start}#siteHiraDetail{flex-basis:100%;width:100%;min-width:0}#siteHiraDetail .siteClinicBox{margin-top:12px;width:100%;color:#172b49;background:#f0f7ff}#siteHiraDetail table{width:100%;border-collapse:collapse}#siteHiraDetail th,#siteHiraDetail td{padding:9px;text-align:left;border-bottom:1px solid #cbd5e1}
 .v-tool-btn{width:52px;min-height:52px;gap:4px}.v-tool-btn svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.v-tool-btn .lbl{font-size:11px;color:inherit}.v-tool-btn.active{background:#e5f1ff;color:#075bb5;box-shadow:inset 3px 0 #1674df}.v-tool-btn:focus-visible, #mapToolStatus button:focus-visible{outline:3px solid #2563eb;outline-offset:2px}#btnRoadview,#btnClearTools{border-top:2px solid #d6dfeb}#mapToolStatus{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:12;background:#fff;color:#243447;border:1px solid #cad4e0;box-shadow:0 3px 16px #10294422;border-radius:12px;padding:10px;max-width:calc(100% - 40px);font-size:12px}#mapToolStatus button,#mapToolStatus select{padding:7px 10px;border:1px solid #cbd5e1;border-radius:6px;background:white;color:#243447;margin:3px}#mapToolStatus summary{cursor:pointer;padding:5px}.vertical-toolbar{max-height:calc(100vh - 145px);overflow-y:auto}button:disabled{opacity:.55;cursor:wait}.vertical-toolbar{width:64px;overflow-x:hidden;scrollbar-width:thin}.v-tool-btn{width:100%;flex-shrink:0;padding:4px 0}.v-tool-btn .lbl{white-space:nowrap}#mapToolStatus{width:360px}</style>
-<style>#patientStatsStatus{padding:10px;background:#eaf2ff;color:#19365c;border-radius:8px}.patientKpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:12px 0 20px}.patientKpis>div{padding:16px;background:#f0f5ff;border:1px solid #cfdbef;border-radius:14px}.patientKpis b{display:block;font-size:25px;color:#17335a}.patientContribution{display:grid;grid-template-columns:150px 1fr 150px;align-items:center;gap:12px;margin:12px 0}.patientContribution>div{height:12px;background:#e2e8f0;border-radius:6px;overflow:hidden}.patientContribution i{display:block;height:100%}#patientStatsOverview{padding-bottom:22px}#patientScatterDetails{overflow:auto;max-height:320px;margin:12px 0}#patientScatterDetails p{padding:12px;background:#eef4ff;color:#233e68}#statsModal .tabPane{min-width:0}#statsModal canvas{background:#fff}@media(max-width:700px){.patientKpis{grid-template-columns:repeat(2,1fr)}.patientContribution{grid-template-columns:110px 1fr}.patientContribution b{grid-column:2;font-size:12px}#tabType>div{flex-wrap:wrap}}</style><style>.patientMixCard{padding:20px;margin:18px 0;background:#fff;border:1px solid #dae4f2;border-radius:16px}.patientMixCard h3{margin:0 0 10px;color:#16365b}.patientMixCard p,.patientMixNotice{color:#475569;line-height:1.65}.patientMixNotice{padding:12px;background:#edf4ff;border-radius:10px}.patientMixScroll{overflow:auto}.patientMixScroll table{min-width:580px}.patientHeat{min-width:780px!important}.patientHeat th:first-child{min-width:150px}.patientMixChart{height:340px;margin:20px 0}#patientMixMode{padding:9px;border:1px solid #9cabc0;border-radius:8px;background:white;color:#17335a}@media(max-width:700px){.patientMixCard{padding:12px}.patientMixChart{height:300px}}</style><style>.scoreDefinitions{margin:12px 0;padding:14px;background:#f0f5ff;border:1px solid #ccdaef;border-radius:10px;color:#17335a;line-height:1.7}.scoreDefinitions summary{cursor:pointer;font-weight:700}.scoreDefinitions dt{font-weight:800;margin-top:12px}.scoreDefinitions dd{margin:4px 0 10px}.scoreDefinitions p{font-size:13px}</style></head>
+<style>#patientStatsStatus{padding:10px;background:#eaf2ff;color:#19365c;border-radius:8px}.patientKpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:12px 0 20px}.patientKpis>div{padding:16px;background:#f0f5ff;border:1px solid #cfdbef;border-radius:14px}.patientKpis b{display:block;font-size:25px;color:#17335a}.patientContribution{display:grid;grid-template-columns:150px 1fr 150px;align-items:center;gap:12px;margin:12px 0}.patientContribution>div{height:12px;background:#e2e8f0;border-radius:6px;overflow:hidden}.patientContribution i{display:block;height:100%}#patientStatsOverview{padding-bottom:22px}#patientScatterDetails{overflow:auto;max-height:320px;margin:12px 0}#patientScatterDetails p{padding:12px;background:#eef4ff;color:#233e68}#statsModal .tabPane{min-width:0}#statsModal canvas{background:#fff}@media(max-width:700px){.patientKpis{grid-template-columns:repeat(2,1fr)}.patientContribution{grid-template-columns:110px 1fr}.patientContribution b{grid-column:2;font-size:12px}#tabType>div{flex-wrap:wrap}}</style><style>.patientMixCard{padding:20px;margin:18px 0;background:#fff;border:1px solid #dae4f2;border-radius:16px}.patientMixCard h3{margin:0 0 10px;color:#16365b}.patientMixCard p,.patientMixNotice{color:#475569;line-height:1.65}.patientMixNotice{padding:12px;background:#edf4ff;border-radius:10px}.patientMixScroll{overflow:auto}.patientMixScroll table{min-width:580px}.patientHeat{min-width:780px!important}.patientHeat th:first-child{min-width:150px}.patientMixChart{height:340px;margin:20px 0}#patientMixMode{padding:9px;border:1px solid #9cabc0;border-radius:8px;background:white;color:#17335a}@media(max-width:700px){.patientMixCard{padding:12px}.patientMixChart{height:300px}}</style><style>.scoreDefinitions{margin:12px 0;padding:14px;background:#f0f5ff;border:1px solid #ccdaef;border-radius:10px;color:#17335a;line-height:1.7}.scoreDefinitions summary{cursor:pointer;font-weight:700}.scoreDefinitions dt{font-weight:800;margin-top:12px}.scoreDefinitions dd{margin:4px 0 10px}.scoreDefinitions p{font-size:13px}</style><style>.scanReportHero{grid-template-columns:minmax(0,1fr)}</style></head>
 <body>
 <div class="app">
 <div class="sidebar">
 <div class="sidebarHeader">
 <div class="brand">JINSUL MAP</div>
-<div style="font-size:11px;color:#868e96;">v3.7.0</div>
+<div style="font-size:11px;color:#868e96;">v3.7.1</div>
 </div>
 <div class="sidebarTabs" role="tablist" aria-label="분석 모드">
 <button class="sidebarModeBtn active" id="btnModePatients" type="button" role="tab" aria-selected="true" aria-controls="patientSidebarPanel">환자 분석</button>
@@ -873,11 +873,11 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 </div>
 <div class="statGrid">
 <div class="statItem">
-<div class="statLabel">총 인원</div>
+<div class="statLabel">선택 환자</div>
 <div class="statValue" id="statTotalUsers">0</div>
 </div>
 <div class="statItem">
-<div class="statLabel">총 방문</div>
+<div class="statLabel">선택 내원 기록</div>
 <div class="statValue" id="statTotalVisits">0</div>
 </div>
 </div>
@@ -893,19 +893,19 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <div class="toggle on" data-toggle="all"></div>
 </div>
 <div class="row">
-<span style="color:#172b49"><span style="color:var(--c-new)" aria-hidden="true">●</span> 신환 (1회만)</span>
+<span style="color:#172b49"><span style="color:var(--c-new)" aria-hidden="true">●</span> 신환 표기·1건</span>
 <div class="toggle on" data-toggle="new_only"></div>
 </div>
 <div class="row">
-<span style="color:#172b49"><span style="color:var(--c-conv)" aria-hidden="true">●</span> 신환 ▶ 재진 전환</span>
+<span style="color:#172b49"><span style="color:var(--c-conv)" aria-hidden="true">●</span> 신환 표기·2건 이상</span>
 <div class="toggle on" data-toggle="new_conv"></div>
 </div>
 <div class="row">
-<span style="color:#172b49"><span style="color:var(--c-90)" aria-hidden="true">●</span> 90일초</span>
+<span style="color:#172b49"><span style="color:var(--c-90)" aria-hidden="true">●</span> 90일 표기</span>
 <div class="toggle on" data-toggle="bit_90"></div>
 </div>
 <div class="row">
-<span style="color:#172b49"><span style="color:var(--c-ret)" aria-hidden="true">●</span> 재진</span>
+<span style="color:#172b49"><span style="color:var(--c-ret)" aria-hidden="true">●</span> 기존 분류</span>
 <div class="toggle on" data-toggle="old"></div>
 </div>
 <button class="btn outline" id="btnFit" style="width:100%;margin-top:10px;">지도 범위 최적화</button>
@@ -956,11 +956,11 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <option value="50">50곳</option>
 </select>
 </div>
-<button class="btn purple" id="btnRouteOpt">🚀 최적 방문 경로 생성</button>
+<button class="btn purple" id="btnRouteOpt">🚀 직선거리 기준 방문 순서 생성</button>
 </div>
 </div>
 <div class="sidebarBody scanSidebarBody" id="scanSidebarPanel" role="tabpanel" aria-labelledby="btnModeScan" hidden>
-<p class="scanLead">후보지를 기준으로 경쟁 의원과 주변 시설 수을 한 번에 확인합니다. 검색은 버튼을 누를 때만 실행됩니다. <a href="https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html">진설맵 고정 실행 주소</a></p>
+<p class="scanLead">후보지를 기준으로 경쟁 의원과 주변 시설을 한 번에 확인합니다. 검색은 버튼을 누를 때만 실행됩니다. <a href="https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html">진설맵 고정 실행 주소</a></p>
 <div class="section">
 <div class="sectionTitle">후보 입지 <span class="pill">Kakao</span></div>
 <label class="scanField" for="scanAddress">
@@ -1010,7 +1010,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 
 <div class="section" id="scanRadiusCommerceSection">
 <div class="sectionTitle">전국 반경 상가·업종 <span class="pill">선택 반경</span></div>
-<div class="scanEmpty" id="scanRadiusCommerceEmpty">후보지를 스캔하면 소상공인시장진흥공단의 전국 영업 상가를 선택 반경으로 집계합니다.</div>
+<div class="scanEmpty" id="scanRadiusCommerceEmpty">후보지를 스캔하면 소상공인시장진흥공단의 전국 상가업소 등록자료를 선택 반경으로 집계합니다.</div>
 <div id="scanRadiusCommerceContent" hidden><div id="scanRadiusCommerceBody"></div></div>
 </div>
 
@@ -1029,7 +1029,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 
 <div class="section" id="scanSgisSection">
 <div class="sectionTitle">전국 인구·가구·사업체 <span class="pill">SGIS</span></div>
-<div class="scanEmpty" id="scanSgisEmpty">전국 후보지를 스캔하면 해당 행정동의 공식 센서스 지표를 연결합니다.</div>
+<div class="scanEmpty" id="scanSgisEmpty">전국 후보지를 스캔하면 해당 주소 지역의 공식 센서스 지표를 연결합니다.</div>
 <div id="scanSgisContent" hidden>
 <div class="scanPopulationPicker">
 <select class="scanSelect" id="scanSgisRegionSelect" aria-label="SGIS 행정구역 범위"></select>
@@ -1106,7 +1106,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 </div>
 </div>
 <div style="padding:10px;text-align:center;font-size:10px;color:#adb5bd;border-top:1px solid #eee;">
-      JINSUL MAP v3.7.0<br/>All Rights Reserved.
+      JINSUL MAP v3.7.1<br/>All Rights Reserved.
     </div>
 </div>
 <div class="mapArea">
@@ -1114,8 +1114,8 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <div id="mapLegend">
 <div class="legend-item"><div class="dot" style="background:#ff0000"></div>신환(1회)</div>
 <div class="legend-item"><div class="dot" style="background:#00c853"></div>재진전환</div>
-<div class="legend-item"><div class="dot" style="background:#ffd400"></div>90일초</div>
-<div class="legend-item"><div class="dot" style="background:#228be6"></div>재진</div>
+<div class="legend-item"><div class="dot" style="background:#ffd400"></div>90일 표기</div>
+<div class="legend-item"><div class="dot" style="background:#228be6"></div>기존 분류</div>
 </div>
 <div id="scanLegend">
 <div class="legend-item"><div class="dot" style="background:#4f46e5"></div>후보지</div>
@@ -1188,7 +1188,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <div class="modalBack" id="routeModal">
 <div class="modalPanel">
 <div class="modalHeader">
-      최적 방문 경로
+      직선거리 기준 방문 순서
       <span onclick="$('routeModal').style.display='none'" style="cursor:pointer;">✕</span>
 </div>
 <div class="modalBody">
@@ -1215,18 +1215,18 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <button class="tabBtn active" onclick="switchTab('tabType')">유형별</button>
 <button class="tabBtn" onclick="switchTab('tabDong')">동별 분포</button>
 <button class="tabBtn" onclick="switchTab('tabAge')">연령별</button>
-<button class="tabBtn" onclick="switchTab('tabVisit')">방문수</button>
+<button class="tabBtn" onclick="switchTab('tabVisit')">기록 수</button>
 <button class="tabBtn" onclick="switchTab('tabRegion')">지역 분석</button>
-<button class="tabBtn" onclick="switchTab('tabValue')">재진 전환·내원</button>
+<button class="tabBtn" onclick="switchTab('tabValue')">반복기록·기록 수</button>
 <button class="tabBtn" onclick="switchTab('tabRadius')">병원 기준 거리</button>
 <button class="tabBtn" onclick="switchTab('tabPatientMix')">환자 구성·기여</button><button class="tabBtn" onclick="switchTab('tabLocalPopulation')">지역·실시간 인구</button>
 </div>
-<p id="patientStatsStatus" role="status"></p><div class="tabPane" id="tabPatientMix"><h2>환자 구성 · 내원 기여</h2><label>히트맵 표시 <select id="patientMixMode"><option value="count">환자 수</option><option value="share">동 내 연령 비율</option></select></label><div id="patientMixBody"></div></div><div class="tabPane" id="tabLocalPopulation"><div class="scanStatBridge"><h3>검색 후보지의 지역·실시간 인구 통계</h3><p>상권 스캔에서 검색한 주소의 서울 지정지점 실시간 추정인구, 전국 방문인구, 공식상권 유동인구, SGIS 행정구역 인구를 함께 확인합니다. 각 자료의 기준 시점과 공간 범위를 구분해 표시합니다.</p><button class="btn primary" type="button" onclick="scanOpenReport(scanState.result,'population')">인구 상세 통계 열기</button><p>먼저 상권 스캔에서 주소를 검색해주세요. 환자 업로드 통계와 별도로 제공됩니다.</p></div></div>
+<details class="patientMixNotice" open><summary><b>환자 분석 집계 기준 · 먼저 확인하세요</b></summary><p>환자 수는 차트번호별 고유 인원입니다. 내원 기록 수는 업로드의 환자별 행 수를 집계한 <b>내원 기록 수(건)</b>이며, 방문일 중복 제거·실제 방문 횟수 검증은 하지 않습니다. 동일 기록을 중복 업로드하면 반복기록으로 분류될 수 있습니다.</p><p><b>신환 반복기록 비율</b> = 신환 표기가 있고 2개 이상 기록된 환자 ÷ 신환 표기 환자(1개+2개 이상). 90일 표기 환자는 별도 분류로 제외합니다. 날짜를 추적한 재방문율·치료 효과·수익성이 아닙니다. 유형 필터를 끄면 분모도 달라집니다.</p><p><b>90일초</b>는 원본 구분의 90 표기이고 날짜로 90일을 계산하지 않습니다. <b>재진/기존 분류</b>는 신환·90일 표기가 없는 자료입니다. 기간 밖 첫 방문 여부는 알 수 없습니다. 나이는 원본 나이를 우선하며, 없으면 주민번호에서 조회일 기준 만 나이를 추정하므로 원본의 기준일과 다를 수 있습니다. 주소 지역은 변환 결과의 시도·시군구·동이며 주소 미확인은 미상으로 포함하되, 반경 분석에서는 제외합니다. 거리와 방문 순서는 도로 이동거리가 아닌 직선거리입니다.</p><p><b>Lift</b>는 비교 기준 대비 배수입니다. 연령·거리에서는 현재 필터 전체의 해당 비율 대비, 기록 수 구간에서는 환자 비중 대비 기록 비중입니다. 0분모는 —, 표본 기준은 불안정성 경고이며 통계적 유의성을 뜻하지 않습니다.</p></details><p id="patientStatsStatus" role="status"></p><div class="tabPane" id="tabPatientMix"><h2>환자 구성 · 기록 비중</h2><label>히트맵 표시 <select id="patientMixMode"><option value="count">환자 수</option><option value="share">동 내 연령 비율</option></select></label><div id="patientMixBody"></div></div><div class="tabPane" id="tabLocalPopulation"><div class="scanStatBridge"><h3>검색 후보지의 지역·실시간 인구 통계</h3><p>상권 스캔에서 검색한 주소의 서울 지정지점 실시간 추정인구, 전국 방문인구, 공식상권 유동인구, SGIS 행정구역 인구를 함께 확인합니다. 각 자료의 기준 시점과 공간 범위를 구분해 표시합니다.</p><button class="btn primary" type="button" onclick="scanOpenReport(scanState.result,'population')">인구 상세 통계 열기</button><p>먼저 상권 스캔에서 주소를 검색해주세요. 환자 업로드 통계와 별도로 제공됩니다.</p></div></div>
 <div class="tabPane" id="tabType" style="display:block;"><div id="patientStatsOverview"></div>
 <div style="display:flex;gap:20px;align-items:flex-start;">
 <div style="flex:1;">
 <table class="miniTable">
-<thead><tr><th>구분</th><th>환자 수 / 내원 횟수</th><th>환자 비율</th></tr></thead>
+<thead><tr><th>구분</th><th>환자 수 / 내원 기록 수</th><th>환자 비율</th></tr></thead>
 <tbody id="tblSummary"></tbody>
 </table>
 </div>
@@ -1250,8 +1250,8 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <label style="font-size:11px;color:#666;display:flex;align-items:center;gap:6px;user-select:none;">
               기준
               <select id="selDongTopBy" style="padding:4px 8px;border:1px solid #ddd;border-radius:6px;font-size:11px;background:#fff;">
-<option selected="" value="patients">환자수(신환+전환)</option>
-<option value="visits">총 내원수</option>
+<option selected="" value="patients">신환 표기 환자 수</option>
+<option value="visits">총 기록 수</option>
 </select>
 </label>
 <label style="font-size:11px;color:#666;display:flex;align-items:center;gap:6px;user-select:none;">
@@ -1263,7 +1263,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;">
 <div style="flex:1;min-width:320px;">
 <table class="miniTable">
-<thead><tr><th>행정동</th><th>신환</th><th>전환</th><th>90일</th><th>재진</th><th>합계</th><th>총 내원수</th></tr></thead>
+<thead><tr><th>주소 지역</th><th>신환 1건</th><th>신환 2건+</th><th>90일 표기</th><th>기존 분류</th><th>합계</th><th>총 기록 수</th></tr></thead>
 <tbody id="tblDong"></tbody>
 </table>
 </div>
@@ -1272,7 +1272,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 </div>
 </div>
 <details style="margin-top:12px;padding:10px;background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;">
-<summary style="cursor:pointer;font-weight:700;color:#495057;">해석 &amp; 제안 보기</summary>
+<summary style="cursor:pointer;font-weight:700;color:#495057;">집계 기준과 해석</summary>
 <div id="dongExplain" style="margin-top:10px;font-size:12px;color:#495057;line-height:1.55;"></div>
 </details>
 </div>
@@ -1285,7 +1285,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <tbody id="tblAge"></tbody>
 </table>
 <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
-<div style="font-weight:700;color:#495057;">연령대별 재방문 구성 구조</div>
+<div style="font-weight:700;color:#495057;">연령대별 업로드 분류 구성</div>
 <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
 <label style="font-size:12px;color:#495057;">표본 기준(n)</label>
 <select id="ageMinN" style="padding:6px 10px;border:1px solid #dee2e6;border-radius:10px;font-size:12px;">
@@ -1318,8 +1318,8 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <table class="miniTable" style="min-width:860px;">
 <thead>
 <tr>
-<th>연령대</th><th>합계</th><th>1회만</th><th>전환</th><th>90일</th><th>재진</th>
-<th>전환율</th><th>재진 비중</th><th>Lift(전환)</th><th>Lift(재진)</th>
+<th>연령대</th><th>합계</th><th>1회만</th><th>신환 2건+</th><th>90일 표기</th><th>기존 분류</th>
+<th>신환 반복기록 비율</th><th>기존 분류 비중</th><th>Lift(전환)</th><th>Lift(재진)</th>
 </tr>
 </thead>
 <tbody id="tblAgeRetention"></tbody>
@@ -1328,7 +1328,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 </div>
 <div class="tabPane" id="tabVisit">
 <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
-<div style="font-weight:bold;color:#495057;">방문수 분석 옵션</div>
+<div style="font-weight:bold;color:#495057;">기록 수 분석 옵션</div>
 <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
 <label style="font-size:11px;color:#666;display:flex;align-items:center;gap:6px;user-select:none;">
               연령 필터
@@ -1352,7 +1352,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <div id="visitKpiPatients" style="font-size:18px;font-weight:900;color:#212529;margin-top:2px;">-</div>
 </div>
 <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:10px 12px;">
-<div style="font-size:11px;color:#868e96;font-weight:700;">총 내원수(회)</div>
+<div style="font-size:11px;color:#868e96;font-weight:700;">총 기록 수(회)</div>
 <div id="visitKpiVisits" style="font-size:18px;font-weight:900;color:#212529;margin-top:2px;">-</div>
 </div>
 <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:10px 12px;">
@@ -1370,12 +1370,12 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <canvas id="chartVisit"></canvas>
 </div>
 <table class="miniTable">
-<thead><tr><th>방문수</th><th>인원(명)</th><th>비율</th><th>내원수</th></tr></thead>
+<thead><tr><th>기록 수</th><th>인원(명)</th><th>비율</th><th>기록 수</th></tr></thead>
 <tbody id="tblVisit"></tbody>
 </table>
 </div>
 <div style="width:460px;max-width:100%;flex:0 0 460px;">
-<div style="font-weight:bold;color:#495057;margin-bottom:8px;">누적 커버리지 (방문수 ≤ X)</div>
+<div style="font-weight:bold;color:#495057;margin-bottom:8px;">누적 커버리지 (기록 수 ≤ X)</div>
 <div style="height:240px;margin-bottom:12px;">
 <canvas height="240" id="chartVisitPareto" width="460"></canvas>
 </div>
@@ -1384,18 +1384,18 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 </div>
 <div style="margin-top:16px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;">
 <div style="flex:1;min-width:320px;">
-<div style="font-weight:bold;color:#495057;margin-bottom:8px;">내원 기여도 &amp; Lift</div>
+<div style="font-weight:bold;color:#495057;margin-bottom:8px;">기록 비중도 &amp; Lift</div>
 <div style="height:280px;margin-bottom:12px;">
 <canvas height="280" id="chartVisitImpact" width="900"></canvas>
 </div>
 <table class="miniTable">
-<thead><tr><th>방문수</th><th>인원(명)</th><th>내원수</th><th>인원 비중</th><th>내원 비중</th><th>Lift</th></tr></thead>
+<thead><tr><th>기록 수</th><th>인원(명)</th><th>기록 수</th><th>인원 비중</th><th>기록 비중</th><th>Lift</th></tr></thead>
 <tbody id="tblVisitImpact"></tbody>
 </table>
 </div>
 </div>
 <details style="margin-top:12px;padding:10px;background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;">
-<summary style="cursor:pointer;font-weight:700;color:#495057;">해석 &amp; 제안 보기</summary>
+<summary style="cursor:pointer;font-weight:700;color:#495057;">집계 기준과 해석</summary>
 <div id="visitExplain" style="margin-top:10px;font-size:12px;color:#495057;line-height:1.55;"></div>
 </details>
 </div>
@@ -1423,7 +1423,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <canvas height="320" id="chartRegionStack" width="900"></canvas>
 </div>
 <table class="miniTable">
-<thead><tr><th>행정동</th><th>합계</th><th>신환</th><th>전환</th><th>90일</th><th>재진</th></tr></thead>
+<thead><tr><th>주소 지역</th><th>합계</th><th>신환 1건</th><th>신환 2건+</th><th>90일 표기</th><th>기존 분류</th></tr></thead>
 <tbody id="tblRegionTop"></tbody>
 </table>
 </div>
@@ -1439,11 +1439,11 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;">
 <div style="flex:1;min-width:320px;">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-<div style="font-weight:bold;color:#495057;">전환율 랭킹</div>
+<div style="font-weight:bold;color:#495057;">신환 반복기록 비율 랭킹</div>
 <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
 <label style="font-size:11px;color:#666;display:flex;align-items:center;gap:6px;user-select:none;">
 <input checked="" id="chkMinSample" type="checkbox"/>
-                표본(신환+전환) 5명 미만 제외
+                비율: 신환 표기 / 평균: 전체 표본 5명 미만 제외
               </label>
 <label style="font-size:11px;color:#666;display:flex;align-items:center;gap:6px;user-select:none;">
 <input id="chkExcludeUnknownValue" type="checkbox"/>
@@ -1455,20 +1455,20 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <canvas height="320" id="chartConvRank" width="900"></canvas>
 </div>
 <table class="miniTable">
-<thead><tr><th>행정동</th><th>전환율</th><th>신환</th><th>전환</th><th>합계</th></tr></thead>
+<thead><tr><th>주소 지역</th><th>신환 반복기록 비율</th><th>신환 1건</th><th>신환 2건+</th><th>합계</th></tr></thead>
 <tbody id="tblConvRank"></tbody>
 </table>
 </div>
 <div style="flex:1;min-width:320px;">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:10px;">
-<div style="font-weight:bold;color:#495057;">평균 방문수 랭킹 (행정동별)</div>
+<div style="font-weight:bold;color:#495057;">평균 기록 수 랭킹 (주소 지역별)</div>
 <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
 <label style="font-size:11px;color:#666;display:flex;align-items:center;gap:6px;user-select:none;">
                   정렬
                   <select id="selAvgSortBy" style="padding:4px 8px;border:1px solid #ddd;border-radius:6px;font-size:11px;background:#fff;">
-<option selected="" value="avg">평균 방문수</option>
-<option value="sum">총 방문수</option>
-<option value="conv">전환율</option>
+<option selected="" value="avg">평균 기록 수</option>
+<option value="sum">총 기록 수</option>
+<option value="conv">신환 반복기록 비율</option>
 </select>
 </label>
 </div>
@@ -1477,34 +1477,34 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <canvas height="320" id="chartAvgVisits" width="900"></canvas>
 </div>
 <table class="miniTable">
-<thead><tr><th>행정동</th><th>평균 방문수</th><th>총 방문수</th><th>전환율</th><th>인원</th></tr></thead>
+<thead><tr><th>주소 지역</th><th>평균 기록 수</th><th>총 기록 수</th><th>신환 반복기록 비율</th><th>인원</th></tr></thead>
 <tbody id="tblAvgVisits"></tbody>
 </table>
 <div id="vipAvgSection" style="margin-top:12px;">
 <div style="font-weight:800;color:#495057;margin:6px 0 8px 0;">소표본 지역 (표본 &lt; 5)</div>
 <table class="miniTable">
-<thead><tr><th>행정동</th><th>평균 방문수</th><th>총 방문수</th><th>전환율</th><th>인원</th></tr></thead>
+<thead><tr><th>주소 지역</th><th>평균 기록 수</th><th>총 기록 수</th><th>신환 반복기록 비율</th><th>인원</th></tr></thead>
 <tbody id="tblVipAvg"></tbody>
 </table>
 </div>
 <details style="margin-top:12px;padding:10px;background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;">
-<summary style="cursor:pointer;font-weight:700;color:#495057;">해석 &amp; 제안 보기</summary>
+<summary style="cursor:pointer;font-weight:700;color:#495057;">집계 기준과 해석</summary>
 <div id="valueExplain" style="margin-top:10px;font-size:12px;color:#495057;line-height:1.55;"></div>
 </details>
 </div>
 <div style="flex-basis:100%;min-width:320px;margin-top:6px;">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:10px;">
-<div style="font-weight:bold;color:#495057;">전환 × 방문수 분포도</div>
+<div style="font-weight:bold;color:#495057;">반복기록 비율 × 기록 수 분포도</div>
 <label style="font-size:11px;color:#666;display:flex;align-items:center;gap:6px;user-select:none;">
 <input checked="" id="chkShowScatter" type="checkbox"/>
                 분포도 보기
               </label>
 </div>
 <div id="patientScatterDetails"></div><div id="scatterWrap" style="height:360px;margin-bottom:10px;">
-<canvas id="chartValueScatter" aria-label="행정동별 전환율과 평균 내원 횟수"></canvas>
+<canvas id="chartValueScatter" aria-label="주소 지역별 신환 반복기록 비율과 평균 기록 횟수"></canvas>
 </div>
 <div style="font-size:11px;color:#666;line-height:1.4;">
-              x축: 전환율(%) · y축: 평균 방문수 · 점 크기: 전체 환자 수 · 같은 좌표의 동은 겹칠 수 있으므로 위 수치표를 함께 확인하세요.
+              x축: 신환 반복기록 비율(%) · y축: 평균 기록 수 · 점 크기: 전체 환자 수 · 같은 좌표의 지역은 겹칠 수 있으므로 위 수치표를 함께 확인하세요.
             </div>
 </div>
 </div>
@@ -1514,7 +1514,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
           병원 설정이 필요합니다. 왼쪽 패널에서 <b>우리 병원</b>을 먼저 설정해주세요.
         </div>
 <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:8px 0 12px;">
-<div style="font-size:12px;color:#495057;font-weight:700;">전환율 최소 표본 n</div>
+<div style="font-size:12px;color:#495057;font-weight:700;">신환 반복기록 비율 최소 표본 n</div>
 <select id="distMinN" style="padding:6px 10px;border:1px solid #ced4da;border-radius:8px;font-size:12px;background:#fff;">
 <option value="1">1</option>
 <option value="3">3</option>
@@ -1523,7 +1523,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 <option selected="" value="30">30</option>
 <option value="50">50</option>
 </select>
-<div style="font-size:11px;color:#868e96;">n 미만 구간은 전환율 그래프에서 점선/회색으로 표시합니다.</div>
+<div style="font-size:11px;color:#868e96;">n 미만 구간은 신환 반복기록 비율 그래프에서 점선/회색으로 표시합니다.</div>
 </div>
 <div id="distSummary" style="display:none;padding:10px;background:#f8f9fa;border:1px solid #e9ecef;border-radius:10px;margin:0 0 12px 0;font-size:12px;color:#495057;"></div>
 <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;">
@@ -1538,12 +1538,12 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 </table>
 </div>
 <div style="flex:1;min-width:320px;">
-<div style="font-weight:bold;color:#495057;margin-bottom:8px;">거리 버킷별 전환율</div>
+<div style="font-weight:bold;color:#495057;margin-bottom:8px;">거리 버킷별 신환 반복기록 비율</div>
 <div style="height:320px;margin-bottom:18px;">
 <canvas height="320" id="chartDistConv" width="900"></canvas>
 </div>
 <table class="miniTable">
-<thead><tr><th>거리</th><th>전환율</th><th>Lift</th><th>신환</th><th>전환</th><th>합계</th></tr></thead>
+<thead><tr><th>거리</th><th>신환 반복기록 비율</th><th>Lift</th><th>신환 1건</th><th>신환 2건+</th><th>합계</th></tr></thead>
 <tbody id="tblDistConv"></tbody>
 </table>
 </div>
@@ -1576,7 +1576,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 </div>
 <div class="modalBody">
   <div class="scanReportHero">
-    <div class="scanScoreRing" id="scanScoreRing"><div><b id="scanScoreValue">-</b><span>입지 참고 점수</span></div></div>
+    <div class="scanScoreRing" id="scanScoreRing" style="display:none"><div><b id="scanScoreValue">-</b><span>입지 참고 점수</span></div></div>
     <div class="scanReportKpis" id="scanReportKpis"></div>
   </div>
   <div class="scanReportTabs" role="tablist">
@@ -1590,14 +1590,14 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
   <section class="scanReportPane active" data-scan-report-pane="overview">
     <div class="scanReportGrid">
       <div class="scanReportCard"><h3>판단 요약</h3><div class="scanReportNarrative" id="scanReportInsights"></div></div>
-      <div class="scanReportCard"><h3>입지 참고 점수 구성</h3><p class="scanCaption">앱 내부 기준으로 환산한 보조점수입니다. 공식 등급·전국 순위·예상 매출·유동인구 점수가 아닙니다. 같은 반경으로 비교하세요.</p><details class="scoreDefinitions"><summary>지표 뜻과 계산 기준</summary><dl><dt>반경 내 경쟁병원 현황</dt><dd>검색된 병원 수와 거리를 그대로 표시합니다. 검증되지 않은 병원 밀도 기준으로 경쟁 강도를 점수화하지 않으며, 종합 참고 점수에서도 제외합니다.</dd><dt>인구·종사자 기반</dt><dd>후보지가 속한 행정구역의 인구밀도와 주민 대비 종사자 비율입니다. 인구밀도/14,000×100(최대 100)의 65% + 종사자/주민×120(최대 100)의 35%. 주민 수가 0 이하이면 종사자 항목은 내부 기본값 50을 사용합니다. 반경 인구나 실제 진료수요가 아닙니다.</dd><dt>상가 밀도</dt><dd>반경 내 영업 업소 수 ÷ 반경 면적(㎢) ÷ 650 × 100, 최대 100점. 사람이 많은지·매출이 높은지를 직접 측정하지 않습니다.</dd><dt>주변 시설 수</dt><dd>반경 내 검색된 지하철역·주차장·약국 개수 합계 ÷ 35 × 100, 최대 100점. 도보 접근성·주차 가능 대수·무장애 동선을 평가한 값은 아닙니다.</dd></dl><p>참고 점수 상대 가중치: 인구·종사자 기반 30, 상가 밀도 22, 주변 시설 수 18. 경쟁병원은 점수에서 제외했습니다. 제외된 항목이 있으면 남은 가중치로 다시 계산합니다. 큰 반경에서는 넓은 비상업지역과 시설 개수의 영향이 커집니다. 500m·1km도 함께 확인하세요.</p></details><div class="scanChartBox small"><canvas id="scanScoreChart"></canvas></div></div>
+      <div class="scanReportCard"><h3>입지 지표 해석</h3><p>병원 수·행정구역 인구·반경 업소·주변 시설은 범위와 단위가 서로 다릅니다. 검증된 가중치와 비교 기준이 없어 종합 점수로 환산하지 않습니다. 아래 원자료와 각 탭의 기준 시점·조회 상태를 함께 확인하세요.</p></div>
       <div class="scanReportCard wide"><h3>데이터 범위와 해석</h3><div id="scanReportCoverage"></div><details class="scanNetworkPanel"><summary>API 응답 시간 · 재시도 진단</summary><div id="scanNetworkReport"></div></details></div>
     </div>
   </section>
   <section class="scanReportPane" data-scan-report-pane="competition">
     <div class="scanReportGrid">
       <div class="scanReportCard"><h3>진료과별 경쟁 의원</h3><div class="scanChartBox"><canvas id="scanCompetitionChart"></canvas></div></div>
-      <div class="scanReportCard"><h3>주변 시설 수 시설</h3><div class="scanChartBox"><canvas id="scanFacilityChart"></canvas></div></div>
+      <div class="scanReportCard"><h3>주변 시설</h3><div class="scanChartBox"><canvas id="scanFacilityChart"></canvas></div></div>
       <div class="scanReportCard wide"><h3>경쟁 해석</h3><div id="scanCompetitionTable"></div></div>
     </div>
   </section>
@@ -1773,15 +1773,16 @@ function calcAgeFromRow(ageVal, rrnVal){
   const pickYears = (v) => {
     if(v === null || v === undefined) return null;
     const s = String(v).trim();
-    if(!s) return null;
+    if(!s || /^-/.test(s)) return null;
+    const months=s.match(/^(\d+)\s*개월$/);if(months)return Math.floor(Number(months[1])/12);
 
     // 1) "69세6개월", "69세", "만 54세" 같은 케이스: '세' 앞 숫자만 사용
     const mSe = s.match(/(\d{1,3})\s*세/);
     if(mSe) return Number(mSe[1]);
 
     // 2) 숫자만 있는 케이스
-    const mNum = s.match(/\d{1,3}/);
-    if(mNum) return Number(mNum[0]);
+    const mNum = s.match(/^(?:만\s*)?(\d{1,3})$/);
+    if(mNum) return Number(mNum[1]);
 
     return null;
   };
@@ -1867,7 +1868,7 @@ function initKakao(){
     roadviewClient = new kakao.maps.RoadviewClient();
     setupMapListeners(); setupToolbar();
     setScanReady(true);
-    toast("시스템 준비 완료 (v3.7.0)");
+    toast("시스템 준비 완료 (v3.7.1)");
   });
 }
 initKakao();
@@ -1931,7 +1932,7 @@ if (me && me.domEvent && me.domEvent.detail >= 2 && !drawingFlag) {
 
     if (!$('btnRadius').classList.contains('active')) return;
     if (!drawingFlag) { drawingFlag = true; centerPosition = me.latLng; drawingLine = new kakao.maps.Polyline({ strokeWeight: 3, strokeColor: '#228be6', strokeOpacity: 1, strokeStyle: 'solid' }); drawingCircle = new kakao.maps.Circle({ strokeWeight: 1, strokeColor: '#228be6', strokeOpacity: 0.2, fillColor: '#228be6', fillOpacity: 0.15 }); drawingOverlay = new kakao.maps.CustomOverlay({ zIndex: 1 }); } 
-    else { var poly = new kakao.maps.Polyline({ path: [centerPosition, me.latLng], strokeWeight: 3, strokeColor: '#228be6', strokeOpacity: 1, strokeStyle: 'solid' }); var circle = new kakao.maps.Circle({ center: centerPosition, radius: poly.getLength(), strokeWeight: 1, strokeColor: '#228be6', strokeOpacity: 0.2, fillColor: '#228be6', fillOpacity: 0.15 }); var r = Math.round(circle.getRadius()); var overlay = new kakao.maps.CustomOverlay({ content: getTimeHTML(r), position: me.latLng, zIndex: 1 }); poly.setMap(map); circle.setMap(map); overlay.setMap(map); circles.push({ circle: circle, polyline: poly, overlay: overlay }); drawingFlag = false; centerPosition = null; drawingCircle.setMap(null); drawingLine.setMap(null); drawingOverlay.setMap(null); deactivateDrawTools(); }
+    else { var poly = new kakao.maps.Polyline({ path: [centerPosition, me.latLng], strokeWeight: 3, strokeColor: '#228be6', strokeOpacity: 1, strokeStyle: 'solid' }); var circle = new kakao.maps.Circle({ center: centerPosition, radius: poly.getLength(), strokeWeight: 1, strokeColor: '#228be6', strokeOpacity: 0.2, fillColor: '#228be6', fillOpacity: 0.15 }); var r = Math.round(circle.getRadius()); var overlay = new kakao.maps.CustomOverlay({ content: getTimeHTML(r), position: me.latLng, zIndex: 1 }); poly.setMap(map); circle.setMap(map); overlay.setMap(map); circles.push({ circle: circle, polyline: poly, overlay: overlay }); applyFilter(); drawingFlag = false; centerPosition = null; drawingCircle.setMap(null); drawingLine.setMap(null); drawingOverlay.setMap(null); deactivateDrawTools(); }
   });
 
   kakao.maps.event.addListener(map, 'mousemove', function(me){
@@ -1997,7 +1998,7 @@ function setupToolbar(){
   $('btnClearTools').onclick = () => {
     deactivateDrawTools(); roadviewMode = false; map.removeOverlayMapTypeId(kakao.maps.MapTypeId.ROADVIEW); map.setCursor('auto');
     document.querySelectorAll('.v-tool-btn').forEach(b => b.classList.remove('active'));
-    circles.forEach(c => { c.circle.setMap(null); c.polyline.setMap(null); c.overlay.setMap(null); }); circles = [];
+    circles.forEach(c => { c.circle.setMap(null); c.polyline.setMap(null); c.overlay.setMap(null); }); circles = []; applyFilter();
     window.__areaPolys.forEach(a => { a.poly.setMap(null); a.overlay.setMap(null); }); window.__areaPolys = [];
     distMeasurements.forEach(d => { d.line.setMap(null); d.overlay.setMap(null); }); distMeasurements = [];
     try{ routeLines.forEach(l=>l&&l.setMap&&l.setMap(null)); }catch(e){} routeLines=[]; routeMarkers.forEach(m => m.setMap(null)); routeMarkers = [];
@@ -2651,10 +2652,10 @@ $('btnExportExcel').onclick = () => {
   }
 };
 
-// ✅ 엑셀 저장: 최적 방문 경로
+// ✅ 엑셀 저장: 직선거리 기준 방문 순서
 $('btnExportRoute').onclick = () => {
   try{
-    if(!lastRoute || !lastRoute.length) return toast("먼저 '최적 방문 경로 생성'을 실행하세요.");
+    if(!lastRoute || !lastRoute.length) return toast("먼저 '직선거리 기준 방문 순서 생성'을 실행하세요.");
     const hospName = ($('myHospitalInput') && $('myHospitalInput').value || '').trim() || "우리 병원";
     let cum = 0;
 
@@ -2707,14 +2708,23 @@ async function processFile(file){
   fr.readAsArrayBuffer(file);
 }
 
+let patientLoadToken=0;
+function patientTypeLabel(type){return {"신환 (1회만)":"신환 표기·1건","신환 ▶ 재진 전환":"신환 표기·2건 이상","90일초":"90일 표기","재진":"기존 분류"}[type]||type;}
+function patientNewFlag(value){return !['','0','n','no','false','아니오','아니요','재진','-'].includes(String(value??'').trim().toLowerCase());}
 function parsePatients(rows){
+  const loadToken=++patientLoadToken;
   let headIdx = -1; for(let i=0; i<Math.min(rows.length, 20); i++){ if(JSON.stringify(rows[i]).includes("주소")) { headIdx = i; break; } }
   if(headIdx < 0) return toast("환자 데이터 형식이 아닙니다");
   const h = rows[headIdx].map(x => String(x||""));
   const idx = { id: h.findIndex(s => /차트|번호|ID/.test(s)), addr: h.findIndex(s => /주소/.test(s)), name: h.findIndex(s => /이름|성명|수진자|환자/.test(s)), new: h.findIndex(s => /신규|신환/.test(s)), type: h.findIndex(s => /구분|분류/.test(s)), age: h.findIndex(s => /나이|연령/.test(s)), rrn: h.findIndex(s => /주민|주민번호/.test(s)) };
+  const preferredId=h.findIndex(s=>/^(차트번호|환자번호|환자ID|chart_?id|patient_?id|id)$/i.test(s.replace(/\s/g,'')));
+  if(preferredId>=0)idx.id=preferredId;
+  if(idx.id<0)return toast('환자 고유번호 열을 찾지 못했습니다. 차트번호 또는 환자ID 열이 필요합니다.');
   const mapData = new Map(); let totalV = 0; let newIds = [];
+  const seenRows=new Set();let repeatedRows=0;
   for(let i=headIdx+1; i<rows.length; i++){
-    const r = rows[i]; if(!r || !r[idx.id]) continue; const pid = String(r[idx.id]); totalV++;
+    const r = rows[i]; if(!r || !r[idx.id]) continue; const pid = String(r[idx.id]).trim(); if(!pid)continue; totalV++;
+    const rowKey=JSON.stringify(r);if(seenRows.has(rowKey))repeatedRows++;else seenRows.add(rowKey);
     const numId = parseInt(pid.replace(/[^0-9]/g, "")) || 0;
     if(!mapData.has(pid)) { mapData.set(pid, { id: pid, numId: numId, name: r[idx.name]||"미상", addr: r[idx.addr]||"", age: null, visits: [] }); }
     const p = mapData.get(pid);
@@ -2723,7 +2733,7 @@ function parsePatients(rows){
     // [의사랑 규칙]
 // 보험구분/급여구분 값은 신환/재진 판정에 사용하지 않음
 
-    if(idx.new >= 0 && r[idx.new]) isNewVisit = true;
+    if(idx.new >= 0 && patientNewFlag(r[idx.new])) isNewVisit = true;
     else if(idx.type >= 0) { const t = String(r[idx.type]||""); if(!t.includes("90") && /신환|신규/.test(t)) isNewVisit = true; }
     const bit = (idx.type >= 0) ? String(r[idx.type]||"") : "";
     p.visits.push({ isNew: isNewVisit, bit: bit }); if(isNewVisit) newIds.push(numId);
@@ -2768,23 +2778,28 @@ if(has90){
 
     p.total = totalVisits;
   });
+  window.patientImportQuality={repeatedRows};
+  totalV=patients.reduce((sum,p)=>sum+p.total,0);
   $('statTotalUsers').innerText = patients.length.toLocaleString();
   $('statTotalVisits').innerText = totalV.toLocaleString();
   clusterer.clear();
+  let geocoded=0;const loadCount=patients.length;
   patients.forEach((p, i) => {
     setTimeout(() => {
+      if(loadToken!==patientLoadToken)return;
       geocoder.addressSearch(p.addr, (res, status) => {
+        if(loadToken!==patientLoadToken)return;
         if(status === kakao.maps.services.Status.OK){
           const latlng = new kakao.maps.LatLng(res[0].y, res[0].x); p.latlng = latlng;
-          p.dong = res[0].address?.region_3depth_name || "미상";
+          p.dong = [res[0].address?.region_1depth_name,res[0].address?.region_2depth_name,res[0].address?.region_3depth_h_name||res[0].address?.region_3depth_name].filter(Boolean).join(" ") || "미상";
           const color = REP_COLOR[p.type];
           const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><circle cx="7" cy="7" r="6" fill="${color}" stroke="white" stroke-width="1"/></svg>`;
           p.marker = new kakao.maps.Marker({ position: latlng, image: new kakao.maps.MarkerImage("data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svg), new kakao.maps.Size(14,14)) });
-          const iw = new kakao.maps.InfoWindow({ content: `<div style="padding:5px;font-size:12px;"><b>${p.id} ${p.name}</b><br><span style="color:${color}">● ${p.type}</span><br>총 ${p.total}회</div>`, removable: true });
+          const iw = new kakao.maps.InfoWindow({ content: `<div style="padding:5px;font-size:12px;"><b>${p.id} ${p.name}</b><br><span style="color:${color}">● ${patientTypeLabel(p.type)}</span><br>기록 ${p.total}건</div>`, removable: true });
           kakao.maps.event.addListener(p.marker, 'click', () => iw.open(map, p.marker));
           if(toggleState[p.filterKey || "all"]) clusterer.addMarker(p.marker);
         }
-        if(i === patients.length - 1) { applyFilter(); $('btnFit').click(); toast("로딩 완료"); }
+        geocoded++; if(geocoded === loadCount) { applyFilter(); $('btnFit').click(); toast("로딩 완료"); }
       });
     }, i * 30);
   });
@@ -2792,15 +2807,16 @@ if(has90){
 
 function applyFilter(){
   if(!patients.length) return; clusterer.clear();
-  const data = drawingManager.getData(); const activeCircles = (data.circle || []).map(c => ({ center: new kakao.maps.LatLng(c.center.y, c.center.x), radius: c.radius }));
+  const data = drawingManager.getData(); const activeCircles = patientAnalysisCircles();
   const visibleMarkers = []; let uCount = 0; let vCount = 0;
   patients.forEach(p => {
     let key = p.type==="신환 (1회만)"?"new_only":p.type==="신환 ▶ 재진 전환"?"new_conv":p.type==="90일초"?"bit_90":"old";
     if(!toggleState[key]) return;
-    if(activeCircles.length > 0) { let inside = false; const line = new kakao.maps.Polyline(); for(const c of activeCircles) { line.setPath([c.center, p.latlng]); if(line.getLength() <= c.radius) { inside = true; break; } } if(!inside) return; }
-    if(p.marker) { visibleMarkers.push(p.marker); uCount++; vCount += p.total; }
+    if(activeCircles.length > 0) { if(!p.latlng)return; let inside = false; const line = new kakao.maps.Polyline(); for(const c of activeCircles) { line.setPath([c.center, p.latlng]); if(line.getLength() <= c.radius) { inside = true; break; } } if(!inside) return; }
+    uCount++; vCount += p.total; if(p.marker)visibleMarkers.push(p.marker);
   });
   clusterer.addMarkers(visibleMarkers); $('statTotalUsers').innerText = uCount.toLocaleString(); $('statTotalVisits').innerText = vCount.toLocaleString();
+  if($('statsModal').style.display==='flex')$('btnStats').click();
 }
 
 $('btnFit').onclick = () => { if(patients.length) { const b = new kakao.maps.LatLngBounds(); patients.forEach(p=>p.marker&&b.extend(p.marker.getPosition())); map.setBounds(b); } };
@@ -2821,13 +2837,17 @@ function bucketAge(age){
   return "70+";
 }
 
+function patientAnalysisCircles(){
+  const managed=(drawingManager.getData().circle||[]).map(c=>({center:new kakao.maps.LatLng(c.center.y,c.center.x),radius:c.radius}));
+  return managed.concat((typeof circles==='undefined'?[]:circles).filter(c=>c.circle).map(c=>({center:c.circle.getPosition(),radius:c.circle.getRadius()})));
+}
 function buildVisiblePatients(){
   const data = drawingManager.getData();
-  const circles = (data.circle || []).map(c => ({ center: new kakao.maps.LatLng(c.center.y, c.center.x), radius: c.radius }));
+  const circles = patientAnalysisCircles();
   return patients.filter(p => {
     let key = p.type==="신환 (1회만)"?"new_only":p.type==="신환 ▶ 재진 전환"?"new_conv":p.type==="90일초"?"bit_90":"old";
     if(!toggleState[key]) return false;
-    if(circles.length > 0) {
+    if(circles.length > 0) { if(!p.latlng)return false;
       const line = new kakao.maps.Polyline();
       for(const c of circles){
         line.setPath([c.center, p.latlng]);
@@ -2841,16 +2861,16 @@ function buildVisiblePatients(){
 
 $('btnStats').onclick = () => {
   if(!patients.length){ if(scanState.result)return scanOpenReport(scanState.result,"population"); return toast("환자 업로드 또는 상권 스캔을 먼저 실행해주세요."); } $('statsModal').style.display = 'flex';
-  const data = drawingManager.getData(); const circles = (data.circle || []).map(c => ({ center: new kakao.maps.LatLng(c.center.y, c.center.x), radius: c.radius }));
+  const data = drawingManager.getData(); const circles = patientAnalysisCircles();
   const visible = patients.filter(p => {
     let key = p.type==="신환 (1회만)"?"new_only":p.type==="신환 ▶ 재진 전환"?"new_conv":p.type==="90일초"?"bit_90":"old";
     if(!toggleState[key]) return false;
-    if(circles.length > 0) { const line = new kakao.maps.Polyline(); for(const c of circles){ line.setPath([c.center, p.latlng]); if(line.getLength() <= c.radius) return true; } return false; } return true;
+    if(circles.length > 0) { if(!p.latlng)return false; const line = new kakao.maps.Polyline(); for(const c of circles){ line.setPath([c.center, p.latlng]); if(line.getLength() <= c.radius) return true; } return false; } return true;
   });
   let cn=0, cc=0, cb=0, cr=0, vn=0, vc=0, vb=0, vr=0;
   visible.forEach(p => { if(p.type==='신환 (1회만)') {cn++; vn+=p.total;} else if(p.type==='신환 ▶ 재진 전환') {cc++; vc+=p.total;} else if(p.type==='90일초') {cb++; vb+=p.total;} else {cr++; vr+=p.total;} });
   const tu = cn+cc+cb+cr; const tv = vn+vc+vb+vr;
-  $('tblSummary').innerHTML = `<tr><td style="color:${REP_COLOR['신환 (1회만)']}">신환 (1회만)</td><td>${cn} / ${vn}</td><td>${pct(cn, tu)}%</td></tr><tr><td style="color:${REP_COLOR['신환 ▶ 재진 전환']}">전환</td><td>${cc} / ${vc}</td><td>${pct(cc, tu)}%</td></tr><tr><td style="color:${REP_COLOR['90일초']}">90일초</td><td>${cb} / ${vb}</td><td>${pct(cb, tu)}%</td></tr><tr><td style="color:${REP_COLOR['재진']}">재진</td><td>${cr} / ${vr}</td><td>${pct(cr, tu)}%</td></tr><tr style="background:#f1f3f5;font-weight:bold;"><td>합계</td><td>${tu} / ${tv}</td><td>100%</td></tr>`;
+  $('tblSummary').innerHTML = `<tr><td style="color:${REP_COLOR['신환 (1회만)']}">신환 표기·1건</td><td>${cn} / ${vn}</td><td>${pct(cn, tu)}%</td></tr><tr><td style="color:${REP_COLOR['신환 ▶ 재진 전환']}">신환 표기·2건 이상</td><td>${cc} / ${vc}</td><td>${pct(cc, tu)}%</td></tr><tr><td style="color:${REP_COLOR['90일초']}">90일 표기</td><td>${cb} / ${vb}</td><td>${pct(cb, tu)}%</td></tr><tr><td style="color:${REP_COLOR['재진']}">기존 분류</td><td>${cr} / ${vr}</td><td>${pct(cr, tu)}%</td></tr><tr style="background:#f1f3f5;font-weight:bold;"><td>합계</td><td>${tu} / ${tv}</td><td>${tu?"100%":"—"}</td></tr>`;
 
 
   // ===== 동별 분포 (Top5 + 기타) =====
@@ -2867,7 +2887,7 @@ $('btnStats').onclick = () => {
     row.sumVisits += (p.total || 0);
   });
   const dongRows = Object.values(dongMap).sort((a,b)=>b.total-a.total);
-    // (동별/연령별/방문수 탭의 표/차트는 탭이 열릴 때 렌더합니다.)
+    // (동별/연령별/기록 수 탭의 표/차트는 탭이 열릴 때 렌더합니다.)
 
 // ===============================
   // ✅ 추가 상세 통계 (지역 분석 / 전환·가치 / 거리·반경)
@@ -2875,7 +2895,7 @@ $('btnStats').onclick = () => {
   window.__lastStatsVisible = visible;
   window.__lastStatsDongRows = dongRows;
   patientStatsOverview(visible);
-  try { if(chartObj1) chartObj1.destroy(); chartObj1 = new Chart($('chartType'), { type: 'doughnut', data: { labels: ['신환', '전환', '90일', '재진'], datasets: [{ data: [cn, cc, cb, cr], backgroundColor: Object.values(REP_COLOR) }] }, options: { plugins: { datalabels: { color:'#172b49', backgroundColor:'rgba(255,255,255,.94)', borderRadius:4, padding:4, font:{weight:'bold'} } } }, plugins: typeof ChartDataLabels==='undefined'?[]:[ChartDataLabels] }); } catch(e){ $('patientStatsStatus').textContent='차트 연결 실패 · 집계표는 확인할 수 있습니다.'; }
+  try { if(chartObj1) chartObj1.destroy(); chartObj1 = new Chart($('chartType'), { type: 'doughnut', data: { labels: ['신환 표기·1건', '신환 표기·2건 이상', '90일 표기', '기존 분류'], datasets: [{ data: [cn, cc, cb, cr], backgroundColor: Object.values(REP_COLOR) }] }, options: { plugins: { datalabels: { color:'#172b49', backgroundColor:'rgba(255,255,255,.94)', borderRadius:4, padding:4, font:{weight:'bold'} } } }, plugins: typeof ChartDataLabels==='undefined'?[]:[ChartDataLabels] }); } catch(e){ $('patientStatsStatus').textContent='차트 연결 실패 · 집계표는 확인할 수 있습니다.'; }
 
   // ✅ 추가 탭 차트는 "탭이 열릴 때" 렌더(숨김 상태 생성 이슈 방지)
   // 데이터만 캐시해두고, switchTab에서 필요 시 렌더합니다.
@@ -2885,7 +2905,7 @@ $('btnStats').onclick = () => {
   }, 50);
 
 };
-function pct(v, t) { return t ? ((v/t)*100).toFixed(1) : "0.0"; }
+function pct(v, t) { return t ? ((v/t)*100).toFixed(1) : "—"; }
 
 /** ===== 추가 상세 통계 유틸/렌더러 ===== */
 function buildTopRowsWithOther(rows, topN){
@@ -3002,12 +3022,12 @@ function renderDongTab(dongRows){
 
   // 도넛: 기준에 따라 분포 값 변경
   const labels = showRows.map(r=>r.dong);
-  const values = showRows.map(r => topBy === 'visits' ? safeNum(r.sumVisits) : safeNum(r.total));
+  const values = showRows.map(keyFn);
 
   try { chartObjDong && chartObjDong.destroy(); } catch(e){}
   chartObjDong = new Chart(canvas, {
     type:'doughnut',
-    data:{ labels, datasets:[{ label: (topBy==='visits'?'총 내원수':'인원'), data: values }] },
+    data:{ labels, datasets:[{ label: (topBy==='visits'?'총 기록 수':'신환 표기 환자 수'), data: values }] },
     options:{
       responsive:true,
       maintainAspectRatio:false,
@@ -3022,61 +3042,18 @@ function renderDongTab(dongRows){
   // 해석 & 제안 (Top/기타 포함)
   if(expl){
     const topOnly = showRows.filter(r=>r.dong !== '기타').slice(0, Math.min(10, showRows.length));
-    const metricName = (topBy==='visits') ? '총 내원수' : '환자수(신환+전환)';
+    const metricName = (topBy==='visits') ? '총 기록 수' : '신환 표기 환자 수';
     const lines = topOnly.map((r,i)=>{
       const metric = keyFn(r);
       const avg = r.total ? (safeNum(r.sumVisits)/r.total) : 0;
-      return `${i+1}) <b>${r.dong}</b> · ${metricName} <b>${fmt(metric)}</b> · 합계 ${fmt(r.total)}명 · 총 내원수 ${fmt(r.sumVisits)}회 · 1인 평균 ${avg.toFixed(2)}회`;
+      return `${i+1}) <b>${r.dong}</b> · ${metricName} <b>${fmt(metric)}</b> · 합계 ${fmt(r.total)}명 · 총 기록 수 ${fmt(r.sumVisits)}건 · 1인 평균 ${avg.toFixed(2)}건`;
     });
 
     const other = showRows.find(r=>r.dong==='기타');
     const otherTxt = other ? `<br><span style="color:#868e96;">* 기타: 상위 TopN 외 나머지 동 합산</span>` : '';
     const unkTxt = excludeUnknown ? ` (미상 제외)` : '';
 
-    // --- 추천(액션) ---
-    const rec = [];
-    const focusTop = topOnly.slice(0,3).map(r=>r.dong).join(', ');
-    if(focusTop) rec.push(`• <b>우선 집중</b>: ${focusTop} (현재 기준으로 상위 지역)`);
-
-    // 전환율 상위(표본≥5, 기타 제외)
-    const denom = (r)=> safeNum(r.n) + safeNum(r.conv);
-    const convRate = (r)=> denom(r) ? (safeNum(r.conv)/denom(r)*100) : 0;
-    const topConv = showRows
-      .filter(r=>r.dong!=='기타' && denom(r) >= 5)
-      .slice()
-      .sort((a,b)=>convRate(b)-convRate(a))
-      .slice(0,2);
-
-    if(topConv.length){
-      rec.push(`• <b>전환 효율 상위</b>(표본≥5): ` + topConv.map(r=>`${r.dong} ${convRate(r).toFixed(1)}%`).join(', '));
-    }
-
-    if(!excludeUnknown && base.some(r=>r.dong==='미상')){
-      rec.push(`• <b>권장</b>: '미상 제외'를 켜면 순위/비중이 더 명확해집니다`);
-    }
-
-    if(other){
-      const totalMetric = base.reduce((s,r)=>s+keyFn(r),0) || 1;
-      const otherShare = (keyFn(other)/totalMetric*100);
-      rec.push(`• <b>기타 비중</b>: ${otherShare.toFixed(1)}% (상위 밖이 크면 TopN을 10/전체로 늘려 분산 여부를 확인해보세요)`);
-    }
-
-    // 내원수 기준이면 소수 VIP의 영향 가능
-    if(topBy === 'visits'){
-      const smallHigh = showRows
-        .filter(r=>r.dong!=='기타' && safeNum(r.total) > 0)
-        .map(r=>({dong:r.dong, total:safeNum(r.total), avg:(safeNum(r.sumVisits)/safeNum(r.total))}))
-        .filter(x=>x.total < 5 && x.avg >= 6)
-        .slice(0,3);
-      if(smallHigh.length){
-        rec.push(`• <b>주의</b>: 내원수 기준에서는 표본이 작은 동(예: 1~4명)의 영향이 커질 수 있습니다. (예: ${smallHigh.map(x=>`${x.dong} ${x.total}명·평균 ${x.avg.toFixed(1)}회`).join(', ')})`);
-      }
-    }
-
-    const recHtml = rec.length
-      ? `<div style="margin-top:10px;padding-top:10px;border-top:1px dashed #dee2e6;"><b>추천</b><br>${rec.join('<br>')}</div>`
-      : '';
-
+    const recHtml='<p>순위는 선택한 자료의 구성입니다. 지역 인구·질환·관찰기간을 보정하지 않았으며 의료수요나 광고 효과를 뜻하지 않습니다. 미상 제외 시 분모도 바뀝니다.</p>';
     expl.innerHTML = `현재 기준: <b>${metricName}</b>${unkTxt}<br>` + lines.join('<br>') + otherTxt + recHtml;
   }
 setTimeout(()=>{ try{ chartObjDong && chartObjDong.resize(); }catch(e){} }, 60);
@@ -3117,7 +3094,7 @@ function renderAgeDistribution(visible){
   });
 }
 
-// ===== 방문수 탭 옵션 =====
+// ===== 기록 수 탭 옵션 =====
 function getVisitAgeFilter(){
   const el = document.getElementById('selVisitAge');
   return el ? el.value : 'all';
@@ -3136,7 +3113,8 @@ function bindVisitControlsOnce(){
 }
 function bucketVisit(total){
   const t = safeNum(total);
-  if(t <= 1) return '1회';
+  if(t<1||!Number.isInteger(t))return '미상/0건';
+  if(t === 1) return '1회';
   if(t === 2) return '2회';
   if(t === 3) return '3회';
   if(t === 4) return '4회';
@@ -3167,7 +3145,7 @@ function renderVisitTab(visible){
   const totalPatients = base.length;
   const totalVisits = base.reduce((s,p)=>s+safeNum(p.total),0);
 
-  const labels = ['1회','2회','3회','4회','5회+'];
+  const labels = ['1회','2회','3회','4회','5회+','미상/0건'];
   const byBucket = {};
   labels.forEach(k => byBucket[k] = { bucket:k, people:0, visits:0 });
   base.forEach(p=>{
@@ -3188,7 +3166,7 @@ function renderVisitTab(visible){
   if(kpi5) kpi5.innerText = totalPatients ? `${(p5/totalPatients*100).toFixed(1)}%` : '-';
 
   // Table (기본)
-  const fmtPct2 = (a,b)=> b ? `${(a/b*100).toFixed(1)}%` : '0.0%';
+  const fmtPct2 = (a,b)=> b ? `${(a/b*100).toFixed(1)}%` : '—';
   tbl.innerHTML = labels.map(k=>{
     const r = byBucket[k];
     return `<tr>
@@ -3197,9 +3175,9 @@ function renderVisitTab(visible){
       <td>${fmtPct2(r.people, totalPatients)}</td>
       <td>${r.visits}</td>
     </tr>`;
-  }).join('') + `<tr style="background:#f1f3f5;font-weight:bold;"><td>합계</td><td>${totalPatients}</td><td>100%</td><td>${totalVisits}</td></tr>`;
+  }).join('') + `<tr style="background:#f1f3f5;font-weight:bold;"><td>합계</td><td>${totalPatients}</td><td>${totalPatients?"100%":"—"}</td><td>${totalVisits}</td></tr>`;
 
-  // Chart: 방문수 분포 (인원)
+  // Chart: 기록 수 분포 (인원)
   try { chartObjVisit && chartObjVisit.destroy(); } catch(e){}
   chartObjVisit = new Chart(canvas, {
     type:'bar',
@@ -3260,7 +3238,7 @@ function renderVisitTab(visible){
   const liftArr = labels.map((k,i)=>{
     const ps = peopleShare[i];
     const vs = visitShare[i];
-    return ps ? (vs/ps) : 0;
+    return ps && totalVisits ? (vs/ps) : null;
   });
 
   try { chartObjVisitImpact && chartObjVisitImpact.destroy(); } catch(e){}
@@ -3270,7 +3248,7 @@ function renderVisitTab(visible){
       labels,
       datasets:[
         { type:'bar', label:'인원 비중(%)', data: peopleShare, yAxisID:'y', borderWidth:0 },
-        { type:'bar', label:'내원 비중(%)', data: visitShare, yAxisID:'y', borderWidth:0 },
+        { type:'bar', label:'기록 비중(%)', data: visitShare, yAxisID:'y', borderWidth:0 },
         { type:'line', label:'Lift', data: liftArr, yAxisID:'y1', tension:0.2, borderWidth:2, pointRadius:3 }
       ]
     },
@@ -3305,9 +3283,9 @@ function renderVisitTab(visible){
       <td>${vCnt}</td>
       <td>${ps.toFixed(1)}%</td>
       <td>${vs.toFixed(1)}%</td>
-      <td><b>${lf.toFixed(2)}x</b></td>
+      <td><b>${lf===null?"—":lf.toFixed(2)+"x"}</b></td>
     </tr>`;
-  }).join('') + `<tr style="background:#f1f3f5;font-weight:bold;"><td>합계</td><td>${totalPatients}</td><td>${totalVisits}</td><td>100%</td><td>100%</td><td>-</td></tr>`;
+  }).join('') + `<tr style="background:#f1f3f5;font-weight:bold;"><td>합계</td><td>${totalPatients}</td><td>${totalVisits}</td><td>${totalPatients?"100%":"—"}</td><td>${totalVisits?"100%":"—"}</td><td>-</td></tr>`;
 
   if(expl){
     const topLiftIdx = liftArr.reduce((best,i,idx)=> (i>liftArr[best] ? idx : best), 0);
@@ -3320,25 +3298,10 @@ function renderVisitTab(visible){
     const idx5 = labels.indexOf('5회+');
     const lift5 = (idx5>=0) ? liftArr[idx5] : 0;
 
-    const rec = [];
-    if(t2pct >= 60){
-      rec.push(`• <b>2회 이하 비중</b>이 ${t2pct.toFixed(1)}%로 큽니다 → 1~2회 구간 리마인드/재예약 안내를 우선 강화해보세요`);
-    } else {
-      rec.push(`• <b>2회 이하 비중</b>이 ${t2pct.toFixed(1)}%입니다 → 3회+ 고객층을 늘릴 여지가 있습니다`);
-    }
-    rec.push(`• <b>Lift 최고 구간</b>: ${topLiftBucket} → 이 구간의 고객 경험/재예약 동선을 점검하면 효율이 큽니다`);
-    if(p3pct){
-      rec.push(`• <b>3회+ 비중</b>: ${p3pct.toFixed(1)}% · <b>5회+ 비중</b>: ${p5pct.toFixed(1)}%`);
-    }
-    if(lift5 && lift5 >= 1.2){
-      rec.push(`• <b>5회+</b> 구간은 인원은 적어도 내원 기여가 큰 편(Lift ${lift5.toFixed(2)}x) → 반복 내원 환자 관리(리콜·정기검진) 후보로 관리해보세요`);
-    }
-
-    const recHtml = `<div style="margin-top:10px;padding-top:10px;border-top:1px dashed #dee2e6;"><b>추천</b><br>${rec.join('<br>')}</div>`;
-
+    const recHtml='<p>업로드 기록 수별 구성입니다. 진료 필요성·치료 성과·환자 충성도를 의미하지 않으며 기록일이 없어 동일한 추적기간을 보장하지 않습니다.</p>';
     expl.innerHTML =
-      `• 이 탭은 <b>인원 분포</b>(왼쪽)와, 그 인원들이 만들어내는 <b>내원수 기여</b>(오른쪽)를 함께 봅니다.<br>` +
-      `• Lift는 “인원 비중 대비 내원 비중”입니다. 1보다 크면, 그 방문수 구간이 평균보다 더 많은 내원수를 만들어낸다는 뜻입니다.` +
+      `• 이 탭은 <b>인원 분포</b>(왼쪽)와, 그 인원들이 만들어내는 <b>기록 수 기여</b>(오른쪽)를 함께 봅니다.<br>` +
+      `• Lift는 “인원 비중 대비 기록 비중”입니다. 1보다 크면, 그 기록 수 구간이 평균보다 더 많은 기록 수를 만들어낸다는 뜻입니다.` +
       recHtml;
   }
 setTimeout(()=>{ try{ chartObjVisit && chartObjVisit.resize(); }catch(e){}; try{ chartObjVisitPareto && chartObjVisitPareto.resize(); }catch(e){}; try{ chartObjVisitImpact && chartObjVisitImpact.resize(); }catch(e){}; }, 60);
@@ -3413,10 +3376,10 @@ function renderRegionCharts(dongRows){
     data: {
       labels,
       datasets: [
-        { label: '신환', data: rows.map(r=>r.n), backgroundColor: REP_COLOR["신환 (1회만)"] },
-        { label: '전환', data: rows.map(r=>r.conv), backgroundColor: REP_COLOR["신환 ▶ 재진 전환"] },
-        { label: '90일', data: rows.map(r=>r.d90), backgroundColor: REP_COLOR["90일초"] },
-        { label: '재진', data: rows.map(r=>r.ret), backgroundColor: REP_COLOR["재진"] },
+        { label: '신환 표기·1건', data: rows.map(r=>r.n), backgroundColor: REP_COLOR["신환 (1회만)"] },
+        { label: '신환 표기·2건 이상', data: rows.map(r=>r.conv), backgroundColor: REP_COLOR["신환 ▶ 재진 전환"] },
+        { label: '90일 표기', data: rows.map(r=>r.d90), backgroundColor: REP_COLOR["90일초"] },
+        { label: '기존 분류', data: rows.map(r=>r.ret), backgroundColor: REP_COLOR["재진"] },
       ]
     },
     options: {
@@ -3432,9 +3395,9 @@ function renderRegionCharts(dongRows){
 
   // (2) Pareto (Bar + Line) - 표시 rows 기준(TopN + 기타)
   const totals = rows.map(r=>r.total);
-  const grand = totals.reduce((a,b)=>a+b,0) || 1;
+  const grand = totals.reduce((a,b)=>a+b,0);
   let cum = 0;
-  const cumPct = totals.map(v => { cum += v; return (cum/grand)*100; });
+  const cumPct = totals.map(v => { cum += v; return grand?(cum/grand)*100:null; });
 
   if(chartObjRegionPareto) chartObjRegionPareto.destroy();
   chartObjRegionPareto = new Chart(document.getElementById('chartRegionPareto'), {
@@ -3463,14 +3426,14 @@ function renderRegionCharts(dongRows){
   // Summary text (필터 적용된 baseRows 기준)
   const s = document.getElementById('txtParetoSummary');
   if(s){
-    const baseGrand = baseRows.reduce((a,r)=>a+r.total,0) || 1;
+    const baseGrand = baseRows.reduce((a,r)=>a+r.total,0);
     const top3 = baseRows.slice(0,3).reduce((a,r)=>a+r.total,0);
     const top5 = baseRows.slice(0,5).reduce((a,r)=>a+r.total,0);
     const unknownTxt = excludeUnknown ? ' (미상 제외)' : '';
     s.innerHTML =
       `총 <b>${baseGrand}</b>명 기준${unknownTxt}<br>` +
-      `Top3 집중도: <b>${(top3/baseGrand*100).toFixed(1)}%</b> (상위 3개 동 합계 ${top3}명)<br>` +
-      `Top5 집중도: <b>${(top5/baseGrand*100).toFixed(1)}%</b> (상위 5개 동 합계 ${top5}명)`;
+      `Top3 집중도: <b>${(baseGrand?(top3/baseGrand*100).toFixed(1):'—')}%</b> (상위 3개 동 합계 ${top3}명)<br>` +
+      `Top5 집중도: <b>${(baseGrand?(top5/baseGrand*100).toFixed(1):'—')}%</b> (상위 5개 동 합계 ${top5}명)`;
   }
 }
 
@@ -3534,7 +3497,7 @@ function renderValueScatter(dongRows){
     .filter(r => (!minSampleOn || r.denom >= 5) && r.total > 0 && r.denom > 0)
     .sort((a,b)=> b.total - a.total);
 
-  // Bubble data: x=전환율(%), y=평균방문수, r=인원 규모
+  // Bubble data: x=신환 반복기록 비율(%), y=평균기록 수, r=인원 규모
   const data = rows.map(r => {
     const rr = Math.max(3, Math.min(18, Math.sqrt(r.total) * 2)); // radius
     return { x: +r.ratePct.toFixed(2), y: +r.avg.toFixed(2), r: rr, _meta: r };
@@ -3544,7 +3507,7 @@ function renderValueScatter(dongRows){
   chartObjValueScatter = new Chart(document.getElementById('chartValueScatter'), {
     type: 'bubble',
     data: { datasets: [{
-      label: '행정동',
+      label: '주소 지역',
       data,
       backgroundColor: 'rgba(37,99,235,0.65)',
       borderColor: '#1d4ed8',
@@ -3561,14 +3524,14 @@ function renderValueScatter(dongRows){
               const r = ctx.raw && ctx.raw._meta;
               if(!r) return '';
               const rate = r.denom ? (r.conv/r.denom*100).toFixed(1) : '0.0';
-              return `${r.dong}: 전환율 ${rate}% · 평균방문 ${r.avg.toFixed(2)} · 인원 ${r.total} (표본 ${r.denom})`;
+              return `${r.dong}: 신환 반복기록 비율 ${rate}% · 평균방문 ${r.avg.toFixed(2)} · 인원 ${r.total} (표본 ${r.denom})`;
             }
           }
         }
       },
       scales: {
-        x: { beginAtZero:true, min:0, max:100, ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'전환율(%)' } },
-        y: { beginAtZero:true, title:{ display:true, text:'평균 방문수' } }
+        x: { beginAtZero:true, min:0, max:100, ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'신환 반복기록 비율(%)' } },
+        y: { beginAtZero:true, title:{ display:true, text:'평균 기록 수' } }
       }
     }
   });
@@ -3581,14 +3544,14 @@ function renderValueCharts(dongRows){
   const excludeUnknown = getExcludeUnknownValue();
   const baseRows = (excludeUnknown ? dongRows.filter(r => r.dong !== '미상') : dongRows);
 
-  // --- (3) 전환율 랭킹 ---
+  // --- (3) 신환 반복기록 비율 랭킹 ---
   const convRows = baseRows
     .map(r => {
       const denom = (safeNum(r.n) + safeNum(r.conv));
-      const rate = denom ? (safeNum(r.conv) / denom) : 0;
+      const rate = denom ? (safeNum(r.conv) / denom) : null;
       return { ...r, denom, rate };
     })
-    .filter(r => !minSampleOn || r.denom >= 5)
+    .filter(r => r.denom>0 && (!minSampleOn || r.denom >= 5))
     .sort((a,b)=> b.rate - a.rate);
 
   const top = convRows.slice(0, 15);
@@ -3598,7 +3561,7 @@ function renderValueCharts(dongRows){
   if(chartObjConvRank) chartObjConvRank.destroy();
   chartObjConvRank = new Chart(document.getElementById('chartConvRank'), {
     type:'bar',
-    data:{ labels, datasets:[{ label:'전환율(%)', data: ratePct, backgroundColor:'#51cf66' }] },
+    data:{ labels, datasets:[{ label:'신환 반복기록 비율(%)', data: ratePct, backgroundColor:'#51cf66' }] },
     options:{
       responsive:true,
       maintainAspectRatio:false,
@@ -3618,10 +3581,10 @@ function renderValueCharts(dongRows){
     )).join('') || `<tr><td colspan="5" style="text-align:center;color:#868e96;">데이터 없음</td></tr>`;
   }
 
-  // --- (4) 평균 방문수 랭킹 (표본 필터 + 소표본 지역 분리) ---
+  // --- (4) 평균 기록 수 랭킹 (표본 필터 + 소표본 지역 분리) ---
   const sortBy = (document.getElementById('selAvgSortBy')?.value) || 'avg';
 
-  const K = 10; // 내부 완화 강도(고정, UI 미노출)
+  const K = 0; // 원자료 단순 평균; 이전의 숨겨진 보정 제거
   const totalP = baseRows.reduce((a,r)=>a+safeNum(r.total),0);
   const totalV = baseRows.reduce((a,r)=>a+safeNum(r.sumVisits),0);
   const overallAvg = totalP ? (totalV/totalP) : 0;
@@ -3639,19 +3602,19 @@ function renderValueCharts(dongRows){
     });
 
   const vipRows = enriched.filter(r => r.total < 5);
-  const mainRows = minSampleOn ? enriched.filter(r => r.total >= 5) : enriched;
+  const mainRows = enriched.filter(r => (sortBy!=='conv'||r.denom>0)&&(!minSampleOn||(sortBy==='conv'?r.denom:r.total)>=5));
 
   const keyFn = (r) => {
     if(sortBy === 'sum') return r.sumVisits;
     if(sortBy === 'conv') return r.convRate;
-    return r.avgAdj;
+    return r.avg;
   };
 
-  const metricLabel = (sortBy === 'sum') ? '총 방문수' : (sortBy === 'conv' ? '전환율(%)' : '평균 방문수');
+  const metricLabel = (sortBy === 'sum') ? '총 기록 수' : (sortBy === 'conv' ? '신환 반복기록 비율(%)' : '평균 기록 수');
   const valueFn = (r) => {
     if(sortBy === 'sum') return r.sumVisits;
     if(sortBy === 'conv') return +(r.convRate*100).toFixed(2);
-    return +r.avgAdj.toFixed(2);
+    return +r.avg.toFixed(2);
   };
 
   const sortedMain = mainRows.slice().sort((a,b)=> keyFn(b) - keyFn(a));
@@ -3670,7 +3633,7 @@ function renderValueCharts(dongRows){
       plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ afterLabel:(ctx)=>{
         const r = topAvg[ctx.dataIndex];
         const convTxt = r.denom ? `${(r.convRate*100).toFixed(1)}%` : '-';
-        return `인원 ${r.total}명 / 총 방문수 ${r.sumVisits}회 / 전환율 ${convTxt}`;
+        return `인원 ${r.total}명 / 총 기록 수 ${r.sumVisits}건 / 신환 반복기록 비율 ${convTxt}`;
       }}}},
       scales:{ 
         x:{ beginAtZero:true, ticks:{ callback:(v)=> (sortBy==='conv' ? (v+'%') : v) } }
@@ -3684,7 +3647,7 @@ function renderValueCharts(dongRows){
     tbl2.innerHTML = topAvg.map(r => (
       `<tr>
         <td>${r.dong}</td>
-        <td><b>${r.avgAdj.toFixed(2)}</b></td>
+        <td><b>${r.avg.toFixed(2)}</b></td>
         <td>${r.sumVisits}</td>
         <td>${r.denom ? fmtPct(r.convRate) : '-'}</td>
         <td>${r.total}</td>
@@ -3700,7 +3663,7 @@ function renderValueCharts(dongRows){
     vipTbl.innerHTML = sortedVip.map(r => (
       `<tr style="opacity:0.75;">
         <td>${r.dong}</td>
-        <td><b>${r.avgAdj.toFixed(2)}</b></td>
+        <td><b>${r.avg.toFixed(2)}</b></td>
         <td>${r.sumVisits}</td>
         <td>${r.denom ? fmtPct(r.convRate) : '-'}</td>
         <td>${r.total}</td>
@@ -3711,40 +3674,13 @@ function renderValueCharts(dongRows){
   const expl = document.getElementById('valueExplain');
   if(expl){
     const unkTxt = excludeUnknown ? ' (미상 제외)' : '';
-    const filterTxt = minSampleOn ? ' (표본 5명 미만은 아래 소표본 지역로 분리)' : ' (표본 필터 OFF: 모든 동 포함)';
+    const filterTxt = minSampleOn ? ' (표본 5명 미만은 아래 소표본 지역으로 분리)' : ' (표본 필터 OFF: 모든 동 포함)';
     const show = topAvg.slice(0,5).map((r,i)=>{
       const convTxt = r.denom ? `${(r.convRate*100).toFixed(1)}%` : '-';
-      return `${i+1}) <b>${r.dong}</b> · ${metricLabel} <b>${valueFn(r)}</b> · 총 방문수 ${r.sumVisits} · 인원 ${r.total} · 전환율 ${convTxt}`;
+      return `${i+1}) <b>${r.dong}</b> · ${metricLabel} <b>${valueFn(r)}</b> · 총 기록 수 ${r.sumVisits} · 인원 ${r.total} · 신환 반복기록 비율 ${convTxt}`;
     }).join('<br>');
 
-    // --- 추천(액션) ---
-    const rec = [];
-    if(sortBy === 'avg'){
-      rec.push(`• <b>평균 방문수 상위</b>는 ‘단골화/리콜’ 후보입니다 → 재예약/정기검진 메시지를 우선 적용해보세요`);
-    } else if(sortBy === 'sum'){
-      rec.push(`• <b>총 방문수 상위</b>는 ‘업무량/기여’가 큰 지역입니다 → 운영/스케줄/CRM 우선순위를 높게 두는 게 유리합니다`);
-    } else if(sortBy === 'conv'){
-      rec.push(`• <b>전환율 상위</b>는 ‘효율’이 좋은 지역입니다 → 신환 유입 캠페인/안내를 집중해보세요`);
-    }
-    rec.push(`• 정렬 기준을 바꾸면 관점이 달라집니다 (평균 방문수=단골화, 총 방문수=기여, 전환율=효율)`);
-
-    if(!excludeUnknown && baseRows.some(r=>r.dong==='미상')){
-      rec.push(`• <b>권장</b>: '미상 제외'를 켜면 지역 비교가 더 명확해집니다`);
-    }
-    if(minSampleOn){
-      const vipCnt = sortedVip.length || 0;
-      if(vipCnt){
-        const topVip = sortedVip.slice(0,3).map(r=>`${r.dong}(${r.total}명)`).join(', ');
-        rec.push(`• <b>소표본 지역</b>(표본<5): ${vipCnt}개 동 · 상위 후보: ${topVip}`);
-      } else {
-        rec.push(`• 현재 조건에서 소표본 지역(표본<5)가 없습니다`);
-      }
-    } else {
-      rec.push(`• 표본 필터 OFF 상태에서는 표본이 작은 동의 값이 튈 수 있으니 해석에 주의하세요`);
-    }
-
-    const recHtml = `<div style="margin-top:10px;padding-top:10px;border-top:1px dashed #dee2e6;"><b>추천</b><br>${rec.join('<br>')}</div>`;
-
+    const recHtml='<p>평균은 기록 합계÷환자 수인 단순 평균입니다. 기록 수만으로 환자 충성도·수익성·마케팅 효율을 판단하지 않습니다.</p>';
     expl.innerHTML =
       `현재 정렬: <b>${metricLabel}</b>${unkTxt}${filterTxt}<br>` +
       show + recHtml;
@@ -3809,7 +3745,7 @@ function renderDistanceCharts(visible){
 
   const labels = agg.map(a=>a.label);
   const counts = agg.map(a=>a.cnt);
-  const totalPatients = counts.reduce((a,b)=>a+b,0) || 1;
+  const totalPatients = counts.reduce((a,b)=>a+b,0);
 
   // Distance histogram
   if(chartObjDistHist) chartObjDistHist.destroy();
@@ -3828,7 +3764,7 @@ function renderDistanceCharts(visible){
   if(tbl){
     tbl.innerHTML = agg.map(a => (
       `<tr><td>${a.label}</td><td>${a.cnt}</td><td>${pct(a.cnt, totalPatients)}%</td></tr>`
-    )).join('') + `<tr style="background:#f1f3f5;font-weight:bold;"><td>합계</td><td>${totalPatients}</td><td>100%</td></tr>`;
+    )).join('') + `<tr style="background:#f1f3f5;font-weight:bold;"><td>합계</td><td>${totalPatients}</td><td>${totalPatients?'100%':'—'}</td></tr>`;
   }
 
   // Conversion rate per bucket (based on new+conv only)
@@ -3859,8 +3795,8 @@ function renderDistanceCharts(visible){
     data:{ 
       labels, 
       datasets:[
-        { label:`전환율(%) (n≥${minN})`, data: ratesReliable, borderColor:'#228be6', backgroundColor:'#228be6', spanGaps:true, tension:0.2, pointRadius:2 },
-        { label:`전환율(%) (n<${minN})`, data: ratesSmall, borderColor:'#adb5bd', backgroundColor:'#adb5bd', spanGaps:true, tension:0.2, pointRadius:2, borderDash:[6,4] },
+        { label:`신환 반복기록 비율(%) (n≥${minN})`, data: ratesReliable, borderColor:'#228be6', backgroundColor:'#228be6', spanGaps:false, tension:0.2, pointRadius:2 },
+        { label:`신환 반복기록 비율(%) (n<${minN})`, data: ratesSmall, borderColor:'#adb5bd', backgroundColor:'#adb5bd', spanGaps:true, tension:0.2, pointRadius:2, borderDash:[6,4] },
       ] 
     },
     options:{
@@ -3873,7 +3809,7 @@ function renderDistanceCharts(visible){
           const a = agg[i];
           const denom = a.new + a.conv;
           const lift = (overallRate && denom) ? ((a.conv/denom*100)/overallRate) : null;
-          const liftTxt = lift ? ` / Lift ${lift.toFixed(2)}x` : '';
+          const liftTxt = lift!==null ? ` / Lift ${lift.toFixed(2)}x` : '';
           return denom ? `신환 ${a.new} / 전환 ${a.conv} (합계 ${denom})${liftTxt}` : '표본 없음';
         }}} 
       },
@@ -3888,7 +3824,7 @@ function renderDistanceCharts(visible){
       const denom = a.new + a.conv;
       const rate = denom ? (a.conv/denom*100).toFixed(1)+'%' : '-';
       const lift = (overallRate && denom) ? ((a.conv/denom*100)/overallRate) : null;
-      const liftTxt = lift ? lift.toFixed(2)+'x' : '-';
+      const liftTxt = lift!==null ? lift.toFixed(2)+'x' : '-';
       const warn = denom && denom < minN;
       const style = warn ? 'style="background:#f8f9fa;color:#868e96;"' : '';
       const note = warn ? ` title="표본(합계) ${denom} < 최소 n(${minN})"` : '';
@@ -3904,8 +3840,8 @@ function renderDistanceCharts(visible){
   agg.forEach((a, i) => {
     runP += a.cnt;
     runC += a.conv;
-    cumPatients[i] = +(runP/totalPatients*100).toFixed(2);
-    cumConv[i] = +(runC/convTotalNonzero*100).toFixed(2);
+    cumPatients[i] = totalPatients?+(runP/totalPatients*100).toFixed(2):null;
+    cumConv[i] = totalConv?+(runC/totalConv*100).toFixed(2):null;
   });
 
   // Summary: median/mean distance + 80% coverage radius
@@ -3926,25 +3862,25 @@ function renderDistanceCharts(visible){
     if(max === Infinity) return '3km+';
     return `≤${(max/1000).toFixed(1)}km`;
   }
-  const r80p = radiusAt(80, cumPatients);
-  const r80c = radiusAt(80, cumConv);
+  const r80p = totalPatients?radiusAt(80, cumPatients):'자료 없음';
+  const r80c = totalConv?radiusAt(80, cumConv):'자료 없음';
 
   if(sumBox){
     sumBox.style.display = 'block';
-    const overallTxt = overallRate ? overallRate.toFixed(1)+'%' : '-';
+    const overallTxt = totalDenom ? overallRate.toFixed(1)+'%' : '-';
     const denomTxt = totalDenom ? totalDenom : 0;
     const convTxt = totalConv ? totalConv : 0;
     sumBox.innerHTML = `
       <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
         <div><b>환자</b> ${totalPatients}명</div>
-        <div><b>전체 전환율</b> ${overallTxt} <span style="color:#868e96;">(신환+전환 표본 ${denomTxt})</span></div>
+        <div><b>전체 신환 반복기록 비율</b> ${overallTxt} <span style="color:#868e96;">(신환+전환 표본 ${denomTxt})</span></div>
         <div><b>전환</b> ${convTxt}명</div>
         <div><b>환자 80% 반경</b> ${r80p}</div>
         <div><b>전환 80% 반경</b> ${r80c}</div>
         <div><b>거리 중앙값</b> ${medianKm}km <span style="color:#868e96;">(평균 ${meanKm}km)</span></div>
       </div>
       <div style="margin-top:6px;color:#868e96;font-size:11px;">
-        해석 팁: 분포(인원)는 ‘현황’, 전환율은 표본이 작으면 튀기 쉬워서 <b>Lift</b>와 <b>전환 기여도</b>를 같이 보세요.
+        해석 팁: 분포(인원)는 ‘현황’, 신환 반복기록 비율은 표본이 작으면 튀기 쉬워서 <b>Lift</b>와 <b>전환 기여도</b>를 같이 보세요.
       </div>
     `;
   }
@@ -3981,7 +3917,7 @@ function renderDistanceCharts(visible){
     data:{
       labels,
       datasets:[
-        { type:'bar', label:'전환(명)', data: agg.map(a=>a.conv), backgroundColor:'#20c997', yAxisID:'y' },
+        { type:'bar', label:'신환 반복기록 환자(명)', data: agg.map(a=>a.conv), backgroundColor:'#20c997', yAxisID:'y' },
         { type:'line', label:'Lift', data: lifts, borderColor:'#845ef7', backgroundColor:'#845ef7', yAxisID:'y1', tension:0.2, pointRadius:2, spanGaps:true }
       ]
     },
@@ -3998,7 +3934,7 @@ function renderDistanceCharts(visible){
           const lift = lifts[i];
           const parts = [];
           if(denom) parts.push(`신환 ${a.new} / 전환 ${a.conv} (합계 ${denom})`);
-          if(rate!=null) parts.push(`전환율 ${rate.toFixed(1)}%`);
+          if(rate!=null) parts.push(`신환 반복기록 비율 ${rate.toFixed(1)}%`);
           if(lift!=null) parts.push(`Lift ${lift.toFixed(2)}x`);
           return parts.join(' · ');
         }}}
@@ -4054,16 +3990,16 @@ function renderAgeRetentionCharts(visible){
   // 표용: 미상은 맨 아래로
   const rows = labels.filter(k=>k!=='미상').map(k=>map[k]).concat(map['미상'].total ? [map['미상']] : []);
 
-  // 전체 기준 전환율/재진비중 (미상 포함, 90일 포함)
+  // 전체 기준 신환 반복기록 비율/재진비중 (미상 포함, 90일 포함)
   const totN = rows.reduce((s,r)=>s+r.n,0);
   const totC = rows.reduce((s,r)=>s+r.conv,0);
   const totR = rows.reduce((s,r)=>s+r.ret,0);
   const totAll = rows.reduce((s,r)=>s+r.total,0);
-  const baseConvRate = (totN+totC) ? (totC/(totN+totC)) : 0;
-  const baseRetShare = totAll ? (totR/totAll) : 0;
+  const baseConvRate = (totN+totC) ? (totC/(totN+totC)) : null;
+  const baseRetShare = totAll ? (totR/totAll) : null;
 
   // 요약 문구
-  summary.innerHTML = `<b>전체 전환율</b> ${(baseConvRate*100).toFixed(1)}% · <b>전체 재진 비중</b> ${(baseRetShare*100).toFixed(1)}%`;
+  summary.innerHTML = `<b>전체 신환 반복기록 비율</b> ${(baseConvRate===null?'—':(baseConvRate*100).toFixed(1))}% · <b>전체 기존 분류 비중</b> ${(baseRetShare===null?'—':(baseRetShare*100).toFixed(1))}%`;
 
   // 차트용(미상 제외): 표본 부족은 alpha 낮춤
   const chartLabels = labels.filter(k=>k!=='미상');
@@ -4119,7 +4055,7 @@ function renderAgeRetentionCharts(visible){
     }
   });
 
-  // 라인차트: 전환율 / 재진비중 (표본 부족은 점선)
+  // 라인차트: 신환 반복기록 비율 / 재진비중 (표본 부족은 점선)
   const convRateArr = chartLabels.map(k => {
     const r = map[k];
     const den = r.n + r.conv;
@@ -4130,7 +4066,8 @@ function renderAgeRetentionCharts(visible){
     return r.total ? (r.ret/r.total*100) : null;
   });
 
-  const lowFlags = totals.map(t => (t && t < minN));
+  const lowFlags = chartLabels.map(k=>map[k].n+map[k].conv<minN);
+  const retLowFlags=totals.map(t=>t<minN);
 
   const dashBySegment = (ctx) => {
     const i0 = ctx.p0DataIndex, i1 = ctx.p1DataIndex;
@@ -4145,7 +4082,7 @@ function renderAgeRetentionCharts(visible){
       labels: chartLabels,
       datasets:[
         {
-          label:'전환율(%)',
+          label:'신환 반복기록 비율(%)',
           data: convRateArr,
           tension:0.25,
           borderWidth:2,
@@ -4156,35 +4093,35 @@ function renderAgeRetentionCharts(visible){
           segment:{ borderDash: dashBySegment }
         },
         {
-          label:'재진 비중(%)',
+          label:'기존 분류 비중(%)',
           data: retShareArr,
           tension:0.25,
           borderWidth:2,
           pointRadius:4,
           pointHoverRadius:5,
-          pointBackgroundColor: lowFlags.map(f=>hexToRgba('#228be6', f?0.35:1)),
+          pointBackgroundColor: retLowFlags.map(f=>hexToRgba('#228be6', f?0.35:1)),
           borderColor:'#228be6',
-          segment:{ borderDash: dashBySegment }
+          segment:{ borderDash: ctx=>(retLowFlags[ctx.p0DataIndex]||retLowFlags[ctx.p1DataIndex])?[5,5]:[] }
         },
         {
-          label:'전체 전환율',
-          data: chartLabels.map(()=>baseConvRate*100),
+          label:'전체 신환 반복기록 비율',
+          data: chartLabels.map(()=>baseConvRate===null?null:baseConvRate*100),
           tension:0,
           borderWidth:3,
           pointRadius:0,
           borderColor:'rgba(30,41,59,0.90)',
           borderDash:[10,6],
-          endLabel:`전체 전환 ${(baseConvRate*100).toFixed(1)}%`,
+          endLabel:`전체 전환 ${(baseConvRate===null?'—':(baseConvRate*100).toFixed(1))}%`,
         },
         {
-          label:'전체 재진 비중',
-          data: chartLabels.map(()=>baseRetShare*100),
+          label:'전체 기존 분류 비중',
+          data: chartLabels.map(()=>baseRetShare===null?null:baseRetShare*100),
           tension:0,
           borderWidth:3,
           pointRadius:0,
           borderColor:'rgba(30,41,59,0.90)',
           borderDash:[3,5],
-          endLabel:`전체 재진 ${(baseRetShare*100).toFixed(1)}%`,
+          endLabel:`전체 재진 ${(baseRetShare===null?'—':(baseRetShare*100).toFixed(1))}%`,
         }
       ]
     },
@@ -4222,8 +4159,8 @@ function renderAgeRetentionCharts(visible){
     const den = r.n + r.conv;
     const convRate = den ? (r.conv/den*100) : null;
     const retShare = r.total ? (r.ret/r.total*100) : null;
-    const convLift = baseConvRate ? ((convRate/100) / baseConvRate) : null;
-    const retLift  = baseRetShare ? ((retShare/100) / baseRetShare) : null;
+    const convLift = baseConvRate && convRate!==null ? ((convRate/100) / baseConvRate) : null;
+    const retLift  = baseRetShare && retShare!==null ? ((retShare/100) / baseRetShare) : null;
 
     const low = (r.total && r.total < minN);
     return `<tr style="${low ? 'opacity:0.55;' : ''}">
@@ -4233,7 +4170,7 @@ function renderAgeRetentionCharts(visible){
       <td>${r.conv}</td>
       <td>${r.d90}</td>
       <td>${r.ret}</td>
-      <td><b>${fmtPct(convRate)}</b></td>
+      <td><b>${fmtPct(convRate)}</b>${den>0&&den<minN?" · 소표본":""}</td>
       <td>${fmtPct(retShare)}</td>
       <td>${fmtLift(convLift)}</td>
       <td>${fmtLift(retLift)}</td>
@@ -4318,7 +4255,7 @@ document.addEventListener('click', (e) => {
 })();
 
 
-$('btnClear').onclick = () => { clusterer.clear(); patients=[]; $('statTotalUsers').innerText=0; $('statTotalVisits').innerText=0; toast("초기화"); };
+$('btnClear').onclick = () => { patientLoadToken++; clusterer.clear(); patients=[]; $('statTotalUsers').innerText=0; $('statTotalVisits').innerText=0; toast("초기화"); };
 window.switchTab = (id) => {
   document.querySelectorAll('.tabPane').forEach(e => e.style.display='none');
   const pane = document.getElementById(id);
@@ -4333,7 +4270,7 @@ window.switchTab = (id) => {
 };
 
 
-/* ===========================   [상권 스캔 v3.7.0]   =========================== */
+/* ===========================   [상권 스캔 v3.7.1]   =========================== */
 function setScanReady(ready){
   scanState.ready = !!ready;
   const btn = $('btnRunScan');
@@ -4412,7 +4349,7 @@ function scanIsSeoulCandidate(candidate){
 }
 
 async function scanSeoulRequest(service,key,start,end,tail=''){
-  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.0]');
+  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.1]');
   const text=await scanNetworkRequest('https://jinsul-seoul-proxy.yms0127.workers.dev/seoul',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service,key,start,end,tail:decodeURIComponent(tail)}),cache:'no-store'},22000);
   let payload;try{payload=JSON.parse(text);}catch{throw new Error('서울 API JSON 응답 형식 오류');}
   if(payload?.error)throw new Error('서울 중계 요청 처리 실패');return payload;
@@ -4568,7 +4505,7 @@ function scanPrepareSeoulPopulation(candidate,radius,marketToken){
   return scanLoadSeoulPopulation(candidates[0].name,marketToken);
 }
 
-function scanResetSgisUI(message='전국 후보지를 스캔하면 해당 행정동의 공식 센서스 지표를 연결합니다.'){
+function scanResetSgisUI(message='전국 후보지를 스캔하면 해당 주소 지역의 공식 센서스 지표를 연결합니다.'){
   scanState.sgisRequestToken += 1;
   scanState.sgis = null;
   scanState.sgisRegion = null;
@@ -4632,7 +4569,7 @@ async function scanSgisResolveRegion(candidate){
   const rows=scanSgisRows(payload);
   const row=rows.find(item=>/^\d{8}$/.test(String(item.adm_dr_cd||''))) || rows[0];
   const admCode=String(row?.adm_dr_cd||'');
-  if(!/^\d{8}$/.test(admCode)) throw new Error('후보지의 SGIS 행정동을 확인하지 못했습니다.');
+  if(!/^\d{8}$/.test(admCode)) throw new Error('후보지의 SGIS 주소 지역을 확인하지 못했습니다.');
   return {
     admCode,sidoCode:String(row.sido_cd||''),sggCode:String(row.sgg_cd||''),
     sidoName:String(row.sido_nm||''),sggName:String(row.sgg_nm||''),admName:String(row.emdong_nm||''),
@@ -4644,7 +4581,7 @@ function scanSgisBuildScopes(region){
   const fullName=[region.sidoName,region.sggName,region.admName].filter(Boolean).join(' ');
   const districtName=[region.sidoName,region.sggName].filter(Boolean).join(' ');
   const districtCode=/^\d{5}$/.test(region.sggCode)?region.sggCode:(region.sidoCode&&/^\d{3}$/.test(region.sggCode)?`${region.sidoCode}${region.sggCode}`:region.admCode.slice(0,5));
-  const scopes=[{code:region.admCode,label:fullName||'후보지 행정동',kind:'행정동'}];
+  const scopes=[{code:region.admCode,label:fullName||'후보지 주소 지역',kind:'주소 지역'}];
   if(/^\d{5}$/.test(districtCode) && districtCode!==region.admCode) scopes.push({code:districtCode,label:districtName||'후보지 시군구',kind:'시군구'});
   return scopes;
 }
@@ -4660,7 +4597,7 @@ function scanRenderSgis(data){
   if(!body||!data)return;
   const workerRate=data.population>0 ? data.employees/data.population*100 : null;
   const housingRate=data.households>0 ? data.houses/data.households*100 : null;
-  body.innerHTML=`<div class="scanSgisHero"><div class="scanSgisTop"><div><div class="scanSgisName">${scanEscapeHTML(data.regionName)}</div><span class="scanPopulationDistance">후보지가 속한 ${scanEscapeHTML(data.scopeKind)} · 공식 센서스</span></div><span class="scanSgisBadge">${scanEscapeHTML(data.year)}년</span></div><div class="scanSgisGrid"><div class="scanSgisStat"><span>총인구</span><b>${scanFormatSgisNumber(data.population,0,'명')}</b></div><div class="scanSgisStat"><span>인구밀도</span><b>${scanFormatSgisNumber(data.density,1,'명/㎢')}</b></div><div class="scanSgisStat"><span>평균연령</span><b>${scanFormatSgisNumber(data.avgAge,1,'세')}</b></div><div class="scanSgisStat"><span>일반가구</span><b>${scanFormatSgisNumber(data.households,0,'가구')}</b></div><div class="scanSgisStat"><span>주택</span><b>${scanFormatSgisNumber(data.houses,0,'호')}</b></div><div class="scanSgisStat"><span>사업체</span><b>${scanFormatSgisNumber(data.businesses,0,'개')}</b></div><div class="scanSgisStat"><span>종사자</span><b>${scanFormatSgisNumber(data.employees,0,'명')}</b></div><div class="scanSgisStat"><span>가구원 평균</span><b>${scanFormatSgisNumber(data.avgHouseholdSize,2,'명')}</b></div></div><div class="scanPopulationMessage">노령화지수 <b>${scanFormatSgisNumber(data.agingIndex,1)}</b>${workerRate===null?'':` · 인구 100명당 종사자 <b>${scanFormatSgisNumber(workerRate,1,'명')}</b>`}${housingRate===null?'':` · 100가구당 주택 <b>${scanFormatSgisNumber(housingRate,1,'호')}</b>`}</div><div class="scanSgisFoot"><b>주의:</b> 선택 반경 합산값이 아니라 후보지가 속한 ${scanEscapeHTML(data.scopeKind)} 전체 통계입니다. 상단 선택에서 행정동과 시군구를 전환할 수 있습니다. <a href="${SGIS_SOURCE_URL}" target="_blank" rel="noopener noreferrer">SGIS 데이터 API ↗</a></div></div>`;
+  body.innerHTML=`<div class="scanSgisHero"><div class="scanSgisTop"><div><div class="scanSgisName">${scanEscapeHTML(data.regionName)}</div><span class="scanPopulationDistance">후보지가 속한 ${scanEscapeHTML(data.scopeKind)} · 공식 센서스</span></div><span class="scanSgisBadge">${scanEscapeHTML(data.year)}년</span></div><div class="scanSgisGrid"><div class="scanSgisStat"><span>총인구</span><b>${scanFormatSgisNumber(data.population,0,'명')}</b></div><div class="scanSgisStat"><span>인구밀도</span><b>${scanFormatSgisNumber(data.density,1,'명/㎢')}</b></div><div class="scanSgisStat"><span>평균연령</span><b>${scanFormatSgisNumber(data.avgAge,1,'세')}</b></div><div class="scanSgisStat"><span>일반가구</span><b>${scanFormatSgisNumber(data.households,0,'가구')}</b></div><div class="scanSgisStat"><span>주택</span><b>${scanFormatSgisNumber(data.houses,0,'호')}</b></div><div class="scanSgisStat"><span>사업체</span><b>${scanFormatSgisNumber(data.businesses,0,'개')}</b></div><div class="scanSgisStat"><span>종사자</span><b>${scanFormatSgisNumber(data.employees,0,'명')}</b></div><div class="scanSgisStat"><span>가구원 평균</span><b>${scanFormatSgisNumber(data.avgHouseholdSize,2,'명')}</b></div></div><div class="scanPopulationMessage">노령화지수 <b>${scanFormatSgisNumber(data.agingIndex,1)}</b>${workerRate===null?'':` · 인구 100명당 종사자 <b>${scanFormatSgisNumber(workerRate,1,'명')}</b>`}${housingRate===null?'':` · 100가구당 주택 <b>${scanFormatSgisNumber(housingRate,1,'호')}</b>`}</div><div class="scanSgisFoot"><b>주의:</b> 선택 반경 합산값이 아니라 후보지가 속한 ${scanEscapeHTML(data.scopeKind)} 전체 통계입니다. 상단 선택에서 주소 지역과 시군구를 전환할 수 있습니다. <a href="${SGIS_SOURCE_URL}" target="_blank" rel="noopener noreferrer">SGIS 데이터 API ↗</a></div></div>`;
 }
 
 async function scanLoadSgis(admCode=null,marketToken=scanState.requestToken,force=false){
@@ -4926,7 +4863,7 @@ function scanPick(row,...keys){
   return '';
 }
 
-function scanResetRadiusCommerceUI(message='후보지를 스캔하면 전국 영업 상가를 선택 반경으로 집계합니다.'){
+function scanResetRadiusCommerceUI(message='후보지를 스캔하면 전국 상가업소 등록자료를 선택 반경으로 집계합니다.'){
   scanState.radiusCommerce=null;
   const empty=$('scanRadiusCommerceEmpty'),content=$('scanRadiusCommerceContent'),body=$('scanRadiusCommerceBody');
   if(empty){empty.textContent=message;empty.hidden=false;}if(content)content.hidden=true;if(body)body.innerHTML='';
@@ -4968,7 +4905,7 @@ function scanRenderRadiusCommerce(data){
   if(!data||!body)return;if(empty)empty.hidden=true;if(content)content.hidden=false;
   const max=data.categories[0]?.count||1;
   const bars=data.categories.slice(0,6).map(item=>`<div class="scanMiniBar"><span title="${scanEscapeHTML(item.name)}">${scanEscapeHTML(item.name)}</span><div class="scanMiniTrack"><div class="scanMiniFill" style="width:${Math.max(3,item.count/max*100)}%"></div></div><b>${item.count.toLocaleString()}</b></div>`).join('');
-  body.innerHTML=`<div class="scanRadiusHero"><div class="scanCommerceTop"><div><div class="scanCommerceName">후보지 중심 ${(data.radius/1000).toFixed(data.radius%1000?1:0)}km</div><span class="scanPopulationDistance">원형 반경 · 전국 영업 상가</span></div><span class="scanCommerceBadge">반경 조회</span></div><div class="scanCommerceGrid"><div class="scanCommerceStat"><span>전체 업소</span><b>${data.total.toLocaleString()}곳</b></div><div class="scanCommerceStat"><span>업소 밀도</span><b>${data.density.toFixed(1)}곳/㎢</b></div><div class="scanCommerceStat"><span>분석 표본</span><b>${data.loaded.toLocaleString()}곳</b></div><div class="scanCommerceStat"><span>의료 연관 표본</span><b>${data.medicalCount.toLocaleString()}곳</b></div></div><div class="scanMiniBars">${bars||'<div class="scanEmpty">업종 표본이 없습니다.</div>'}</div>${data.partial?`<div class="scanApiStatus">전체 ${data.total.toLocaleString()}곳 중 가까운 순 API 표본 ${data.loaded.toLocaleString()}곳으로 업종 비중을 계산했습니다. 전체 업소 수와 밀도는 API 총건수 기준입니다.</div>`:''}<div class="scanCommerceFoot"><b>기준:</b> 후보지 좌표 중심의 실제 선택 반경. 현재 영업 상가 정보이며 과거 개·폐업 추세는 별도 스냅샷이 필요합니다. <a href="${SDSC_SOURCE_URL}" target="_blank" rel="noopener noreferrer">공공데이터포털 ↗</a></div></div>`;
+  body.innerHTML=`<div class="scanRadiusHero"><div class="scanCommerceTop"><div><div class="scanCommerceName">후보지 중심 ${(data.radius/1000).toFixed(data.radius%1000?1:0)}km</div><span class="scanPopulationDistance">원형 반경 · 전국 상가업소 등록자료</span></div><span class="scanCommerceBadge">반경 조회</span></div><div class="scanCommerceGrid"><div class="scanCommerceStat"><span>전체 업소</span><b>${data.total.toLocaleString()}곳</b></div><div class="scanCommerceStat"><span>업소 밀도</span><b>${data.density.toFixed(1)}곳/㎢</b></div><div class="scanCommerceStat"><span>분석 표본</span><b>${data.loaded.toLocaleString()}곳</b></div><div class="scanCommerceStat"><span>의료 연관 표본</span><b>${data.medicalCount.toLocaleString()}곳</b></div></div><div class="scanMiniBars">${bars||'<div class="scanEmpty">업종 표본이 없습니다.</div>'}</div>${data.partial?`<div class="scanApiStatus">전체 ${data.total.toLocaleString()}곳 중 조회된 API 표본 ${data.loaded.toLocaleString()}곳으로 업종 비중을 계산했습니다. 전체 업소 수와 밀도는 API 총건수 기준입니다.</div>`:''}<div class="scanCommerceFoot"><b>기준:</b> 후보지 좌표 중심의 실제 선택 반경. 공공 상가업소 등록자료이며 현 시점 영업 여부를 현장 확인한 값은 아닙니다. 과거 개·폐업 추세는 별도 스냅샷이 필요합니다. <a href="${SDSC_SOURCE_URL}" target="_blank" rel="noopener noreferrer">공공데이터포털 ↗</a></div></div>`;
 }
 
 async function scanPrepareRadiusCommerce(candidate,radius,marketToken){
@@ -5006,7 +4943,7 @@ async function scanFetchBuilding(region){
   const row=result.rows.find(item=>String(scanPick(item,'mainAtchGbCd','mainAtchGbCdNm')).includes('0')||String(scanPick(item,'mainAtchGbCdNm')).includes('주'))||result.rows[0];
   if(!row)return null;
   const parking=scanKnownBuildingCount(row,['indrMechUtcnt','oudrMechUtcnt','indrAutoUtcnt','oudrAutoUtcnt']);
-  return {name:String(scanPick(row,'bldNm','platPlc','newPlatPlc')||'건축물'),address:String(scanPick(row,'newPlatPlc','platPlc')),mainUse:String(scanPick(row,'mainPurpsCdNm','etcPurps')||'-'),otherUse:String(scanPick(row,'etcPurps')),totalArea:scanNumber(scanPick(row,'totArea','vlRatEstmTotArea')),buildingArea:scanNumber(scanPick(row,'archArea')),floorAreaRatio:scanNumber(scanPick(row,'vlRat')),buildingCoverage:scanNumber(scanPick(row,'bcRat')),groundFloors:scanNumber(scanPick(row,'grndFlrCnt')),undergroundFloors:scanNumber(scanPick(row,'ugrndFlrCnt')),parking,elevators:scanKnownBuildingCount(row,['rideUseElvtCnt','emgenUseElvtCnt']),approvalDate:String(scanPick(row,'useAprDay')),households:scanNumber(scanPick(row,'hhldCnt')),parcel};
+  return {recordCount:result.total||result.rows.length,name:String(scanPick(row,'bldNm','platPlc','newPlatPlc')||'건축물'),address:String(scanPick(row,'newPlatPlc','platPlc')),mainUse:String(scanPick(row,'mainPurpsCdNm','etcPurps')||'-'),otherUse:String(scanPick(row,'etcPurps')),totalArea:scanNumber(scanPick(row,'totArea','vlRatEstmTotArea')),buildingArea:scanNumber(scanPick(row,'archArea')),floorAreaRatio:scanNumber(scanPick(row,'vlRat')),buildingCoverage:scanNumber(scanPick(row,'bcRat')),groundFloors:scanNumber(scanPick(row,'grndFlrCnt')),undergroundFloors:scanNumber(scanPick(row,'ugrndFlrCnt')),parking,elevators:scanKnownBuildingCount(row,['rideUseElvtCnt','emgenUseElvtCnt']),approvalDate:String(scanPick(row,'useAprDay')),households:scanNumber(scanPick(row,'hhldCnt')),parcel};
 }
 
 function scanMonthKeys(count=6){
@@ -5022,6 +4959,7 @@ function scanMedian(values){
 async function scanFetchTradeMonth(districtCode,month){
   const params=new URLSearchParams({serviceKey:PUBLIC_DATA_API_KEY,LAWD_CD:districtCode,DEAL_YMD:month,numOfRows:'1000',pageNo:'1'});
   const result=scanApiEnvelope(await scanFetchApiDocument(`${COMMERCIAL_TRADE_API}?${params}`,18000));
+  if(result.total>result.rows.length||result.rows.length>=1000)throw new Error(month+' 거래 자료가 1,000건 조회 한도에 도달해 완전한 집계를 확인할 수 없습니다.');
   return result.rows.map(row=>{
     const raw=scanNumber(scanPick(row,'dealAmount','dealAmt','거래금액'));
     return {month,amount:raw===null?null:raw*10000,area:scanNumber(scanPick(row,'buildingArea','totalFloorAr','dealArea')),use:String(scanPick(row,'buildingUse','landUse','mainPurpsCdNm')),dong:String(scanPick(row,'umdNm','법정동')),floor:scanNumber(scanPick(row,'floor')),year:String(scanPick(row,'buildYear'))};
@@ -5131,7 +5069,7 @@ async function scanFetchRone(region,candidate){
 }
 
 function scanRoneMetricValue(item,digits=1){
-  return item?`${item.value.toLocaleString('ko-KR',{minimumFractionDigits:digits,maximumFractionDigits:digits})}${scanEscapeHTML(item.unit)}`:'-';
+  return item?`${item.value.toLocaleString('ko-KR',{minimumFractionDigits:digits,maximumFractionDigits:digits})}${scanEscapeHTML(item.unit)} <small>(${scanEscapeHTML(item.period||"기준 미제공")})</small>`:'-';
 }
 
 function scanRoneScopeOptions(data){
@@ -5155,7 +5093,7 @@ function scanRenderProperty(){
   const empty=$('scanPropertyEmpty'),content=$('scanPropertyContent'),body=$('scanPropertyBody');if(!body)return;
   const b=scanState.building,r=scanState.realty,ro=scanState.rone;if(empty)empty.hidden=true;if(content)content.hidden=false;
   const building=b?`<div class="scanBuildingHero"><div class="scanCommerceTop"><div><div class="scanCommerceName">${scanEscapeHTML(b.name)}</div><span class="scanPopulationDistance">${scanEscapeHTML(b.mainUse)} · 사용승인 ${scanFormatDate8(b.approvalDate)}</span></div><span class="scanCommerceBadge">건축물대장</span></div><div class="scanCommerceGrid"><div class="scanCommerceStat"><span>연면적</span><b>${b.totalArea===null?'-':b.totalArea.toLocaleString()+'㎡'}</b></div><div class="scanCommerceStat"><span>지상 / 지하</span><b>${b.groundFloors??'-'} / ${b.undergroundFloors??'-'}층</b></div><div class="scanCommerceStat"><span>주차</span><b>${scanBuildingCountLabel(b.parking)}</b></div><div class="scanCommerceStat"><span>승강기</span><b>${scanBuildingCountLabel(b.elevators)}</b></div></div></div>`:`<div class="scanApiStatus">${scanEscapeHTML(scanState.buildingError||'해당 필지의 건축물 표제부 자료가 없습니다.')}</div>`;
-  const realty=r?`<div class="scanCommerceGrid" style="margin-top:9px"><div class="scanCommerceStat"><span>최근 6개월 거래</span><b>${r.totalCount.toLocaleString()}건</b></div><div class="scanCommerceStat"><span>중앙 거래금액</span><b>${r.medianAmount===null?'-':scanFormatKrw(r.medianAmount)}</b></div><div class="scanCommerceStat"><span>중앙 면적</span><b>${r.medianArea===null?'-':r.medianArea.toLocaleString()+'㎡'}</b></div><div class="scanCommerceStat"><span>조회 범위</span><b>${scanEscapeHTML(r.regionName||r.district)}</b></div></div><div class="scanApiStatus">상업·업무용 매매 실거래는 반경이 아닌 시군구 단위이며 임대료가 아닙니다.${r.failedMonths?` ${r.failedMonths}개월 조회 실패.`:''}</div>`:`<div class="scanApiStatus">최근 상업·업무용 매매 실거래를 불러오지 못했습니다. ${scanEscapeHTML(scanState.realtyError||'')}</div>`;
+  const realty=r?`<div class="scanCommerceGrid" style="margin-top:9px"><div class="scanCommerceStat"><span>최근 완료 6개월 조회 거래</span><b>${r.totalCount.toLocaleString()}건</b></div><div class="scanCommerceStat"><span>조회 거래금액 중앙값</span><b>${r.medianAmount===null?'-':scanFormatKrw(r.medianAmount)}</b></div><div class="scanCommerceStat"><span>조회 면적 중앙값</span><b>${r.medianArea===null?'-':r.medianArea.toLocaleString()+'㎡'}</b></div><div class="scanCommerceStat"><span>조회 범위</span><b>${scanEscapeHTML(r.regionName||r.district)}</b></div></div><div class="scanApiStatus">상업·업무용 매매 실거래는 반경이 아닌 시군구 단위이며 임대료가 아닙니다.${r.failedMonths?` ${r.failedMonths}개월 조회 실패: 위 합계·중앙값은 성공한 월만 포함합니다.`:''}</div>`:`<div class="scanApiStatus">최근 상업·업무용 매매 실거래를 불러오지 못했습니다. ${scanEscapeHTML(scanState.realtyError||'')}</div>`;
   const rone=ro?`<div class="scanBuildingHero" style="margin-top:9px"><div class="scanCommerceTop"><div><div class="scanCommerceName">R-ONE ${scanEscapeHTML(ro.propertyType)}</div><span class="scanPopulationDistance">${scanEscapeHTML(ro.selectedScope.replaceAll('>',' › '))} · ${scanEscapeHTML(ro.selectedByUser?'사용자 선택':ro.autoMatchKind)}</span></div><span class="scanCommerceBadge">분기</span></div><div class="scanPopulationPicker"><select class="scanSelect" id="scanRoneScopeSelect" aria-label="R-ONE 통계권역">${scanRoneScopeOptions(ro)}</select></div><div class="scanCommerceGrid"><div class="scanCommerceStat"><span>임대료</span><b>${scanRoneMetricValue(ro.latest.rent,1)}</b></div><div class="scanCommerceStat"><span>공실률</span><b>${scanRoneMetricValue(ro.latest.vacancy,1)}</b></div><div class="scanCommerceStat"><span>투자수익률</span><b>${scanRoneMetricValue(ro.latest.yield,2)}</b></div><div class="scanCommerceStat"><span>데이터 기준</span><b>${scanEscapeHTML(ro.latest.rent?.period||ro.latest.vacancy?.period||ro.latest.yield?.period||'-')}</b></div></div><div class="scanApiStatus">R-ONE 조사권역 통계이며 선택 반경의 개별 매물 임대료가 아닙니다. 자동 매칭이 맞지 않으면 권역을 직접 바꾸세요.</div></div>`:`<div class="scanApiStatus">R-ONE 프록시를 통해 임대료·공실률·투자수익률을 불러오지 못했습니다.${scanState.roneError?' '+scanEscapeHTML(scanState.roneError):''}</div>`;
   body.innerHTML=`${building}${realty}${rone}<div class="scanCommerceFoot"><a href="${BUILDING_SOURCE_URL}" target="_blank" rel="noopener noreferrer">건축물대장 ↗</a> · <a href="${COMMERCIAL_TRADE_SOURCE_URL}" target="_blank" rel="noopener noreferrer">상업용 실거래 ↗</a> · <a href="${RONE_SOURCE_URL}" target="_blank" rel="noopener noreferrer">R-ONE ↗</a></div>`;
   const roneSelect=$('scanRoneScopeSelect');if(roneSelect)roneSelect.onchange=()=>scanChangeRoneScope(roneSelect.value);
@@ -5192,7 +5130,7 @@ async function scanFetchHiraSpecialty(specialty,candidate,radius){
       id:String(scanPick(row,'ykiho')),ykiho:String(scanPick(row,'ykiho')),name:String(scanPick(row,'yadmNm')||'이름 없음'),
       address:String(scanPick(row,'addr')),phone:String(scanPick(row,'telno')),lat,lng,
       distance:scanHaversineMeters(candidate.lat,candidate.lng,lat,lng),
-      establishedDate:String(scanPick(row,'estbDd')),doctorCount:scanNumber(scanPick(row,'drTotCnt'))||0,
+      establishedDate:String(scanPick(row,'estbDd')),doctorCount:scanNumber(scanPick(row,'drTotCnt')),
       clinicType:String(scanPick(row,'clCdNm')||'의원'),specialties:[specialty||'진료과 미분류'],placeUrl:''
     };
   }).filter(Boolean).filter(place=>place.distance<=radius+1).sort((a,b)=>a.distance-b.distance);
@@ -5215,7 +5153,7 @@ async function scanFetchHiraCompetition(specialties,candidate,radius,token){
       const prior=merged.get(key);
       if(prior){
         if(!prior.specialties.includes(name)) prior.specialties.push(name);
-        prior.doctorCount=Math.max(prior.doctorCount,place.doctorCount);
+        prior.doctorCount=prior.doctorCount===null?place.doctorCount:place.doctorCount===null?prior.doctorCount:Math.max(prior.doctorCount,place.doctorCount);
       }else merged.set(key,place);
     });
   });
@@ -5226,7 +5164,7 @@ async function scanFetchHiraCompetition(specialties,candidate,radius,token){
     const date=new Date(Number(place.establishedDate.slice(0,4)),Number(place.establishedDate.slice(4,6))-1,Number(place.establishedDate.slice(6,8)));
     return date>=cutoff;
   }).length;
-  return {places,specialties:specialtyResults,errorLabels,unavailable:errorLabels.length===specialties.length,nearest:places[0]||null,newCount,totalDoctors:places.reduce((sum,place)=>sum+place.doctorCount,0)};
+  return {places,specialties:specialtyResults,errorLabels,unavailable:errorLabels.length===specialties.length,nearest:places[0]||null,newCount,totalDoctors:places.some(p=>p.doctorCount===null)?null:places.reduce((sum,place)=>sum+place.doctorCount,0)};
 }
 
 function scanFormatHiraDate(value){
@@ -5243,12 +5181,12 @@ function scanRenderHira(result){
   $('scanHiraMetrics').innerHTML=`
     <div class="scanOfficialStat"><span>중복 제외 신고 의원</span><b>${unavailable?'-':result.places.length.toLocaleString()+'곳'}</b></div>
     <div class="scanOfficialStat"><span>최근 5년 개설</span><b>${unavailable?'-':result.newCount.toLocaleString()+'곳'}</b></div>
-    <div class="scanOfficialStat"><span>신고 의사 합계</span><b>${unavailable?'-':result.totalDoctors.toLocaleString()+'명'}</b></div>
+    <div class="scanOfficialStat"><span>신고 의사 합계</span><b>${unavailable?'-':(result.totalDoctors===null?'일부 기관 자료 없음':result.totalDoctors.toLocaleString()+'명')}</b></div>
     <div class="scanOfficialStat"><span>최근접 의원</span><b>${result.nearest?scanFormatDistance(result.nearest.distance):'-'}</b></div>`;
   $('scanHiraSpecialties').innerHTML=result.specialties.map(item=>`<div class="scanResultRow"><div class="scanResultName">${scanEscapeHTML(item.name)}</div><div class="scanResultValue">${item.error?'-':item.count.toLocaleString()+'곳'}<span class="scanResultSub">${item.error?scanEscapeHTML(item.errorMessage||'공식 API 조회 실패'):'공식 신고'}</span></div></div>`).join('');
   const list=$('scanHiraList');
   if(result.places.length){
-    list.innerHTML=result.places.slice(0,40).map((place,index)=>`<button class="scanOfficialButton" type="button" data-hira-index="${index}"><strong>${scanEscapeHTML(place.name)}</strong><span>${scanFormatDistance(place.distance)} · ${scanEscapeHTML(place.specialties.join(', '))} · 의사 ${place.doctorCount.toLocaleString()}명 · ${scanEscapeHTML(scanFormatHiraDate(place.establishedDate))}</span></button>`).join('')+(result.places.length>40?`<div class="scanNote">가까운 순 40곳까지 표시했습니다. 지도에는 ${result.places.length.toLocaleString()}곳을 모두 표시합니다.</div>`:'');
+    list.innerHTML=result.places.slice(0,40).map((place,index)=>`<button class="scanOfficialButton" type="button" data-hira-index="${index}"><strong>${scanEscapeHTML(place.name)}</strong><span>${scanFormatDistance(place.distance)} · ${scanEscapeHTML(place.specialties.join(', '))} · 의사 ${place.doctorCount===null?'자료 없음':place.doctorCount.toLocaleString()+'명'} · ${scanEscapeHTML(scanFormatHiraDate(place.establishedDate))}</span></button>`).join('')+(result.places.length>40?`<div class="scanNote">가까운 순 40곳까지 표시했습니다. 지도에는 ${result.places.length.toLocaleString()}곳을 모두 표시합니다.</div>`:'');
     list.querySelectorAll('[data-hira-index]').forEach(button=>{ button.onclick=()=>{
       const place=result.places[Number(button.dataset.hiraIndex)]; if(!place)return;
       map.panTo(new kakao.maps.LatLng(place.lat,place.lng)); scanOpenHiraInfo(place);
@@ -5272,9 +5210,10 @@ async function scanFetchHiraDetails(ykiho){
 function scanHiraInfoHTML(place,data=null,error=false){
   const d=data?.detail||{};
   const departments=(data?.departments||[]).map(row=>String(row.dgsbjtCdNm||row.dgsbjtCd||'')).filter(Boolean);
-  const specialistTotal=(data?.specialists||[]).reduce((sum,row)=>sum+(scanNumber(row.dtlSdrCnt)||scanNumber(row.dgsbjtPrSdrCnt)||scanNumber(row.spcSbjtSdrCnt)||scanNumber(row.sdrCnt)||0),0);
+  const specialistCounts=(data?.specialists||[]).map(row=>scanNumber(scanPick(row,'dtlSdrCnt','dgsbjtPrSdrCnt','spcSbjtSdrCnt','sdrCnt')));
+  const specialistTotal=!specialistCounts.length||specialistCounts.some(v=>v===null)?null:specialistCounts.reduce((sum,v)=>sum+v,0);
   const hours=[['월',d.trmtMonStart,d.trmtMonEnd],['화',d.trmtTueStart,d.trmtTueEnd],['수',d.trmtWedStart,d.trmtWedEnd],['목',d.trmtThuStart,d.trmtThuEnd],['금',d.trmtFriStart,d.trmtFriEnd],['토',d.trmtSatStart,d.trmtSatEnd]].filter(item=>item[1]||item[2]).map(item=>`${item[0]} ${item[1]||'-'}~${item[2]||'-'}`).join(' · ');
-  return `<div style="width:260px;padding:11px 12px;font-size:12px;line-height:1.5;color:#1f2937;"><div style="font-size:10px;font-weight:800;color:#0f766e;margin-bottom:3px;">심평원 신고자료 의원</div><b style="font-size:13px;">${scanEscapeHTML(place.name)}</b><div style="margin-top:4px;color:#64748b;">${scanEscapeHTML(place.address||'주소 정보 없음')}</div><div style="margin-top:4px;"><b>${scanFormatDistance(place.distance)}</b> · 의사 ${place.doctorCount.toLocaleString()}명 · ${scanEscapeHTML(scanFormatHiraDate(place.establishedDate))}</div>${!data&&!error?'<div style="margin-top:7px;color:#0f766e;font-weight:700;">상세 정보를 불러오는 중…</div>':''}${data?`<div style="margin-top:7px;padding-top:7px;border-top:1px solid #ccfbf1;"><b>진료과</b> ${scanEscapeHTML(departments.join(', ')||place.specialties.join(', '))}<br><b>전문의</b> ${specialistTotal.toLocaleString()}명<br><b>주차</b> ${scanEscapeHTML(d.parkQty?`${d.parkQty}대 · ${d.parkEtc||'상세 없음'}`:(d.parkEtc||'정보 없음'))}${hours?`<br><b>진료시간</b> ${scanEscapeHTML(hours)}`:''}${data.partial?'<br><span style="color:#b45309;">일부 상세 조회 실패</span>':''}</div>`:''}${error?'<div style="margin-top:7px;color:#b91c1c;">상세 정보를 불러오지 못했습니다.</div>':''}<a href="${scanEscapeHTML(scanKakaoMapUrl(place))}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:7px;color:#2563eb;font-weight:800;">카카오맵에서 보기 ↗</a></div>`;
+  return `<div style="width:260px;padding:11px 12px;font-size:12px;line-height:1.5;color:#1f2937;"><div style="font-size:10px;font-weight:800;color:#0f766e;margin-bottom:3px;">심평원 신고자료 의원</div><b style="font-size:13px;">${scanEscapeHTML(place.name)}</b><div style="margin-top:4px;color:#64748b;">${scanEscapeHTML(place.address||'주소 정보 없음')}</div><div style="margin-top:4px;"><b>${scanFormatDistance(place.distance)}</b> · 의사 ${place.doctorCount===null?'자료 없음':place.doctorCount.toLocaleString()+'명'} · ${scanEscapeHTML(scanFormatHiraDate(place.establishedDate))}</div>${!data&&!error?'<div style="margin-top:7px;color:#0f766e;font-weight:700;">상세 정보를 불러오는 중…</div>':''}${data?`<div style="margin-top:7px;padding-top:7px;border-top:1px solid #ccfbf1;"><b>진료과</b> ${scanEscapeHTML(departments.join(', ')||place.specialties.join(', '))}<br><b>전문의</b> ${specialistTotal===null?'자료 없음':specialistTotal.toLocaleString()+'명'}<br><b>주차</b> ${scanEscapeHTML(d.parkQty?`${d.parkQty}대 · ${d.parkEtc||'상세 없음'}`:(d.parkEtc||'정보 없음'))}${hours?`<br><b>진료시간</b> ${scanEscapeHTML(hours)}`:''}${data.partial?'<br><span style="color:#b45309;">일부 상세 조회 실패</span>':''}</div>`:''}${error?'<div style="margin-top:7px;color:#b91c1c;">상세 정보를 불러오지 못했습니다.</div>':''}<a href="${scanEscapeHTML(scanKakaoMapUrl(place))}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:7px;color:#2563eb;font-weight:800;">카카오맵에서 보기 ↗</a></div>`;
 }
 
 async function scanOpenHiraInfo(place,marker=null){
@@ -5399,17 +5338,19 @@ function scanRenderFloatingBreakdown(f){
 
 function scanBuildCommerceData(area,floatingRows,storeRows){
   const f=floatingRows.find(row=>String(row.TRDAR_CD)===area.code)||null;
-  const times=[['00~06시','TMZON_00_06_FLPOP_CO'],['06~11시','TMZON_06_11_FLPOP_CO'],['11~14시','TMZON_11_14_FLPOP_CO'],['14~17시','TMZON_14_17_FLPOP_CO'],['17~21시','TMZON_17_21_FLPOP_CO'],['21~24시','TMZON_21_24_FLPOP_CO']].map(([label,key])=>[label,scanNumber(f?.[key])||0]).sort((a,b)=>b[1]-a[1]);
-  const total=scanNumber(f?.TOT_FLPOP_CO)||0;
-  const older=(scanNumber(f?.AGRDE_50_FLPOP_CO)||0)+(scanNumber(f?.AGRDE_60_ABOVE_FLPOP_CO)||0);
-  const stores=storeRows.reduce((acc,row)=>{acc.count+=scanNumber(row.SIMILR_INDUTY_STOR_CO)||0;acc.open+=scanNumber(row.OPBIZ_STOR_CO)||0;acc.close+=scanNumber(row.CLSBIZ_STOR_CO)||0;return acc;},{count:0,open:0,close:0});
-  return {area,floating:f?{total,olderRate:total?older/total*100:0,peak:times.some(v=>v[1]>0)?times[0]:['자료 없음',null],breakdown:scanFloatingBreakdown(f),male:scanNumber(f.ML_FLPOP_CO)||0,female:scanNumber(f.FML_FLPOP_CO)||0}:null,stores,sales:SEOUL_SALES_BY_AREA.get(area.code)||null,floatingPeriod:floatingRows.period||'자료 없음',storePeriod:storeRows.period||'자료 없음',salesPeriod:SEOUL_COMMERCE_SALES_PERIOD,fetchedAt:new Date().toISOString()};
+  const times=[['00~06시','TMZON_00_06_FLPOP_CO'],['06~11시','TMZON_06_11_FLPOP_CO'],['11~14시','TMZON_11_14_FLPOP_CO'],['14~17시','TMZON_14_17_FLPOP_CO'],['17~21시','TMZON_17_21_FLPOP_CO'],['21~24시','TMZON_21_24_FLPOP_CO']].map(([label,key])=>[label,scanNumber(f?.[key])]).filter(v=>v[1]!==null).sort((a,b)=>b[1]-a[1]);
+  const total=scanNumber(f?.TOT_FLPOP_CO);
+  const age50=scanNumber(f?.AGRDE_50_FLPOP_CO),age60=scanNumber(f?.AGRDE_60_ABOVE_FLPOP_CO);
+  const older=age50===null||age60===null?null:age50+age60;
+  const storeSum=key=>storeRows.some(row=>scanNumber(row[key])===null)?null:storeRows.reduce((sum,row)=>sum+scanNumber(row[key]),0);
+  const stores={count:storeSum('SIMILR_INDUTY_STOR_CO'),open:storeSum('OPBIZ_STOR_CO'),close:storeSum('CLSBIZ_STOR_CO')};
+  return {area,floating:f?{total,olderRate:total>0&&older!==null?older/total*100:null,peak:times.some(v=>v[1]>0)?times[0]:['자료 없음',null],breakdown:scanFloatingBreakdown(f),male:scanNumber(f.ML_FLPOP_CO),female:scanNumber(f.FML_FLPOP_CO)}:null,stores,sales:SEOUL_SALES_BY_AREA.get(area.code)||null,floatingPeriod:floatingRows.period||'자료 없음',storePeriod:storeRows.period||'자료 없음',salesPeriod:SEOUL_COMMERCE_SALES_PERIOD,fetchedAt:new Date().toISOString()};
 }
 
 function scanRenderCommerce(data,notices=[]){
   const body=$('scanCommerceBody');if(!body)return;
   const f=data.floating,s=data.sales,stores=data.stores;
-  body.innerHTML=`<div class="scanCommerceHero"><div class="scanCommerceTop"><div><div class="scanCommerceName">${scanEscapeHTML(data.area.name)}</div><span class="scanPopulationDistance">${scanEscapeHTML(data.area.type)} · 후보지에서 ${scanFormatDistance(data.area.distance)}</span></div><span class="scanCommerceBadge">${scanEscapeHTML(data.area.code)}</span></div><div class="scanCommerceGrid"><div class="scanCommerceStat"><span>분기 유동인구</span><b>${f?`${Math.round(f.total).toLocaleString()}명`:'-'}</b></div><div class="scanCommerceStat"><span>50대 이상 비중</span><b>${f?`${f.olderRate.toFixed(1)}%`:'-'}</b></div><div class="scanCommerceStat"><span>유동인구 피크</span><b>${f?`${scanEscapeHTML(f.peak[0])}`:'-'}</b></div><div class="scanCommerceStat"><span>월 추정매출 합계</span><b>${s?scanFormatKrw(s.amount):'-'}</b></div><div class="scanCommerceStat"><span>점포 합계</span><b>${stores.count===null?'조회 불가':stores.count.toLocaleString()+'곳'}</b></div><div class="scanCommerceStat"><span>개업 / 폐업</span><b>${stores.open===null||stores.close===null?'조회 불가':stores.open.toLocaleString()+' / '+stores.close.toLocaleString()+'곳'}</b></div></div>${s?`<div class="scanPopulationMessage">매출 1위 업종: <b>${scanEscapeHTML(s.topIndustry)}</b> · ${scanFormatKrw(s.topAmount)} · 전체 결제 ${s.count.toLocaleString()}건</div>`:''}${scanRenderFloatingBreakdown(f)}${notices.length?`<div class="scanLimitNote" style="display:block">${scanEscapeHTML(notices.join(' '))}</div>`:''}<div class="scanCommerceFoot">유동인구 ${scanEscapeHTML(scanPeriodLabel(data.floatingPeriod))} · 점포 ${scanEscapeHTML(scanPeriodLabel(data.storePeriod))} · 매출 ${scanEscapeHTML(scanPeriodLabel(data.salesPeriod))}<br><b>주의:</b> 선택 반경 안의 공식 중심점만 표시하지만 값은 원형 반경 합산이 아니라 해당 서울 상권 단위입니다. 전국 반경 업소 구성은 위 ‘전국 반경 상가·업종’을 기준으로 판단하세요. <a href="${SEOUL_COMMERCE_SOURCE_URL}" target="_blank" rel="noopener noreferrer">서울 열린데이터광장 ↗</a></div></div>`;
+  body.innerHTML=`<div class="scanCommerceHero"><div class="scanCommerceTop"><div><div class="scanCommerceName">${scanEscapeHTML(data.area.name)}</div><span class="scanPopulationDistance">${scanEscapeHTML(data.area.type)} · 후보지에서 ${scanFormatDistance(data.area.distance)}</span></div><span class="scanCommerceBadge">${scanEscapeHTML(data.area.code)}</span></div><div class="scanCommerceGrid"><div class="scanCommerceStat"><span>분기 유동인구</span><b>${f&&f.total!==null?`${Math.round(f.total).toLocaleString()}명`:'자료 없음'}</b></div><div class="scanCommerceStat"><span>50대 이상 비중</span><b>${f&&f.olderRate!==null?`${f.olderRate.toFixed(1)}%`:'자료 없음'}</b></div><div class="scanCommerceStat"><span>최대 집계 시간 구간</span><b>${f?`${scanEscapeHTML(f.peak[0])}`:'-'}</b></div><div class="scanCommerceStat"><span>기준 분기 추정매출 합계</span><b>${s?scanFormatKrw(s.amount):'-'}</b></div><div class="scanCommerceStat"><span>점포 합계</span><b>${stores.count===null?'조회 불가':stores.count.toLocaleString()+'곳'}</b></div><div class="scanCommerceStat"><span>개업 / 폐업</span><b>${stores.open===null||stores.close===null?'조회 불가':stores.open.toLocaleString()+' / '+stores.close.toLocaleString()+'곳'}</b></div></div>${s?`<div class="scanPopulationMessage">매출 1위 업종: <b>${scanEscapeHTML(s.topIndustry)}</b> · ${scanFormatKrw(s.topAmount)} · 전체 결제 ${s.count.toLocaleString()}건</div>`:''}${scanRenderFloatingBreakdown(f)}${notices.length?`<div class="scanLimitNote" style="display:block">${scanEscapeHTML(notices.join(' '))}</div>`:''}<div class="scanCommerceFoot">유동인구 ${scanEscapeHTML(scanPeriodLabel(data.floatingPeriod))} · 점포 ${scanEscapeHTML(scanPeriodLabel(data.storePeriod))} · 매출 ${scanEscapeHTML(scanPeriodLabel(data.salesPeriod))}<br><b>주의:</b> 선택 반경 안의 공식 중심점만 표시하지만 값은 원형 반경 합산이 아니라 해당 서울 상권 단위입니다. 전국 반경 업소 구성은 위 ‘전국 반경 상가·업종’을 기준으로 판단하세요. <a href="${SEOUL_COMMERCE_SOURCE_URL}" target="_blank" rel="noopener noreferrer">서울 열린데이터광장 ↗</a></div></div>`;
 }
 
 async function scanLoadCommerce(areaCode=null,marketToken=scanState.requestToken,force=false){
@@ -5752,12 +5693,12 @@ function scanRenderResult(result){
   }
 
   $('scanSpecialtyResults').innerHTML = result.specialties.map(item=>`
-    <div class="scanResultRow"><div class="scanResultName">${scanEscapeHTML(item.name)}</div><div class="scanResultValue">검색된 ${item.count.toLocaleString()}곳<span class="scanResultSub">${item.pages.toLocaleString()}페이지${item.error?' · 검색 오류':''}${item.truncated?' · 한도 도달':''}</span></div></div>`).join('');
+    <div class="scanResultRow"><div class="scanResultName">${scanEscapeHTML(item.name)}</div><div class="scanResultValue">${item.error?'조회 불가':'검색된 '+item.count.toLocaleString()+'곳'}<span class="scanResultSub">${item.pages.toLocaleString()}페이지${item.error?' · 검색 오류':''}${item.truncated?' · 한도 도달':''}</span></div></div>`).join('');
 
   $('scanFacilityResults').innerHTML = Object.keys(SCAN_FACILITY_CONFIG).map(type=>{
     const item = result.facilities[type];
     const nearest = item.nearest ? `최단 ${scanFormatDistance(item.nearest.distance)}` : '검색 결과 없음';
-    return `<div class="scanResultRow"><div class="scanResultName">${scanEscapeHTML(item.label)}</div><div class="scanResultValue">검색된 ${item.count.toLocaleString()}곳<span class="scanResultSub">${nearest}${item.error?' · 검색 오류':''}${item.truncated?' · 한도 도달':''}</span></div></div>`;
+    return `<div class="scanResultRow"><div class="scanResultName">${scanEscapeHTML(item.label)}</div><div class="scanResultValue">${item.error?'조회 불가':'검색된 '+item.count.toLocaleString()+'곳'}<span class="scanResultSub">${nearest}${item.error?' · 검색 오류':''}${item.truncated?' · 한도 도달':''}</span></div></div>`;
   }).join('');
 
   $('scanPlaceCount').textContent = result.competitors.length.toLocaleString();
@@ -5894,7 +5835,7 @@ function scanRenderClinic(){
   const change=store?.total!==null&&store?.total!==undefined&&previous?.total!==null&&previous?.total!==undefined?store.total-previous.total:null;
   const metrics=scanDetailMetric('의원 점포 수',scanDetailNumber(store?.total,'곳'),'서울 '+scanClinicKinds[kind]+' 업종 전체')+scanDetailMetric('개업 / 폐업',scanDetailNumber(store?.open,'곳')+' / '+scanDetailNumber(store?.close,'곳'),scanPeriodLabel(period))+scanDetailMetric('전분기 점포 수 변화',change===null?'자료 없음':(change>0?'+':'')+change+'곳','같은 상권·업종·연속 분기 비교')+scanDetailMetric('추정매출 원본 금액',money(sales?.amount),scanPeriodLabel(period)+' · 서울시 추정매출');
   const basicRows=[['분기','전체 점포','개업','폐업','개업률','폐업률'],...series.map(r=>[scanPeriodLabel(r.period),scanDetailNumber(r.total,'곳'),scanDetailNumber(r.open,'곳'),scanDetailNumber(r.close,'곳'),scanDetailNumber(r.openRate,'%'),scanDetailNumber(r.closeRate,'%')])];
-  $('scanClinicBody').innerHTML='<div class="scanMetricHeading"><strong>'+scanEscapeHTML(d.area.name)+' · '+scanClinicKinds[kind]+'</strong><span class="scanCaption">'+scanPeriodLabel(period)+' · 공식상권 전체</span></div><div class="scanMetricGrid">'+metrics+'</div><div class="scanInsight">일반의원은 서울시의 업종 분류입니다. 정형외과·신경외과 등 진료과별 매출이나 심평원 의원 수와 동일하지 않습니다. 선택 반경 합산·개별 병원 매출·건강보험 청구액으로 해석하지 마세요.</div>'+(d.errors.length?'<div class="scanInsight warn">'+scanEscapeHTML(d.errors.join(' · '))+'</div>':'')+'<div class="scanDetailGrid">'+scanDetailChartSection('scanClinicStoreTrend','최근 4분기 의원 수','전체 점포 수 · 미제공 분기는 선을 연결하지 않습니다.')+scanDetailChartSection('scanClinicOpenClose','개업·폐업 비교','서울시 원본 개업/폐업 건수')+'</div><div class="scanTableScroll">'+scanReportTable(basicRows)+'</div>'+(sales?'<div class="scanDetailGrid">'+scanDetailChartSection('scanClinicSalesDays','요일별 추정매출','만원 · 선택 업종·공식상권')+scanDetailChartSection('scanClinicSalesTimes','시간대별 추정매출','만원 · 각 시간대 길이가 다릅니다.')+scanDetailChartSection('scanClinicSalesAges','결제 연령대별 추정매출','만원 · 환자의 나이가 아닌 결제자 기준')+scanDetailChartSection('scanClinicSalesGender','성별 추정매출 구성','공개된 성별 금액 기준')+'</div><details><summary class="scanCaption">요일·시간대·연령·성별 금액 수치표</summary><div class="scanTableScroll">'+scanReportTable([['항목','원본 금액(원)'],['전체 추정매출',sales.amount],...sales.days,...sales.times,...sales.ages,...sales.gender].map((r,i)=>i?[r[0],scanDetailNumber(r[1],'원')]:r))+'</div></details><p class="scanReportFoot">기준 분기 '+scanPeriodLabel(period)+' · 매출 원본 필드명은 당월_매출_금액입니다. 월평균이나 연매출로 임의 환산하지 않습니다. 결제 건수 '+scanDetailNumber(sales.count,'건')+'은 고유 환자 수가 아닙니다. 연령·성별 합계는 전체 금액과 다를 수 있습니다.</p>':'<div class="scanEmpty">'+(scanClinic.busy?'의원 매출 상세를 불러오는 중입니다.':d.salesError?scanEscapeHTML(d.salesError):'선택 상권·업종·분기의 공개 매출 행이 없습니다. 0원으로 처리하지 않습니다.')+'</div>')+'<div class="scanReportFoot">출처: 서울특별시·서울신용보증재단 · <a href="https://data.seoul.go.kr/dataList/OA-15577/A/1/datasetView.do" target="_blank" rel="noopener">점포 공개 데이터</a> · <a href="https://data.seoul.go.kr/dataList/OA-15572/A/1/datasetView.do" target="_blank" rel="noopener">추정매출 공개 데이터</a> · <a href="https://golmok.seoul.go.kr/owner/owner.do" target="_blank" rel="noopener">서울시 분석서비스</a><br>원본 사이트의 보행권역/다각형과 본 앱의 공식상권은 공간 기준이 달라 수치가 다를 수 있습니다. 생존율·평균 영업기간은 현재 연결하지 않았습니다. 입지 참고 점수에는 반영하지 않습니다.</div>';
+  $('scanClinicBody').innerHTML='<div class="scanMetricHeading"><strong>'+scanEscapeHTML(d.area.name)+' · '+scanClinicKinds[kind]+'</strong><span class="scanCaption">'+scanPeriodLabel(period)+' · 공식상권 전체</span></div><div class="scanMetricGrid">'+metrics+'</div><div class="scanInsight">일반의원은 서울시의 업종 분류입니다. 정형외과·신경외과 등 진료과별 매출이나 심평원 의원 수와 동일하지 않습니다. 선택 반경 합산·개별 병원 매출·건강보험 청구액으로 해석하지 마세요.</div>'+(d.errors.length?'<div class="scanInsight warn">'+scanEscapeHTML(d.errors.join(' · '))+'</div>':'')+'<div class="scanDetailGrid">'+scanDetailChartSection('scanClinicStoreTrend','최근 4분기 의원 수','전체 점포 수 · 미제공 분기는 선을 연결하지 않습니다.')+scanDetailChartSection('scanClinicOpenClose','개업·폐업 비교','서울시 원본 개업/폐업 건수')+'</div><div class="scanTableScroll">'+scanReportTable(basicRows)+'</div>'+(sales?'<div class="scanDetailGrid">'+scanDetailChartSection('scanClinicSalesDays','요일별 추정매출','만원 · 선택 업종·공식상권')+scanDetailChartSection('scanClinicSalesTimes','시간대별 추정매출','만원 · 각 시간대 길이가 다릅니다.')+scanDetailChartSection('scanClinicSalesAges','결제 연령대별 추정매출','만원 · 환자의 나이가 아닌 결제자 기준')+scanDetailChartSection('scanClinicSalesGender','성별 추정매출 구성','공개된 성별 금액 기준')+'</div><details><summary class="scanCaption">요일·시간대·연령·성별 금액 수치표</summary><div class="scanTableScroll">'+scanReportTable([['항목','원본 금액(원)'],['전체 추정매출',sales.amount],...sales.days,...sales.times,...sales.ages,...sales.gender].map((r,i)=>i?[r[0],scanDetailNumber(r[1],'원')]:r))+'</div></details><p class="scanReportFoot">기준 분기 '+scanPeriodLabel(period)+' · 매출 원본 필드명은 당월_매출_금액입니다. 월평균이나 연매출로 임의 환산하지 않습니다. 결제 건수 '+scanDetailNumber(sales.count,'건')+'은 고유 환자 수가 아닙니다. 연령·성별 합계는 전체 금액과 다를 수 있습니다.</p>':'<div class="scanEmpty">'+(scanClinic.busy?'의원 매출 상세를 불러오는 중입니다.':d.salesError?scanEscapeHTML(d.salesError):'선택 상권·업종·분기의 공개 매출 행이 없습니다. 0원으로 처리하지 않습니다.')+'</div>')+'<div class="scanReportFoot">출처: 서울특별시·서울신용보증재단 · <a href="https://data.seoul.go.kr/dataList/OA-15577/A/1/datasetView.do" target="_blank" rel="noopener">점포 공개 데이터</a> · <a href="https://data.seoul.go.kr/dataList/OA-15572/A/1/datasetView.do" target="_blank" rel="noopener">추정매출 공개 데이터</a> · <a href="https://golmok.seoul.go.kr/owner/owner.do" target="_blank" rel="noopener">서울시 분석서비스</a><br>원본 사이트의 보행권역/다각형과 본 앱의 공식상권은 공간 기준이 달라 수치가 다를 수 있습니다. 생존율·평균 영업기간은 현재 연결하지 않았습니다. 별도의 종합 점수를 산출하지 않습니다.</div>';
   const options={responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},datalabels:{display:false}},scales:{y:{beginAtZero:true,ticks:{precision:0}}}};
   const chart=(key,id,type,labels,datasets,o=options)=>scanReportChart(key,id,{type,data:{labels,datasets},options:structuredClone(o)});
   chart('clinicStores','scanClinicStoreTrend','line',series.map(r=>scanPeriodLabel(r.period)),[{label:'전체 의원(곳)',data:series.map(r=>r.total??null),borderColor:'#0369a1',backgroundColor:'#0369a11a',fill:true,spanGaps:false,tension:0}]);
@@ -5924,7 +5865,7 @@ function scanSiteCompetition(result,exclude=true,draft=scanSite.active){
 function scanSiteFacts(result){
   const rows=[],b=result.building,s=result.sgis,p=result.population,c=result.commerce,v=result.visitors;
   const add=(name,value,scope,when,source)=>rows.push({name,value,scope,when:when||'기준일 미표시',source});
-  if(b&&!result.candidate.searchScope){for(const [name,value] of [['건물명',b.name],['지상 / 지하',(b.groundFloors??'-')+' / '+(b.undergroundFloors??'-')+'층'],['주용도',b.mainUse],['사용승인',scanFormatDate8(b.approvalDate)],['건물 전체 주차',scanBuildingCountLabel(b.parking)],['승강기',scanBuildingCountLabel(b.elevators)]])add(name,value,'후보 필지 · 사용 호실과 구분','조회 '+result.createdAt?.slice(0,10),'건축물대장');}
+  if(b&&!result.candidate.searchScope){for(const [name,value] of [['건물명',b.name],['지상 / 지하',(b.groundFloors??'-')+' / '+(b.undergroundFloors??'-')+'층'],['주용도',b.mainUse],['사용승인',scanFormatDate8(b.approvalDate)],['건물 전체 주차',scanBuildingCountLabel(b.parking)],['승강기',scanBuildingCountLabel(b.elevators)]])add(name,value,'후보 필지 내 자동 선택 대장 · 실제 동/호실 확인 필요','조회 '+result.createdAt?.slice(0,10),'건축물대장');}
   if(s)for(const [name,value,unit] of [['주거 인구',s.population,'명'],['종사자',s.employees,'명'],['가구',s.households,'가구'],['평균연령',s.avgAge,'세']])add(name,scanDetailNumber(value,unit),s.regionName,s.year?String(s.year)+'년':'연도는 SGIS 상세 참고','SGIS');
   if(p)add('실시간 추정인구',scanFormatPopulationRange(p.min,p.max),p.areaName+' 지정지점 · 반경 합계 아님',p.updateTime,'서울시');
   if(c?.floating)add('분기 유동인구',scanDetailNumber(c.floating.total,'명'),c.area.name+' 공식상권 전체',scanPeriodLabel(c.floatingPeriod),'서울시');
@@ -6003,7 +5944,7 @@ async function scanSiteDetail(index){
   try{const data=await scanFetchHiraDetails(p.ykiho);if(token!==scanSite.detailToken||draft!==scanSite.active)return;const d=data.detail||{},e=scanSiteEscape;const hours=[['월',d.trmtMonStart,d.trmtMonEnd],['화',d.trmtTueStart,d.trmtTueEnd],['수',d.trmtWedStart,d.trmtWedEnd],['목',d.trmtThuStart,d.trmtThuEnd],['금',d.trmtFriStart,d.trmtFriEnd],['토',d.trmtSatStart,d.trmtSatEnd]].map(([day,a,b])=>day+' '+(a||'미제공')+'~'+(b||'미제공')).join(' · ');node.innerHTML='<h4>'+e(p.name)+'</h4><p>'+e(hours)+'</p><p>주차 '+e(d.parkQty??'미제공')+' · '+e(d.parkEtc||'세부 안내 없음')+'</p><p>신고 진료과: '+e(data.departments.map(r=>r.dgsbjtCdNm).filter(Boolean).join(', ')||'미제공')+'</p><p>'+e(data.partial?'일부 상세 API 조회 실패 · 표시되지 않은 항목은 확인 필요':'심평원 상세 수신 · 실제 운영시간은 방문 전 확인')+'</p>';}catch(err){if(token===scanSite.detailToken&&draft===scanSite.active)node.textContent=p.name+' · '+scanApiErrorMessage(err);}
 }
 function scanSiteDownload(content,type,ext){const blob=new Blob([content],{type:type+';charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(scanSite.active.fields.title||'입지자료').replace(/[\\/:*?"<>|]/g,'_')+'.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}
-function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.0 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
+function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.1 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
 function scanSitePrint(){try{const doc=scanSiteDocument(scanSiteValidDraft(scanSite.active));$('sitePrintFrame')?.remove();const frame=document.createElement('iframe');frame.id='sitePrintFrame';frame.title='입지자료 인쇄';frame.style.cssText='position:fixed;left:-10000px;width:794px;height:1123px;border:0';frame.onload=()=>{Promise.all(Array.from(frame.contentDocument.images,img=>img.decode().catch(()=>{}))).then(()=>{frame.contentWindow.focus();frame.contentWindow.print();});};frame.srcdoc=doc;document.body.appendChild(frame);scanSiteStatus('인쇄 대화상자를 요청했습니다. 앱에서 지원하지 않으면 HTML 저장 후 Edge·Chrome에서 인쇄하세요.');}catch(e){scanSiteStatus(e.message);}}
 async function scanSiteExplore(){
   const d=scanSite.active,query=d.snapshot.candidate.searchQuery,node=$('siteExploreResults');if(!query||!node)return;node.textContent='지역 의료기관 검색 중…';
@@ -6297,21 +6238,7 @@ scanSiteRender=function(){scanSiteRenderBeforeAudit();const draft=scanSite.activ
   };});
 };
 
-function scanReportScores(result){
-  const scores=[];
-  // Competition is reported as observed counts, not an unvalidated inverse-density score.
-  if(result.sgis){
-    const densityPart=scanClamp((result.sgis.density||0)/14000*100);
-    const workerPart=result.sgis.population>0?scanClamp(result.sgis.employees/result.sgis.population*120):50;
-    scores.push({key:'demand',label:'인구·종사자 기반',value:densityPart*.65+workerPart*.35,weight:30});
-  }
-  if(result.radiusCommerce)scores.push({key:'market',label:'상가 밀도',value:scanClamp(result.radiusCommerce.density/650*100),weight:22});
-  const facilityCount=Object.values(result.facilities||{}).reduce((sum,item)=>sum+(item.count||0),0);
-  scores.push({key:'access',label:'주변 시설 수',value:scanClamp(facilityCount/35*100),weight:18});
-  const weight=scores.reduce((sum,item)=>sum+item.weight,0)||1;
-  const total=Math.round(scores.reduce((sum,item)=>sum+item.value*item.weight,0)/weight);
-  return {total,scores};
-}
+function scanReportScores(result){ return {total:null,scores:[]}; }
 
 function scanDestroyReportCharts(){
   Object.keys(scanReportCharts).forEach(key=>{try{scanReportCharts[key]?.destroy();}catch(e){}delete scanReportCharts[key];});
@@ -6358,10 +6285,13 @@ function scanReportFallbackDraw(canvas,config){
 function scanReportChart(key,id,config){
   const canvas=$(id);if(!canvas)return null;
   try{scanReportCharts[key]?.destroy();}catch(e){}
+  canvas.parentElement.querySelector('.scanChartFallback')?.remove();canvas.hidden=false;
   if(typeof Chart==='undefined'){
-    let destroyed=false;
-    const fallback={destroy(){destroyed=true;const ctx=canvas.getContext('2d');ctx?.clearRect(0,0,canvas.width,canvas.height);},resize(){if(!destroyed)scanReportFallbackDraw(canvas,config);}};
-    scanReportCharts[key]=fallback;requestAnimationFrame(()=>fallback.resize());return fallback;
+    const node=document.createElement('div');node.className='scanChartFallback';node.style.cssText='max-height:100%;overflow:auto';
+    const labels=config.data?.labels||[],sets=config.data?.datasets||[];
+    node.innerHTML='<p>차트 연결 실패 · 원본 수치표 (각 계열 단위 참고)</p>'+scanReportTable([['항목',...sets.map(s=>s.label||'값')],...labels.map((label,i)=>[label,...sets.map(s=>s.data?.[i]===null||s.data?.[i]===undefined?'자료 없음':String(s.data[i]))])]);
+    canvas.hidden=true;canvas.parentElement.appendChild(node);
+    const fallback={destroy(){node.remove();canvas.hidden=false;},resize(){}};scanReportCharts[key]=fallback;return fallback;
   }
   config.options=config.options||{};
   config.options.animation={duration:typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches?0:400};
@@ -6386,13 +6316,14 @@ function scanReportInsights(result,scores){
   const nearest=distances.length?Math.round(Math.min(...distances))+'m':'확인 자료 없음';
   items.push('<div class="scanInsight"><b>반경 내 경쟁병원 현황</b><br>카카오 검색 병원 '+rows.length+'곳 · 500m 이내 '+scopeCount(500)+' · 1km 이내 '+scopeCount(1000)+' · 최단 직선거리 '+nearest+'<br>검색된 결과 기준이며 전체 병원 수를 보장하지 않습니다. 넓은 반경의 낮은 밀도를 경쟁이 약하다는 뜻으로 해석하지 않습니다.</div>');
   if(result.specialties?.length)items.push('<div class="scanInsight">진료과 검색별: '+result.specialties.map(s=>scanEscapeHTML(s.name)+' '+s.count+'곳'+(s.error?' (조회 오류)':s.truncated?' (일부 결과)':'')).join(' · ')+'<br>여러 진료과 검색에 같은 병원이 포함될 수 있어 합계는 중복 제외 병원 수와 다릅니다.</div>');
+  if((result.specialties||[]).some(s=>s.error||s.truncated))items.push('<div class="scanInsight warn">일부 진료과 검색이 실패했거나 조회 한도에 도달했습니다. 병원 수는 확보된 결과만 포함하며 0곳이어도 병원이 없다고 단정할 수 없습니다.</div>');
   const competitionTone='';
   items.push(`<div class="scanInsight ${competitionTone}">선택 반경의 카카오 검색 병원 밀도는 <b>${result.density.toFixed(2)}곳/㎢</b>입니다. 심평원 값은 ${result.hira?.unavailable?'현재 공식 API 조회 불가로 교차확인에서 제외했습니다.':result.hira?`중복 제외 신고 의원 ${result.hira.places.length.toLocaleString()}곳으로 교차확인했습니다.`:'확보되지 않았습니다.'}</div>`);
   if(result.sgis)items.push(`<div class="scanInsight">${scanEscapeHTML(result.sgis.regionName)}의 센서스 인구는 <b>${scanFormatSgisNumber(result.sgis.population,0,'명')}</b>, 평균연령은 <b>${scanFormatSgisNumber(result.sgis.avgAge,1,'세')}</b>, 종사자는 <b>${scanFormatSgisNumber(result.sgis.employees,0,'명')}</b>입니다.</div>`);
-  if(result.radiusCommerce)items.push(`<div class="scanInsight ${result.radiusCommerce.density>650?'good':''}">후보지 중심 ${(result.radiusMeters/1000).toFixed(result.radiusMeters%1000?1:0)}km 안에 영업 상가 <b>${result.radiusCommerce.total.toLocaleString()}곳</b>이 확인되어 업소 밀도는 <b>${result.radiusCommerce.density.toFixed(1)}곳/㎢</b>입니다.</div>`);
+  if(result.radiusCommerce)items.push(`<div class="scanInsight ${''}">후보지 중심 ${(result.radiusMeters/1000).toFixed(result.radiusMeters%1000?1:0)}km 안에 영업 상가 <b>${result.radiusCommerce.total.toLocaleString()}곳</b>이 확인되어 업소 밀도는 <b>${result.radiusCommerce.density.toFixed(1)}곳/㎢</b>입니다.</div>`);
   if(result.rone)items.push(`<div class="scanInsight">R-ONE <b>${scanEscapeHTML(result.rone.selectedScope.replaceAll('>',' › '))}</b> 소규모 상가 기준 임대료 <b>${scanRoneMetricValue(result.rone.latest.rent,1)}</b>, 공실률 <b>${scanRoneMetricValue(result.rone.latest.vacancy,1)}</b>입니다. 조사권역 통계로 반경 집계와는 구분됩니다.</div>`);
   if(!result.population)items.push('<div class="scanInsight warn">전국 공통 실시간 유동인구는 무료 단일 API가 없어 현재 점수에는 포함하지 않았습니다. 서울 지정지점도 선택 반경 안에 있을 때만 보조로 표시합니다.</div>');
-  items.push(`<div class="scanReportFoot">입지 참고 점수 ${scores.total}점은 인구·종사자 기반 30 : 상가 밀도 22 : 주변 시설 수 18의 상대 가중치로 계산합니다. 경쟁 강도는 평가하지 않으며, 개원 적합성 점수가 아닙니다. 임대료·진료수요·가시성·층별 동선 등 현장 실사는 별도로 확인해야 합니다.</div>`);
+  items.push('<div class="scanReportFoot">종합 점수는 제공하지 않습니다. 업소 수는 유동인구·매출이 아니며, 행정구역 통계는 선택 반경 인구와 다릅니다.</div>');
   return items.join('');
 }
 
@@ -6423,7 +6354,7 @@ function scanVisitorDetail(data){
 }
 function scanFloatingDetail(commerce){
   const f=commerce?.floating;if(!f?.breakdown)return '';
-  return `<div class="scanMetricGrid">${scanDetailMetric('분기 유동인구',scanDetailNumber(f.total),'선택 공식상권 전체')}${scanDetailMetric('50대 이상 비중',scanDetailNumber(f.olderRate,'%'),'공식상권 연령 구성')}${scanDetailMetric('피크 시간대',f.peak?.[0]||'자료 없음','구간 길이가 서로 다름')}${scanDetailMetric('통계 기준',scanPeriodLabel(commerce.floatingPeriod),commerce.area.name)}</div><div class="scanDetailGrid">${scanDetailChartSection('scanFloatingTimeChart','시간대 흐름','분기 구간별 인구 · 구간별 시간 길이가 달라 시간당 밀도가 아닙니다.',true)}${scanDetailChartSection('scanFloatingDayChart','요일별 비교','분기 요일별 인구(명)')}${scanDetailChartSection('scanFloatingAgeChart','연령대별 비교','분기 연령대별 인구(명)')}</div>`;
+  return `<div class="scanMetricGrid">${scanDetailMetric('분기 유동인구',scanDetailNumber(f.total),'선택 공식상권 전체')}${scanDetailMetric('50대 이상 비중',scanDetailNumber(f.olderRate,'%'),'공식상권 연령 구성')}${scanDetailMetric('최대 집계 시간 구간',f.peak?.[0]||'자료 없음','구간 길이가 서로 다름')}${scanDetailMetric('통계 기준',scanPeriodLabel(commerce.floatingPeriod),commerce.area.name)}</div><div class="scanDetailGrid">${scanDetailChartSection('scanFloatingTimeChart','시간대 흐름','분기 구간별 인구 · 구간별 시간 길이가 달라 시간당 밀도가 아닙니다.',true)}${scanDetailChartSection('scanFloatingDayChart','요일별 비교','분기 요일별 인구(명)')}${scanDetailChartSection('scanFloatingAgeChart','연령대별 비교','분기 연령대별 인구(명)')}</div>`;
 }
 function scanRenderPopulationDetails(result){
   $('scanRealtimeScope').innerHTML=scanRealtimeReport(result.population,result.candidate);
@@ -6482,15 +6413,15 @@ function scanRenderReportCharts(result,scoreData){
   scanReportChart('score','scanScoreChart',{type:'bar',data:{labels:scoreData.scores.map(item=>item.label),datasets:[{data:scoreData.scores.map(item=>Math.round(item.value)),backgroundColor:palette,borderRadius:8}]},options:{...baseOptions,indexAxis:'y',scales:{x:{beginAtZero:true,max:100,ticks:{callback:value=>`${value}점`}},y:{grid:{display:false}}},plugins:{...baseOptions.plugins,legend:{display:false}}}});
   const specialties=result.specialties||[];
   const hiraByName=new Map((result.hira?.specialties||[]).map(item=>[item.name,item.error?null:item.count]));
-  scanReportChart('competition','scanCompetitionChart',{type:'bar',data:{labels:specialties.map(item=>item.name),datasets:[{label:'카카오 검색',data:specialties.map(item=>item.count),backgroundColor:'#e11d48',borderRadius:6},{label:'심평원 신고자료',data:specialties.map(item=>hiraByName.get(item.name)??null),backgroundColor:'#0f766e',borderRadius:6}]},options:{...baseOptions,scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});
+  scanReportChart('competition','scanCompetitionChart',{type:'bar',data:{labels:specialties.map(item=>item.name),datasets:[{label:'카카오 검색',data:specialties.map(item=>item.error?null:item.count),backgroundColor:'#e11d48',borderRadius:6},{label:'심평원 신고자료',data:specialties.map(item=>hiraByName.get(item.name)??null),backgroundColor:'#0f766e',borderRadius:6}]},options:{...baseOptions,scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});
   const facilities=Object.values(result.facilities||{});
-  scanReportChart('facility','scanFacilityChart',{type:'bar',data:{labels:facilities.map(item=>item.label),datasets:[{label:'검색된 시설',data:facilities.map(item=>item.count),backgroundColor:['#0284c7','#059669','#7c3aed'],borderRadius:8}]},options:{...baseOptions,plugins:{...baseOptions.plugins,legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});
+  scanReportChart('facility','scanFacilityChart',{type:'bar',data:{labels:facilities.map(item=>item.label),datasets:[{label:'검색된 시설',data:facilities.map(item=>item.error?null:item.count),backgroundColor:['#0284c7','#059669','#7c3aed'],borderRadius:8}]},options:{...baseOptions,plugins:{...baseOptions.plugins,legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});
   const cats=result.radiusCommerce?.categories||[];const top=cats.slice(0,7);const other=cats.slice(7).reduce((sum,item)=>sum+item.count,0);if(other)top.push({name:'기타',count:other});
   scanReportChart('industry','scanIndustryChart',{type:'doughnut',data:{labels:top.map(item=>item.name),datasets:[{data:top.map(item=>item.count),backgroundColor:palette,borderWidth:2,borderColor:'#fff'}]},options:{...baseOptions,cutout:'58%'}});
   const sgis=result.sgis;
-  scanReportChart('population','scanPopulationChart',{type:'bar',data:{labels:['총인구','일반가구','종사자','사업체'],datasets:[{label:sgis?`${sgis.year}년 ${sgis.scopeKind}`:'데이터 없음',data:sgis?[sgis.population,sgis.households,sgis.employees,sgis.businesses]:[null,null,null,null],backgroundColor:['#4f46e5','#8b5cf6','#06b6d4','#10b981'],borderRadius:8}]},options:{...baseOptions,plugins:{...baseOptions.plugins,legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:value=>Number(value).toLocaleString()}}}}});
+  scanReportChart('population','scanPopulationChart',{type:'bar',data:{labels:['총인구(명)','일반가구(가구)','종사자(명)','사업체(개)'],datasets:[{label:sgis?`${sgis.year}년 ${sgis.scopeKind}`:'데이터 없음',data:sgis?[sgis.population,sgis.households,sgis.employees,sgis.businesses]:[null,null,null,null],backgroundColor:['#4f46e5','#8b5cf6','#06b6d4','#10b981'],borderRadius:8}]},options:{...baseOptions,plugins:{...baseOptions.plugins,legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:value=>Number(value).toLocaleString()}}}}});
   const periods=result.realty?.periods||[];
-  scanReportChart('realty','scanRealtyChart',{data:{labels:periods.map(item=>`${item.month.slice(2,4)}.${item.month.slice(4)}`),datasets:[{type:'bar',label:'중앙 거래금액(억원)',data:periods.map(item=>item.medianAmount===null?null:item.medianAmount/1e8),backgroundColor:'#8b5cf6',borderRadius:6,yAxisID:'y'},{type:'line',label:'거래건수',data:periods.map(item=>item.count),borderColor:'#f59e0b',backgroundColor:'#f59e0b',tension:.28,yAxisID:'y1'}]},options:{...baseOptions,scales:{y:{beginAtZero:true,position:'left'},y1:{beginAtZero:true,position:'right',grid:{drawOnChartArea:false},ticks:{precision:0}}}}});
+  scanReportChart('realty','scanRealtyChart',{data:{labels:periods.map(item=>`${item.month.slice(2,4)}.${item.month.slice(4)}`),datasets:[{type:'bar',label:'조회 거래금액 중앙값(억원)',data:periods.map(item=>item.medianAmount===null?null:item.medianAmount/1e8),backgroundColor:'#8b5cf6',borderRadius:6,yAxisID:'y'},{type:'line',label:'거래건수',data:periods.map(item=>item.count),borderColor:'#f59e0b',backgroundColor:'#f59e0b',tension:.28,yAxisID:'y1'}]},options:{...baseOptions,scales:{y:{beginAtZero:true,position:'left'},y1:{beginAtZero:true,position:'right',grid:{drawOnChartArea:false},ticks:{precision:0}}}}});
   scanRenderRoneChart(result);
   scanRenderPopulationDetailCharts(result);
 }
@@ -6521,7 +6452,7 @@ function scanOpenReport(result=scanState.result,initialTab="overview"){
   const scoreData=scanReportScores(result);const radiusLabel=`${(result.radiusMeters/1000).toFixed(result.radiusMeters%1000?1:0)}km`;
   $('scanReportSubtitle').textContent=`${result.candidate.name} · ${result.candidate.address} · 반경 ${radiusLabel}`;
   if(result.candidate.searchScope)$('scanReportSubtitle').textContent+=' · 지역 대표지점 주변 / 지역 전체 아님';
-  $('scanScoreRing').style.setProperty('--score',scoreData.total);$('scanScoreValue').textContent=scoreData.total;
+  $('scanScoreRing').style.display='none';
   const hiraKpi=result.hira?.unavailable?'조회 불가':result.hira?`${result.hira.places.length.toLocaleString()}곳`:'-';
   $('scanReportKpis').innerHTML=`<div class="scanReportKpi"><span>카카오 검색 병원</span><b>${result.competitors.length.toLocaleString()}곳</b><small>${result.density.toFixed(2)}곳/㎢</small></div><div class="scanReportKpi"><span>심평원 신고자료</span><b>${hiraKpi}</b><small>의원급·선택 진료과</small></div><div class="scanReportKpi"><span>반경 영업 상가</span><b>${result.radiusCommerce?result.radiusCommerce.total.toLocaleString()+'곳':'-'}</b><small>후보지 중심 ${radiusLabel}</small></div><div class="scanReportKpi"><span>행정구역 인구</span><b>${result.sgis?scanFormatSgisNumber(result.sgis.population,0,'명'):'-'}</b><small>${scanEscapeHTML(result.sgis?.regionName||'SGIS 미조회')}</small></div>`;
   $('scanVisitorReport').innerHTML=scanRenderVisitors(result.visitors);$('scanFloatingReport').innerHTML=result.commerce?.floating?'<div class="scanInsight">'+scanEscapeHTML(result.commerce.area.name)+' · '+scanEscapeHTML(scanPeriodLabel(result.commerce.floatingPeriod))+' · 공식 상권 전체 통계</div>'+scanRenderFloatingBreakdown(result.commerce.floating):'<div class="scanEmpty">해당 지역의 공식상권 유동인구 자료가 없습니다.</div>';
@@ -6531,14 +6462,14 @@ function scanOpenReport(result=scanState.result,initialTab="overview"){
   const regionLabel=scanEscapeHTML([region.name,result.candidate?.sggName,result.candidate?.admName].filter(Boolean).join(' '));
   const coverage=scanRegionalCoverage(result);if(result.hira?.specialties?.some(item=>item.error)&&!result.hira?.unavailable)coverage['심평원 의원']='일부 연결';
   $('scanReportCoverage').innerHTML='<div class="scanLimitNote" style="display:block">검색 지역: '+regionLabel+' · SGIS는 기준연도 행정구역 인구, 상가는 선택 반경 내 업소입니다. 실시간 인구·분기 유동인구와 구분해서 확인하세요.</div>'+scanReportTable([['데이터','상태','공간 기준'],...statuses.map(([name,ok,scope])=>[name,coverage[name]|| (ok?'연결':'조회 불가'),scope])]);
-  $('scanCompetitionTable').innerHTML=scanReportTable([['구분','카카오 검색','심평원 신고자료'],...(result.specialties||[]).map(item=>{const h=(result.hira?.specialties||[]).find(v=>v.name===item.name);return[item.name,`${item.count.toLocaleString()}곳`,h?.error?'<span style="color:#b45309">조회 불가</span>':h?`${h.count.toLocaleString()}곳`:'-'];})]);
+  $('scanCompetitionTable').innerHTML=scanReportTable([['구분','카카오 검색','심평원 신고자료'],...(result.specialties||[]).map(item=>{const h=(result.hira?.specialties||[]).find(v=>v.name===item.name);return[item.name,item.error?'조회 불가':`${item.count.toLocaleString()}곳`,h?.error?'<span style="color:#b45309">조회 불가</span>':h?`${h.count.toLocaleString()}곳`:'-'];})]);
   const rc=result.radiusCommerce;
   $('scanMarketSummary').innerHTML=rc?`<div class="scanReportNarrative"><div class="scanInsight good">전체 업소 <b>${rc.total.toLocaleString()}곳</b> · 밀도 <b>${rc.density.toFixed(1)}곳/㎢</b></div><div class="scanInsight">업종 구성은 API로 불러온 ${rc.loaded.toLocaleString()}곳 표본 기준이며, 상위 업종은 <b>${scanEscapeHTML(rc.categories[0]?.name||'-')}</b>입니다.</div><div class="scanReportFoot">현재 영업 상가 기준입니다. 과거 개업·폐업 변화는 정기 스냅샷 또는 과거 CSV가 추가로 필요합니다.</div></div>`:'<div class="scanEmpty">전국 반경 상가 API가 연결되지 않았습니다.</div>';
   $('scanStoreTable').innerHTML=rc?scanReportTable([['상호','업종','거리'],...rc.stores.slice(0,12).map(store=>[scanEscapeHTML(store.name),scanEscapeHTML(store.small||store.middle||store.large),store.distance===null?'-':scanFormatDistance(store.distance)])]):'<div class="scanEmpty">상가 표본이 없습니다.</div>';
   $('scanPopulationSummary').innerHTML=result.sgis?`<div class="scanReportNarrative"><div class="scanInsight">평균연령 <b>${scanFormatSgisNumber(result.sgis.avgAge,1,'세')}</b> · 노령화지수 <b>${scanFormatSgisNumber(result.sgis.agingIndex,1)}</b></div><div class="scanInsight">일반가구 <b>${scanFormatSgisNumber(result.sgis.households,0,'가구')}</b> · 사업체 <b>${scanFormatSgisNumber(result.sgis.businesses,0,'개')}</b></div><div class="scanReportFoot">원형 반경 합산이 아닌 후보지가 속한 ${scanEscapeHTML(result.sgis.scopeKind)} 전체 통계입니다.</div></div>`:'<div class="scanEmpty">SGIS 센서스가 연결되지 않았습니다.</div>';
   $('scanRealtimeScope').innerHTML=result.population?`<div class="scanInsight good">선택 반경 안의 서울시 지정지점 <b>${scanEscapeHTML(result.population.areaName)}</b> 실시간 추정 ${scanEscapeHTML(scanFormatPopulationRange(result.population.min,result.population.max))}을 보조로 연결했습니다.</div>`:`<div class="scanInsight warn">전국 공통 실시간 유동인구는 현재 미연결입니다. 서울시는 후보지 주소가 서울이고 지정지점이 선택 반경 안에 있을 때만 표시합니다. 전국 확대에는 통신 유동인구 계약 또는 대상 지자체별 API가 필요합니다.</div>`;
   const b=result.building;
-  $('scanBuildingSummary').innerHTML=b?scanReportTable([['항목','값'],['건물명',scanEscapeHTML(b.name)],['주용도',scanEscapeHTML(b.mainUse)],['연면적',b.totalArea===null?'-':`${b.totalArea.toLocaleString()}㎡`],['지상/지하',`${b.groundFloors??'-'} / ${b.undergroundFloors??'-'}층`],['주차',`${scanBuildingCountLabel(b.parking)}`],['승강기',`${scanBuildingCountLabel(b.elevators)}`],['사용승인',scanFormatDate8(b.approvalDate)]]):'<div class="scanEmpty">후보 필지의 건축물대장을 연결하지 못했습니다.</div>';
+  $('scanBuildingSummary').innerHTML=b?scanReportTable([['항목','값'],['건물명',scanEscapeHTML(b.name)],['대장 선택 기준','후보 필지 내 자동 선택 · 실제 동/호실과 일치 확인 필요'],['주용도',scanEscapeHTML(b.mainUse)],['연면적',b.totalArea===null?'-':`${b.totalArea.toLocaleString()}㎡`],['지상/지하',`${b.groundFloors??'-'} / ${b.undergroundFloors??'-'}층`],['주차',`${scanBuildingCountLabel(b.parking)}`],['승강기',`${scanBuildingCountLabel(b.elevators)}`],['사용승인',scanFormatDate8(b.approvalDate)]]):'<div class="scanEmpty">후보 필지의 건축물대장을 연결하지 못했습니다.</div>';
   scanRenderRoneReport(result);
   scanRenderPopulationDetails(result);scanSwitchReportTab(initialTab);modal.style.display='flex';scanDestroyReportCharts();setTimeout(()=>scanRenderReportCharts(result,scoreData),80);
 }
@@ -6736,7 +6667,7 @@ function scanRenderComparisons(){
     const populationLine = item.population
       ? `실시간: ${scanEscapeHTML(item.population.areaName)} · ${scanEscapeHTML(scanFormatPopulationRange(item.population.min,item.population.max))} · ${scanEscapeHTML(item.population.congestion)}`
       : '실시간 인구: 저장 시점에 조회되지 않음';
-    const hiraLine=item.hira?.unavailable?'심평원: 공식 API 조회 불가':item.hira?`심평원: ${item.hira.count.toLocaleString()}곳 · 최근 5년 ${item.hira.newCount.toLocaleString()}곳 · 의사 ${item.hira.totalDoctors.toLocaleString()}명`:'심평원: 저장 시점에 조회되지 않음';
+    const hiraLine=item.hira?.unavailable?'심평원: 공식 API 조회 불가':item.hira?`심평원: ${item.hira.count.toLocaleString()}곳 · 최근 5년 ${item.hira.newCount.toLocaleString()}곳 · 의사 ${item.hira.totalDoctors===null?'자료 없음':item.hira.totalDoctors.toLocaleString()+'명'}`:'심평원: 저장 시점에 조회되지 않음';
     const sgisLine=item.sgis?`SGIS ${scanEscapeHTML(item.sgis.scopeKind)} (${scanEscapeHTML(item.sgis.year)}): ${scanEscapeHTML(item.sgis.regionName)} · 인구 ${scanFormatSgisNumber(item.sgis.population,0,'명')} · 평균연령 ${scanFormatSgisNumber(item.sgis.avgAge,1,'세')} · 사업체 ${scanFormatSgisNumber(item.sgis.businesses,0,'개')}`:'SGIS 센서스: 저장 시점에 조회되지 않음';
     const commerceLine=item.commerce?`서울 상권: ${scanEscapeHTML(item.commerce.name)} · 유동 ${item.commerce.floatingTotal===null?'-':Math.round(item.commerce.floatingTotal).toLocaleString()+'명'} · 매출 ${item.commerce.salesAmount===null?'-':scanFormatKrw(item.commerce.salesAmount)} · 점포 ${item.commerce.storeCount===null?'-':item.commerce.storeCount.toLocaleString()+'곳'}`:'서울 상권: 저장 시점에 조회되지 않음';
     const radiusCommerceLine=item.radiusCommerce?`반경 상가: ${item.radiusCommerce.total.toLocaleString()}곳 · ${item.radiusCommerce.density.toFixed(1)}곳/㎢ · 1위 ${scanEscapeHTML(item.radiusCommerce.topCategory||'-')}`:'반경 상가: 저장 시점에 조회되지 않음';
@@ -6865,17 +6796,17 @@ function patientStatsOverview(rows){
   const host=$('patientStatsOverview');if(!host)return;
   const types=Object.keys(REP_COLOR),counts=types.map(t=>rows.filter(p=>p.type===t).length),visits=types.map(t=>rows.filter(p=>p.type===t).reduce((s,p)=>s+safeNum(p.total),0));
   const total=visits.reduce((a,b)=>a+b,0);
-  host.innerHTML='<div class="patientKpis"><div>분석 환자<b>'+rows.length.toLocaleString()+'명</b></div><div>총 내원<b>'+total.toLocaleString()+'회</b></div><div>1인 평균 내원<b>'+(rows.length?(total/rows.length).toFixed(2)+'회':'자료 없음')+'</b></div><div>연령 미상<b>'+rows.filter(p=>bucketAge(p.age)==='미상').length+'명</b></div></div><h3>환자 유형별 내원 기여</h3><p>현재 유형·반경 필터 기준 · 환자 수와 내원 횟수를 구분합니다.</p>'+types.map((t,i)=>'<div class="patientContribution"><span>'+patientStatsEscape(t)+'</span><div><i style="width:'+(total?visits[i]/total*100:0)+'%;background:'+REP_COLOR[t]+'"></i></div><b>'+visits[i].toLocaleString()+'회 · '+counts[i]+'명</b></div>').join('');
+  host.innerHTML='<div class="patientKpis"><div>분석 환자<b>'+rows.length.toLocaleString()+'명</b></div><div>총 기록<b>'+total.toLocaleString()+'건</b></div><div>1인 평균 기록<b>'+(rows.length?(total/rows.length).toFixed(2)+'건':'자료 없음')+'</b></div><div>연령 미상<b>'+rows.filter(p=>bucketAge(p.age)==='미상').length+'명</b></div></div><h3>환자 유형별 기록 비중</h3><p>현재 유형·반경 필터 기준 · 환자 수와 내원 기록 수를 구분합니다.</p>'+types.map((t,i)=>'<div class="patientContribution"><span>'+patientStatsEscape(patientTypeLabel(t))+'</span><div><i style="width:'+(total?visits[i]/total*100:0)+'%;background:'+REP_COLOR[t]+'"></i></div><b>'+visits[i].toLocaleString()+'건 · '+counts[i]+'명</b></div>').join('');
 }
 function patientScatterDetails(rows){
   const host=$('patientScatterDetails');if(!host)return;
   const eligible=rows.filter(r=>!getExcludeUnknownValue()||r.dong!=='미상');
   const usable=eligible.filter(r=>r.total>0&&r.n+r.conv>0&&(!getMinSampleToggle()||r.n+r.conv>=5));
-  host.innerHTML='<p role="status">'+(!getShowScatter()?'분포도 표시가 꺼져 있습니다. ':usable.length?'표시 가능한 '+usable.length+'개 동 / '+eligible.length+'개 동. ':'현재 표본 조건에 맞는 동이 없습니다. 최소 표본 필터를 해제하거나 다른 환자 범위를 선택하세요. ')+(usable.length&&usable.length<8?'동 수가 적어 분포의 경향을 단정하기 어렵습니다. ':'')+'전환 분모는 신환(1회)+전환 환자이며, 분모가 없는 동은 제외합니다.</p><table class="miniTable"><thead><tr><th>행정동</th><th>전환 표본</th><th>전환율</th><th>평균 내원</th><th>환자 수</th></tr></thead><tbody>'+usable.map(r=>'<tr><td>'+patientStatsEscape(r.dong)+'</td><td>'+(r.n+r.conv)+'명</td><td>'+pct(r.conv,r.n+r.conv)+'%</td><td>'+(r.sumVisits/r.total).toFixed(2)+'회</td><td>'+r.total+'명</td></tr>').join('')+'</tbody></table>';
+  host.innerHTML='<p role="status">'+(!getShowScatter()?'분포도 표시가 꺼져 있습니다. ':usable.length?'표시 가능한 '+usable.length+'개 동 / '+eligible.length+'개 동. ':'현재 표본 조건에 맞는 동이 없습니다. 최소 표본 필터를 해제하거나 다른 환자 범위를 선택하세요. ')+(usable.length&&usable.length<8?'동 수가 적어 분포의 경향을 단정하기 어렵습니다. ':'')+'전환 분모는 신환(1회)+전환 환자이며, 분모가 없는 동은 제외합니다.</p><table class="miniTable"><thead><tr><th>주소 지역</th><th>전환 표본</th><th>신환 반복기록 비율</th><th>평균 기록</th><th>환자 수</th></tr></thead><tbody>'+usable.map(r=>'<tr><td>'+patientStatsEscape(r.dong)+'</td><td>'+(r.n+r.conv)+'명</td><td>'+pct(r.conv,r.n+r.conv)+'%</td><td>'+(r.sumVisits/r.total).toFixed(2)+'건</td><td>'+r.total+'명</td></tr>').join('')+'</tbody></table>';
 }
 const patientRenderOriginal=maybeRenderExtraStats;
 maybeRenderExtraStats=function(id){
-  const note=$('patientStatsStatus');if(note)note.textContent=window.__lastStatsVisible?.length?'현재 선택한 환자 유형·반경 기준입니다.':'현재 필터에 해당하는 환자가 없습니다. 필터를 확인하세요.';
+  const note=$('patientStatsStatus');if(note){const rows=window.__lastStatsVisible||[];note.textContent=rows.length?'현재 유형·반경 필터 기준 '+rows.length+'명 · 주소 좌표 미확인 '+rows.filter(p=>!p.latlng).length+'명.':'현재 필터에 해당하는 환자가 없습니다. 필터를 확인하세요.';if(window.patientImportQuality?.repeatedRows)note.textContent+=' 원본의 완전히 동일한 행 '+window.patientImportQuality.repeatedRows+'건이 중복 포함되어 있습니다. 원본을 확인하세요.';}
   if(id==='tabValue')patientScatterDetails(window.__lastStatsDongRows||[]);
   try{patientRenderOriginal(id);}catch(e){if(note)note.textContent='일부 그래프를 표시하지 못했습니다. '+(typeof Chart==='undefined'?'차트 라이브러리 연결을 확인하고 다시 열어주세요.':'표의 수치를 확인하고 통계 창을 다시 열어주세요.');console.error(e);}
 };
@@ -6905,14 +6836,14 @@ function renderPatientMix(){
   const rowMode=$('patientMixMode')?.value==='share';
   const max=Math.max(1,...d.regions.flatMap(r=>r.ages));
   const num=n=>n.toLocaleString('ko-KR'),percent=(n,total)=>total?(n/total*100).toFixed(1)+'%':'—';
-  host.innerHTML='<p class="patientMixNotice">현재 필터 · '+num(d.count)+'명 / '+num(d.visits)+'회 / '+d.regionCount+'개 동. 환자 수 상위 10개 동과 나머지 합산을 표시합니다. 미상도 집계에 포함합니다.</p>'+
-    '<section class="patientMixCard"><h3>지역 × 연령대</h3><p>'+(rowMode?'각 동의 전체 환자 중 해당 연령 비율입니다. 색이 진할수록 동 내 비중이 큽니다.':'각 칸은 환자 수입니다. 색이 진할수록 인원이 많습니다.')+' 숫자와 색을 함께 확인하세요.</p><div class="patientMixScroll"><table class="miniTable patientHeat"><thead><tr><th>행정동</th>'+patientMixAges.map(x=>'<th>'+x+'</th>').join('')+'<th>합계</th></tr></thead><tbody>'+d.regions.map(r=>'<tr><th>'+e(r.name)+'</th>'+r.ages.map(n=>{const ratio=rowMode?n/r.count:n/max;return '<td style="background:hsl(215 78% '+(97-ratio*62)+'%);color:'+(ratio>.55?'#fff':'#17335a')+'" title="'+n+'명 / '+r.count+'명">'+(rowMode?percent(n,r.count):num(n))+'</td>';}).join('')+'<td>'+num(r.count)+'명</td></tr>').join('')+'</tbody></table></div></section>'+
-    '<section class="patientMixCard"><h3>연령별 환자 비중 · 내원 기여</h3><p>파랑은 전체 환자 중 비중, 청록은 전체 내원 중 비중입니다. 내원 비중이 높아도 질환·수익성을 뜻하지 않습니다.</p><div class="patientMixChart"><canvas id="patientMixAgeChart" aria-label="연령별 환자와 내원 비중 비교"></canvas></div><div class="patientMixScroll"><table class="miniTable"><thead><tr><th>연령</th><th>환자</th><th>환자 비중</th><th>내원</th><th>내원 비중</th><th>1인 평균</th></tr></thead><tbody>'+d.ages.map(r=>'<tr><th>'+r.name+'</th><td>'+num(r.count)+'명</td><td>'+percent(r.count,d.count)+'</td><td>'+num(r.visits)+'회</td><td>'+percent(r.visits,d.visits)+'</td><td>'+(r.count?(r.visits/r.count).toFixed(2)+'회':'—')+'</td></tr>').join('')+'</tbody></table></div></section>'+
-    '<section class="patientMixCard"><h3>지역별 누적 기여도</h3><p>환자 수가 많은 동 순서로 누적합니다. 두 곡선 모두 같은 지역 순서이며 시간 변화 그래프가 아닙니다. 마지막 합산 구간도 전체 분모에 포함합니다.</p><div class="patientMixChart"><canvas id="patientMixCumulativeChart" aria-label="지역 순위별 환자와 내원 누적 비중"></canvas></div><div class="patientMixScroll"><table class="miniTable"><thead><tr><th>행정동</th><th>환자</th><th>내원</th><th>누적 환자</th><th>누적 내원</th></tr></thead><tbody>'+d.cumulative.map(r=>'<tr><th>'+e(r.name)+'</th><td>'+num(r.count)+'명</td><td>'+num(r.visits)+'회</td><td>'+r.patientPct.toFixed(1)+'%</td><td>'+(r.visitPct===null?'—':r.visitPct.toFixed(1)+'%')+'</td></tr>').join('')+'</tbody></table></div></section>';
+  host.innerHTML='<p class="patientMixNotice">현재 필터 · '+num(d.count)+'명 / '+num(d.visits)+'건 / '+d.regionCount+'개 동. 환자 수 상위 10개 동과 나머지 합산을 표시합니다. 미상도 집계에 포함합니다.</p>'+
+    '<section class="patientMixCard"><h3>지역 × 연령대</h3><p>'+(rowMode?'각 동의 전체 환자 중 해당 연령 비율입니다. 색이 진할수록 동 내 비중이 큽니다.':'각 칸은 환자 수입니다. 색이 진할수록 인원이 많습니다.')+' 숫자와 색을 함께 확인하세요.</p><div class="patientMixScroll"><table class="miniTable patientHeat"><thead><tr><th>주소 지역</th>'+patientMixAges.map(x=>'<th>'+x+'</th>').join('')+'<th>합계</th></tr></thead><tbody>'+d.regions.map(r=>'<tr><th>'+e(r.name)+'</th>'+r.ages.map(n=>{const ratio=rowMode?n/r.count:n/max;return '<td style="background:hsl(215 78% '+(97-ratio*62)+'%);color:'+(ratio>.55?'#fff':'#17335a')+'" title="'+n+'명 / '+r.count+'명">'+(rowMode?percent(n,r.count):num(n))+'</td>';}).join('')+'<td>'+num(r.count)+'명</td></tr>').join('')+'</tbody></table></div></section>'+
+    '<section class="patientMixCard"><h3>연령별 환자 비중 · 기록 비중</h3><p>파랑은 전체 환자 중 비중, 청록은 전체 내원 중 비중입니다. 기록 비중이 높아도 질환·수익성을 뜻하지 않습니다.</p><div class="patientMixChart"><canvas id="patientMixAgeChart" aria-label="연령별 환자와 기록 비중 비교"></canvas></div><div class="patientMixScroll"><table class="miniTable"><thead><tr><th>연령</th><th>환자</th><th>환자 비중</th><th>내원</th><th>기록 비중</th><th>1인 평균</th></tr></thead><tbody>'+d.ages.map(r=>'<tr><th>'+r.name+'</th><td>'+num(r.count)+'명</td><td>'+percent(r.count,d.count)+'</td><td>'+num(r.visits)+'건</td><td>'+percent(r.visits,d.visits)+'</td><td>'+(r.count?(r.visits/r.count).toFixed(2)+'건':'—')+'</td></tr>').join('')+'</tbody></table></div></section>'+
+    '<section class="patientMixCard"><h3>지역별 누적 기여도</h3><p>환자 수가 많은 동 순서로 누적합니다. 두 곡선 모두 같은 지역 순서이며 시간 변화 그래프가 아닙니다. 마지막 합산 구간도 전체 분모에 포함합니다.</p><div class="patientMixChart"><canvas id="patientMixCumulativeChart" aria-label="지역 순위별 환자와 기록 누적 비중"></canvas></div><div class="patientMixScroll"><table class="miniTable"><thead><tr><th>주소 지역</th><th>환자</th><th>내원</th><th>누적 환자</th><th>누적 기록</th></tr></thead><tbody>'+d.cumulative.map(r=>'<tr><th>'+e(r.name)+'</th><td>'+num(r.count)+'명</td><td>'+num(r.visits)+'건</td><td>'+r.patientPct.toFixed(1)+'%</td><td>'+(r.visitPct===null?'—':r.visitPct.toFixed(1)+'%')+'</td></tr>').join('')+'</tbody></table></div></section>';
   if(typeof Chart==='undefined'){host.insertAdjacentHTML('afterbegin','<p class="patientMixNotice">차트 연결 실패 · 히트맵과 수치표는 확인할 수 있습니다.</p>');return;}
   const options={responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:c=>c.dataset.label+': '+Number(c.raw).toFixed(1)+'%'}}},scales:{y:{beginAtZero:true,max:100,ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}};
-  patientMixCharts.push(new Chart($('patientMixAgeChart'),{type:'bar',data:{labels:patientMixAges,datasets:[{label:'환자 비중',data:d.ages.map(r=>r.count/d.count*100),backgroundColor:'#2563eb',borderRadius:5},{label:'내원 비중',data:d.ages.map(r=>d.visits?r.visits/d.visits*100:null),backgroundColor:'#0d9488',borderRadius:5}]},options:{...options,scales:{...options.scales,y:{beginAtZero:true,ticks:{callback:v=>v+'%'}}}}}));
-  patientMixCharts.push(new Chart($('patientMixCumulativeChart'),{type:'line',data:{labels:d.cumulative.map(r=>r.name),datasets:[{label:'누적 환자',data:d.cumulative.map(r=>r.patientPct),borderColor:'#2563eb',backgroundColor:'#2563eb',tension:0,pointRadius:4},{label:'누적 내원',data:d.cumulative.map(r=>r.visitPct),borderColor:'#0d9488',backgroundColor:'#0d9488',borderDash:[6,4],tension:0,pointRadius:4}]},options}));
+  patientMixCharts.push(new Chart($('patientMixAgeChart'),{type:'bar',data:{labels:patientMixAges,datasets:[{label:'환자 비중',data:d.ages.map(r=>r.count/d.count*100),backgroundColor:'#2563eb',borderRadius:5},{label:'기록 비중',data:d.ages.map(r=>d.visits?r.visits/d.visits*100:null),backgroundColor:'#0d9488',borderRadius:5}]},options:{...options,scales:{...options.scales,y:{beginAtZero:true,ticks:{callback:v=>v+'%'}}}}}));
+  patientMixCharts.push(new Chart($('patientMixCumulativeChart'),{type:'line',data:{labels:d.cumulative.map(r=>r.name),datasets:[{label:'누적 환자',data:d.cumulative.map(r=>r.patientPct),borderColor:'#2563eb',backgroundColor:'#2563eb',tension:0,pointRadius:4},{label:'누적 기록',data:d.cumulative.map(r=>r.visitPct),borderColor:'#0d9488',backgroundColor:'#0d9488',borderDash:[6,4],tension:0,pointRadius:4}]},options}));
 }
 const patientMixRenderBase=maybeRenderExtraStats;
 maybeRenderExtraStats=function(id){patientMixRenderBase(id);if(id==='tabPatientMix')renderPatientMix();};
