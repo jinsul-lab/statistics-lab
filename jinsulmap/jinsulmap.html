@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>JINSUL MAP v3.7.2</title>
+<title>JINSUL MAP v3.7.3</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=587d3b22c3896f92f134d03253e685bd&amp;libraries=services,drawing,clusterer&amp;autoload=false"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -612,7 +612,7 @@
     @media (max-width: 820px){ .rightDrawer{width:92vw;} }
 
     /* ===========================
-       상권 스캔 v3.7.2
+       상권 스캔 v3.7.3
        =========================== */
     .sidebarTabs{
       display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:8px 10px;
@@ -772,7 +772,7 @@
       .scanReportHero{grid-template-columns:1fr;}.scanReportKpis{grid-template-columns:1fr 1fr;}.scanReportGrid{grid-template-columns:1fr;}.scanReportCard.wide{grid-column:auto;}
     }
 
-/* v3.7.2 · chart-focused theme; preserves map, filters and clinical marker colors */
+/* v3.7.3 · chart-focused theme; preserves map, filters and clinical marker colors */
 .scanReportModal .scanReportCard,.scanReportCard{border:1px solid #dce5f3;border-radius:20px;background:linear-gradient(150deg,#fff 65%,#f3f7ff);box-shadow:0 8px 28px #243a6610;overflow:hidden}
 .scanReportCard h3{font-size:15px;letter-spacing:-.3px;color:#193355;display:flex;align-items:center;gap:9px}
 .scanReportCard h3:before{content:'';width:5px;height:18px;border-radius:9px;background:linear-gradient(#6366f1,#22d3ee)}
@@ -791,7 +791,7 @@
 .scanReportCard .scanVisualGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scanReportCard .scanVisualGrid .scanVisual{margin:0;min-width:0}
 @media(max-width:800px){.scanReportCard .scanVisualGrid{grid-template-columns:1fr}}
 
-/* v3.7.2: explicit foregrounds prevent inherited transparent text. */
+/* v3.7.3: explicit foregrounds prevent inherited transparent text. */
 :root{color-scheme:light}
 .sectionTitle{background:none;-webkit-background-clip:initial;-webkit-text-fill-color:currentColor;color:#243b68}
 .sectionTitle .pill{background:#1d4ed8;color:#fff;-webkit-text-fill-color:#fff}
@@ -886,7 +886,7 @@ if(typeof Chart!=='undefined'){
 <div class="sidebar">
 <div class="sidebarHeader">
 <div class="brand">JINSUL MAP</div>
-<div style="font-size:11px;color:#868e96;">v3.7.2</div>
+<div style="font-size:11px;color:#868e96;">v3.7.3</div>
 </div>
 <div class="sidebarTabs" role="tablist" aria-label="분석 모드">
 <button class="sidebarModeBtn active" id="btnModePatients" type="button" role="tab" aria-selected="true" aria-controls="patientSidebarPanel">환자 분석</button>
@@ -1135,7 +1135,7 @@ if(typeof Chart!=='undefined'){
 </div>
 </div>
 <div style="padding:10px;text-align:center;font-size:10px;color:#adb5bd;border-top:1px solid #eee;">
-      JINSUL MAP v3.7.2<br/>All Rights Reserved.
+      JINSUL MAP v3.7.3<br/>All Rights Reserved.
     </div>
 </div>
 <div class="mapArea">
@@ -1692,12 +1692,12 @@ const SCAN_FACILITY_CONFIG = {
   pharmacy: { code:'PM9', label:'약국', color:'#7c3aed' }
 };
 const SCAN_LAYER_CONFIG = {
-  candidate: { label:'후보지', color:'#4f46e5', glyph:'★', size:38 },
-  competitor: { label:'경쟁 의원', color:'#e11d48', glyph:'의', size:32 },
-  hira: { label:'심평원 의원', color:'#0f766e', glyph:'심', size:31 },
-  subway: { label:'지하철역', color:'#0284c7', glyph:'역', size:30 },
-  parking: { label:'주차장', color:'#059669', glyph:'P', size:30 },
-  pharmacy: { label:'약국', color:'#7c3aed', glyph:'약', size:30 }
+  candidate: { label:'후보지', color:'#4f46e5', glyph:'★', size:46 },
+  competitor: { label:'경쟁 의원', color:'#e11d48', glyph:'의', size:38 },
+  hira: { label:'심평원 의원', color:'#0f766e', glyph:'심', size:38 },
+  subway: { label:'지하철역', color:'#0284c7', glyph:'역', size:38 },
+  parking: { label:'주차장', color:'#059669', glyph:'P', size:38 },
+  pharmacy: { label:'약국', color:'#7c3aed', glyph:'약', size:38 }
 };
 const HIRA_API_KEY = 'c8955eba86e3853af8e9d4c6ca072b7d7d0158630d11296129824c3eb4f4c426';
 const HIRA_HOSPITAL_API_BASE = 'https://apis.data.go.kr/B551182/hospInfoServicev2/getHospBasisList';
@@ -1897,7 +1897,7 @@ function initKakao(){
     roadviewClient = new kakao.maps.RoadviewClient();
     setupMapListeners(); setupToolbar();
     setScanReady(true);
-    toast("시스템 준비 완료 (v3.7.2)");
+    toast("시스템 준비 완료 (v3.7.3)");
   });
 }
 initKakao();
@@ -4299,7 +4299,7 @@ window.switchTab = (id) => {
 };
 
 
-/* ===========================   [상권 스캔 v3.7.2]   =========================== */
+/* ===========================   [상권 스캔 v3.7.3]   =========================== */
 function setScanReady(ready){
   scanState.ready = !!ready;
   const btn = $('btnRunScan');
@@ -4378,7 +4378,7 @@ function scanIsSeoulCandidate(candidate){
 }
 
 async function scanSeoulRequest(service,key,start,end,tail=''){
-  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.2]');
+  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.3]');
   const text=await scanNetworkRequest('https://jinsul-seoul-proxy.yms0127.workers.dev/seoul',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service,key,start,end,tail:decodeURIComponent(tail)}),cache:'no-store'},22000);
   let payload;try{payload=JSON.parse(text);}catch{throw new Error('서울 API JSON 응답 형식 오류');}
   if(payload?.error)throw new Error('서울 중계 요청 처리 실패');return payload;
@@ -5640,13 +5640,40 @@ function scanPlacesWithinRadius(items,candidate,radius){
   return items.map(item=>scanNormalizePlace(item,candidate)).filter(Boolean).filter(place=>place.distance <= radius + 1);
 }
 
+/* Tabler Icons, MIT License. Original icon paths embedded to avoid runtime requests.
+MIT License
+
+Copyright (c) 2020-2026 Paweł Kuna
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+*/
+const SCAN_MARKER_ICONS={"candidate":"<path d=\"M15 11a3 3 0 1 0 -3.908 2.86\" />\n  <path d=\"M11.059 21.25a2 2 0 0 1 -.472 -.35l-4.244 -4.243a8 8 0 1 1 13.646 -6.079\" />\n  <path d=\"M17.8 20.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138\" />","competitor":"<path d=\"M3 21l18 0\" />\n  <path d=\"M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16\" />\n  <path d=\"M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4\" />\n  <path d=\"M10 9l4 0\" />\n  <path d=\"M12 7l0 4\" />","hira":"<path d=\"M6 4h-1a2 2 0 0 0 -2 2v3.5a5.5 5.5 0 0 0 11 0v-3.5a2 2 0 0 0 -2 -2h-1\" />\n  <path d=\"M8 15a6 6 0 1 0 12 0v-3\" />\n  <path d=\"M11 3v2\" />\n  <path d=\"M6 3v2\" />\n  <path d=\"M18 10a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\" />","subway":"<path d=\"M21 13c0 -3.87 -3.37 -7 -10 -7h-8\" />\n  <path d=\"M3 15h16a2 2 0 0 0 2 -2\" />\n  <path d=\"M3 6v5h17.5\" />\n  <path d=\"M3 11v4\" />\n  <path d=\"M8 11v-5\" />\n  <path d=\"M13 11v-4.5\" />\n  <path d=\"M3 19h18\" />","parking":"<path d=\"M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14\" />\n  <path d=\"M10 16v-8h2.667c.736 0 1.333 .895 1.333 2s-.597 2 -1.333 2h-2.667\" />","pharmacy":"<path d=\"M4.5 12.5l8 -8a4.94 4.94 0 0 1 7 7l-8 8a4.94 4.94 0 0 1 -7 -7\" />\n  <path d=\"M8.5 8.5l7 7\" />"};
+function scanMarkerSVG(type){
+  const config=SCAN_LAYER_CONFIG[type],size=config.size;
+  const icon=SCAN_MARKER_ICONS[type];
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 44 44" role="img" aria-label="${config.label}"><defs><linearGradient id="shine" x1="0" y1="0" x2="1" y2="1"><stop stop-color="white" stop-opacity=".3"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient></defs><circle cx="22" cy="24" r="19" fill="#10243e" opacity=".18"/><circle cx="22" cy="21" r="19" fill="${config.color}" stroke="white" stroke-width="2.5"/><circle cx="22" cy="21" r="17.4" fill="url(#shine)"/><svg x="10" y="9" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${icon}</svg></svg>`;
+}
 function scanMarkerImage(type){
-  if(scanState.markerImages[type]) return scanState.markerImages[type];
-  const config = SCAN_LAYER_CONFIG[type];
-  const size = config.size;
-  const fontSize = type === 'candidate' ? 17 : ((type === 'competitor' || type === 'hira') ? 13 : 12);
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${size/2}" cy="${size/2}" r="${size/2-2}" fill="${config.color}" stroke="white" stroke-width="3"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="sans-serif" font-size="${fontSize}" font-weight="800">${config.glyph}</text></svg>`;
-  scanState.markerImages[type] = new kakao.maps.MarkerImage(`data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`,new kakao.maps.Size(size,size));
+  if(scanState.markerImages[type])return scanState.markerImages[type];
+  const size=SCAN_LAYER_CONFIG[type].size;
+  scanState.markerImages[type]=new kakao.maps.MarkerImage('data:image/svg+xml;charset=utf-8,'+encodeURIComponent(scanMarkerSVG(type)),new kakao.maps.Size(size,size));
   return scanState.markerImages[type];
 }
 
@@ -5973,7 +6000,7 @@ async function scanSiteDetail(index){
   try{const data=await scanFetchHiraDetails(p.ykiho);if(token!==scanSite.detailToken||draft!==scanSite.active)return;const d=data.detail||{},e=scanSiteEscape;const hours=[['월',d.trmtMonStart,d.trmtMonEnd],['화',d.trmtTueStart,d.trmtTueEnd],['수',d.trmtWedStart,d.trmtWedEnd],['목',d.trmtThuStart,d.trmtThuEnd],['금',d.trmtFriStart,d.trmtFriEnd],['토',d.trmtSatStart,d.trmtSatEnd]].map(([day,a,b])=>day+' '+(a||'미제공')+'~'+(b||'미제공')).join(' · ');node.innerHTML='<h4>'+e(p.name)+'</h4><p>'+e(hours)+'</p><p>주차 '+e(d.parkQty??'미제공')+' · '+e(d.parkEtc||'세부 안내 없음')+'</p><p>신고 진료과: '+e(data.departments.map(r=>r.dgsbjtCdNm).filter(Boolean).join(', ')||'미제공')+'</p><p>'+e(data.partial?'일부 상세 API 조회 실패 · 표시되지 않은 항목은 확인 필요':'심평원 상세 수신 · 실제 운영시간은 방문 전 확인')+'</p>';}catch(err){if(token===scanSite.detailToken&&draft===scanSite.active)node.textContent=p.name+' · '+scanApiErrorMessage(err);}
 }
 function scanSiteDownload(content,type,ext){const blob=new Blob([content],{type:type+';charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(scanSite.active.fields.title||'입지자료').replace(/[\\/:*?"<>|]/g,'_')+'.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}
-function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.2 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
+function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.3 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
 function scanSitePrint(){try{const doc=scanSiteDocument(scanSiteValidDraft(scanSite.active));$('sitePrintFrame')?.remove();const frame=document.createElement('iframe');frame.id='sitePrintFrame';frame.title='입지자료 인쇄';frame.style.cssText='position:fixed;left:-10000px;width:794px;height:1123px;border:0';frame.onload=()=>{Promise.all([frame.contentDocument.fonts.ready,...Array.from(frame.contentDocument.images,img=>img.decode().catch(()=>{}))]).then(()=>{frame.contentWindow.focus();frame.contentWindow.print();});};frame.srcdoc=doc;document.body.appendChild(frame);scanSiteStatus('인쇄 대화상자를 요청했습니다. 앱에서 지원하지 않으면 HTML 저장 후 Edge·Chrome에서 인쇄하세요.');}catch(e){scanSiteStatus(e.message);}}
 async function scanSiteExplore(){
   const d=scanSite.active,query=d.snapshot.candidate.searchQuery,node=$('siteExploreResults');if(!query||!node)return;node.textContent='지역 의료기관 검색 중…';
