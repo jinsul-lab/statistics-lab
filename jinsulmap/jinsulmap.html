@@ -985,7 +985,7 @@ if(typeof Chart!=='undefined'){
 <span>현수막게시대</span>
 </div>
 </div>
-<label class="seniorSearchOption"><input id="seniorAuxSearch" type="checkbox"/> 관리사무소·경비실 보조 검색<small>경로당·노인정·마을회관·무더위쉼터를 조회하고, 서울 지도 범위에서는 공식 지정 쉼터를 함께 불러옵니다. 보조 결과는 실제 노인시설 여부를 확인할 문의처이며, 별도로 표시·저장합니다.</small></label><div class="siteFine" style="margin-top:8px">현재 지도 범위 · 카카오 키워드별 최대 45건. 서울 공식자료는 별도 전체 페이지 조회 후 지도 범위로 필터합니다. 미검색이 시설 부재를 뜻하지는 않습니다.</div><div id="searchStatus" style="font-size:11px;color:#868e96;text-align:center;margin:8px 0;">대기</div>
+<label class="seniorSearchOption"><input id="seniorAuxSearch" type="checkbox"/> 관리사무소·경비실 보조 검색<small>경로당·노인정·마을회관·무더위쉼터를 조회하고, 서울 지도 범위에서는 공식 지정 쉼터를 함께 불러옵니다. 보조 결과는 실제 노인시설 여부를 확인할 문의처이며, 별도로 표시·저장합니다.</small></label><div class="siteFine" style="margin-top:8px">현재 지도 범위 · 카카오 키워드별 최대 45건. 서울 공식자료는 별도 전체 페이지 조회 후 지도 범위로 필터합니다. 미검색이 시설 부재를 뜻하지는 않습니다. 시설이 많으면 마커를 눌러 이름을 확인하고 지도를 확대하세요.</div><div id="searchStatus" style="font-size:11px;color:#868e96;text-align:center;margin:8px 0;">대기</div>
 <div id="facilitySourceResults" hidden></div>
 <div class="btnRow">
 <button class="btn primary" id="btnSearch">시설 스캔</button>
@@ -1897,6 +1897,7 @@ function initKakao(){
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHTBOTTOM);
     geocoder = new kakao.maps.services.Geocoder();
     places = new kakao.maps.services.Places();
+    kakao.maps.event.addListener(map,'idle',refreshFacilityLabels);
     clusterer = new kakao.maps.MarkerClusterer({ map: map, averageCenter: true, minLevel: 5 });
     drawingManager = new kakao.maps.drawing.DrawingManager({
       map: map, drawingMode: [],
@@ -2798,6 +2799,24 @@ async function facilitySearchRegionAt(bounds){
     });}catch(e){finish('');}
   });
 }
+function refreshFacilityLabels(){
+  if(!map)return;
+  const labels=Object.values(targetOverlays).flat().filter(label=>label?.facilityPosition);
+  const bounds=map.getBounds();
+  const visible=labels.filter(label=>facilityWithinBounds({x:label.facilityPosition.getLng(),y:label.facilityPosition.getLat()},bounds));
+  const visibleSet=new Set(visible),dense=visible.length>50;
+  labels.forEach(label=>label.setMap(visibleSet.has(label)&&(!dense||label.facilityPinned||label.facilityHover)?map:null));
+}
+function bindFacilityLabel(marker,label,latlng){
+  label.facilityPosition=latlng;
+  kakao.maps.event.addListener(marker,'mouseover',()=>{label.facilityHover=true;refreshFacilityLabels();});
+  kakao.maps.event.addListener(marker,'mouseout',()=>{label.facilityHover=false;refreshFacilityLabels();});
+  kakao.maps.event.addListener(marker,'click',()=>{
+    const pinned=label.facilityPinned;
+    Object.values(targetOverlays).flat().forEach(item=>{if(item?.facilityPosition)item.facilityPinned=false;});
+    label.facilityPinned=!pinned;refreshFacilityLabels();
+  });
+}
 function updateFacilityCompareLinks(){
   const query=String($('facilityCompareQuery')?.value||'').trim();
   for(const [id,base] of [['facilityNaverSearch','https://map.naver.com/p/search/'],['facilityKakaoSearch','https://map.kakao.com/?q=']]){
@@ -2905,11 +2924,11 @@ if(t === 'senior') {
 }
 
     unique.forEach(p => {
-       const latlng = new kakao.maps.LatLng(p.y, p.x); const marker = new kakao.maps.Marker({ position: latlng, image: p.seniorKind==='auxiliary'?new kakao.maps.MarkerImage("data:image/svg+xml;charset=utf-8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"><circle cx="15" cy="15" r="13" fill="#475569" stroke="white" stroke-width="2"/><text x="15" y="21" text-anchor="middle" fill="white" font-size="20">?</text></svg>'),imageSize):markerImage, map: map, zIndex: 200000 }); const label = new kakao.maps.CustomOverlay({ position: latlng, content: `<div style="background:white;border:1px solid #aaa;font-size:11px;padding:2px;transform:translateY(-30px);">${p.sourceProvider==='official'?'[공식 쉼터] ':p.seniorKind==='auxiliary'?'[보조 문의처] ':''}${scanEscapeHTML(p.place_name)}</div>`, map: map, zIndex: 200001 }); targetMarkers[t].push(marker); targetOverlays[t].push(label); searchedData.push({...facilitySourceRecord(p,t,{retrievedAt:new Date().toISOString()}),operatingHours:p.operatingHours||'',latlng});
+       const latlng = new kakao.maps.LatLng(p.y, p.x); const marker = new kakao.maps.Marker({ position: latlng, image: p.seniorKind==='auxiliary'?new kakao.maps.MarkerImage("data:image/svg+xml;charset=utf-8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"><circle cx="15" cy="15" r="13" fill="#475569" stroke="white" stroke-width="2"/><text x="15" y="21" text-anchor="middle" fill="white" font-size="20">?</text></svg>'),imageSize):markerImage, map: map, zIndex: 200000 }); const label = new kakao.maps.CustomOverlay({ position: latlng, content: `<div style="background:white;border:1px solid #aaa;font-size:11px;padding:2px;transform:translateY(-30px);">${p.sourceProvider==='official'?'[공식 쉼터] ':p.seniorKind==='auxiliary'?'[보조 문의처] ':''}${scanEscapeHTML(p.place_name)}</div>`, map: null, zIndex: 200001 }); bindFacilityLabel(marker,label,latlng); targetMarkers[t].push(marker); targetOverlays[t].push(label); searchedData.push({...facilitySourceRecord(p,t,{retrievedAt:new Date().toISOString()}),operatingHours:p.operatingHours||'',latlng});
     });
   }
   const searchRegion=await regionTask;if(requestToken!==facilitySearchRequestToken)return;
-  renderFacilitySources(searchRegion,!!officialTask);
+  renderFacilitySources(searchRegion,!!officialTask);refreshFacilityLabels();
   $('searchStatus').innerText=[searchedData.length?'공개 자료 검색 결과 '+searchedData.length+'건':'공개 자료 검색 결과 없음',...searchNotes,...searchIssues].join(' · ');
   toast(searchIssues.length?'일부 검색 결과를 확인하세요':'시설 검색 완료');
   }catch(error){if(requestToken===facilitySearchRequestToken)$('searchStatus').innerText='시설 검색 오류 · 다시 시도하세요';}

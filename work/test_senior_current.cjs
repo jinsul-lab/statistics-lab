@@ -45,18 +45,29 @@ function makeApp(reply, options={}){
     return elements.get(id);
   };
   const calls=[],exports=[],toasts=[],allMarkers=[],allOverlays=[],officialCalls=[],regionCalls=[];
+  const eventHandlers=new Map();
+  const addListener=(target,type,handler)=>{
+    if(!eventHandlers.has(target))eventHandlers.set(target,new Map());
+    const handlers=eventHandlers.get(target);
+    if(!handlers.has(type))handlers.set(type,new Set());
+    handlers.get(type).add(handler);
+  };
+  const removeListener=(target,type,handler)=>eventHandlers.get(target)?.get(type)?.delete(handler);
+  const emit=(target,type,...args)=>{for(const handler of [...(eventHandlers.get(target)?.get(type)||[])])handler(...args);};
   const buttons=(options.targets||['senior']).map(target=>({dataset:{target},active:true,classList:{remove(){buttons.find(b=>b.dataset.target===target).active=false;}}}));
   class LatLng {constructor(y,x){this.y=Number(y);this.x=Number(x);}getLat(){return this.y;}getLng(){return this.x;}}
   class Drawable {constructor(props={}){Object.assign(this,props);this.props=props;}setMap(value){this.map=value;}}
   class Marker extends Drawable {constructor(props){super(props);allMarkers.push(this);}getPosition(){return this.position;}}
   class Overlay extends Drawable {constructor(props){super(props);allOverlays.push(this);}}
   class Polyline extends Drawable {getLength(){return 100;}}
-  class Bounds {extend(){}getSouthWest(){return new LatLng(37.25,126.65);}getNorthEast(){return new LatLng(37.35,126.75);}}
+  class Bounds {constructor(sw=new LatLng(37.25,126.65),ne=new LatLng(37.35,126.75)){this.sw=sw;this.ne=ne;}extend(){}getSouthWest(){return this.sw;}getNorthEast(){return this.ne;}}
+  let viewport=new Bounds();
+  const setViewport=(south,west,north,east)=>{viewport=new Bounds(new LatLng(south,west),new LatLng(north,east));};
   const sandbox={
     $,console,Date,encodeURIComponent,URL,
     setTimeout:(fn,ms)=>setTimeout(fn,ms===700?1:ms===4000&&options.regionTimeoutMs?options.regionTimeoutMs:ms),clearTimeout,
     document:{querySelectorAll(){return buttons.filter(b=>b.active);}},
-    map:{getBounds:()=>new Bounds(),setBounds(){}},
+    map:{getBounds:()=>viewport,setBounds(){}},
     searchBtns:buttons,
     targetMarkers:{senior:[],welfare:[],ortho:[],banner:[],recommend:[]},
     targetOverlays:{senior:[],welfare:[],ortho:[],banner:[],recommend:[]},
@@ -79,14 +90,14 @@ function makeApp(reply, options={}){
       Size:class{constructor(w,h){this.width=w;this.height=h;}},
       MarkerImage:class{constructor(src,size){this.src=src;this.size=size;}},
       services:{Status:{OK:'OK',ZERO_RESULT:'ZERO_RESULT',ERROR:'ERROR'}},
-      event:{addListener(){},removeListener(){}}
+      event:{addListener,removeListener}
     }},
     XLSX:{utils:{book_new:()=>({}),json_to_sheet:rows=>{exports.push(rows);return rows;},book_append_sheet(){}},writeFile(){}},
   };
   function $(id){return element(id);}
   vm.createContext(sandbox);
   vm.runInContext(source+'\n'+handlerSource,sandbox);
-  return {sandbox,element,calls,exports,toasts,allMarkers,allOverlays,buttons,officialCalls,regionCalls};
+  return {sandbox,element,calls,exports,toasts,allMarkers,allOverlays,buttons,officialCalls,regionCalls,emit,setViewport};
 }
 const tick=()=>new Promise(resolve=>setTimeout(resolve,5));
 (async () => {
@@ -441,6 +452,76 @@ const tick=()=>new Promise(resolve=>setTimeout(resolve,5));
   await running;
   check(app.sandbox.bannerStarts,0,'canceled banner scan cannot restart automatic drawing');
   check(app.element('searchStatus').innerText,'대기','late banner completion does not overwrite reset status');
+
+  // Dense results preserve markers while revealing labels only on demand.
+  // Eighty synthetic sites arrive across four queries rather than pretending one API page is exhaustive.
+  const densePlaces=Array.from({length:80},(_,i)=>p('dense-'+i,'밀집'+i+' 경로당','경기도 시흥시 정왕대로 '+(i+1),{
+    x:String(126.68+i*.0005),y:'37.3'
+  }));
+  const denseKeywords=['경로당','노인정','마을회관','무더위쉼터'];
+  app=makeApp((keyword,cb)=>{
+    const index=denseKeywords.indexOf(keyword),rows=index<0?[]:densePlaces.slice(index*20,index*20+20);
+    cb(rows,rows.length?'OK':'ZERO_RESULT',{totalCount:rows.length,hasNextPage:false});
+  });
+  await app.element('btnSearch').onclick();
+  const facilityLabels=app.allOverlays.filter(label=>label.facilityPosition);
+  const facilityMarkers=app.sandbox.targetMarkers.senior.slice();
+  const visibleLabels=()=>facilityLabels.filter(label=>label.map===app.sandbox.map);
+  check(app.sandbox.searchedData.length,80,'dense-label behavior does not drop data records');
+  check(facilityMarkers.length,80,'dense-label behavior retains all markers');
+  check(facilityMarkers.every(marker=>marker.map===app.sandbox.map),true,'dense map still shows every facility icon');
+  check(facilityLabels.length,80,'each facility label gets position metadata');
+  check(visibleLabels().length,0,'80 visible sites do not automatically cover the map with labels');
+  app.emit(facilityMarkers[0],'mouseover');
+  check(visibleLabels().map(label=>facilityLabels.indexOf(label)),[0],'hover reveals exactly the focused dense label');
+  app.emit(facilityMarkers[0],'mouseout');
+  check(visibleLabels().length,0,'mouseout hides an unpinned dense label');
+  app.emit(facilityMarkers[1],'click');
+  check(facilityLabels[1].facilityPinned,true,'click pins selected facility label');
+  app.emit(facilityMarkers[1],'mouseout');
+  check(visibleLabels().map(label=>facilityLabels.indexOf(label)),[1],'pinned label survives mouseout');
+  app.emit(facilityMarkers[2],'mouseover');
+  check(visibleLabels().length,2,'hover may coexist with one pinned label');
+  app.emit(facilityMarkers[2],'mouseout');
+  app.emit(facilityMarkers[3],'click');
+  check(visibleLabels().map(label=>facilityLabels.indexOf(label)),[3],'clicking another marker transfers the single pinned label');
+  check(facilityLabels[1].facilityPinned,false,'prior pinned label clears');
+  app.emit(facilityMarkers[3],'click');
+  check(visibleLabels().length,0,'clicking selected marker toggles pinned label off');
+
+  // Counts are for the current viewport across facility groups; non-facility overlays stay untouched.
+  const otherOverlay=new app.sandbox.kakao.maps.CustomOverlay({map:app.sandbox.map});
+  app.sandbox.targetOverlays.banner.push(otherOverlay);
+  app.sandbox.targetOverlays.welfare.push(...app.sandbox.targetOverlays.senior.splice(60));
+  app.sandbox.refreshFacilityLabels();
+  check(visibleLabels().length,0,'50-label limit counts labels across all facility groups');
+  check(otherOverlay.map===app.sandbox.map,true,'facility label policy does not hide unrelated banner overlays');
+  app.setViewport(37.29,126.6799,37.31,126.6846);
+  app.sandbox.refreshFacilityLabels();
+  check(visibleLabels().length,10,'zooming to ten sites displays all ten labels');
+  check(visibleLabels().every(label=>facilityLabels.slice(0,10).includes(label)),true,'labels outside the viewport are hidden');
+  app.emit(facilityMarkers[79],'mouseover');
+  check(visibleLabels().length,10,'even a queued hover cannot show an offscreen label');
+  app.emit(facilityMarkers[79],'mouseout');
+  app.emit(facilityMarkers[61],'click');
+  check(facilityLabels[61].map,null,'pinned label outside the viewport remains hidden');
+  app.emit(facilityMarkers[61],'click');
+  app.setViewport(37.29,126.6799,37.31,126.7046);
+  app.sandbox.refreshFacilityLabels();
+  check(visibleLabels().length,50,'exactly fifty in-view labels are displayed');
+  app.setViewport(37.29,126.6799,37.31,126.7051);
+  app.sandbox.refreshFacilityLabels();
+  check(visibleLabels().length,0,'fifty-one in-view labels activates sparse labels');
+  app.emit(facilityMarkers[10],'click');
+  check(visibleLabels().map(label=>facilityLabels.indexOf(label)),[10],'one selected label remains available in the dense viewport');
+  app.element('btnResetSearch').onclick();
+  check(facilityLabels.every(label=>label.map===null),true,'reset removes every dense or pinned label');
+  app.emit(facilityMarkers[10],'mouseover');
+  app.emit(facilityMarkers[10],'click');
+  app.sandbox.refreshFacilityLabels();
+  check(facilityLabels.every(label=>label.map===null),true,'late marker events cannot resurrect labels from cleared results');
+  check(app.sandbox.searchedData.length,0,'label callbacks cannot restore cleared records');
+  check((html.match(/kakao\.maps\.event\.addListener\(map,\s*['"]idle['"],\s*refreshFacilityLabels\)/g)||[]).length,1,'map idle installs one label refresh listener');
 
   console.log(JSON.stringify({ok:true,checks,source:'release HTML',liveApi:false}));
 })().catch(error=>{console.error(error);process.exitCode=1;});
