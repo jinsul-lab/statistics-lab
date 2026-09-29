@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>JINSUL MAP v3.7.5</title>
+<title>JINSUL MAP v3.7.6</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=587d3b22c3896f92f134d03253e685bd&amp;libraries=services,drawing,clusterer&amp;autoload=false"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -612,7 +612,7 @@
     @media (max-width: 820px){ .rightDrawer{width:92vw;} }
 
     /* ===========================
-       상권 스캔 v3.7.5
+       상권 스캔 v3.7.6
        =========================== */
     .sidebarTabs{
       display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:8px 10px;
@@ -772,7 +772,7 @@
       .scanReportHero{grid-template-columns:1fr;}.scanReportKpis{grid-template-columns:1fr 1fr;}.scanReportGrid{grid-template-columns:1fr;}.scanReportCard.wide{grid-column:auto;}
     }
 
-/* v3.7.5 · chart-focused theme; preserves map, filters and clinical marker colors */
+/* v3.7.6 · chart-focused theme; preserves map, filters and clinical marker colors */
 .scanReportModal .scanReportCard,.scanReportCard{border:1px solid #dce5f3;border-radius:20px;background:linear-gradient(150deg,#fff 65%,#f3f7ff);box-shadow:0 8px 28px #243a6610;overflow:hidden}
 .scanReportCard h3{font-size:15px;letter-spacing:-.3px;color:#193355;display:flex;align-items:center;gap:9px}
 .scanReportCard h3:before{content:'';width:5px;height:18px;border-radius:9px;background:linear-gradient(#6366f1,#22d3ee)}
@@ -791,7 +791,7 @@
 .scanReportCard .scanVisualGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scanReportCard .scanVisualGrid .scanVisual{margin:0;min-width:0}
 @media(max-width:800px){.scanReportCard .scanVisualGrid{grid-template-columns:1fr}}
 
-/* v3.7.5: explicit foregrounds prevent inherited transparent text. */
+/* v3.7.6: explicit foregrounds prevent inherited transparent text. */
 :root{color-scheme:light}
 .sectionTitle{background:none;-webkit-background-clip:initial;-webkit-text-fill-color:currentColor;color:#243b68}
 .sectionTitle .pill{background:#1d4ed8;color:#fff;-webkit-text-fill-color:#fff}
@@ -856,6 +856,8 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 .siteDetailButtons{align-items:flex-start}#siteHiraDetail{flex-basis:100%;width:100%;min-width:0}#siteHiraDetail .siteClinicBox{margin-top:12px;width:100%;color:#172b49;background:#f0f7ff}#siteHiraDetail table{width:100%;border-collapse:collapse}#siteHiraDetail th,#siteHiraDetail td{padding:9px;text-align:left;border-bottom:1px solid #cbd5e1}
 .v-tool-btn{width:52px;min-height:52px;gap:4px}.v-tool-btn svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.v-tool-btn .lbl{font-size:11px;color:inherit}.v-tool-btn.active{background:#e5f1ff;color:#075bb5;box-shadow:inset 3px 0 #1674df}.v-tool-btn:focus-visible, #mapToolStatus button:focus-visible{outline:3px solid #2563eb;outline-offset:2px}#btnRoadview,#btnClearTools{border-top:2px solid #d6dfeb}#mapToolStatus{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:12;background:#fff;color:#243447;border:1px solid #cad4e0;box-shadow:0 3px 16px #10294422;border-radius:12px;padding:10px;max-width:calc(100% - 40px);font-size:12px}#mapToolStatus button,#mapToolStatus select{padding:7px 10px;border:1px solid #cbd5e1;border-radius:6px;background:white;color:#243447;margin:3px}#mapToolStatus summary{cursor:pointer;padding:5px}.vertical-toolbar{max-height:calc(100vh - 145px);overflow-y:auto}button:disabled{opacity:.55;cursor:wait}.vertical-toolbar{width:64px;overflow-x:hidden;scrollbar-width:thin}.v-tool-btn{width:100%;flex-shrink:0;padding:4px 0}.v-tool-btn .lbl{white-space:nowrap}#mapToolStatus{width:360px}
 .facility-source-note{font-size:12px;line-height:1.6;color:#475569;margin:8px 0}.facility-source-list{max-height:320px;overflow:auto;overscroll-behavior:contain}.facility-source-card{padding:12px 0;border-top:1px solid #dce3eb;font-size:12px;line-height:1.7;overflow-wrap:anywhere}.facility-source-card strong{display:block;font-size:14px;color:#172b42}.facility-source-card small{color:#526475}.facility-web-links,.facility-source-card nav{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.facility-web-links a,.facility-source-card a{padding:6px 9px;border:1px solid #c6d6e8;border-radius:7px;color:#15549b;background:white;text-decoration:none}.facility-web-links a:focus-visible,.facility-source-card a:focus-visible{outline:3px solid #287acc}.facility-source-badge{display:inline-block;font-size:11px;padding:2px 7px;border-radius:5px;font-weight:700}.facility-source-badge.official{background:#e0efff;color:#174d85}.facility-source-badge.map{background:#fff2d5;color:#704600}.facility-source-badge.aux{background:#e9edf2;color:#435064}.facility-hours{margin-top:4px;color:#30465b}#facilitySourceResults{padding:10px;background:#f7fafc;border:1px solid #d6e2ee;border-radius:10px;margin:8px 0}#facilitySourceResults summary{cursor:pointer;color:#203d5a;font-size:13px;font-weight:600}
+
+.scanClinicSourceNote{background:#edf5fc;border:1px solid #d4e3f2;border-radius:9px;padding:11px 12px;margin-bottom:12px;color:#27496b;font-size:12px;line-height:1.65}.scanClinicSourceNote p{margin:5px 0 0}#scanClinicSourceGuide{line-height:1.7;margin:0 0 10px;color:#425a70}
 </style>
 <style>#patientStatsStatus{padding:10px;background:#eaf2ff;color:#19365c;border-radius:8px}.patientKpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:12px 0 20px}.patientKpis>div{padding:16px;background:#f0f5ff;border:1px solid #cfdbef;border-radius:14px}.patientKpis b{display:block;font-size:25px;color:#17335a}.patientContribution{display:grid;grid-template-columns:150px 1fr 150px;align-items:center;gap:12px;margin:12px 0}.patientContribution>div{height:12px;background:#e2e8f0;border-radius:6px;overflow:hidden}.patientContribution i{display:block;height:100%}#patientStatsOverview{padding-bottom:22px}#patientScatterDetails{overflow:auto;max-height:320px;margin:12px 0}#patientScatterDetails p{padding:12px;background:#eef4ff;color:#233e68}#statsModal .tabPane{min-width:0}#statsModal canvas{background:#fff}@media(max-width:700px){.patientKpis{grid-template-columns:repeat(2,1fr)}.patientContribution{grid-template-columns:110px 1fr}.patientContribution b{grid-column:2;font-size:12px}#tabType>div{flex-wrap:wrap}}</style><style>.patientMixCard{padding:20px;margin:18px 0;background:#fff;border:1px solid #dae4f2;border-radius:16px}.patientMixCard h3{margin:0 0 10px;color:#16365b}.patientMixCard p,.patientMixNotice{color:#475569;line-height:1.65}.patientMixNotice{padding:12px;background:#edf4ff;border-radius:10px}.patientMixScroll{overflow:auto}.patientMixScroll table{min-width:580px}.patientHeat{min-width:780px!important}.patientHeat th:first-child{min-width:150px}.patientMixChart{height:340px;margin:20px 0}#patientMixMode{padding:9px;border:1px solid #9cabc0;border-radius:8px;background:white;color:#17335a}@media(max-width:700px){.patientMixCard{padding:12px}.patientMixChart{height:300px}}</style><style>.scoreDefinitions{margin:12px 0;padding:14px;background:#f0f5ff;border:1px solid #ccdaef;border-radius:10px;color:#17335a;line-height:1.7}.scoreDefinitions summary{cursor:pointer;font-weight:700}.scoreDefinitions dt{font-weight:800;margin-top:12px}.scoreDefinitions dd{margin:4px 0 10px}.scoreDefinitions p{font-size:13px}</style><style>.scanReportHero{grid-template-columns:minmax(0,1fr)}</style><style id="chartDesign372">
 /* Preserve the existing map and category colors; improve analytical reading. */
@@ -907,7 +909,7 @@ if(typeof Chart!=='undefined'){
 <div class="sidebar">
 <div class="sidebarHeader">
 <div class="brand">JINSUL MAP</div>
-<div style="font-size:11px;color:#868e96;">v3.7.5</div>
+<div style="font-size:11px;color:#868e96;">v3.7.6</div>
 </div>
 <div class="sidebarTabs" role="tablist" aria-label="분석 모드">
 <button class="sidebarModeBtn active" id="btnModePatients" type="button" role="tab" aria-selected="true" aria-controls="patientSidebarPanel">환자 분석</button>
@@ -1122,10 +1124,11 @@ if(typeof Chart!=='undefined'){
 
 <div class="section">
 <div class="sectionTitle">지도 표시 <span class="pill">필터</span></div>
+<p class="scanNote" id="scanClinicSourceGuide">병원 색상은 조회 출처입니다. 카카오 검색과 심평원 신고자료 모두 선택 진료과의 경쟁 후보입니다. 동일 병원이 양쪽에 포함될 수 있어 개수를 더하지 않습니다.</p>
 <div class="scanLayerGrid" id="scanLayerFilters">
 <label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="candidate" checked/><span class="scanSwatch" style="background:#b45309"></span>후보지·반경</label>
-<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="competitor" checked/><span class="scanSwatch" style="background:#d51f49"></span>경쟁 의원</label>
-<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="hira" checked/><span class="scanSwatch" style="background:#00796b"></span>심평원 의원</label>
+<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="competitor" checked/><span class="scanSwatch" style="background:#d51f49"></span>카카오 검색</label>
+<label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="hira" checked/><span class="scanSwatch" style="background:#00796b"></span>심평원 신고자료</label>
 <label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="subway" checked/><span class="scanSwatch" style="background:#0067c5"></span>지하철역</label>
 <label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="parking" checked/><span class="scanSwatch" style="background:#334155"></span>주차장</label>
 <label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="pharmacy" checked/><span class="scanSwatch" style="background:#7935cc"></span>약국</label>
@@ -1133,7 +1136,7 @@ if(typeof Chart!=='undefined'){
 </div>
 
 <div class="section">
-<div class="sectionTitle">진료과별 검색 결과</div>
+<div class="sectionTitle">진료과별 카카오 검색 결과</div>
 <div class="scanSpecialtyList" id="scanSpecialtyResults"><div class="scanEmpty">스캔 전입니다.</div></div>
 </div>
 
@@ -1143,7 +1146,7 @@ if(typeof Chart!=='undefined'){
 </div>
 
 <div class="section">
-<div class="sectionTitle">경쟁 의원 목록 <span class="pill" id="scanPlaceCount">0</span></div>
+<div class="sectionTitle">카카오 경쟁 후보 목록 <span class="pill" id="scanPlaceCount">0</span></div>
 <div class="scanPlaceList" id="scanPlaceList"><div class="scanEmpty">지도 마커를 누르면 상세 정보를 볼 수 있습니다.</div></div>
 </div>
 
@@ -1157,7 +1160,7 @@ if(typeof Chart!=='undefined'){
 </div>
 </div>
 <div style="padding:10px;text-align:center;font-size:10px;color:#adb5bd;border-top:1px solid #eee;">
-      JINSUL MAP v3.7.5<br/>All Rights Reserved.
+      JINSUL MAP v3.7.6<br/>All Rights Reserved.
     </div>
 </div>
 <div class="mapArea">
@@ -1170,8 +1173,8 @@ if(typeof Chart!=='undefined'){
 </div>
 <div id="scanLegend">
 <div class="legend-item"><div class="dot" data-scan-icon="candidate"></div>후보지</div>
-<div class="legend-item"><div class="dot" data-scan-icon="competitor"></div>경쟁 의원</div>
-<div class="legend-item"><div class="dot" data-scan-icon="hira"></div>심평원 의원</div>
+<div class="legend-item"><div class="dot" data-scan-icon="competitor"></div>경쟁 후보·카카오</div>
+<div class="legend-item"><div class="dot" data-scan-icon="hira"></div>경쟁 후보·심평원</div>
 <div class="legend-item"><div class="dot" data-scan-icon="subway"></div>지하철역</div>
 <div class="legend-item"><div class="dot" data-scan-icon="parking"></div>주차장</div>
 <div class="legend-item"><div class="dot" data-scan-icon="pharmacy"></div>약국</div>
@@ -1715,8 +1718,8 @@ const SCAN_FACILITY_CONFIG = {
 };
 const SCAN_LAYER_CONFIG = {
   candidate: { label:'후보지', color:'#b45309', glyph:'★', size:46 },
-  competitor: { label:'경쟁 의원', color:'#d51f49', glyph:'의', size:38 },
-  hira: { label:'심평원 의원', color:'#00796b', glyph:'심', size:38 },
+  competitor: { label:'경쟁 후보 · 카카오 검색', color:'#d51f49', glyph:'의', size:38 },
+  hira: { label:'경쟁 후보 · 심평원 신고자료', color:'#00796b', glyph:'심', size:38 },
   subway: { label:'지하철역', color:'#0067c5', glyph:'역', size:38 },
   parking: { label:'주차장', color:'#334155', glyph:'P', size:38 },
   pharmacy: { label:'약국', color:'#7935cc', glyph:'약', size:38 }
@@ -1920,7 +1923,7 @@ function initKakao(){
     roadviewClient = new kakao.maps.RoadviewClient();
     setupMapListeners(); setupToolbar();
     setScanReady(true);
-    toast("시스템 준비 완료 (v3.7.5)");
+    toast("시스템 준비 완료 (v3.7.6)");
   });
 }
 initKakao();
@@ -2463,11 +2466,11 @@ async function loadBannerPoints(){
     }
   });
 
-// v3.7.5 facility-search helpers. Inlined into the single HTML at release time.
+// v3.7.6 facility-search helpers. Inlined into the single HTML at release time.
 const SENIOR_DIRECT_KEYWORDS = ['경로당', '노인정', '마을회관', '무더위쉼터'];
 const SENIOR_AUXILIARY_KEYWORDS = ['관리사무소', '관리실', '경비실'];
 
-/* Optional v3.7.5 helpers. Integrate into the release HTML only after review.
+/* Optional v3.7.6 helpers. Integrate into the release HTML only after review.
  * No network calls, no credentials, no inference that a cooling shelter is a senior facility.
  */
 function seniorFacilityDetails(place){
@@ -4690,7 +4693,7 @@ window.switchTab = (id) => {
 };
 
 
-/* ===========================   [상권 스캔 v3.7.5]   =========================== */
+/* ===========================   [상권 스캔 v3.7.6]   =========================== */
 function setScanReady(ready){
   scanState.ready = !!ready;
   const btn = $('btnRunScan');
@@ -4769,7 +4772,7 @@ function scanIsSeoulCandidate(candidate){
 }
 
 async function scanSeoulRequest(service,key,start,end,tail=''){
-  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.5]');
+  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.6]');
   const text=await scanNetworkRequest('https://jinsul-seoul-proxy.yms0127.workers.dev/seoul',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service,key,start,end,tail:decodeURIComponent(tail)}),cache:'no-store'},22000);
   let payload;try{payload=JSON.parse(text);}catch{throw new Error('서울 API JSON 응답 형식 오류');}
   if(payload?.error)throw new Error('서울 중계 요청 처리 실패');return payload;
@@ -5611,7 +5614,7 @@ function scanRenderHira(result){
       const place=result.places[Number(button.dataset.hiraIndex)]; if(!place)return;
       map.panTo(new kakao.maps.LatLng(place.lat,place.lng)); scanOpenHiraInfo(place);
     };});
-  }else list.innerHTML=unavailable?'<div class="scanEmpty">심평원 신고자료 API에 연결하지 못했습니다. 이 값은 0곳이 아니라 조회 불가입니다. 카카오 검색 병원 검색 결과는 위 핵심 지표에서 계속 확인할 수 있습니다.</div>':'<div class="scanEmpty">선택 반경 내 공식 경쟁 의원이 없습니다.</div>';
+  }else list.innerHTML=unavailable?'<div class="scanEmpty">심평원 신고자료 API에 연결하지 못했습니다. 이 값은 0곳이 아니라 조회 불가입니다. 카카오 경쟁 후보는 위 핵심 지표에서 계속 확인할 수 있습니다.</div>':'<div class="scanEmpty">선택 반경·진료과로 조회된 심평원 의원급 자료가 없습니다. 카카오 검색 결과와 별도로 확인하세요.</div>';
   if(result.errorLabels.length) list.insertAdjacentHTML('beforeend',`<div class="scanLimitNote" style="display:block">${scanEscapeHTML(result.errorLabels.join(', '))} 공식 조회가 실패했습니다. HIRA는 XML/JSON을 모두 해석하도록 보완했으며, 네트워크·공식 API 지연 시에는 0곳으로 계산하지 않습니다.</div>`);
 }
 
@@ -5637,17 +5640,23 @@ function scanHiraInfoHTML(place,data=null,error=false){
 }
 
 
+function scanClinicSourceExplanation(place,type){
+  if(!['competitor','hira'].includes(type))return '';
+  const subjects=(place.specialties||[]).join(', ')||'선택 진료과';
+  const basis=type==='hira'?'심평원에 신고된 진료과 기준의 의원급 자료입니다. 전문의 보유 여부는 별도 정보에서 확인하세요.':'카카오 장소의 진료과 키워드 검색 결과입니다. 신고 진료과·전문의 여부는 심평원 자료로 확인하세요.';
+  return '<div class="scanClinicSourceNote"><b>경쟁 후보 · '+scanEscapeHTML(subjects)+'</b><p>'+basis+' 색상은 경쟁 여부나 강도가 아닌 조회 출처를 나타냅니다.</p></div>';
+}
 function scanShowPlacePanel(place,type,content){
   if(scanState.infoWindow){try{scanState.infoWindow.close();}catch(e){}}
   document.querySelector('.scanPlacePanel')?.remove();
   const panel=document.createElement('section');panel.className='scanPlacePanel';panel.setAttribute('role','dialog');panel.setAttribute('aria-label',place.name+' 상세 정보');
   const conf=SCAN_LAYER_CONFIG[type];
   panel.innerHTML='<header class="scanPlaceHeader"><span data-scan-icon="'+type+'" style="width:36px;height:36px;flex:0 0 36px">'+scanMarkerSVG(type)+'</span><div><small style="color:'+conf.color+'">'+scanEscapeHTML(conf.label)+'</small><strong>'+scanEscapeHTML(place.name)+'</strong></div><button class="scanPlaceClose" aria-label="상세 정보 닫기" title="닫기">×</button></header><div class="scanPlaceBody"></div>';
-  const body=panel.querySelector('.scanPlaceBody');body.innerHTML=content;
+  const body=panel.querySelector('.scanPlaceBody');body.innerHTML=scanClinicSourceExplanation(place,type)+content;
   const close=()=>{panel.remove();scanState.hiraDetailRequestToken++;};
   panel.querySelector('button').onclick=close;panel.onkeydown=e=>{if(e.key==='Escape'){e.stopPropagation();close();}};
   document.querySelector('.mapArea').appendChild(panel);
-  const adapter={close,setContent(html){if(panel.isConnected)body.innerHTML=html;},open(){}};
+  const adapter={close,setContent(html){if(panel.isConnected)body.innerHTML=scanClinicSourceExplanation(place,type)+html;},open(){}};
   scanState.infoWindow=adapter;panel.querySelector('button').focus({preventScroll:true});return adapter;
 }
 function scanInitMarkerLegend(){
@@ -6186,7 +6195,7 @@ function scanRenderResult(result){
       };
     });
   }else{
-    placeList.innerHTML = '<div class="scanEmpty">선택 반경 내에서 검색된 경쟁 의원이 없습니다.</div>';
+    placeList.innerHTML = '<div class="scanEmpty">선택 반경의 카카오 검색 결과가 없습니다. 심평원 신고자료도 별도로 확인하세요.</div>';
   }
 
   scanRenderHira(result.hira);
@@ -6305,7 +6314,7 @@ function scanRenderClinic(){
   const change=store?.total!==null&&store?.total!==undefined&&previous?.total!==null&&previous?.total!==undefined?store.total-previous.total:null;
   const metrics=scanDetailMetric('의원 점포 수',scanDetailNumber(store?.total,'곳'),'서울 '+scanClinicKinds[kind]+' 업종 전체')+scanDetailMetric('개업 / 폐업',scanDetailNumber(store?.open,'곳')+' / '+scanDetailNumber(store?.close,'곳'),scanPeriodLabel(period))+scanDetailMetric('전분기 점포 수 변화',change===null?'자료 없음':(change>0?'+':'')+change+'곳','같은 상권·업종·연속 분기 비교')+scanDetailMetric('추정매출 원본 금액',money(sales?.amount),scanPeriodLabel(period)+' · 서울시 추정매출');
   const basicRows=[['분기','전체 점포','개업','폐업','개업률','폐업률'],...series.map(r=>[scanPeriodLabel(r.period),scanDetailNumber(r.total,'곳'),scanDetailNumber(r.open,'곳'),scanDetailNumber(r.close,'곳'),scanDetailNumber(r.openRate,'%'),scanDetailNumber(r.closeRate,'%')])];
-  $('scanClinicBody').innerHTML='<div class="scanMetricHeading"><strong>'+scanEscapeHTML(d.area.name)+' · '+scanClinicKinds[kind]+'</strong><span class="scanCaption">'+scanPeriodLabel(period)+' · 공식상권 전체</span></div><div class="scanMetricGrid">'+metrics+'</div><div class="scanInsight">일반의원은 서울시의 업종 분류입니다. 정형외과·신경외과 등 진료과별 매출이나 심평원 의원 수와 동일하지 않습니다. 선택 반경 합산·개별 병원 매출·건강보험 청구액으로 해석하지 마세요.</div>'+(d.errors.length?'<div class="scanInsight warn">'+scanEscapeHTML(d.errors.join(' · '))+'</div>':'')+'<div class="scanDetailGrid">'+scanDetailChartSection('scanClinicStoreTrend','최근 4분기 의원 수','전체 점포 수 · 미제공 분기는 선을 연결하지 않습니다.')+scanDetailChartSection('scanClinicOpenClose','개업·폐업 비교','서울시 원본 개업/폐업 건수')+'</div><div class="scanTableScroll">'+scanReportTable(basicRows)+'</div>'+(sales?'<div class="scanDetailGrid">'+scanDetailChartSection('scanClinicSalesDays','요일별 추정매출','만원 · 선택 업종·공식상권')+scanDetailChartSection('scanClinicSalesTimes','시간대별 추정매출','만원 · 각 시간대 길이가 다릅니다.')+scanDetailChartSection('scanClinicSalesAges','결제 연령대별 추정매출','만원 · 환자의 나이가 아닌 결제자 기준')+scanDetailChartSection('scanClinicSalesGender','성별 추정매출 구성','공개된 성별 금액 기준')+'</div><details><summary class="scanCaption">요일·시간대·연령·성별 금액 수치표</summary><div class="scanTableScroll">'+scanReportTable([['항목','원본 금액(원)'],['전체 추정매출',sales.amount],...sales.days,...sales.times,...sales.ages,...sales.gender].map((r,i)=>i?[r[0],scanDetailNumber(r[1],'원')]:r))+'</div></details><p class="scanReportFoot">기준 분기 '+scanPeriodLabel(period)+' · 매출 원본 필드명은 당월_매출_금액입니다. 월평균이나 연매출로 임의 환산하지 않습니다. 결제 건수 '+scanDetailNumber(sales.count,'건')+'은 고유 환자 수가 아닙니다. 연령·성별 합계는 전체 금액과 다를 수 있습니다.</p>':'<div class="scanEmpty">'+(scanClinic.busy?'의원 매출 상세를 불러오는 중입니다.':d.salesError?scanEscapeHTML(d.salesError):'선택 상권·업종·분기의 공개 매출 행이 없습니다. 0원으로 처리하지 않습니다.')+'</div>')+'<div class="scanReportFoot">출처: 서울특별시·서울신용보증재단 · <a href="https://data.seoul.go.kr/dataList/OA-15577/A/1/datasetView.do" target="_blank" rel="noopener">점포 공개 데이터</a> · <a href="https://data.seoul.go.kr/dataList/OA-15572/A/1/datasetView.do" target="_blank" rel="noopener">추정매출 공개 데이터</a> · <a href="https://golmok.seoul.go.kr/owner/owner.do" target="_blank" rel="noopener">서울시 분석서비스</a><br>원본 사이트의 보행권역/다각형과 본 앱의 공식상권은 공간 기준이 달라 수치가 다를 수 있습니다. 생존율·평균 영업기간은 현재 연결하지 않았습니다. 별도의 종합 점수를 산출하지 않습니다.</div>';
+  $('scanClinicBody').innerHTML='<div class="scanMetricHeading"><strong>'+scanEscapeHTML(d.area.name)+' · '+scanClinicKinds[kind]+'</strong><span class="scanCaption">'+scanPeriodLabel(period)+' · 공식상권 전체</span></div><div class="scanMetricGrid">'+metrics+'</div><div class="scanInsight">일반의원은 서울시의 업종 분류입니다. 정형외과·신경외과 등 진료과별 매출이나 심평원 신고 의원 수와 동일하지 않습니다. 선택 반경 합산·개별 병원 매출·건강보험 청구액으로 해석하지 마세요.</div>'+(d.errors.length?'<div class="scanInsight warn">'+scanEscapeHTML(d.errors.join(' · '))+'</div>':'')+'<div class="scanDetailGrid">'+scanDetailChartSection('scanClinicStoreTrend','최근 4분기 의원 수','전체 점포 수 · 미제공 분기는 선을 연결하지 않습니다.')+scanDetailChartSection('scanClinicOpenClose','개업·폐업 비교','서울시 원본 개업/폐업 건수')+'</div><div class="scanTableScroll">'+scanReportTable(basicRows)+'</div>'+(sales?'<div class="scanDetailGrid">'+scanDetailChartSection('scanClinicSalesDays','요일별 추정매출','만원 · 선택 업종·공식상권')+scanDetailChartSection('scanClinicSalesTimes','시간대별 추정매출','만원 · 각 시간대 길이가 다릅니다.')+scanDetailChartSection('scanClinicSalesAges','결제 연령대별 추정매출','만원 · 환자의 나이가 아닌 결제자 기준')+scanDetailChartSection('scanClinicSalesGender','성별 추정매출 구성','공개된 성별 금액 기준')+'</div><details><summary class="scanCaption">요일·시간대·연령·성별 금액 수치표</summary><div class="scanTableScroll">'+scanReportTable([['항목','원본 금액(원)'],['전체 추정매출',sales.amount],...sales.days,...sales.times,...sales.ages,...sales.gender].map((r,i)=>i?[r[0],scanDetailNumber(r[1],'원')]:r))+'</div></details><p class="scanReportFoot">기준 분기 '+scanPeriodLabel(period)+' · 매출 원본 필드명은 당월_매출_금액입니다. 월평균이나 연매출로 임의 환산하지 않습니다. 결제 건수 '+scanDetailNumber(sales.count,'건')+'은 고유 환자 수가 아닙니다. 연령·성별 합계는 전체 금액과 다를 수 있습니다.</p>':'<div class="scanEmpty">'+(scanClinic.busy?'의원 매출 상세를 불러오는 중입니다.':d.salesError?scanEscapeHTML(d.salesError):'선택 상권·업종·분기의 공개 매출 행이 없습니다. 0원으로 처리하지 않습니다.')+'</div>')+'<div class="scanReportFoot">출처: 서울특별시·서울신용보증재단 · <a href="https://data.seoul.go.kr/dataList/OA-15577/A/1/datasetView.do" target="_blank" rel="noopener">점포 공개 데이터</a> · <a href="https://data.seoul.go.kr/dataList/OA-15572/A/1/datasetView.do" target="_blank" rel="noopener">추정매출 공개 데이터</a> · <a href="https://golmok.seoul.go.kr/owner/owner.do" target="_blank" rel="noopener">서울시 분석서비스</a><br>원본 사이트의 보행권역/다각형과 본 앱의 공식상권은 공간 기준이 달라 수치가 다를 수 있습니다. 생존율·평균 영업기간은 현재 연결하지 않았습니다. 별도의 종합 점수를 산출하지 않습니다.</div>';
   const options={responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},datalabels:{display:false}},scales:{y:{beginAtZero:true,ticks:{precision:0}}}};
   const chart=(key,id,type,labels,datasets,o=options)=>scanReportChart(key,id,{type,data:{labels,datasets},options:structuredClone(o)});
   chart('clinicStores','scanClinicStoreTrend','line',series.map(r=>scanPeriodLabel(r.period)),[{label:'전체 의원(곳)',data:series.map(r=>r.total??null),borderColor:'#0369a1',backgroundColor:'#0369a11a',fill:true,spanGaps:false,tension:0}]);
@@ -6401,7 +6410,7 @@ function scanSiteSheet(d){
   return '<article class="siteSheet"><header><span>JINSUL MAP · LOCATION BRIEF</span><h2>'+e(f.title||c.name+' 입지자료')+'</h2><p>'+e(c.address)+' '+e(f.unit)+'</p></header><div class="siteSheetGrid"><section><h3>외부·호실 사진</h3>'+(d.photos.exterior?'<img class="sitePhoto" src="'+d.photos.exterior+'" alt="사용자가 첨부한 외부 사진">':'<div class="sitePhotoEmpty">외관 참고 · 로드뷰<br>'+scanSiteStreetLinks(c)+'</div>')+'<h3>위치·경쟁의원 개요</h3>'+(d.photos.location?'<img class="sitePhoto" src="'+d.photos.location+'" alt="사용자가 첨부한 위치 이미지">':scanSiteDiagram(s))+'<p class="siteFine">분홍 번호는 아래 경쟁의원 표의 가까운 순 번호입니다. 최대 18곳 표시.</p><a href="'+e(scanKakaoMapUrl(c))+'" target="_blank" rel="noopener">카카오 지도·길찾기 열기 ↗</a></section><section><h3>임대조건 · 자동 조회 및 현장 확인값</h3>'+table([['주소',c.address],['층·호실',f.unit],['전용면적',f.area?f.area+'평 / 약 '+b.areaM2?.toFixed(2)+'㎡':''],['보증금',scanSiteMoney(f.deposit)],['월세',scanSiteMoney(f.rent)],['관리비',scanSiteMoney(f.management)],['월세 + 관리비',b.monthly===null?'미입력 항목 있음':scanSiteMoney(b.monthly)],['월세 / 전용평',b.perPyeong===null?'면적·월세 입력 필요':scanSiteMoney(Math.round(b.perPyeong))+'/평'],['부가세 조건',f.vat||'미확인 · 합계에 자동 가산하지 않음'],['권리금',scanSiteMoney(f.premium)],['입주 가능일',f.available],['실사용 주차',f.parking],['승강기·접근',f.elevator],['간판·노출',f.visibility],['치료 공간',f.layout],['연락처',f.contact],['임장일',f.visitDate]])+'</section></div><h3>공공 통계 · 지역 범위와 기준일</h3>'+(c.searchScope?'<p class="siteWarning">지역명 검색: '+e(c.searchQuery)+'의 대표 검색지점 주변 '+s.radius+'m 자료입니다. 지역 전체 통계와 구분하며 개별 임대 후보 건물은 미지정입니다.</p>':'')+'<table><thead><tr><th>항목</th><th>값</th><th>공간 범위</th><th>기준·출처</th></tr></thead><tbody>'+s.facts.map(r=>'<tr><th>'+e(r.name)+'</th><td>'+e(r.value)+'</td><td>'+e(r.scope)+'</td><td>'+e(r.when)+' · '+e(r.source)+'</td></tr>').join('')+'</tbody></table>'+(!s.facts.length?'<p>공식 자료 없음. 미조회·실패 항목을 0으로 해석하지 않습니다.</p>':'')+'<h3>동선 · 임장 방문 포인트</h3>'+table(s.facilities.map(x=>[x.name,x.error?'조회 실패':(x.count??'자료 없음')+'곳'+(x.partial?' · 검색 일부 결과':'')+(x.nearest?' / 최근접 '+x.nearest.name+' '+Math.round(x.nearest.distance)+'m':'')]))+''+scanSiteOnlineReview(d)+'<h3>외관 참고 · 로드뷰 원문</h3>'+scanSiteStreetLinks(c)+'<p>현장사진 아님 · 촬영일 및 최신 여부는 제공사 원문에서 확인</p><h3>추가 확인 · 정형외과 / 통증 / 재활</h3><div class="siteCheckPrint">'+scanSiteChecks.map((label,i)=>'<div><b>'+e(d.checks[i])+'</b> '+e(label)+'</div>').join('')+'</div><h3>검토 메모</h3><p class="siteMemo">'+e(f.notes||'미작성')+'</p><p class="siteFine">API 조회 '+e(s.createdAt?.replace('T',' ').slice(0,19))+' UTC · 건물 전체 주차와 임차인 실사용 주차는 다를 수 있습니다. 현장 적합성·의원 개설 가능 여부는 별도 확인 항목입니다.</p></article>';
 }
 function scanSiteCompetitionHTML(d){const s=d.snapshot,c=s.competition,e=scanSiteEscape;return '<h3>경쟁의원 비교 · 선택 진료과 / '+s.radius+'m</h3><p>'+ (c.unavailable?'심평원 조회 불가':c.rows.length+'곳'+(c.partial?' · 일부 진료과 조회 실패':''))+' · 동일 후보 의원 제외 '+c.excluded+'곳</p><table><thead><tr><th>#</th><th>의원 / 진료과</th><th>직선거리</th><th>신고 의사</th><th>개설일</th></tr></thead><tbody>'+c.rows.slice(0,60).map((p,i)=>'<tr><td>'+(i+1)+'</td><td>'+e(p.name)+'<small>'+e(p.specialties.join(', '))+'</small></td><td>'+Math.round(p.distance)+'m</td><td>'+e(p.doctorCount??'자료 없음')+'명</td><td>'+e(scanFormatHiraDate(p.establishedDate))+'</td></tr>').join('')+'</tbody></table>'+(c.rows.length>60?'<p>가까운 60곳 표시 / 전체 '+c.rows.length+'곳</p>':'')+'<p class="siteFine">출처: 심평원 신고 의원급 정보. 의사 수는 총 신고 의사 수이며 전문의 수·진료능력·매출 순위가 아닙니다. 조회 시점 현재 운영 목록이므로 폐업기관을 포함한 생존율을 계산하지 않습니다.</p>';}
-function scanSiteClinicHTML(s){const c=s.clinic,e=scanSiteEscape;return c?'<div class="siteClinicBox"><h3>의원 업종 매출 · 경쟁 환경 참고</h3><p>'+e(c.area)+' · '+e(c.industry)+' · '+e(c.period)+'</p><div class="siteTriplet"><div>공식상권 추정매출<b>'+scanSiteMoney(c.amount)+'</b></div><div>동일 업종 점포<b>'+(c.stores??'자료 없음')+'곳</b></div><div>점포당 단순 나눗값<b>'+(c.perStore===null?'자료 없음':scanSiteMoney(Math.round(c.perStore)))+'</b></div></div><p class="siteFine">동일 상권·분기·업종의 금액 ÷ 점포 수입니다. 개별 경쟁병원의 실제 매출·예상 매출·손익분기점으로 사용하지 마세요. 반경의 심평원 의원 수로 나누지 않습니다. 출처: 서울시·서울신용보증재단.</p></div>':'<div class="siteClinicBox"><h3>의원 업종 매출</h3><p>서울 후보지는 ‘의원 업종’ 탭에서 공개 매출 조회를 완료한 뒤 이 탭을 다시 열면 포함됩니다. 서울 밖의 의원 매출은 현재 미연결입니다. 개별 경쟁병원 매출은 공개 자료로 확보되지 않았습니다.</p></div>';}
+function scanSiteClinicHTML(s){const c=s.clinic,e=scanSiteEscape;return c?'<div class="siteClinicBox"><h3>의원 업종 매출 · 경쟁 환경 참고</h3><p>'+e(c.area)+' · '+e(c.industry)+' · '+e(c.period)+'</p><div class="siteTriplet"><div>공식상권 추정매출<b>'+scanSiteMoney(c.amount)+'</b></div><div>동일 업종 점포<b>'+(c.stores??'자료 없음')+'곳</b></div><div>점포당 단순 나눗값<b>'+(c.perStore===null?'자료 없음':scanSiteMoney(Math.round(c.perStore)))+'</b></div></div><p class="siteFine">동일 상권·분기·업종의 금액 ÷ 점포 수입니다. 개별 경쟁병원의 실제 매출·예상 매출·손익분기점으로 사용하지 마세요. 반경의 심평원 신고 의원 수로 나누지 않습니다. 출처: 서울시·서울신용보증재단.</p></div>':'<div class="siteClinicBox"><h3>의원 업종 매출</h3><p>서울 후보지는 ‘의원 업종’ 탭에서 공개 매출 조회를 완료한 뒤 이 탭을 다시 열면 포함됩니다. 서울 밖의 의원 매출은 현재 미연결입니다. 개별 경쟁병원 매출은 공개 자료로 확보되지 않았습니다.</p></div>';}
 function scanSitePreview(){if($('sitePreview'))$('sitePreview').innerHTML=scanSiteSheet(scanSite.active);}
 function scanSiteRenderCompetition(){
   const d=scanSite.active,c=d.snapshot.competition;$('siteCompetitionBody').innerHTML='<div class="siteChartBox"><canvas id="siteDistanceChart" role="img" aria-label="경쟁의원 거리 구간"></canvas></div>'+scanSiteCompetitionHTML(d)+(scanSite.result?'<div class="siteDetailButtons">'+c.rows.slice(0,20).map((p,i)=>'<button class="btn outline" data-site-detail="'+i+'">'+scanSiteEscape(p.name)+' 상세</button>').join('')+'<div id="siteHiraDetail" role="status"></div>':'');$('siteClinicContext').innerHTML=scanSiteClinicHTML(d.snapshot);
@@ -6414,7 +6423,7 @@ async function scanSiteDetail(index){
   try{const data=await scanFetchHiraDetails(p.ykiho);if(token!==scanSite.detailToken||draft!==scanSite.active)return;const d=data.detail||{},e=scanSiteEscape;const hours=[['월',d.trmtMonStart,d.trmtMonEnd],['화',d.trmtTueStart,d.trmtTueEnd],['수',d.trmtWedStart,d.trmtWedEnd],['목',d.trmtThuStart,d.trmtThuEnd],['금',d.trmtFriStart,d.trmtFriEnd],['토',d.trmtSatStart,d.trmtSatEnd]].map(([day,a,b])=>day+' '+(a||'미제공')+'~'+(b||'미제공')).join(' · ');node.innerHTML='<h4>'+e(p.name)+'</h4><p>'+e(hours)+'</p><p>주차 '+e(d.parkQty??'미제공')+' · '+e(d.parkEtc||'세부 안내 없음')+'</p><p>신고 진료과: '+e(data.departments.map(r=>r.dgsbjtCdNm).filter(Boolean).join(', ')||'미제공')+'</p><p>'+e(data.partial?'일부 상세 API 조회 실패 · 표시되지 않은 항목은 확인 필요':'심평원 상세 수신 · 실제 운영시간은 방문 전 확인')+'</p>';}catch(err){if(token===scanSite.detailToken&&draft===scanSite.active)node.textContent=p.name+' · '+scanApiErrorMessage(err);}
 }
 function scanSiteDownload(content,type,ext){const blob=new Blob([content],{type:type+';charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(scanSite.active.fields.title||'입지자료').replace(/[\\/:*?"<>|]/g,'_')+'.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}
-function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.5 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
+function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.6 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
 function scanSitePrint(){try{const doc=scanSiteDocument(scanSiteValidDraft(scanSite.active));$('sitePrintFrame')?.remove();const frame=document.createElement('iframe');frame.id='sitePrintFrame';frame.title='입지자료 인쇄';frame.style.cssText='position:fixed;left:-10000px;width:794px;height:1123px;border:0';frame.onload=()=>{Promise.all([frame.contentDocument.fonts.ready,...Array.from(frame.contentDocument.images,img=>img.decode().catch(()=>{}))]).then(()=>{frame.contentWindow.focus();frame.contentWindow.print();});};frame.srcdoc=doc;document.body.appendChild(frame);scanSiteStatus('인쇄 대화상자를 요청했습니다. 앱에서 지원하지 않으면 HTML 저장 후 Edge·Chrome에서 인쇄하세요.');}catch(e){scanSiteStatus(e.message);}}
 async function scanSiteExplore(){
   const d=scanSite.active,query=d.snapshot.candidate.searchQuery,node=$('siteExploreResults');if(!query||!node)return;node.textContent='지역 의료기관 검색 중…';

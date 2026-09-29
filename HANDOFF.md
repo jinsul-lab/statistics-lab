@@ -1,3 +1,17 @@
+# 현재 기준 · JINSUL MAP 3.7.6
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+상세: jinsulmap/CLINIC_SOURCE_REVIEW_v3.7.6.md
+
+- 카카오 검색 / 심평원 신고자료 모두 선택 진료과의 경쟁 후보로 표기. 정보 출처와 경쟁 여부를 혼동시키던 명칭 수정.
+- 상세창의 진료과·전문의 해석 안내, 동일 기관 중복 가능 및 합산 금지 안내. 기존 집계·색상·좌표 유지.
+- 상세창 반응형·비동기 동작, 마커 렌더, 기존 경쟁 분석·인라인 구문 검사 통과. 병원 API 전수 재조회는 미수행.
+- 전국 쉼터는 행정안전부_무더위쉼터 별도 이용신청 필요. 서울 연결 유지.
+- 단일 HTML 배포 대상. Worker 변경 없음.
+
+아래는 과거 기록입니다.
+
 # 현재 기준 · JINSUL MAP 3.7.5
 
 기준 파일: jinsulmap/jinsulmap.html
