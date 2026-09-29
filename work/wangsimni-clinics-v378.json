@@ -1,0 +1,350 @@
+{
+  "checkedAt": "2026-09-29T15:49:02.043431+00:00",
+  "source": "HIRA official public API, live transport audit; not browser execution",
+  "queries": [
+    {
+      "name": "왕십리본정형외과",
+      "completion": {
+        "resultCode": "00",
+        "totalCount": "1",
+        "receivedRows": 1,
+        "complete": true
+      },
+      "matches": [
+        {
+          "yadmNm": "왕십리본정형외과의원",
+          "addr": "서울특별시 성동구 왕십리로 320, W에비뉴타워 3층 (도선동)",
+          "clCd": "31",
+          "clCdNm": "의원",
+          "XPos": "127.0343485",
+          "YPos": "37.5623492",
+          "drTotCnt": "3"
+        }
+      ]
+    },
+    {
+      "name": "자세본재활의학과",
+      "completion": {
+        "resultCode": "00",
+        "totalCount": "1",
+        "receivedRows": 1,
+        "complete": true
+      },
+      "matches": [
+        {
+          "yadmNm": "자세본재활의학과의원",
+          "addr": "서울특별시 성동구 왕십리로 410, L동 207호 (하왕십리동, 센트라스)",
+          "clCd": "31",
+          "clCdNm": "의원",
+          "XPos": "127.0247864",
+          "YPos": "37.5665507",
+          "drTotCnt": "1"
+        }
+      ]
+    },
+    {
+      "name": "서울마취통증의학과",
+      "completion": {
+        "resultCode": "00",
+        "totalCount": "15",
+        "receivedRows": 15,
+        "complete": true
+      },
+      "matches": [
+        {
+          "yadmNm": "서울마취통증의학과의원",
+          "addr": "서울특별시 성동구 왕십리로 315, 6층 (행당동, 한동타워)",
+          "clCd": "31",
+          "clCdNm": "의원",
+          "XPos": "127.0342572",
+          "YPos": "37.5617465",
+          "drTotCnt": "1"
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "clinicName": "왕십리본정형외과의원",
+      "clinicCode": "31",
+      "clinicType": "의원",
+      "address": "서울특별시 성동구 왕십리로 320, W에비뉴타워 3층 (도선동)",
+      "lat": 37.5623492,
+      "lng": 127.0343485,
+      "distanceMetersFromAddressClinic": 0.0,
+      "radius1000ReturnedDepartmentCodes": [
+        "05",
+        "06",
+        "09",
+        "21"
+      ],
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": "3",
+          "receivedRows": 3,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": "1",
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": "4",
+          "receivedRows": 4,
+          "complete": true
+        }
+      },
+      "specialists": [
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dtlSdrCnt": "1"
+        },
+        {
+          "dgsbjtCd": "09",
+          "dgsbjtCdNm": "마취통증의학과",
+          "dtlSdrCnt": "1"
+        },
+        {
+          "dgsbjtCd": "21",
+          "dgsbjtCdNm": "재활의학과",
+          "dtlSdrCnt": "1"
+        }
+      ],
+      "facilities": [
+        {
+          "permSbdCnt": "0",
+          "hghrSickbdCnt": "0",
+          "stdSickbdCnt": "0",
+          "aduChldSprmCnt": "0",
+          "chldSprmCnt": "0",
+          "nbySprmCnt": "0",
+          "psydeptClsHigSbdCnt": "0",
+          "psydeptClsGnlSbdCnt": "0",
+          "psydeptOpenHigSbdCnt": "0",
+          "psydeptOpenGnlSbdCnt": "0",
+          "isnrSbdCnt": "0",
+          "anvirTrrmSbdCnt": "0",
+          "dtrmSbdCnt": "0",
+          "ptrmCnt": "14",
+          "soprmCnt": "0",
+          "emymCnt": "0",
+          "partumCnt": "0"
+        }
+      ],
+      "departments": [
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": "1"
+        },
+        {
+          "dgsbjtCd": "06",
+          "dgsbjtCdNm": "신경외과",
+          "dgsbjtPrSdrCnt": "0"
+        },
+        {
+          "dgsbjtCd": "09",
+          "dgsbjtCdNm": "마취통증의학과",
+          "dgsbjtPrSdrCnt": "1"
+        },
+        {
+          "dgsbjtCd": "21",
+          "dgsbjtCdNm": "재활의학과",
+          "dgsbjtPrSdrCnt": "1"
+        }
+      ]
+    },
+    {
+      "clinicName": "자세본재활의학과의원",
+      "clinicCode": "31",
+      "clinicType": "의원",
+      "address": "서울특별시 성동구 왕십리로 410, L동 207호 (하왕십리동, 센트라스)",
+      "lat": 37.5665507,
+      "lng": 127.0247864,
+      "distanceMetersFromAddressClinic": 963.6,
+      "radius1000ReturnedDepartmentCodes": [
+        "21"
+      ],
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": "1",
+          "receivedRows": 1,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": "1",
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": "1",
+          "receivedRows": 1,
+          "complete": true
+        }
+      },
+      "specialists": [
+        {
+          "dgsbjtCd": "21",
+          "dgsbjtCdNm": "재활의학과",
+          "dtlSdrCnt": "1"
+        }
+      ],
+      "facilities": [
+        {
+          "permSbdCnt": "0",
+          "hghrSickbdCnt": "0",
+          "stdSickbdCnt": "0",
+          "aduChldSprmCnt": "0",
+          "chldSprmCnt": "0",
+          "nbySprmCnt": "0",
+          "psydeptClsHigSbdCnt": "0",
+          "psydeptClsGnlSbdCnt": "0",
+          "psydeptOpenHigSbdCnt": "0",
+          "psydeptOpenGnlSbdCnt": "0",
+          "isnrSbdCnt": "0",
+          "anvirTrrmSbdCnt": "0",
+          "dtrmSbdCnt": "0",
+          "ptrmCnt": "12",
+          "soprmCnt": "0",
+          "emymCnt": "0",
+          "partumCnt": "0"
+        }
+      ],
+      "departments": [
+        {
+          "dgsbjtCd": "21",
+          "dgsbjtCdNm": "재활의학과",
+          "dgsbjtPrSdrCnt": "1"
+        }
+      ]
+    },
+    {
+      "clinicName": "서울마취통증의학과의원",
+      "clinicCode": "31",
+      "clinicType": "의원",
+      "address": "서울특별시 성동구 왕십리로 315, 6층 (행당동, 한동타워)",
+      "lat": 37.5617465,
+      "lng": 127.0342572,
+      "distanceMetersFromAddressClinic": 67.5,
+      "radius1000ReturnedDepartmentCodes": [
+        "05",
+        "06",
+        "09",
+        "21"
+      ],
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": "1",
+          "receivedRows": 1,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": "1",
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": "10",
+          "receivedRows": 10,
+          "complete": true
+        }
+      },
+      "specialists": [
+        {
+          "dgsbjtCd": "09",
+          "dgsbjtCdNm": "마취통증의학과",
+          "dtlSdrCnt": "1"
+        }
+      ],
+      "facilities": [
+        {
+          "permSbdCnt": "1",
+          "hghrSickbdCnt": "0",
+          "stdSickbdCnt": "1",
+          "aduChldSprmCnt": "0",
+          "chldSprmCnt": "0",
+          "nbySprmCnt": "0",
+          "psydeptClsHigSbdCnt": "0",
+          "psydeptClsGnlSbdCnt": "0",
+          "psydeptOpenHigSbdCnt": "0",
+          "psydeptOpenGnlSbdCnt": "0",
+          "isnrSbdCnt": "0",
+          "anvirTrrmSbdCnt": "0",
+          "dtrmSbdCnt": "0",
+          "ptrmCnt": "7",
+          "soprmCnt": "0",
+          "emymCnt": "0",
+          "partumCnt": "0"
+        }
+      ],
+      "departments": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dgsbjtPrSdrCnt": "0"
+        },
+        {
+          "dgsbjtCd": "02",
+          "dgsbjtCdNm": "신경과",
+          "dgsbjtPrSdrCnt": "0"
+        },
+        {
+          "dgsbjtCd": "04",
+          "dgsbjtCdNm": "외과",
+          "dgsbjtPrSdrCnt": "0"
+        },
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": "0"
+        },
+        {
+          "dgsbjtCd": "06",
+          "dgsbjtCdNm": "신경외과",
+          "dgsbjtPrSdrCnt": "0"
+        },
+        {
+          "dgsbjtCd": "09",
+          "dgsbjtCdNm": "마취통증의학과",
+          "dgsbjtPrSdrCnt": "1"
+        },
+        {
+          "dgsbjtCd": "14",
+          "dgsbjtCdNm": "피부과",
+          "dgsbjtPrSdrCnt": "0"
+        },
+        {
+          "dgsbjtCd": "15",
+          "dgsbjtCdNm": "비뇨의학과",
+          "dgsbjtPrSdrCnt": "0"
+        },
+        {
+          "dgsbjtCd": "21",
+          "dgsbjtCdNm": "재활의학과",
+          "dgsbjtPrSdrCnt": "0"
+        },
+        {
+          "dgsbjtCd": "23",
+          "dgsbjtCdNm": "가정의학과",
+          "dgsbjtPrSdrCnt": "0"
+        }
+      ]
+    }
+  ],
+  "center": {
+    "basis": "HIRA 왕십리본정형외과 location at 왕십리로320 (address-geocoder difference not yet measured)",
+    "lat": 37.5623492,
+    "lng": 127.0343485
+  }
+}

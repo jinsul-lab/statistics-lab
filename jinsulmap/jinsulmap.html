@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>JINSUL MAP v3.7.7</title>
+<title>JINSUL MAP v3.7.8</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=587d3b22c3896f92f134d03253e685bd&amp;libraries=services,drawing,clusterer&amp;autoload=false"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -612,7 +612,7 @@
     @media (max-width: 820px){ .rightDrawer{width:92vw;} }
 
     /* ===========================
-       상권 스캔 v3.7.7
+       상권 스캔 v3.7.8
        =========================== */
     .sidebarTabs{
       display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:8px 10px;
@@ -772,7 +772,7 @@
       .scanReportHero{grid-template-columns:1fr;}.scanReportKpis{grid-template-columns:1fr 1fr;}.scanReportGrid{grid-template-columns:1fr;}.scanReportCard.wide{grid-column:auto;}
     }
 
-/* v3.7.7 · chart-focused theme; preserves map, filters and clinical marker colors */
+/* v3.7.8 · chart-focused theme; preserves map, filters and clinical marker colors */
 .scanReportModal .scanReportCard,.scanReportCard{border:1px solid #dce5f3;border-radius:20px;background:linear-gradient(150deg,#fff 65%,#f3f7ff);box-shadow:0 8px 28px #243a6610;overflow:hidden}
 .scanReportCard h3{font-size:15px;letter-spacing:-.3px;color:#193355;display:flex;align-items:center;gap:9px}
 .scanReportCard h3:before{content:'';width:5px;height:18px;border-radius:9px;background:linear-gradient(#6366f1,#22d3ee)}
@@ -791,7 +791,7 @@
 .scanReportCard .scanVisualGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scanReportCard .scanVisualGrid .scanVisual{margin:0;min-width:0}
 @media(max-width:800px){.scanReportCard .scanVisualGrid{grid-template-columns:1fr}}
 
-/* v3.7.7: explicit foregrounds prevent inherited transparent text. */
+/* v3.7.8: explicit foregrounds prevent inherited transparent text. */
 :root{color-scheme:light}
 .sectionTitle{background:none;-webkit-background-clip:initial;-webkit-text-fill-color:currentColor;color:#243b68}
 .sectionTitle .pill{background:#1d4ed8;color:#fff;-webkit-text-fill-color:#fff}
@@ -909,7 +909,7 @@ if(typeof Chart!=='undefined'){
 <div class="sidebar">
 <div class="sidebarHeader">
 <div class="brand">JINSUL MAP</div>
-<div style="font-size:11px;color:#868e96;">v3.7.7</div>
+<div style="font-size:11px;color:#868e96;">v3.7.8</div>
 </div>
 <div class="sidebarTabs" role="tablist" aria-label="분석 모드">
 <button class="sidebarModeBtn active" id="btnModePatients" type="button" role="tab" aria-selected="true" aria-controls="patientSidebarPanel">환자 분석</button>
@@ -987,7 +987,7 @@ if(typeof Chart!=='undefined'){
 <span>현수막게시대</span>
 </div>
 </div>
-<label class="seniorSearchOption"><input id="seniorAuxSearch" type="checkbox"/> 관리사무소·경비실 보조 검색<small>경로당·노인정·마을회관·무더위쉼터를 조회하고, 서울 지도 범위에서는 공식 지정 쉼터를 함께 불러옵니다. 보조 결과는 실제 노인시설 여부를 확인할 문의처이며, 별도로 표시·저장합니다.</small></label><div class="siteFine" style="margin-top:8px">현재 지도 범위 · 쉼터·복지관은 카카오 키워드별 최대 45건. 경쟁의원은 4개 유관과 전문의·입원 병상 없음이 확인된 의원이며, 지도 전체를 덮는 조회 반경이 5km 이내일 때 조회합니다. 서울 공식자료는 별도 전체 페이지 조회 후 지도 범위로 필터합니다. 미검색이 시설 부재를 뜻하지는 않습니다. 시설이 많으면 마커를 눌러 이름을 확인하고 지도를 확대하세요.</div><div id="searchStatus" style="font-size:11px;color:#868e96;text-align:center;margin:8px 0;">대기</div>
+<label class="seniorSearchOption"><input id="seniorAuxSearch" type="checkbox"/> 관리사무소·경비실 보조 검색<small>경로당·노인정·마을회관·무더위쉼터를 조회하고, 서울 지도 범위에서는 공식 지정 쉼터를 함께 불러옵니다. 보조 결과는 실제 노인시설 여부를 확인할 문의처이며, 별도로 표시·저장합니다.</small></label><div class="siteFine" style="margin-top:8px">현재 지도 범위 · 쉼터·복지관은 카카오 키워드별 최대 45건. 경쟁의원은 4개 유관과 전문의 신고가 확인된 의원급 기관이며 입원 병상 유무와 관계없이 포함합니다. 지도 전체를 덮는 조회 반경이 5km 이내일 때 조회합니다. 서울 공식자료는 별도 전체 페이지 조회 후 지도 범위로 필터합니다. 미검색이 시설 부재를 뜻하지는 않습니다. 시설이 많으면 마커를 눌러 이름을 확인하고 지도를 확대하세요.</div><div id="searchStatus" style="font-size:11px;color:#868e96;text-align:center;margin:8px 0;">대기</div>
 <div id="facilitySourceResults" hidden></div>
 <div class="btnRow">
 <button class="btn primary" id="btnSearch">시설 스캔</button>
@@ -1056,7 +1056,7 @@ if(typeof Chart!=='undefined'){
 <div class="scanMetric wide"><div class="scanMetricLabel">가장 가까운 경쟁병원</div><div class="scanMetricValue" id="scanNearest">-</div><div class="scanMetricMeta" id="scanNearestName">선택 반경 내 검색 결과 없음</div></div>
 </div>
 <div class="scanLimitNote" id="scanLimitNote"></div>
-<div class="scanNote">직선거리 기준입니다. 경쟁병원은 선택 과 전문의 신고 1명 이상·의원급·입원 병상 0개가 확인된 곳입니다. 실제 상주 여부는 별도 확인이 필요하며, 미확인 기관은 집계에서 제외합니다.</div>
+<div class="scanNote">직선거리 기준입니다. 경쟁병원은 의원급이며 선택 과 전문의 신고가 1명 이상인 곳입니다. 입원 병상 유무와 관계없이 포함합니다. 전문의 미확인도 진료과목 신고가 있으면 심평원 신고의원으로 표시하며, 실제 상주 여부는 별도 확인이 필요합니다.</div>
 <button class="btn primary scanReportTrigger" id="btnOpenScanReport" type="button">📊 입지 상세분석 열기</button>
 </div>
 </div>
@@ -1124,7 +1124,7 @@ if(typeof Chart!=='undefined'){
 
 <div class="section">
 <div class="sectionTitle">지도 표시 <span class="pill">필터</span></div>
-<p class="scanNote" id="scanClinicSourceGuide">붉은색은 대상 전문의 신고·의원급·입원 병상 0개가 확인된 경쟁병원입니다. 청록색은 해당 과 전문의 신고 0명인 심평원 신고의원입니다. 미확인은 목록에서 별도 확인하며 두 분류에 중복 표시하지 않습니다.</p>
+<p class="scanNote" id="scanClinicSourceGuide">붉은색은 선택 과 전문의 신고 1명 이상인 의원급 경쟁병원입니다. 청록색은 선택 진료과목은 신고했지만 해당 전문의가 0명 또는 미확인인 심평원 신고의원입니다. 입원 병상은 제외 조건이 아니며 두 분류에 중복 표시하지 않습니다.</p>
 <div class="scanLayerGrid" id="scanLayerFilters">
 <label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="candidate" checked/><span class="scanSwatch" style="background:#b45309"></span>후보지·반경</label>
 <label class="scanCheck"><input class="scanLayerFilter" type="checkbox" value="competitor" checked/><span class="scanSwatch" style="background:#d51f49"></span>경쟁병원</label>
@@ -1160,7 +1160,7 @@ if(typeof Chart!=='undefined'){
 </div>
 </div>
 <div style="padding:10px;text-align:center;font-size:10px;color:#adb5bd;border-top:1px solid #eee;">
-      JINSUL MAP v3.7.7<br/>All Rights Reserved.
+      JINSUL MAP v3.7.8<br/>All Rights Reserved.
     </div>
 </div>
 <div class="mapArea">
@@ -1923,7 +1923,7 @@ function initKakao(){
     roadviewClient = new kakao.maps.RoadviewClient();
     setupMapListeners(); setupToolbar();
     setScanReady(true);
-    toast("시스템 준비 완료 (v3.7.7)");
+    toast("시스템 준비 완료 (v3.7.8)");
   });
 }
 initKakao();
@@ -2466,11 +2466,11 @@ async function loadBannerPoints(){
     }
   });
 
-// v3.7.7 facility-search helpers. Inlined into the single HTML at release time.
+// v3.7.8 facility-search helpers. Inlined into the single HTML at release time.
 const SENIOR_DIRECT_KEYWORDS = ['경로당', '노인정', '마을회관', '무더위쉼터'];
 const SENIOR_AUXILIARY_KEYWORDS = ['관리사무소', '관리실', '경비실'];
 
-/* Optional v3.7.7 helpers. Integrate into the release HTML only after review.
+/* Optional v3.7.8 helpers. Integrate into the release HTML only after review.
  * No network calls, no credentials, no inference that a cooling shelter is a senior facility.
  */
 function seniorFacilityDetails(place){
@@ -2805,7 +2805,7 @@ function facilityVerifiedClinicPlace(place){
   const sourceUrl='https://www.data.go.kr/data/15001698/openapi.do';
   return {...place,id:sourceRecordId,place_name:String(place.name||''),road_address_name:String(place.address||''),address_name:String(place.address||''),x:String(lng),y:String(lat),
     sourceProvider:'hira',sourceRecordId,sourceUrl,officialSourceUrl:sourceUrl,recordDate:'',retrievedAt:a.checkedAt||'',
-    facilityType:'경쟁의원',designationStatus:'4개 유관과 전문의 · 입원 병상 없음 확인',competitionAssessment:{...a,specialistCounts:{...(a.specialistCounts||{})},matchedSpecialties:[...(a.matchedSpecialties||[])]},
+    facilityType:'경쟁의원',designationStatus:'의원급 · 4개 유관과 전문의 신고 확인 · 입원 병상 제한 없음',competitionAssessment:{...a,specialistCounts:{...(a.specialistCounts||{})},matchedSpecialties:[...(a.matchedSpecialties||[])]},
     sourceRefs:[{provider:'hira',recordId:sourceRecordId,sourceUrl,recordDate:'',retrievedAt:a.checkedAt||'',criteriaVersion:a.criteriaVersion||''}]};
 }
 async function facilityFetchCompetition(bounds,isCurrent){
@@ -2814,8 +2814,8 @@ async function facilityFetchCompetition(bounds,isCurrent){
   if(!isCurrent()||!data)return {cancelled:true};
   const within=rows=>(rows||[]).filter(p=>facilityWithinBounds({x:p.lng,y:p.lat},bounds));
   const places=within(data.competitors).map(facilityVerifiedClinicPlace).filter(Boolean);
-  return {places,unavailable:!!data.unavailable,partial:!!data.partial||!!data.errorLabels?.length,
-    declaredCount:within(data.declared).length,unverifiedCount:within(data.unverified).length,excludedCount:within(data.excluded).length};
+  return {places,unavailable:!!data.unavailable,partial:!!data.partial||!!data.errorLabels?.length||within(data.declared).some(p=>p.competitionAssessment?.specialistCount==null),
+    declaredCount:within(data.declared).length,unverifiedCount:within(data.unverified).length,specialistUnverifiedCount:within(data.declared).filter(p=>p.competitionAssessment?.specialistCount==null).length,excludedCount:within(data.excluded).length};
 }
 
 function facilityWithinBounds(place,bounds){
@@ -2947,15 +2947,15 @@ await __waitMapIdle();
 
     let rawResults = [];
     if(t === 'ortho'){
-      $('searchStatus').innerText='경쟁의원 전문의·입원 병상 확인 중…';
+      $('searchStatus').innerText='경쟁의원 종별·전문의 신고 확인 중…';
       try{
         const result=await facilityFetchCompetition(bounds,()=>requestToken===facilitySearchRequestToken);
         if(result.cancelled||requestToken!==facilitySearchRequestToken)return;
         rawResults=result.places;
         if(result.unavailable)searchIssues.push('경쟁의원 심평원 조회 불가 · 0곳을 의미하지 않음');
-        else searchNotes.push('확인된 경쟁의원 '+rawResults.length+'곳 · 심평원 신고의원 '+result.declaredCount+'곳 · 판정 미확인 '+result.unverifiedCount+'곳'+(result.excludedCount?' · 조건 제외 '+result.excludedCount+'곳':''));
-        if(result.partial)searchIssues.push('경쟁의원 일부 조회 실패 · 확인된 결과만 표시');
-        if(result.unverifiedCount)searchIssues.push('전문의·입원 병상 미확인 기관은 경쟁의원 수에 포함하지 않음');
+        else searchNotes.push('확인된 경쟁의원 '+rawResults.length+'곳 · 심평원 신고의원 '+result.declaredCount+'곳 (전문의 미확인 '+(result.specialistUnverifiedCount||0)+'곳) · 판정 미확인 '+result.unverifiedCount+'곳'+(result.excludedCount?' · 조건 제외 '+result.excludedCount+'곳':''));
+        if(result.partial)searchIssues.push('경쟁의원 일부 조회 실패·전문의 미확인 · 확인된 결과만 표시');
+        if(result.unverifiedCount)searchIssues.push('기관 종별·진료과 확인 필요 자료는 경쟁의원 수에 포함하지 않음');
       }catch(error){
         if(requestToken!==facilitySearchRequestToken)return;
         searchIssues.push(error?.message||'경쟁의원 조회 실패 · 0곳을 의미하지 않음');
@@ -4747,7 +4747,7 @@ window.switchTab = (id) => {
 };
 
 
-/* ===========================   [상권 스캔 v3.7.7]   =========================== */
+/* ===========================   [상권 스캔 v3.7.8]   =========================== */
 function setScanReady(ready){
   scanState.ready = !!ready;
   const btn = $('btnRunScan');
@@ -4826,7 +4826,7 @@ function scanIsSeoulCandidate(candidate){
 }
 
 async function scanSeoulRequest(service,key,start,end,tail=''){
-  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.7]');
+  if(location.protocol==='file:')throw new Error('로컬 파일에서는 서울 API를 사용할 수 없습니다. 진설맵 고정 실행 주소으로 열어주세요. [v3.7.8]');
   const text=await scanNetworkRequest('https://jinsul-seoul-proxy.yms0127.workers.dev/seoul',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service,key,start,end,tail:decodeURIComponent(tail)}),cache:'no-store'},22000);
   let payload;try{payload=JSON.parse(text);}catch{throw new Error('서울 API JSON 응답 형식 오류');}
   if(payload?.error)throw new Error('서울 중계 요청 처리 실패');return payload;
@@ -5592,7 +5592,7 @@ async function scanPrepareProperty(region,candidate,marketToken){
 }
 
 /* CLINIC_CRITERIA_V377_START */
-const SCAN_CLINIC_CRITERIA_VERSION='specialist-no-inpatient-v1';
+const SCAN_CLINIC_CRITERIA_VERSION='specialist-clinic-v2';
 const SCAN_INPATIENT_FIELDS=['permSbdCnt','hghrSickbdCnt','stdSickbdCnt','aduChldSprmCnt','chldSprmCnt','nbySprmCnt','psydeptClsHigSbdCnt','psydeptClsGnlSbdCnt','psydeptOpenHigSbdCnt','psydeptOpenGnlSbdCnt','isnrSbdCnt','anvirTrrmSbdCnt','dtrmSbdCnt'];
 function scanClinicCount(value){
   if(!['string','number'].includes(typeof value)||!/^\d+$/.test(String(value).trim()))return null;
@@ -5600,14 +5600,14 @@ function scanClinicCount(value){
 }
 function scanClassifyClinic(place,evidence={},selected=Object.keys(HIRA_SPECIALTY_CODES)){
   const names=[...new Set(selected)].filter(n=>HIRA_SPECIALTY_CODES[n]);
-  const assessment={status:'unverified',reason:'전문의·입원 병상 확인 필요',specialistCount:null,specialistCounts:{},matchedSpecialties:[],bedCount:null,checkedAt:evidence.checkedAt||'',criteriaVersion:SCAN_CLINIC_CRITERIA_VERSION};
+  const assessment={status:'unverified',reason:'전문의 확인 필요',specialistCount:null,specialistCounts:{},matchedSpecialties:[],bedCount:null,checkedAt:evidence.checkedAt||'',criteriaVersion:SCAN_CLINIC_CRITERIA_VERSION};
   const done=(status,reason)=>({...assessment,status,reason});
   if(String(place.clinicCode||'')!=='31')return done(place.clinicCode?'excluded':'unverified',place.clinicCode?'의원급 외 의료기관 제외':'의료기관 종별 미확인');
   const facilities=Array.isArray(evidence.facilities)?evidence.facilities:[];
-  // Any reported inpatient capacity excludes the clinic. Treatment/recovery equipment is not inpatient capacity.
+  // Inpatient capacity is informational; it does not determine competition for clinic-level institutions.
   if(facilities.some(r=>r&&typeof r==='object'&&SCAN_INPATIENT_FIELDS.some(k=>(scanClinicCount(r[k])??0)>0))){
     assessment.bedCount=Math.max(...facilities.flatMap(r=>SCAN_INPATIENT_FIELDS.map(k=>scanClinicCount(r?.[k])||0)));
-    return done('excluded','입원 병상 신고 · 분석 대상 제외');
+
   }
   const bedsKnown=evidence.facilitiesComplete===true&&facilities.length===1&&!!facilities[0]&&SCAN_INPATIENT_FIELDS.every(k=>scanClinicCount(facilities[0][k])===0);
   if(bedsKnown)assessment.bedCount=0;
@@ -5622,10 +5622,9 @@ function scanClassifyClinic(place,evidence={},selected=Object.keys(HIRA_SPECIALT
   assessment.matchedSpecialties=names.filter(n=>assessment.specialistCounts[n]>0);
   const knownTotal=names.reduce((sum,n)=>sum+(assessment.specialistCounts[n]||0),0);
   assessment.specialistCount=names.length&&names.every(n=>assessment.specialistCounts[n]!==null)?knownTotal:knownTotal>0?knownTotal:null;
-  if(!bedsKnown)return done('unverified','입원 병상 자료 미확인 · 경쟁병원 집계 제외');
-  if(assessment.matchedSpecialties.length)return done('competitor','선택 과 전문의 신고 1명 이상 · 의원급 · 입원 병상 0');
+  if(assessment.matchedSpecialties.length)return done('competitor','선택 과 전문의 신고 1명 이상 · 의원급');
   const declared=names.filter(n=>(place.specialties||[]).includes(n));
-  if(evidence.specialistsComplete===true&&declared.length&&names.every(n=>assessment.specialistCounts[n]===0))return done('declared','선택 과 진료과목 신고 · 해당 과 전문의 신고 0명');
+  if(declared.length)return done('declared',names.every(n=>assessment.specialistCounts[n]===0)?'선택 과 진료과목 신고 · 해당 과 전문의 신고 0명':'선택 과 진료과목 신고 · 해당 과 전문의 수 미확인');
   return done('unverified','선택 과 전문의 수 미확인 · 경쟁병원 집계 제외');
 }
 function scanClinicAssessmentLabel(place){
@@ -5680,12 +5679,12 @@ function scanClinicCohort(hira){
 }
 function scanCompetitionStatus(result){
   if(!result.hira||result.hira.unavailable)return '조회 불가';
-  const uncertain=(result.hira.unverified||[]).length,partial=!!result.hira.errorLabels?.length;
+  const uncertain=(result.hira.unverified||[]).length+(result.hira.declared||[]).filter(p=>p.competitionAssessment?.specialistCount===null).length,partial=!!result.hira.errorLabels?.length;
   return uncertain||partial?'확인된 '+result.competitors.length+'곳 · 일부 미확인':result.competitors.length+'곳';
 }
 function scanClinicCriteriaNote(result){
   const h=result?.hira,e=scanEscapeHTML;
-  return '<div class="scanClinicSourceNote"><b>경쟁병원 선정 기준</b><p>선택한 정형외과·신경외과·마취통증의학과·재활의학과 전문의 신고 1명 이상, 의원급, 입원 병상 0개가 확인된 기관입니다. 신고자료 기준이며 실제 상주·당일 근무는 별도 확인이 필요합니다. 병상 있는 의원도 이번 분석에서는 제외합니다.</p><p>'+e(!h||h.unavailable?'심평원 조회 실패 · 경쟁병원 수 확인 불가':'경쟁 '+(h?.competitors?.length||0)+'곳 · 심평원 신고의원 '+(h?.declared?.length||0)+'곳 · 확인 필요 '+(h?.unverified?.length||0)+'곳 · 제외 '+(h?.excluded?.length||0)+'곳')+'</p></div>';
+  return '<div class="scanClinicSourceNote"><b>경쟁병원 선정 기준</b><p>선택한 정형외과·신경외과·마취통증의학과·재활의학과 전문의 신고 1명 이상이 확인된 의원급 기관입니다. 입원 병상 유무와 관계없이 포함하며 병원·종합병원·상급종합병원은 제외합니다. 진료과목 신고만 확인된 곳은 심평원 신고의원으로 표시하고 전문의 0명과 미확인을 구분합니다. 신고자료 기준이며 실제 상주·당일 근무는 별도 확인이 필요합니다.</p><p>'+e(!h||h.unavailable?'심평원 조회 실패 · 경쟁병원 수 확인 불가':'경쟁 '+(h?.competitors?.length||0)+'곳 · 심평원 신고의원 '+(h?.declared?.length||0)+'곳 · 확인 필요 '+(h?.unverified?.length||0)+'곳 · 제외 '+(h?.excluded?.length||0)+'곳')+'</p></div>';
 }
 
 async function scanFetchHiraSpecialty(specialty,candidate,radius){
@@ -5731,7 +5730,7 @@ async function scanFetchHiraCompetition(specialties,candidate,radius,token,isCur
     });
   });
   const places=Array.from(merged.values()).sort((a,b)=>a.distance-b.distance);
-  await scanAssessClinics(places,specialties,isCurrent,(done,total)=>{if(token===scanState.requestToken&&scanState.isScanning)scanSetStatus('전문의·입원 병상 확인 중 '+done+'/'+total,'busy');});
+  await scanAssessClinics(places,specialties,isCurrent,(done,total)=>{if(token===scanState.requestToken&&scanState.isScanning)scanSetStatus('의원 종별·전문의 신고 확인 중 '+done+'/'+total,'busy');});
   if(!isCurrent())return null;
   const cohort=scanClinicCohort({places});
   const cutoff=new Date(); cutoff.setFullYear(cutoff.getFullYear()-5);
@@ -5752,8 +5751,8 @@ function scanRenderHira(result){
   if(!result){scanResetHiraUI('심평원 조회 불가 · 경쟁병원 수 확인 불가');return;}
   $('scanHiraEmpty').hidden=true;$('scanHiraContent').hidden=false;
   const h=scanClinicCohort(result),e=scanEscapeHTML;
-  $('scanHiraMetrics').innerHTML=[['심평원 신고의원',h.declared.length],['분류 확인 필요',h.unverified.length],['입원·종별 제외',h.excluded.length]].map(([label,n])=>'<div class="scanOfficialStat"><span>'+label+'</span><b>'+(result.unavailable?'조회 불가':n+'곳')+'</b></div>').join('');
-  $('scanHiraSpecialties').innerHTML='<p class="scanNote">신고의원은 선택 과 진료과목은 있으나 해당 과 전문의 신고가 0명이고, 입원 병상 0개가 확인된 곳입니다. 조회 실패·자료 누락은 확인 필요로 분리합니다.</p>';
+  $('scanHiraMetrics').innerHTML=[['심평원 신고의원',h.declared.length],['분류 확인 필요',h.unverified.length],['의원 외 종별 제외',h.excluded.length]].map(([label,n])=>'<div class="scanOfficialStat"><span>'+label+'</span><b>'+(result.unavailable?'조회 불가':n+'곳')+'</b></div>').join('');
+  $('scanHiraSpecialties').innerHTML='<p class="scanNote">신고의원은 선택 진료과목을 신고했지만 해당 과 전문의가 0명 또는 미확인인 의원입니다. 전문의 미확인 '+h.declared.filter(p=>p.competitionAssessment?.specialistCount==null).length+'곳은 0명으로 단정하지 않습니다. 입원 병상 유무와 관계없이 표시하며, 기관 종별·진료과 자체가 확인되지 않으면 분류 확인 필요로 분리합니다.</p>';
   const rows=[...h.declared,...h.unverified,...h.excluded];
   $('scanHiraList').innerHTML=(result.unavailable?'<div class="scanEmpty">심평원 조회 실패입니다. 0곳을 의미하지 않습니다.</div>':'')+(result.errorLabels?.length?'<p class="scanLimitNote" style="display:block">일부 진료과 조회 실패: '+e(result.errorLabels.join(', '))+'</p>':'')+rows.slice(0,100).map((p,i)=>'<button class="scanOfficialButton" type="button" data-clinic-row="'+i+'"><strong>'+e(p.name)+'</strong><span>'+e(scanClinicAssessmentLabel(p))+' · '+e(p.competitionAssessment.reason)+' · '+scanFormatDistance(p.distance)+'</span></button>').join('')+(rows.length>100?'<p>가까운 순 분류별 합계 100곳까지 목록 표시</p>':'');
   $('scanHiraList').querySelectorAll('[data-clinic-row]').forEach(b=>b.onclick=()=>{const p=rows[Number(b.dataset.clinicRow)];map.panTo(new kakao.maps.LatLng(p.lat,p.lng));scanOpenHiraInfo(p);});
@@ -5784,7 +5783,7 @@ function scanHiraInfoHTML(place,data=null,error=false){
 function scanClinicSourceExplanation(place,type){
   if(!['competitor','hira'].includes(type))return '';
   const a=place.competitionAssessment,e=scanEscapeHTML;
-  if(!a)return '<div class="scanClinicSourceNote">분류 확인 필요 · 전문의·병상 검증 전 자료입니다.</div>';
+  if(!a)return '<div class="scanClinicSourceNote">분류 확인 필요 · 의원 종별·전문의 신고 검증 전 자료입니다.</div>';
   return '<div class="scanClinicSourceNote"><b>'+e(scanClinicAssessmentLabel(place))+'</b><p>'+e(a.reason)+'</p><p>대상 전문의: '+(a.specialistCount===null?'미확인':a.specialistCount+'명')+' · 입원 병상: '+(a.bedCount===null?'미확인':a.bedCount===0?'0개 확인':'보유 확인')+'</p><p>'+e(a.matchedSpecialties.join(', '))+' · 심평원 신고자료 기준. 실제 상주·당일 근무는 별도 확인이 필요합니다.</p><small>조회 '+e(a.checkedAt)+'</small></div>';
 }
 
@@ -6337,7 +6336,7 @@ function scanRenderResult(result){
       };
     });
   }else{
-    placeList.innerHTML = '<div class="scanEmpty">조건을 모두 확인한 경쟁병원은 없습니다. 전문의·병상 미확인 목록과 조회 상태를 확인하세요.</div>';
+    placeList.innerHTML = '<div class="scanEmpty">확인된 경쟁병원은 없습니다. 심평원 신고의원 목록의 전문의 미확인 상태와 조회 결과를 확인하세요.</div>';
   }
 
   scanRenderHira(result.hira);
@@ -6483,7 +6482,7 @@ function scanSiteCompetition(result,exclude=true,draft=scanSite.active){
   const all=unavailable?[]:reference?(source.places||[]):(source.competitors||[]),excluded=exclude?all.filter(p=>scanSiteSameClinic(p,result.candidate)):[];
   const rows=all.filter(p=>!excluded.includes(p)).map(p=>({name:p.name,address:p.address,phone:p.phone,lat:p.lat,lng:p.lng,distance:p.distance,doctorCount:p.doctorCount,establishedDate:p.establishedDate,specialties:reference?p.specialties:p.competitionAssessment.matchedSpecialties,ykiho:p.ykiho,competitionAssessment:p.competitionAssessment||null}));
   const bins=[250,500,1000,Infinity].map((end,i)=>({label:i===0?'250m 이내':i===1?'250~500m':i===2?'500m~1km':'1km 초과',count:rows.filter(p=>p.distance<=end&&p.distance>(i?[250,500,1000][i-1]:-1)).length}));
-  return {criteriaVersion:SCAN_CLINIC_CRITERIA_VERSION,mode:reference?'reference':'competition',selectedSpecialties:(result.specialties||[]).map(s=>s.name),unavailable,partial:!!source?.errorLabels?.length||(!reference&&!!source?.unverified?.length),unverifiedCount:source?.unverified?.length||0,excludedClinicalCount:source?.excluded?.length||0,excluded:excluded.length,rows,bins};
+  return {criteriaVersion:SCAN_CLINIC_CRITERIA_VERSION,mode:reference?'reference':'competition',selectedSpecialties:(result.specialties||[]).map(s=>s.name),unavailable,partial:!!source?.errorLabels?.length||(!reference&&(!!source?.unverified?.length||(source?.declared||[]).some(p=>p.competitionAssessment?.specialistCount==null))),unverifiedCount:source?.unverified?.length||0,specialistUnverifiedCount:(source?.declared||[]).filter(p=>p.competitionAssessment?.specialistCount==null).length,excludedClinicalCount:source?.excluded?.length||0,excluded:excluded.length,rows,bins};
 }
 function scanSiteCompetitionTitle(c){return c.criteriaVersion!==SCAN_CLINIC_CRITERIA_VERSION?'과거 신고기관 참고 · 재조회 필요':c.mode==='reference'?'타과 포함 신고기관 참고':'경쟁병원 · 전문의 신고 확인';}
 function scanSiteAssessment(a){
@@ -6518,7 +6517,7 @@ function scanSiteValidDraft(raw){
   const fields={};for(const [key,,type] of scanSiteFields){fields[key]=scanSiteText(raw.fields?.[key]);if(type==='number'&&fields[key]!==''&&scanSiteNum(fields[key])===null)throw Error('금액·면적은 0 이상의 숫자로 입력해주세요.');}
   const photos={};for(const k of ['exterior','location']){const value=raw.photos?.[k]||'';if(value&&!/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(value))throw Error('사진 형식이 올바르지 않습니다.');if(value.length>2500000)throw Error('사진 용량이 너무 큽니다.');photos[k]=value;}
   const snap=raw.snapshot,comp=snap.competition||{};
-  const snapshot={candidate:{name:scanSiteText(c.name),address:scanSiteText(c.address),placeUrl:/^https?:\/\/place\.kakao\.com\/\d+(?:[/?#]|$)/i.test(c.placeUrl||'')?scanSiteText(c.placeUrl):'',lat:c.lat,lng:c.lng,searchScope:scanSiteText(c.searchScope),searchQuery:scanSiteText(c.searchQuery)},radius:scanSiteNum(snap.radius)||1000,createdAt:scanSiteText(snap.createdAt),facts:(snap.facts||[]).slice(0,160).map(r=>Object.fromEntries(['name','value','scope','when','source'].map(k=>[k,scanSiteText(r[k])]))),competition:{criteriaVersion:comp.criteriaVersion===SCAN_CLINIC_CRITERIA_VERSION?SCAN_CLINIC_CRITERIA_VERSION:"",mode:comp.mode==="reference"?"reference":"competition",selectedSpecialties:(comp.selectedSpecialties||[]).filter(n=>HIRA_SPECIALTY_CODES[n]),unverifiedCount:scanClinicCount(comp.unverifiedCount),excludedClinicalCount:scanClinicCount(comp.excludedClinicalCount),unavailable:!!comp.unavailable,partial:!!comp.partial,excluded:scanSiteNum(comp.excluded)||0,rows:(comp.rows||[]).slice(0,1000).map(r=>({name:scanSiteText(r.name),address:scanSiteText(r.address),phone:scanSiteText(r.phone),lat:scanSiteNum(r.lat),lng:scanSiteNum(r.lng),distance:scanSiteNum(r.distance),doctorCount:scanSiteNum(r.doctorCount),establishedDate:scanSiteText(r.establishedDate),specialties:(r.specialties||[]).slice(0,10).map(scanSiteText),competitionAssessment:scanSiteAssessment(r.competitionAssessment)}))},clinic:snap.clinic?{area:scanSiteText(snap.clinic.area),industry:scanSiteText(snap.clinic.industry),period:scanSiteText(snap.clinic.period),amount:scanSiteNum(snap.clinic.amount),stores:scanSiteNum(snap.clinic.stores),perStore:scanSiteNum(snap.clinic.perStore)}:null,facilities:(snap.facilities||[]).slice(0,10).map(r=>({name:scanSiteText(r.name),count:scanSiteNum(r.count),error:!!r.error,partial:!!r.partial,nearest:r.nearest?{name:scanSiteText(r.nearest.name),distance:scanSiteNum(r.nearest.distance),lat:scanSiteNum(r.nearest.lat),lng:scanSiteNum(r.nearest.lng)}:null}))};
+  const snapshot={candidate:{name:scanSiteText(c.name),address:scanSiteText(c.address),placeUrl:/^https?:\/\/place\.kakao\.com\/\d+(?:[/?#]|$)/i.test(c.placeUrl||'')?scanSiteText(c.placeUrl):'',lat:c.lat,lng:c.lng,searchScope:scanSiteText(c.searchScope),searchQuery:scanSiteText(c.searchQuery)},radius:scanSiteNum(snap.radius)||1000,createdAt:scanSiteText(snap.createdAt),facts:(snap.facts||[]).slice(0,160).map(r=>Object.fromEntries(['name','value','scope','when','source'].map(k=>[k,scanSiteText(r[k])]))),competition:{criteriaVersion:comp.criteriaVersion===SCAN_CLINIC_CRITERIA_VERSION?SCAN_CLINIC_CRITERIA_VERSION:"",mode:comp.mode==="reference"?"reference":"competition",selectedSpecialties:(comp.selectedSpecialties||[]).filter(n=>HIRA_SPECIALTY_CODES[n]),unverifiedCount:scanClinicCount(comp.unverifiedCount),specialistUnverifiedCount:scanClinicCount(comp.specialistUnverifiedCount),excludedClinicalCount:scanClinicCount(comp.excludedClinicalCount),unavailable:!!comp.unavailable,partial:!!comp.partial,excluded:scanSiteNum(comp.excluded)||0,rows:(comp.rows||[]).slice(0,1000).map(r=>({name:scanSiteText(r.name),address:scanSiteText(r.address),phone:scanSiteText(r.phone),lat:scanSiteNum(r.lat),lng:scanSiteNum(r.lng),distance:scanSiteNum(r.distance),doctorCount:scanSiteNum(r.doctorCount),establishedDate:scanSiteText(r.establishedDate),specialties:(r.specialties||[]).slice(0,10).map(scanSiteText),competitionAssessment:scanSiteAssessment(r.competitionAssessment)}))},clinic:snap.clinic?{area:scanSiteText(snap.clinic.area),industry:scanSiteText(snap.clinic.industry),period:scanSiteText(snap.clinic.period),amount:scanSiteNum(snap.clinic.amount),stores:scanSiteNum(snap.clinic.stores),perStore:scanSiteNum(snap.clinic.perStore)}:null,facilities:(snap.facilities||[]).slice(0,10).map(r=>({name:scanSiteText(r.name),count:scanSiteNum(r.count),error:!!r.error,partial:!!r.partial,nearest:r.nearest?{name:scanSiteText(r.nearest.name),distance:scanSiteNum(r.nearest.distance),lat:scanSiteNum(r.nearest.lat),lng:scanSiteNum(r.nearest.lng)}:null}))};
   return {schema:'jinsul-site-1',competitionMode:raw.competitionMode==='all'?'all':'pain',key:raw.key.slice(0,180),fields,photos,exclude:raw.exclude!==false,checks:scanSiteChecks.map((_,i)=>['미확인','양호','확인 필요','해당 없음'].includes(raw.checks?.[i])?raw.checks[i]:'미확인'),snapshot,savedAt:scanSiteText(raw.savedAt)};
 }
 function scanSiteReadSaved(){try{const rows=JSON.parse(localStorage.getItem('jinsul.site.v1')||'[]');return Array.isArray(rows)?rows.map(r=>{try{return scanSiteValidDraft(r);}catch{return null;}}).filter(Boolean):[];}catch{return [];}}
@@ -6560,8 +6559,8 @@ function scanSiteSheet(d){
 }
 function scanSiteCompetitionHTML(d){
   const s=d.snapshot,c=s.competition,e=scanSiteEscape,reference=c.mode==='reference',legacy=c.criteriaVersion!==SCAN_CLINIC_CRITERIA_VERSION;
-  const note=legacy?'이전 기준으로 저장된 신고기관 목록입니다. 전문의·병상 조건을 검증한 경쟁병원 목록이 아니며, 현재 기준으로 보려면 다시 스캔하세요.':reference?'전체 의원 참고 목록입니다. 대상 전문의·입원 병상 조건을 적용한 경쟁병원 수에 포함하지 않습니다.':'선택 과 전문의 신고 1명 이상·의원급·입원 병상 0개 확인. 실제 상주 여부는 별도 확인이 필요합니다.';
-  return '<h3>'+scanSiteCompetitionTitle(c)+' · '+s.radius+'m</h3><p>'+e(note)+'</p><p>'+(c.unavailable?'조회 불가':c.rows.length+'곳'+(c.partial?' · 일부 미확인':''))+' · 동일 후보 의원 제외 '+c.excluded+'곳'+(!legacy&&!reference?' · 분류 미확인 '+(c.unverifiedCount||0)+'곳 · 병상/종별 제외 '+(c.excludedClinicalCount||0)+'곳':'')+'</p><table><thead><tr><th>#</th><th>의원 / 과목</th><th>직선거리</th><th>대상 전문의</th><th>입원 병상</th><th>개설일</th></tr></thead><tbody>'+c.rows.slice(0,60).map((p,i)=>{const a=p.competitionAssessment;return '<tr><td>'+(i+1)+'</td><td>'+e(p.name)+'<small>'+e(p.specialties.join(', '))+'</small></td><td>'+Math.round(p.distance)+'m</td><td>'+e(a?.specialistCount==null?'미확인':a.specialistCount+'명')+'</td><td>'+e(a?.bedCount==null?'미확인':a.bedCount===0?'0개 확인':'보유 확인')+'</td><td>'+e(scanFormatHiraDate(p.establishedDate))+'</td></tr>';}).join('')+'</tbody></table>'+(c.rows.length>60?'<p>가까운 60곳 표시 / 전체 '+c.rows.length+'곳</p>':'')+'<p class="siteFine">출처: 심평원 기관 신고자료. 저장 당시 확인 결과이며 현재 근무·영업 여부를 보장하지 않습니다.</p>';
+  const note=legacy?'이전 분류 기준으로 저장된 목록입니다. 병상 제외 등 과거 조건으로 누락된 의원이 있을 수 있으므로 현재 기준으로 보려면 다시 스캔하세요.':reference?'전체 의원 참고 목록입니다. 선택 과 전문의 신고를 확인한 경쟁병원 수와 구분합니다.':'의원급·선택 과 전문의 신고 1명 이상. 입원 병상은 참고 정보이며 유무와 관계없이 포함합니다. 실제 상주 여부는 별도 확인이 필요합니다.';
+  return '<h3>'+scanSiteCompetitionTitle(c)+' · '+s.radius+'m</h3><p>'+e(note)+'</p><p>'+(c.unavailable?'조회 불가':c.rows.length+'곳'+(c.partial?' · 일부 미확인':''))+' · 동일 후보 의원 제외 '+c.excluded+'곳'+(!legacy&&!reference?' · 분류 미확인 '+(c.unverifiedCount||0)+'곳 · 전문의 미확인 신고의원 '+(c.specialistUnverifiedCount||0)+'곳 · 의원 외 종별 제외 '+(c.excludedClinicalCount||0)+'곳':'')+'</p><table><thead><tr><th>#</th><th>의원 / 과목</th><th>직선거리</th><th>대상 전문의</th><th>입원 병상</th><th>개설일</th></tr></thead><tbody>'+c.rows.slice(0,60).map((p,i)=>{const a=p.competitionAssessment;return '<tr><td>'+(i+1)+'</td><td>'+e(p.name)+'<small>'+e(p.specialties.join(', '))+'</small></td><td>'+Math.round(p.distance)+'m</td><td>'+e(a?.specialistCount==null?'미확인':a.specialistCount+'명')+'</td><td>'+e(a?.bedCount==null?'미확인':a.bedCount===0?'0개 확인':'보유 확인')+'</td><td>'+e(scanFormatHiraDate(p.establishedDate))+'</td></tr>';}).join('')+'</tbody></table>'+(c.rows.length>60?'<p>가까운 60곳 표시 / 전체 '+c.rows.length+'곳</p>':'')+'<p class="siteFine">출처: 심평원 기관 신고자료. 저장 당시 확인 결과이며 현재 근무·영업 여부를 보장하지 않습니다.</p>';
 }
 function scanSiteClinicHTML(s){const c=s.clinic,e=scanSiteEscape;return c?'<div class="siteClinicBox"><h3>의원 업종 매출 · 경쟁 환경 참고</h3><p>'+e(c.area)+' · '+e(c.industry)+' · '+e(c.period)+'</p><div class="siteTriplet"><div>공식상권 추정매출<b>'+scanSiteMoney(c.amount)+'</b></div><div>동일 업종 점포<b>'+(c.stores??'자료 없음')+'곳</b></div><div>점포당 단순 나눗값<b>'+(c.perStore===null?'자료 없음':scanSiteMoney(Math.round(c.perStore)))+'</b></div></div><p class="siteFine">동일 상권·분기·업종의 금액 ÷ 점포 수입니다. 개별 경쟁병원의 실제 매출·예상 매출·손익분기점으로 사용하지 마세요. 반경의 심평원 신고 의원 수로 나누지 않습니다. 출처: 서울시·서울신용보증재단.</p></div>':'<div class="siteClinicBox"><h3>의원 업종 매출</h3><p>서울 후보지는 ‘의원 업종’ 탭에서 공개 매출 조회를 완료한 뒤 이 탭을 다시 열면 포함됩니다. 서울 밖의 의원 매출은 현재 미연결입니다. 개별 경쟁병원 매출은 공개 자료로 확보되지 않았습니다.</p></div>';}
 function scanSitePreview(){if($('sitePreview'))$('sitePreview').innerHTML=scanSiteSheet(scanSite.active);}
@@ -6576,7 +6575,7 @@ async function scanSiteDetail(index){
   try{const data=await scanFetchHiraDetails(p.ykiho);if(token!==scanSite.detailToken||draft!==scanSite.active)return;const d=data.detail||{},e=scanSiteEscape;const hours=[['월',d.trmtMonStart,d.trmtMonEnd],['화',d.trmtTueStart,d.trmtTueEnd],['수',d.trmtWedStart,d.trmtWedEnd],['목',d.trmtThuStart,d.trmtThuEnd],['금',d.trmtFriStart,d.trmtFriEnd],['토',d.trmtSatStart,d.trmtSatEnd]].map(([day,a,b])=>day+' '+(a||'미제공')+'~'+(b||'미제공')).join(' · ');node.innerHTML='<h4>'+e(p.name)+'</h4><p>'+e(hours)+'</p><p>주차 '+e(d.parkQty??'미제공')+' · '+e(d.parkEtc||'세부 안내 없음')+'</p><p>신고 진료과: '+e(data.departments.map(r=>r.dgsbjtCdNm).filter(Boolean).join(', ')||'미제공')+'</p><p>'+e(data.partial?'일부 상세 API 조회 실패 · 표시되지 않은 항목은 확인 필요':'심평원 상세 수신 · 실제 운영시간은 방문 전 확인')+'</p>';}catch(err){if(token===scanSite.detailToken&&draft===scanSite.active)node.textContent=p.name+' · '+scanApiErrorMessage(err);}
 }
 function scanSiteDownload(content,type,ext){const blob=new Blob([content],{type:type+';charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(scanSite.active.fields.title||'입지자료').replace(/[\\/:*?"<>|]/g,'_')+'.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}
-function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.7 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
+function scanSiteDocument(d){return '<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+scanSiteEscape(d.fields.title||'입지자료')+'</title><style>'+scanSiteExportCSS+'</style><body><nav class="printTools"><button onclick="window.print()">A4 인쇄 / PDF 저장</button><span>JINSUL MAP v3.7.8 · 저장 당시 자료</span></nav><main>'+scanSiteSheet(d)+'<section class="siteSheet sitePageBreak">'+scanSiteCompetitionHTML(d)+scanSiteClinicHTML(d.snapshot)+'</section></main></body></html>';}
 function scanSitePrint(){try{const doc=scanSiteDocument(scanSiteValidDraft(scanSite.active));$('sitePrintFrame')?.remove();const frame=document.createElement('iframe');frame.id='sitePrintFrame';frame.title='입지자료 인쇄';frame.style.cssText='position:fixed;left:-10000px;width:794px;height:1123px;border:0';frame.onload=()=>{Promise.all([frame.contentDocument.fonts.ready,...Array.from(frame.contentDocument.images,img=>img.decode().catch(()=>{}))]).then(()=>{frame.contentWindow.focus();frame.contentWindow.print();});};frame.srcdoc=doc;document.body.appendChild(frame);scanSiteStatus('인쇄 대화상자를 요청했습니다. 앱에서 지원하지 않으면 HTML 저장 후 Edge·Chrome에서 인쇄하세요.');}catch(e){scanSiteStatus(e.message);}}
 async function scanSiteExplore(){
   const d=scanSite.active,query=d.snapshot.candidate.searchQuery,node=$('siteExploreResults');if(!query||!node)return;node.textContent='지역 의료기관 검색 중…';
@@ -6773,7 +6772,7 @@ const scanSiteScopeRenderBase=scanSiteRender;
 scanSiteRender=function(){
   scanSiteScopeRenderBase();const d=scanSite.active;if(!d)return;
   const label=document.createElement('label');label.className='siteExclude';
-  label.innerHTML='<span>의료기관 보기</span><select id="siteClinicScope"><option value="pain">경쟁병원 · 전문의·무입원 확인</option><option value="all">타과 포함 신고기관 · 참고 목록</option></select><small id="siteScopeStatus">경쟁병원은 스캔에서 선택한 유관과 전문의 신고·의원급·입원 병상 0개가 확인된 곳입니다. 전체 의원 참고 목록은 경쟁병원 집계에 포함하지 않습니다.</small>';
+  label.innerHTML='<span>의료기관 보기</span><select id="siteClinicScope"><option value="pain">경쟁병원 · 의원급·전문의 신고 확인</option><option value="all">타과 포함 신고기관 · 참고 목록</option></select><small id="siteScopeStatus">경쟁병원은 스캔에서 선택한 유관과 전문의 신고가 확인된 의원급 기관입니다. 입원 병상 유무와 관계없이 포함하며, 전체 의원 참고 목록과 구분합니다.</small>';
   $('siteExclude').parentElement.after(label);const select=$('siteClinicScope');select.value=d.competitionMode||'pain';select.disabled=!scanSite.result;
   select.onchange=async()=>{
     const result=scanSite.result,wanted=select.value;if(!result)return;
@@ -6954,7 +6953,7 @@ function scanReportInsights(result,scores){
   if(result.specialties?.length)items.push('<div class="scanInsight">진료과 검색별: '+result.specialties.map(s=>scanEscapeHTML(s.name)+' '+(s.error?'조회 불가':s.count+'곳'+(s.truncated?' (일부 미확인)':''))).join(' · ')+'<br>여러 진료과 검색에 같은 병원이 포함될 수 있어 합계는 중복 제외 병원 수와 다릅니다.</div>');
   if((result.specialties||[]).some(s=>s.error||s.truncated))items.push('<div class="scanInsight warn">일부 진료과 검색이 실패했거나 조회 한도에 도달했습니다. 병원 수는 확보된 결과만 포함하며 0곳이어도 병원이 없다고 단정할 수 없습니다.</div>');
   const competitionTone='';
-  items.push(`<div class="scanInsight ${competitionTone}">선택 반경의 확인된 경쟁병원 밀도는 <b>${result.hira?.unavailable?'조회 불가':result.density.toFixed(2)+'곳/㎢'}</b>입니다. 심평원 값은 ${result.hira?.unavailable?'현재 공식 API 조회 불가로 교차확인에서 제외했습니다.':result.hira?`진료과 신고 조회 ${result.hira.places.length.toLocaleString()}곳을 전문의·병상 조건으로 분류했습니다.`:'확보되지 않았습니다.'}</div>`);
+  items.push(`<div class="scanInsight ${competitionTone}">선택 반경의 확인된 경쟁병원 밀도는 <b>${result.hira?.unavailable?'조회 불가':result.density.toFixed(2)+'곳/㎢'}</b>입니다. 심평원 값은 ${result.hira?.unavailable?'현재 공식 API 조회 불가로 교차확인에서 제외했습니다.':result.hira?`진료과 신고 조회 ${result.hira.places.length.toLocaleString()}곳을 의원 종별·선택 과 전문의 신고로 분류했습니다.`:'확보되지 않았습니다.'}</div>`);
   if(result.sgis)items.push(`<div class="scanInsight">${scanEscapeHTML(result.sgis.regionName)}의 센서스 인구는 <b>${scanFormatSgisNumber(result.sgis.population,0,'명')}</b>, 평균연령은 <b>${scanFormatSgisNumber(result.sgis.avgAge,1,'세')}</b>, 종사자는 <b>${scanFormatSgisNumber(result.sgis.employees,0,'명')}</b>입니다.</div>`);
   if(result.radiusCommerce)items.push(`<div class="scanInsight ${''}">후보지 중심 ${(result.radiusMeters/1000).toFixed(result.radiusMeters%1000?1:0)}km 안에 영업 상가 <b>${result.radiusCommerce.total.toLocaleString()}곳</b>이 확인되어 업소 밀도는 <b>${result.radiusCommerce.density.toFixed(1)}곳/㎢</b>입니다.</div>`);
   if(result.rone)items.push(`<div class="scanInsight">R-ONE <b>${scanEscapeHTML(result.rone.selectedScope.replaceAll('>',' › '))}</b> 소규모 상가 기준 임대료 <b>${scanRoneMetricValue(result.rone.latest.rent,1)}</b>, 공실률 <b>${scanRoneMetricValue(result.rone.latest.vacancy,1)}</b>입니다. 조사권역 통계로 반경 집계와는 구분됩니다.</div>`);
@@ -7090,7 +7089,7 @@ function scanOpenReport(result=scanState.result,initialTab="overview"){
   if(result.candidate.searchScope)$('scanReportSubtitle').textContent+=' · 지역 대표지점 주변 / 지역 전체 아님';
   $('scanScoreRing').style.display='none';
   const hiraKpi=result.hira?.unavailable?'조회 불가':result.hira?`${result.hira.declared.length.toLocaleString()}곳`:'-';
-  $('scanReportKpis').innerHTML=`<div class="scanReportKpi"><span>경쟁병원</span><b>${scanCompetitionStatus(result)}</b><small>${result.hira?.unavailable?"밀도 확인 불가":result.density.toFixed(2)+"곳/㎢"}</small></div><div class="scanReportKpi"><span>심평원 신고의원</span><b>${hiraKpi}</b><small>해당 과 전문의 신고 0명</small></div><div class="scanReportKpi"><span>반경 영업 상가</span><b>${result.radiusCommerce?result.radiusCommerce.total.toLocaleString()+'곳':'-'}</b><small>후보지 중심 ${radiusLabel}</small></div><div class="scanReportKpi"><span>행정구역 인구</span><b>${result.sgis?scanFormatSgisNumber(result.sgis.population,0,'명'):'-'}</b><small>${scanEscapeHTML(result.sgis?.regionName||'SGIS 미조회')}</small></div>`;
+  $('scanReportKpis').innerHTML=`<div class="scanReportKpi"><span>경쟁병원</span><b>${scanCompetitionStatus(result)}</b><small>${result.hira?.unavailable?"밀도 확인 불가":result.density.toFixed(2)+"곳/㎢"}</small></div><div class="scanReportKpi"><span>심평원 신고의원</span><b>${hiraKpi}</b><small>진료과목 신고 · 전문의 0명/미확인</small></div><div class="scanReportKpi"><span>반경 영업 상가</span><b>${result.radiusCommerce?result.radiusCommerce.total.toLocaleString()+'곳':'-'}</b><small>후보지 중심 ${radiusLabel}</small></div><div class="scanReportKpi"><span>행정구역 인구</span><b>${result.sgis?scanFormatSgisNumber(result.sgis.population,0,'명'):'-'}</b><small>${scanEscapeHTML(result.sgis?.regionName||'SGIS 미조회')}</small></div>`;
   $('scanVisitorReport').innerHTML=scanRenderVisitors(result.visitors);$('scanFloatingReport').innerHTML=result.commerce?.floating?'<div class="scanInsight">'+scanEscapeHTML(result.commerce.area.name)+' · '+scanEscapeHTML(scanPeriodLabel(result.commerce.floatingPeriod))+' · 공식 상권 전체 통계</div>'+scanRenderFloatingBreakdown(result.commerce.floating):'<div class="scanEmpty">해당 지역의 공식상권 유동인구 자료가 없습니다.</div>';
   $('scanReportInsights').innerHTML=scanReportInsights(result,scoreData);scanRenderNetwork();
   const statuses=[['카카오 병원·주변 시설',true,'선택 반경'],['심평원 의원',result.hira&&!result.hira.unavailable,'선택 반경'],['소상공인 상가',Boolean(result.radiusCommerce),'선택 반경'],['SGIS 센서스',Boolean(result.sgis),'행정구역'],['건축물대장',Boolean(result.building),'후보 필지'],['상업용 실거래',Boolean(result.realty),'시군구'],['R-ONE 임대지표',Boolean(result.rone),result.rone?.selectedScope||'조사권역'],['서울 실시간',Boolean(result.population),'반경 내 지정지점'],['서울 공식상권',Boolean(result.commerce?.apiConnected),'반경 내 중심점']];

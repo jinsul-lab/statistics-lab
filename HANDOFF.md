@@ -1,3 +1,17 @@
+# 현재 기준 · JINSUL MAP 3.7.8
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+상세: jinsulmap/WANGSIMNI_CLINICS_REVIEW_v3.7.8.md
+
+- 사용자 재확정 기준: 의원급이면 입원 병상 유무와 관계없이 포함. 선택한 4개 과 전문의 신고가 확인되면 경쟁병원, 진료과목 신고만 확인되면 심평원 신고의원. 전문의 0명/미확인 구분.
+- 병원·종합병원·상급종합병원 등 의원 외 종별은 계속 제외. 입원 병상은 참고 정보로만 유지.
+- 왕십리로320 실제 주소 검색·1km·4개 과 전체 선택: 경쟁12·신고14. 서울마취통증의학과67m, 자세본재활의학과971m 모두 경쟁 목록 확인. 과거 자세본 누락의 당시 반경/필터는 미확인.
+- 상권/환자 시설/입지자료/저장 기준과 문구 갱신, 전문의 미확인 신고의원을 삭제하지 않고 일부 미확인 상태 보존.
+- GitHub 업로드·Pages 최종 확인 진행 중. Worker 변경 없음.
+
+아래는 과거 기록입니다.
+
 # 현재 기준 · JINSUL MAP 3.7.7
 
 기준 파일: jinsulmap/jinsulmap.html
