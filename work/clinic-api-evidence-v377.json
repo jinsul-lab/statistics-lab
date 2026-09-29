@@ -1,0 +1,1249 @@
+{
+  "fixtureVersion": "3.7.7",
+  "observedAt": "2026-09-29T15:17:07.2257107Z",
+  "schemaSource": "https://www.data.go.kr/data/15001699/openapi.do",
+  "service": "B551182/MadmDtlInfoService2.8",
+  "selectedSpecialtyCodes": [
+    "05",
+    "06",
+    "09",
+    "21"
+  ],
+  "scope": "Public registered clinic information; credentials, institution identifiers, addresses and telephone numbers omitted",
+  "fixtures": [
+    {
+      "clinicName": "(사)경찰공제회 강서적성의원",
+      "clinicCode": 31,
+      "declaredSpecialties": [
+        "정형외과",
+        "안과",
+        "가정의학과"
+      ],
+      "declaredSpecialtyRows": [
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 12,
+          "dgsbjtCdNm": "안과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 23,
+          "dgsbjtCdNm": "가정의학과",
+          "dgsbjtPrSdrCnt": 0
+        }
+      ],
+      "specialistRows": [
+        {
+          "dgsbjtCd": 11,
+          "dgsbjtCdNm": "소아청소년과",
+          "dtlSdrCnt": 1
+        }
+      ],
+      "bedRows": [
+        {
+          "permSbdCnt": 0,
+          "hghrSickbdCnt": 0,
+          "stdSickbdCnt": 0,
+          "aduChldSprmCnt": 0,
+          "chldSprmCnt": 0,
+          "nbySprmCnt": 0,
+          "psydeptClsHigSbdCnt": 0,
+          "psydeptClsGnlSbdCnt": 0,
+          "psydeptOpenHigSbdCnt": 0,
+          "psydeptOpenGnlSbdCnt": 0,
+          "isnrSbdCnt": 0,
+          "anvirTrrmSbdCnt": 0,
+          "dtrmSbdCnt": 0,
+          "ptrmCnt": 0,
+          "soprmCnt": 0,
+          "emymCnt": 0,
+          "partumCnt": 0
+        }
+      ],
+      "basicPhysicianCount": 1,
+      "basicSpecialistCount": 1,
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": 1,
+          "receivedRows": 1,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": 1,
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": 3,
+          "receivedRows": 3,
+          "complete": true
+        }
+      },
+      "checkedAt": "2026-09-29T15:17:07.2257107Z"
+    },
+    {
+      "clinicName": "(의)미래의료재단리드림의원",
+      "clinicCode": 31,
+      "declaredSpecialties": [
+        "내과",
+        "외과",
+        "정형외과",
+        "성형외과",
+        "마취통증의학과",
+        "산부인과",
+        "소아청소년과",
+        "피부과",
+        "영상의학과",
+        "가정의학과"
+      ],
+      "declaredSpecialtyRows": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dgsbjtPrSdrCnt": 5
+        },
+        {
+          "dgsbjtCd": "04",
+          "dgsbjtCdNm": "외과",
+          "dgsbjtPrSdrCnt": 2
+        },
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "08",
+          "dgsbjtCdNm": "성형외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "09",
+          "dgsbjtCdNm": "마취통증의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 10,
+          "dgsbjtCdNm": "산부인과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 11,
+          "dgsbjtCdNm": "소아청소년과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 14,
+          "dgsbjtCdNm": "피부과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 16,
+          "dgsbjtCdNm": "영상의학과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 23,
+          "dgsbjtCdNm": "가정의학과",
+          "dgsbjtPrSdrCnt": 2
+        }
+      ],
+      "specialistRows": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dtlSdrCnt": 5
+        },
+        {
+          "dgsbjtCd": "04",
+          "dgsbjtCdNm": "외과",
+          "dtlSdrCnt": 2
+        },
+        {
+          "dgsbjtCd": 16,
+          "dgsbjtCdNm": "영상의학과",
+          "dtlSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 23,
+          "dgsbjtCdNm": "가정의학과",
+          "dtlSdrCnt": 2
+        },
+        {
+          "dgsbjtCd": 25,
+          "dgsbjtCdNm": "직업환경의학과",
+          "dtlSdrCnt": 1
+        }
+      ],
+      "bedRows": [
+        {
+          "permSbdCnt": 8,
+          "hghrSickbdCnt": 0,
+          "stdSickbdCnt": 8,
+          "aduChldSprmCnt": 0,
+          "chldSprmCnt": 0,
+          "nbySprmCnt": 0,
+          "psydeptClsHigSbdCnt": 0,
+          "psydeptClsGnlSbdCnt": 0,
+          "psydeptOpenHigSbdCnt": 0,
+          "psydeptOpenGnlSbdCnt": 0,
+          "isnrSbdCnt": 0,
+          "anvirTrrmSbdCnt": 0,
+          "dtrmSbdCnt": 0,
+          "ptrmCnt": 6,
+          "soprmCnt": 0,
+          "emymCnt": 0,
+          "partumCnt": 0
+        }
+      ],
+      "basicPhysicianCount": 13,
+      "basicSpecialistCount": 11,
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": 5,
+          "receivedRows": 5,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": 1,
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": 10,
+          "receivedRows": 10,
+          "complete": true
+        }
+      },
+      "checkedAt": "2026-09-29T15:17:07.2257107Z"
+    },
+    {
+      "clinicName": "(의)성광의료재단 차움의원",
+      "clinicCode": 31,
+      "declaredSpecialties": [
+        "내과",
+        "신경과",
+        "정신건강의학과",
+        "외과",
+        "정형외과",
+        "신경외과",
+        "성형외과",
+        "산부인과",
+        "피부과",
+        "비뇨의학과",
+        "영상의학과",
+        "진단검사의학과",
+        "재활의학과",
+        "가정의학과"
+      ],
+      "declaredSpecialtyRows": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dgsbjtPrSdrCnt": 8
+        },
+        {
+          "dgsbjtCd": "02",
+          "dgsbjtCdNm": "신경과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "03",
+          "dgsbjtCdNm": "정신건강의학과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": "04",
+          "dgsbjtCdNm": "외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "06",
+          "dgsbjtCdNm": "신경외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "08",
+          "dgsbjtCdNm": "성형외과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 10,
+          "dgsbjtCdNm": "산부인과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 14,
+          "dgsbjtCdNm": "피부과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 15,
+          "dgsbjtCdNm": "비뇨의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 16,
+          "dgsbjtCdNm": "영상의학과",
+          "dgsbjtPrSdrCnt": 5
+        },
+        {
+          "dgsbjtCd": 19,
+          "dgsbjtCdNm": "진단검사의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 21,
+          "dgsbjtCdNm": "재활의학과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 23,
+          "dgsbjtCdNm": "가정의학과",
+          "dgsbjtPrSdrCnt": 7
+        }
+      ],
+      "specialistRows": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dtlSdrCnt": 8
+        },
+        {
+          "dgsbjtCd": "03",
+          "dgsbjtCdNm": "정신건강의학과",
+          "dtlSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": "08",
+          "dgsbjtCdNm": "성형외과",
+          "dtlSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 10,
+          "dgsbjtCdNm": "산부인과",
+          "dtlSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 16,
+          "dgsbjtCdNm": "영상의학과",
+          "dtlSdrCnt": 5
+        },
+        {
+          "dgsbjtCd": 21,
+          "dgsbjtCdNm": "재활의학과",
+          "dtlSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 23,
+          "dgsbjtCdNm": "가정의학과",
+          "dtlSdrCnt": 7
+        }
+      ],
+      "bedRows": [
+        {
+          "permSbdCnt": 23,
+          "hghrSickbdCnt": 0,
+          "stdSickbdCnt": 23,
+          "aduChldSprmCnt": 0,
+          "chldSprmCnt": 0,
+          "nbySprmCnt": 0,
+          "psydeptClsHigSbdCnt": 0,
+          "psydeptClsGnlSbdCnt": 0,
+          "psydeptOpenHigSbdCnt": 0,
+          "psydeptOpenGnlSbdCnt": 0,
+          "isnrSbdCnt": 0,
+          "anvirTrrmSbdCnt": 0,
+          "dtrmSbdCnt": 0,
+          "ptrmCnt": 1,
+          "soprmCnt": 0,
+          "emymCnt": 0,
+          "partumCnt": 0
+        }
+      ],
+      "basicPhysicianCount": 24,
+      "basicSpecialistCount": 24,
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": 7,
+          "receivedRows": 7,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": 1,
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": 14,
+          "receivedRows": 14,
+          "complete": true
+        }
+      },
+      "checkedAt": "2026-09-29T15:17:07.2257107Z"
+    },
+    {
+      "clinicName": "(의)일맥의료재단 강동더서울의원",
+      "clinicCode": 31,
+      "declaredSpecialties": [
+        "내과",
+        "외과",
+        "정형외과",
+        "신경외과",
+        "소아청소년과",
+        "이비인후과",
+        "재활의학과"
+      ],
+      "declaredSpecialtyRows": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "04",
+          "dgsbjtCdNm": "외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "06",
+          "dgsbjtCdNm": "신경외과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 11,
+          "dgsbjtCdNm": "소아청소년과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 13,
+          "dgsbjtCdNm": "이비인후과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 21,
+          "dgsbjtCdNm": "재활의학과",
+          "dgsbjtPrSdrCnt": 0
+        }
+      ],
+      "specialistRows": [
+        {
+          "dgsbjtCd": "06",
+          "dgsbjtCdNm": "신경외과",
+          "dtlSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 13,
+          "dgsbjtCdNm": "이비인후과",
+          "dtlSdrCnt": 1
+        }
+      ],
+      "bedRows": [
+        {
+          "permSbdCnt": 25,
+          "hghrSickbdCnt": 12,
+          "stdSickbdCnt": 13,
+          "aduChldSprmCnt": 0,
+          "chldSprmCnt": 0,
+          "nbySprmCnt": 0,
+          "psydeptClsHigSbdCnt": 0,
+          "psydeptClsGnlSbdCnt": 0,
+          "psydeptOpenHigSbdCnt": 0,
+          "psydeptOpenGnlSbdCnt": 0,
+          "isnrSbdCnt": 0,
+          "anvirTrrmSbdCnt": 0,
+          "dtrmSbdCnt": 0,
+          "ptrmCnt": 30,
+          "soprmCnt": 0,
+          "emymCnt": 0,
+          "partumCnt": 0
+        }
+      ],
+      "basicPhysicianCount": 2,
+      "basicSpecialistCount": 2,
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": 2,
+          "receivedRows": 2,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": 1,
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": 7,
+          "receivedRows": 7,
+          "complete": true
+        }
+      },
+      "checkedAt": "2026-09-29T15:17:07.2257107Z"
+    },
+    {
+      "clinicName": "(재)이랜드재단 이랜드의원",
+      "clinicCode": 31,
+      "declaredSpecialties": [
+        "내과",
+        "외과",
+        "정형외과",
+        "신경외과",
+        "심장혈관흉부외과",
+        "산부인과",
+        "이비인후과",
+        "피부과",
+        "재활의학과",
+        "가정의학과"
+      ],
+      "declaredSpecialtyRows": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": "04",
+          "dgsbjtCdNm": "외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "06",
+          "dgsbjtCdNm": "신경외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "07",
+          "dgsbjtCdNm": "심장혈관흉부외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 10,
+          "dgsbjtCdNm": "산부인과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 13,
+          "dgsbjtCdNm": "이비인후과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 14,
+          "dgsbjtCdNm": "피부과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 21,
+          "dgsbjtCdNm": "재활의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 23,
+          "dgsbjtCdNm": "가정의학과",
+          "dgsbjtPrSdrCnt": 4
+        }
+      ],
+      "specialistRows": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dtlSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 10,
+          "dgsbjtCdNm": "산부인과",
+          "dtlSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 23,
+          "dgsbjtCdNm": "가정의학과",
+          "dtlSdrCnt": 4
+        }
+      ],
+      "bedRows": [
+        {
+          "permSbdCnt": 0,
+          "hghrSickbdCnt": 0,
+          "stdSickbdCnt": 0,
+          "aduChldSprmCnt": 0,
+          "chldSprmCnt": 0,
+          "nbySprmCnt": 0,
+          "psydeptClsHigSbdCnt": 0,
+          "psydeptClsGnlSbdCnt": 0,
+          "psydeptOpenHigSbdCnt": 0,
+          "psydeptOpenGnlSbdCnt": 0,
+          "isnrSbdCnt": 0,
+          "anvirTrrmSbdCnt": 0,
+          "dtrmSbdCnt": 0,
+          "ptrmCnt": 5,
+          "soprmCnt": 0,
+          "emymCnt": 0,
+          "partumCnt": 0
+        }
+      ],
+      "basicPhysicianCount": 6,
+      "basicSpecialistCount": 6,
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": 3,
+          "receivedRows": 3,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": 1,
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": 10,
+          "receivedRows": 10,
+          "complete": true
+        }
+      },
+      "checkedAt": "2026-09-29T15:17:07.2257107Z"
+    },
+    {
+      "clinicName": "365온(ON)가정의원",
+      "clinicCode": 31,
+      "declaredSpecialties": [
+        "내과",
+        "외과",
+        "정형외과",
+        "소아청소년과",
+        "이비인후과",
+        "피부과",
+        "비뇨의학과",
+        "가정의학과"
+      ],
+      "declaredSpecialtyRows": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "04",
+          "dgsbjtCdNm": "외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 11,
+          "dgsbjtCdNm": "소아청소년과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 13,
+          "dgsbjtCdNm": "이비인후과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 14,
+          "dgsbjtCdNm": "피부과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 15,
+          "dgsbjtCdNm": "비뇨의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 23,
+          "dgsbjtCdNm": "가정의학과",
+          "dgsbjtPrSdrCnt": 0
+        }
+      ],
+      "specialistRows": [],
+      "bedRows": [
+        {
+          "permSbdCnt": 0,
+          "hghrSickbdCnt": 0,
+          "stdSickbdCnt": 0,
+          "aduChldSprmCnt": 0,
+          "chldSprmCnt": 0,
+          "nbySprmCnt": 0,
+          "psydeptClsHigSbdCnt": 0,
+          "psydeptClsGnlSbdCnt": 0,
+          "psydeptOpenHigSbdCnt": 0,
+          "psydeptOpenGnlSbdCnt": 0,
+          "isnrSbdCnt": 0,
+          "anvirTrrmSbdCnt": 0,
+          "dtrmSbdCnt": 0,
+          "ptrmCnt": 0,
+          "soprmCnt": 0,
+          "emymCnt": 0,
+          "partumCnt": 0
+        }
+      ],
+      "basicPhysicianCount": 1,
+      "basicSpecialistCount": 0,
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": 0,
+          "receivedRows": 0,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": 1,
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": 8,
+          "receivedRows": 8,
+          "complete": true
+        }
+      },
+      "checkedAt": "2026-09-29T15:17:07.2257107Z"
+    },
+    {
+      "clinicName": "365웰의원",
+      "clinicCode": 31,
+      "declaredSpecialties": [
+        "내과",
+        "신경과",
+        "외과",
+        "정형외과",
+        "신경외과",
+        "마취통증의학과",
+        "소아청소년과",
+        "피부과",
+        "영상의학과",
+        "재활의학과",
+        "가정의학과",
+        "응급의학과"
+      ],
+      "declaredSpecialtyRows": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "02",
+          "dgsbjtCdNm": "신경과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "04",
+          "dgsbjtCdNm": "외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "06",
+          "dgsbjtCdNm": "신경외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "09",
+          "dgsbjtCdNm": "마취통증의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 11,
+          "dgsbjtCdNm": "소아청소년과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 14,
+          "dgsbjtCdNm": "피부과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 16,
+          "dgsbjtCdNm": "영상의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 21,
+          "dgsbjtCdNm": "재활의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 23,
+          "dgsbjtCdNm": "가정의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 24,
+          "dgsbjtCdNm": "응급의학과",
+          "dgsbjtPrSdrCnt": 0
+        }
+      ],
+      "specialistRows": [],
+      "bedRows": [
+        {
+          "permSbdCnt": 2,
+          "hghrSickbdCnt": 2,
+          "stdSickbdCnt": 0,
+          "aduChldSprmCnt": 0,
+          "chldSprmCnt": 0,
+          "nbySprmCnt": 0,
+          "psydeptClsHigSbdCnt": 0,
+          "psydeptClsGnlSbdCnt": 0,
+          "psydeptOpenHigSbdCnt": 0,
+          "psydeptOpenGnlSbdCnt": 0,
+          "isnrSbdCnt": 0,
+          "anvirTrrmSbdCnt": 0,
+          "dtrmSbdCnt": 0,
+          "ptrmCnt": 12,
+          "soprmCnt": 0,
+          "emymCnt": 0,
+          "partumCnt": 0
+        }
+      ],
+      "basicPhysicianCount": 1,
+      "basicSpecialistCount": 0,
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": 0,
+          "receivedRows": 0,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": 1,
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": 12,
+          "receivedRows": 12,
+          "complete": true
+        }
+      },
+      "checkedAt": "2026-09-29T15:17:07.2257107Z"
+    },
+    {
+      "clinicName": "365한국신통의원",
+      "clinicCode": 31,
+      "declaredSpecialties": [
+        "내과",
+        "신경과",
+        "외과",
+        "정형외과",
+        "심장혈관흉부외과",
+        "성형외과",
+        "마취통증의학과",
+        "소아청소년과",
+        "안과",
+        "이비인후과",
+        "피부과",
+        "비뇨의학과",
+        "영상의학과",
+        "방사선종양학과",
+        "병리과",
+        "진단검사의학과",
+        "재활의학과",
+        "핵의학과",
+        "가정의학과",
+        "응급의학과",
+        "예방의학과"
+      ],
+      "declaredSpecialtyRows": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "02",
+          "dgsbjtCdNm": "신경과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "04",
+          "dgsbjtCdNm": "외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "07",
+          "dgsbjtCdNm": "심장혈관흉부외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "08",
+          "dgsbjtCdNm": "성형외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "09",
+          "dgsbjtCdNm": "마취통증의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 11,
+          "dgsbjtCdNm": "소아청소년과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 12,
+          "dgsbjtCdNm": "안과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 13,
+          "dgsbjtCdNm": "이비인후과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 14,
+          "dgsbjtCdNm": "피부과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 15,
+          "dgsbjtCdNm": "비뇨의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 16,
+          "dgsbjtCdNm": "영상의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 17,
+          "dgsbjtCdNm": "방사선종양학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 18,
+          "dgsbjtCdNm": "병리과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 19,
+          "dgsbjtCdNm": "진단검사의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 21,
+          "dgsbjtCdNm": "재활의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 22,
+          "dgsbjtCdNm": "핵의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 23,
+          "dgsbjtCdNm": "가정의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 24,
+          "dgsbjtCdNm": "응급의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 26,
+          "dgsbjtCdNm": "예방의학과",
+          "dgsbjtPrSdrCnt": 0
+        }
+      ],
+      "specialistRows": [],
+      "bedRows": [
+        {
+          "permSbdCnt": 0,
+          "hghrSickbdCnt": 0,
+          "stdSickbdCnt": 0,
+          "aduChldSprmCnt": 0,
+          "chldSprmCnt": 0,
+          "nbySprmCnt": 0,
+          "psydeptClsHigSbdCnt": 0,
+          "psydeptClsGnlSbdCnt": 0,
+          "psydeptOpenHigSbdCnt": 0,
+          "psydeptOpenGnlSbdCnt": 0,
+          "isnrSbdCnt": 0,
+          "anvirTrrmSbdCnt": 0,
+          "dtrmSbdCnt": 0,
+          "ptrmCnt": 7,
+          "soprmCnt": 0,
+          "emymCnt": 0,
+          "partumCnt": 0
+        }
+      ],
+      "basicPhysicianCount": 1,
+      "basicSpecialistCount": 0,
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": 0,
+          "receivedRows": 0,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": 1,
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": 21,
+          "receivedRows": 21,
+          "complete": true
+        }
+      },
+      "checkedAt": "2026-09-29T15:17:07.2257107Z"
+    },
+    {
+      "clinicName": "210정형외과의원",
+      "clinicCode": 31,
+      "declaredSpecialties": [
+        "정형외과",
+        "신경외과",
+        "마취통증의학과",
+        "피부과",
+        "영상의학과",
+        "재활의학과"
+      ],
+      "declaredSpecialtyRows": [
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": "06",
+          "dgsbjtCdNm": "신경외과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "09",
+          "dgsbjtCdNm": "마취통증의학과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 14,
+          "dgsbjtCdNm": "피부과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 16,
+          "dgsbjtCdNm": "영상의학과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 21,
+          "dgsbjtCdNm": "재활의학과",
+          "dgsbjtPrSdrCnt": 0
+        }
+      ],
+      "specialistRows": [
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dtlSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": "09",
+          "dgsbjtCdNm": "마취통증의학과",
+          "dtlSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": 16,
+          "dgsbjtCdNm": "영상의학과",
+          "dtlSdrCnt": 1
+        }
+      ],
+      "bedRows": [
+        {
+          "permSbdCnt": 9,
+          "hghrSickbdCnt": 9,
+          "stdSickbdCnt": 0,
+          "aduChldSprmCnt": 0,
+          "chldSprmCnt": 0,
+          "nbySprmCnt": 0,
+          "psydeptClsHigSbdCnt": 0,
+          "psydeptClsGnlSbdCnt": 0,
+          "psydeptOpenHigSbdCnt": 0,
+          "psydeptOpenGnlSbdCnt": 0,
+          "isnrSbdCnt": 0,
+          "anvirTrrmSbdCnt": 0,
+          "dtrmSbdCnt": 0,
+          "ptrmCnt": 7,
+          "soprmCnt": 1,
+          "emymCnt": 0,
+          "partumCnt": 0
+        }
+      ],
+      "basicPhysicianCount": 3,
+      "basicSpecialistCount": 3,
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": 3,
+          "receivedRows": 3,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": 1,
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": 6,
+          "receivedRows": 6,
+          "complete": true
+        }
+      },
+      "checkedAt": "2026-09-29T15:17:07.2257107Z"
+    },
+    {
+      "clinicName": "365답십리탑정형외과의원",
+      "clinicCode": 31,
+      "declaredSpecialties": [
+        "내과",
+        "신경과",
+        "정형외과",
+        "신경외과",
+        "마취통증의학과",
+        "재활의학과"
+      ],
+      "declaredSpecialtyRows": [
+        {
+          "dgsbjtCd": "01",
+          "dgsbjtCdNm": "내과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "02",
+          "dgsbjtCdNm": "신경과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dgsbjtPrSdrCnt": 2
+        },
+        {
+          "dgsbjtCd": "06",
+          "dgsbjtCdNm": "신경외과",
+          "dgsbjtPrSdrCnt": 1
+        },
+        {
+          "dgsbjtCd": "09",
+          "dgsbjtCdNm": "마취통증의학과",
+          "dgsbjtPrSdrCnt": 0
+        },
+        {
+          "dgsbjtCd": 21,
+          "dgsbjtCdNm": "재활의학과",
+          "dgsbjtPrSdrCnt": 0
+        }
+      ],
+      "specialistRows": [
+        {
+          "dgsbjtCd": "05",
+          "dgsbjtCdNm": "정형외과",
+          "dtlSdrCnt": 2
+        },
+        {
+          "dgsbjtCd": "06",
+          "dgsbjtCdNm": "신경외과",
+          "dtlSdrCnt": 1
+        }
+      ],
+      "bedRows": [
+        {
+          "permSbdCnt": 0,
+          "hghrSickbdCnt": 0,
+          "stdSickbdCnt": 0,
+          "aduChldSprmCnt": 0,
+          "chldSprmCnt": 0,
+          "nbySprmCnt": 0,
+          "psydeptClsHigSbdCnt": 0,
+          "psydeptClsGnlSbdCnt": 0,
+          "psydeptOpenHigSbdCnt": 0,
+          "psydeptOpenGnlSbdCnt": 0,
+          "isnrSbdCnt": 0,
+          "anvirTrrmSbdCnt": 0,
+          "dtrmSbdCnt": 0,
+          "ptrmCnt": 12,
+          "soprmCnt": 0,
+          "emymCnt": 0,
+          "partumCnt": 0
+        }
+      ],
+      "basicPhysicianCount": 3,
+      "basicSpecialistCount": 3,
+      "completion": {
+        "specialists": {
+          "resultCode": "00",
+          "totalCount": 2,
+          "receivedRows": 2,
+          "complete": true
+        },
+        "facilities": {
+          "resultCode": "00",
+          "totalCount": 1,
+          "receivedRows": 1,
+          "complete": true
+        },
+        "departments": {
+          "resultCode": "00",
+          "totalCount": 6,
+          "receivedRows": 6,
+          "complete": true
+        }
+      },
+      "checkedAt": "2026-09-29T15:18:34.4588679Z"
+    }
+  ]
+}
