@@ -1,3 +1,15 @@
+# 현재 기준 · JINSUL MAP 3.7.9
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+
+- 현수막게시대 CSV 7,305건 복구, 공식 API 8,331건 연결. API 실패 시 CSV 대체 및 상태 표시.
+- 별도 jinsul-banner-proxy Worker 배포, BANNER_API_KEY Secret 설정. 키 TXT는 저장소에 넣지 않음.
+- 검사와 제공 범위: jinsulmap/BANNER_RESTORE_v3.7.9.md. 기존 의원 분류 유지.
+- GitHub/Pages 배포 결과는 검증 보고서에 기록.
+
+아래는 과거 기록입니다.
+
 # 현재 기준 · JINSUL MAP 3.7.8
 
 기준 파일: jinsulmap/jinsulmap.html

@@ -1,0 +1,17 @@
+{
+  "checks": 14,
+  "csv": {
+    "rows": 7305,
+    "valid": 7305,
+    "invalid": 0,
+    "duplicates": 0
+  },
+  "api": {
+    "rows": 8331,
+    "valid": 8331,
+    "invalid": 0,
+    "duplicates": 0,
+    "pages": 9
+  },
+  "date": "2026-10-01T23:45:57.689Z"
+}
