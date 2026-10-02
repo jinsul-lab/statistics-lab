@@ -1,0 +1,21 @@
+from pathlib import Path
+p=Path('jinsulmap/jinsulmap.html')
+s=p.read_text(encoding='utf-8')
+def replace(a,b):
+ global s
+ assert a in s, a[:90]
+ s=s.replace(a,b,1)
+replace("const data = new Uint8Array(e.target.result); let workbook; try { workbook = XLSX.read(data, {type:'array'}); } catch { const u = Encoding.convert(data, {to:\"UNICODE\", from:\"AUTO\"}); workbook = XLSX.read(Encoding.codeToString(u), {type:'string'}); }", "const data = new Uint8Array(e.target.result); let workbook; if(/\\.(csv|tsv)$/i.test(file.name||'')){let decoded;try{decoded=new TextDecoder('utf-8',{fatal:true}).decode(data);}catch{decoded=new TextDecoder('euc-kr').decode(data);}workbook=XLSX.read(decoded,{type:'string'});}else{try { workbook = XLSX.read(data, {type:'array'}); } catch { const u = Encoding.convert(data, {to:\"UNICODE\", from:\"AUTO\"}); workbook = XLSX.read(Encoding.codeToString(u), {type:'string'}); }}")
+replace('const seenRows=new Set();let repeatedRows=0;', 'const seenRows=new Set();let repeatedRows=0,missingIdRows=0,headerRows=0,sourceRows=0;')
+replace("const r = rows[i]; if(!r || r[idx.id]===null || r[idx.id]===undefined || String(r[idx.id]).trim()==='') continue; const pid = String(r[idx.id]).trim(); if(!pid)continue; totalV++;", "const r = rows[i]; if(!r||!r.some(v=>String(v??'').trim()))continue;sourceRows++;if(r[idx.id]===null||r[idx.id]===undefined||String(r[idx.id]).trim()===''){missingIdRows++;continue;}const pid=String(r[idx.id]).trim();if(pid==='차트번호'||r[idx.name]==='수진자명'||(pid===h[idx.id]&&String(r[idx.addr]??'')===h[idx.addr])){headerRows++;continue;}totalV++;")
+replace('window.patientImportQuality={repeatedRows};','window.patientImportQuality={repeatedRows,sourceRows,acceptedRows:totalV,missingIdRows,headerRows};')
+replace('patientLoadToken++; clusterer.clear(); patients=[];', 'patientLoadToken++; window.patientImportQuality=null;window.__lastStatsVisible=[];clusterer.clear(); patients=[];')
+replace("if(window.patientImportQuality?.repeatedRows)note.textContent+=", "const q=window.patientImportQuality;if(q)note.textContent+=' 원본 데이터 '+q.sourceRows+'행 · 분석 '+q.acceptedRows+'행 · 번호 없음 제외 '+q.missingIdRows+'행 · 반복 헤더 제외 '+q.headerRows+'행.';if(window.patientImportQuality?.repeatedRows)note.textContent+=")
+replace('count:value.count,nearestDistance:value.nearest?.distance ?? null','count:value.count,error:!!value.error,partial:!!value.partial,truncated:!!value.truncated,nearestDistance:value.nearest?.distance ?? null')
+replace(" : '없음';\n    const facilityLine", " : '확인 자료 없음';\n    const facilityLine")
+replace("return `${scanEscapeHTML(value.label)} ${value.count.toLocaleString()}곳 / ${value.nearestDistance===null?'최단 -':`최단 ${scanFormatDistance(value.nearestDistance)}`}`;", "return scanComparisonFacilityLabel(value);")
+replace('function scanRenderComparisons(){', "function scanComparisonFacilityLabel(value){\n  if(!value)return '저장 자료 없음';\n  const label=scanEscapeHTML(value.label);\n  if(value.error)return label+' 조회 불가';\n  const partial=value.partial||value.truncated;\n  return label+' '+(partial?'확인 ':'')+Number(value.count||0).toLocaleString()+'곳'+(partial?' · 일부 미확인':'')+' / '+(value.nearestDistance==null?'최단 확인 자료 없음':'최단 '+scanFormatDistance(value.nearestDistance));\n}\nfunction scanRenderComparisons(){")
+replace("function scanSitePreview(){if($('sitePreview'))$('sitePreview').innerHTML=scanSiteSheet(scanSite.active);}", "function scanSitePreview(){if($('sitePreview'))$('sitePreview').innerHTML=scanSiteSheet(scanSite.active);const actions=$('sitePrint')?.parentElement;if(actions){let note=$('sitePrintPhotoNote');if(!note){note=document.createElement('p');note.id='sitePrintPhotoNote';note.className='siteFine';note.style.width='100%';actions.appendChild(note);}const photos=Object.values(scanSite.active?.photos||{}).filter(v=>typeof v==='string'&&v.startsWith('data:image/')).length;note.textContent='PDF·인쇄: 첨부사진 '+photos+'장 포함 · 화면 로드뷰는 원문 링크로 출력됩니다. 외관 이미지를 남기려면 사진을 첨부하세요.';}}")
+replace('</head>', '<style id="persona381">.siteCheck select,.siteActions select{min-height:44px}.scanPlaceClose{width:44px!important;height:44px!important}@media(min-width:651px) and (max-width:900px){.siteFields{grid-template-columns:repeat(2,minmax(0,1fr))}.siteFields label:has(textarea){grid-column:1/-1}}</style>\n</head>')
+s=s.replace('3.8.0','3.8.1')
+p.write_text(s,encoding='utf-8')

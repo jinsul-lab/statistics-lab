@@ -1,3 +1,13 @@
+# 현재 기준 · JINSUL MAP 3.8.1
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+작업 체크아웃: ../statistics-lab-banner-release
+5가상 페르소나 검토·개선: jinsulmap/PERSONAS_v3.8.1.md
+비교 조회 상태, CSV 한글 해석, 제외행/초기화, PDF 안내, 태블릿 개선. Worker 변경 없음.
+
+아래는 과거 기록입니다.
+
 # 현재 기준 · JINSUL MAP 3.8.0
 
 기준 파일: jinsulmap/jinsulmap.html
@@ -242,3 +252,4 @@
 - work/test_patient_v369.cjs: 합성 80명/240회/8개 동, 14개 동 합산, 0 분모, 미상, 기존 통계 회귀 및 768×1024 화면 렌더링 검증. 실제 환자 원본 미검증.
 
 최신 배포 검증: 1849ca6 이후 Pages v3.8.0, 공개 API 게시대8331건/현화면143건/묶음14개 확인. 상세 보고서 참고.
+
