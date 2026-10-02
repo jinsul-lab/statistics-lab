@@ -36,9 +36,9 @@ const clinic=(id,lat=37.5,lng=127,status='competitor')=>({ykiho:id,name:'검증 
   check(record.competitionAssessment,assessment,'classification evidence survives common source normalization');
   check(record.sourceRefs[0].recordId,'verified','HIRA provenance survives normalization');
   const columns=c.facilitySourceColumns(record);
-  check([columns['출처'],columns['입원 병상(개)'],columns['유관과 전문의(명)'],columns['분류 기준']],['건강보험심사평가원',0,2,'specialist-no-inpatient-v1']);
+  check([columns['출처'],columns['입원 병상(참고: 항목 최대값)'],columns['유관과 전문의(명)'],columns['분류 기준']],['건강보험심사평가원',0,2,'specialist-no-inpatient-v1']);
   check(columns['원문'],'https://www.data.go.kr/data/15001698/openapi.do');
-  check(c.facilitySourceColumns({...record,competitionAssessment:{}})['입원 병상(개)'],'미확인','missing evidence is never exported as zero');
+  check(c.facilitySourceColumns({...record,competitionAssessment:{}})['입원 병상(참고: 항목 최대값)'],'미확인','missing evidence is never exported as zero');
   response={places:[],competitors:[clinic('in'),clinic('border',37.49,126.99),clinic('out',37.52,127),clinic('wrong-status',37.5,127,'unverified')],declared:[clinic('declared',37.5,127,'declared')],unverified:[clinic('unknown',37.5,127,'unverified'),clinic('outside-unknown',37.52,127,'unverified')],excluded:[clinic('beds',37.5,127,'excluded')],errorLabels:['재활의학과']};
   const result=await c.facilityFetchCompetition(b,()=>current);
   check(result.places.map(p=>p.id),['in','border'],'only canonical verified rows inside original viewport are returned');

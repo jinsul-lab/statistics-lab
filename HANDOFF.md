@@ -1,3 +1,15 @@
+# 현재 기준 · JINSUL MAP 3.8.0
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+작업 체크아웃: ../statistics-lab-banner-release (codex/banner-v379; 기존 원격 main 기반)
+
+- 환자 ID·빈값·연령 분모 수정, 게시대 묶음/상세, 조회 결측 안내, 태블릿·지도 줌 충돌 수정.
+- 상세 검증과5가상 페르소나: jinsulmap/REVIEW_v3.8.0.md. 전체 무결함 판정 아님.
+- Worker·API Secret 변경 없음. API 우선/CSV 대체 유지.
+
+아래는 과거 기록입니다.
+
 # 현재 기준 · JINSUL MAP 3.7.9
 
 기준 파일: jinsulmap/jinsulmap.html

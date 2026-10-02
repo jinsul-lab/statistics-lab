@@ -22,7 +22,7 @@ let checks = 0;
 function check(value, expected, message){ assert.deepEqual(JSON.parse(JSON.stringify(value)), expected, message); checks++; }
 const p = (id, name, address='경기도 시흥시 정왕대로 74', more={}) => ({id,place_name:name,road_address_name:address,address_name:'경기도 시흥시 정왕동 1',x:'126.7',y:'37.3',...more});
 const handlerStart=html.indexOf('function facilityWithinBounds(');
-const handlerEnd=html.indexOf("const uploadBox = $('uploadBox');",handlerStart);
+const handlerEnd=html.indexOf("document.querySelectorAll('.search-btn').forEach",handlerStart);
 assert.ok(handlerStart>=0 && handlerEnd>handlerStart,'actual facility scan/route/export handlers located');
 const handlerSource=html.slice(handlerStart,handlerEnd);
 function makeApp(reply, options={}){
@@ -85,6 +85,8 @@ function makeApp(reply, options={}){
     }},
     startBannerAuto:()=>{sandbox.bannerStarts++;},bannerStarts:0,
     clearBannerLayerOnly(){},stopBannerAuto(){},
+    // Banner UI is outside this facility fixture; reset still invokes its cleanup.
+    renderBannerInspector(){},bannerStatus(){},
     places:{keywordSearch(keyword,cb,query){calls.push(keyword);reply(keyword,cb,query);}},
     kakao:{maps:{LatLng,LatLngBounds:Bounds,Marker,CustomOverlay:Overlay,Polyline,
       Size:class{constructor(w,h){this.width=w;this.height=h;}},
