@@ -56,4 +56,6 @@
 - [카카오 Local 주소 응답 문서](https://developers.kakao.com/docs/ko/local/dev-guide#address-coord): address/road_address, 행정동·법정동 필드 계약.
 - 코드: `jinsulmap/jinsulmap.html`; 검사·독립 감사: `work/test_emr_address_import_v382.cjs`, `work/test_emr_geo_v382.cjs`, `work/test_emr_address_ui_v382.cjs`, `work/emr_address_data_audit_v382.md`, `work/emr_address_statistics_audit_v382.md`.
 
-Worker/Secret 변경 없음. 고정 주소 `jinsulmap/jinsulmap.html` 유지. 배포 결과는 아래에 추가한다.
+Worker/Secret 변경 없음. 고정 주소 `jinsulmap/jinsulmap.html` 유지.
+
+배포 확인: 5316202 GitHub main 업로드 성공. 공개 고정 URL HTTP200, 제목 v3.8.2·주소 스타일 address382·주소 작업 큐 코드를 수신했다. 이는 배포 전달 확인이며 실제 환자 파일이나 API 성공률 검증은 아니다.
