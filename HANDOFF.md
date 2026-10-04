@@ -1,3 +1,13 @@
+# 현재 기준 · JINSUL MAP 3.8.2
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+작업 체크아웃: ../statistics-lab-banner-release
+환자 주소 데이터·통계 전문가 감사: jinsulmap/EMR_ADDRESS_REVIEW_v3.8.2.md
+열/시트/분리주소/문자열ID/인코딩, 주소 작업 큐·상태·재조회, 반경 분모·클러스터 독립 집계 수정. 실제 공급사 파일·실제 API 미검증. Worker/Secret 변경 없음.
+
+아래는 과거 기록입니다.
+
 # 현재 기준 · JINSUL MAP 3.8.1
 
 기준 파일: jinsulmap/jinsulmap.html
@@ -252,4 +262,5 @@
 - work/test_patient_v369.cjs: 합성 80명/240회/8개 동, 14개 동 합산, 0 분모, 미상, 기존 통계 회귀 및 768×1024 화면 렌더링 검증. 실제 환자 원본 미검증.
 
 최신 배포 검증: 1849ca6 이후 Pages v3.8.0, 공개 API 게시대8331건/현화면143건/묶음14개 확인. 상세 보고서 참고.
+
 

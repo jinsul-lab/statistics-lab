@@ -2,7 +2,7 @@ const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
 const h=fs.readFileSync('jinsulmap/jinsulmap.html','utf8');
 function block(a,b){return h.slice(h.indexOf('function '+a+'('),h.indexOf('function '+b+'(',h.indexOf('function '+a+'(')));}
 const ui={},messages=[],timers=[];
-const c=vm.createContext({console,Map,Date,window:{},patients:[],patientLoadToken:0,$:id=>ui[id]||(ui[id]={}),toast:m=>messages.push(m),clusterer:{clear(){}},setTimeout:f=>timers.push(f)});
+const c=vm.createContext({console,Map,Date,window:{},patients:[],patientLoadToken:0,$:id=>['patientImportMapping','patientAddressStatus','patientAddressRetry'].includes(id)?null:ui[id]||(ui[id]={}),toast:m=>messages.push(m),clusterer:{clear(){}},setTimeout:f=>timers.push(f)});
 vm.runInContext(h.slice(h.indexOf('function calcAgeFromRow('),h.indexOf('// ENTER on hospital input'))+block('patientNewFlag','applyFilter')+block('bucketAge','patientAnalysisCircles')+'const patientMixAges=["0~19","20~29","30~39","40~49","50~59","60~69","70+","미상"];'+block('patientMixData','renderPatientMix'),c);
 const fixture=[['차트번호','주소','성명','신규','구분','나이','진료일'],['A','지역A','가','Y','','20','2025-01-01'],['A','지역A','가','','재진','20','2025-01-01'],['B','지역A','나','Y','','29','2025-01-01'],['C','지역B','다','','90일초','40','2025-01-01'],['D','','라','','재진','','2025-01-01'],['D','','라','','재진','','2025-01-02'],['D','','라','','재진','','2025-01-03']];
 c.parsePatients(fixture);

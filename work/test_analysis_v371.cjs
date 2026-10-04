@@ -2,15 +2,12 @@ const fs=require('fs'),assert=require('assert/strict'),vm=require('vm');
 const h=fs.readFileSync('jinsulmap/jinsulmap.html','utf8');
 function block(name,next){const a=h.indexOf('function '+name+'('),b=h.indexOf('function '+next+'(',a);assert(a>=0&&b>a);return h.slice(a,b);}
 function fn(name){const a=h.indexOf('function '+name+'(');return h.slice(a,h.indexOf('\n}',a)+2);}
-const ui={};const c=vm.createContext({console,Map,Date,window:{},patients:[],patientLoadToken:0,$:id=>ui[id]||(ui[id]={}),toast:()=>{},clusterer:{clear(){}},setTimeout:()=>{},patientNewFlag:undefined});
-vm.runInContext(fn('calcAgeFromRow')+'\n'+fn('patientNewFlag')+'\n'+block('parsePatients','applyFilter'),c);
+const ui={};const c=vm.createContext({console,Map,Date,window:{},patients:[],patientLoadToken:0,$:id=>['patientImportMapping','patientAddressStatus','patientAddressRetry'].includes(id)?null:ui[id]||(ui[id]={}),toast:()=>{},clusterer:{clear(){}},setTimeout:()=>{},patientNewFlag:undefined});
+vm.runInContext(fn('calcAgeFromRow')+'\n'+block('patientNewFlag','applyFilter'),c);
 const rows=[['번호','차트번호','주소','성명','신규','구분','나이'],[1,'A','테스트','가','N','재진','-1'],[2,'A','테스트','가','0','재진',''],[3,'B','테스트','나','Y','신환','6개월'],[4,'B','테스트','나','','재진','6개월'],[5,'C','테스트','다','아니오','재진','30']];
 c.parsePatients(rows);assert.equal(c.patients.length,3);assert.equal(c.patients.find(p=>p.id==='A').type,'재진');assert.equal(c.patients.find(p=>p.id==='B').total,2);assert.equal(c.patients.find(p=>p.id==='C').type,'재진');assert.equal(c.calcAgeFromRow('-1',null),null);assert.equal(c.calcAgeFromRow('6개월',null),0);assert.equal(c.calcAgeFromRow('만 54세',null),54);assert.equal(c.calcAgeFromRow('69세6개월',null),69);assert.equal(c.calcAgeFromRow('미상123',null),null);
 console.log('PASS exact patient identifier, explicit false flags, source record grouping, age boundaries');
-const timers=[],callbacks=[];let finished=0;c.setTimeout=f=>timers.push(f);c.geocoder={addressSearch:(addr,cb)=>callbacks.push(cb)};c.kakao={maps:{services:{Status:{OK:'OK'}}}};c.applyFilter=()=>finished++;ui.btnFit={click(){}};
-c.parsePatients(rows);timers.splice(0).forEach(f=>f());callbacks[2]([], 'FAIL');assert.equal(finished,0);callbacks[0]([], 'FAIL');assert.equal(finished,0);callbacks[1]([], 'FAIL');assert.equal(finished,1);
-c.parsePatients(rows);timers.splice(0).forEach(f=>f());const stale=callbacks.slice(3);c.parsePatients(rows);stale.forEach(cb=>cb([], 'FAIL'));assert.equal(finished,1);
-console.log('PASS out-of-order geocoding completion and stale upload callback cancellation');
+// Async queue ordering/cancellation is covered by test_emr_geo_v382.cjs after the v382 queue replacement.
 const {chromium}=require('C:/Users/withe/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 (async()=>{
 const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});const page=await browser.newPage({viewport:{width:1360,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
