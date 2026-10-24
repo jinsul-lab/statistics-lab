@@ -1,0 +1,6 @@
+const fs=require('fs'),cp=require('child_process'),crypto=require('crypto');
+const phase=process.argv[2],files=phase==='debug'?['work/test_address_recovery_v383.cjs','work/test_emr_geo_v382.cjs','work/test_banner_layout_v380.cjs']:['work/xls_real_import_audit_v383.cjs','work/test_emr_address_ui_v382.cjs','work/test_patient_current.cjs'];
+if(!['debug','functional'].includes(phase))throw Error('Choose debug or functional');
+const target='jinsulmap/jinsulmap.html',hash=()=>crypto.createHash('sha256').update(fs.readFileSync(target)).digest('hex'),initialHash=hash(),runs=[];
+for(let round=1;round<=3;round++){const run={round,startedAt:new Date().toISOString(),htmlSha256:initialHash,checks:[]};for(const file of files){if(hash()!==initialHash)throw Error('HTML changed during checks');const output=cp.execFileSync(process.execPath,[file],{encoding:'utf8',maxBuffer:2e6,timeout:90000});run.checks.push({file,result:'pass',output:output.trim()});}run.finishedAt=new Date().toISOString();runs.push(run);console.log(phase+' '+round+'/3 PASS');}
+fs.writeFileSync('work/address-'+phase+'-checks-20261024.json',JSON.stringify({phase,htmlSha256:initialHash,environment:'local; actual file stays in memory; API responses synthetic in these scripts',runs},null,2));

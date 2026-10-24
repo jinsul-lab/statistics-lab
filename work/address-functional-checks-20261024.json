@@ -1,0 +1,76 @@
+{
+  "phase": "functional",
+  "htmlSha256": "d5548b3eab4a3458af2bfc95888276afa9d7659763e24127ce67c67864a5118c",
+  "environment": "local; actual file stays in memory; API responses synthetic in these scripts",
+  "runs": [
+    {
+      "round": 1,
+      "startedAt": "2026-10-24T04:14:21.048Z",
+      "htmlSha256": "d5548b3eab4a3458af2bfc95888276afa9d7659763e24127ce67c67864a5118c",
+      "checks": [
+        {
+          "file": "work/xls_real_import_audit_v383.cjs",
+          "result": "pass",
+          "output": "{\n  \"scope\": \"real local workbook; no geocoder/network patient requests\",\n  \"checkedAt\": \"2026-10-24T04:14:22.205Z\",\n  \"appTitle\": \"JINSUL MAP v3.8.3\",\n  \"appCodeSha256\": \"d5548b3eab4a3458af2bfc95888276afa9d7659763e24127ce67c67864a5118c\",\n  \"sheetjs\": \"0.18.5\",\n  \"fileBytes\": 3728970,\n  \"containerMagic\": \"d0cf11e0a1b11ae1\",\n  \"sheetCount\": 1,\n  \"sheetRows\": [\n    17058\n  ],\n  \"selectedIndex\": 0,\n  \"headerRow\": 1,\n  \"headers\": [\n    \"내원경로\",\n    \"차트번호\",\n    \"이름\",\n    \"나이\",\n    \"성별\",\n    \"보험유형\",\n    \"초재진구분\",\n    \"내원날짜\",\n    \"진료과목\",\n    \"담당의\",\n    \"구분\",\n    \"휴대폰번호\",\n    \"주소\"\n  ],\n  \"addressBaseIndices\": [\n    12\n  ],\n  \"detailIndex\": -1,\n  \"rawNonemptyDataRows\": 17057,\n  \"quality\": {\n    \"sourceRows\": 17057,\n    \"acceptedRows\": 17057,\n    \"missingIdRows\": 0,\n    \"headerRows\": 0,\n    \"repeatedRows\": 0\n  },\n  \"people\": {\n    \"total\": 2397,\n    \"addressPresent\": 2376,\n    \"addressMissing\": 21,\n    \"queryEligible\": 2315,\n    \"rejectedBeforeApi\": 61,\n    \"rejectedFractionOfAddressPresent\": 0.025673400673400674,\n    \"conflictingAddresses\": 0,\n    \"uniqueRawAddresses\": 2208,\n    \"uniqueEligibleRawAddresses\": 2163\n  },\n  \"queryVariantCounts\": {\n    \"1\": 480,\n    \"2\": 772,\n    \"3\": 1063\n  },\n  \"queryQueueMinimumStartSpacingSeconds\": 324.3,\n  \"rejectedShape\": {\n    \"containsDigit\": 14,\n    \"noDigit\": 47,\n    \"roadWithoutRecognizedBuilding\": 26,\n    \"hasDong\": 49,\n    \"trailingNumber\": 5,\n    \"hasPostalPrefix\": 0,\n    \"containsComma\": 0,\n    \"containsHyphen\": 4,\n    \"containsParen\": 0,\n    \"noWhitespace\": 19,\n    \"endsAdministrativeDong\": 28\n  },\n  \"actualProcessFilePath\": {\n    \"people\": 2397,\n    \"records\": 17057,\n    \"sameCounts\": true,\n    \"geocoderCalls\": 0,\n    \"scheduledButNotExecuted\": 2\n  }\n}"
+        },
+        {
+          "file": "work/test_emr_address_ui_v382.cjs",
+          "result": "pass",
+          "output": "PASS actual controls offline synthetic:8people,3resolved,5separateunresolvedstates,manualmapping44px,desktop/tablet,noerrors"
+        },
+        {
+          "file": "work/test_patient_current.cjs",
+          "result": "pass",
+          "output": "tabDong 6\ntabAge 16\ntabVisit 14\ntabRegion 6\ntabValue 16\ntabRadius 2\nERRORS []\nSCATTER 4\nPASS heatmap, age contribution, cumulative totals, top10+other, unknown, zero denominator, tablet render\nPASS real Chart.js: all tabs, scatter, filters, sample notice, blank age, empty refresh, missing library cache"
+        }
+      ],
+      "finishedAt": "2026-10-24T04:14:32.339Z"
+    },
+    {
+      "round": 2,
+      "startedAt": "2026-10-24T04:14:32.340Z",
+      "htmlSha256": "d5548b3eab4a3458af2bfc95888276afa9d7659763e24127ce67c67864a5118c",
+      "checks": [
+        {
+          "file": "work/xls_real_import_audit_v383.cjs",
+          "result": "pass",
+          "output": "{\n  \"scope\": \"real local workbook; no geocoder/network patient requests\",\n  \"checkedAt\": \"2026-10-24T04:14:33.556Z\",\n  \"appTitle\": \"JINSUL MAP v3.8.3\",\n  \"appCodeSha256\": \"d5548b3eab4a3458af2bfc95888276afa9d7659763e24127ce67c67864a5118c\",\n  \"sheetjs\": \"0.18.5\",\n  \"fileBytes\": 3728970,\n  \"containerMagic\": \"d0cf11e0a1b11ae1\",\n  \"sheetCount\": 1,\n  \"sheetRows\": [\n    17058\n  ],\n  \"selectedIndex\": 0,\n  \"headerRow\": 1,\n  \"headers\": [\n    \"내원경로\",\n    \"차트번호\",\n    \"이름\",\n    \"나이\",\n    \"성별\",\n    \"보험유형\",\n    \"초재진구분\",\n    \"내원날짜\",\n    \"진료과목\",\n    \"담당의\",\n    \"구분\",\n    \"휴대폰번호\",\n    \"주소\"\n  ],\n  \"addressBaseIndices\": [\n    12\n  ],\n  \"detailIndex\": -1,\n  \"rawNonemptyDataRows\": 17057,\n  \"quality\": {\n    \"sourceRows\": 17057,\n    \"acceptedRows\": 17057,\n    \"missingIdRows\": 0,\n    \"headerRows\": 0,\n    \"repeatedRows\": 0\n  },\n  \"people\": {\n    \"total\": 2397,\n    \"addressPresent\": 2376,\n    \"addressMissing\": 21,\n    \"queryEligible\": 2315,\n    \"rejectedBeforeApi\": 61,\n    \"rejectedFractionOfAddressPresent\": 0.025673400673400674,\n    \"conflictingAddresses\": 0,\n    \"uniqueRawAddresses\": 2208,\n    \"uniqueEligibleRawAddresses\": 2163\n  },\n  \"queryVariantCounts\": {\n    \"1\": 480,\n    \"2\": 772,\n    \"3\": 1063\n  },\n  \"queryQueueMinimumStartSpacingSeconds\": 324.3,\n  \"rejectedShape\": {\n    \"containsDigit\": 14,\n    \"noDigit\": 47,\n    \"roadWithoutRecognizedBuilding\": 26,\n    \"hasDong\": 49,\n    \"trailingNumber\": 5,\n    \"hasPostalPrefix\": 0,\n    \"containsComma\": 0,\n    \"containsHyphen\": 4,\n    \"containsParen\": 0,\n    \"noWhitespace\": 19,\n    \"endsAdministrativeDong\": 28\n  },\n  \"actualProcessFilePath\": {\n    \"people\": 2397,\n    \"records\": 17057,\n    \"sameCounts\": true,\n    \"geocoderCalls\": 0,\n    \"scheduledButNotExecuted\": 2\n  }\n}"
+        },
+        {
+          "file": "work/test_emr_address_ui_v382.cjs",
+          "result": "pass",
+          "output": "PASS actual controls offline synthetic:8people,3resolved,5separateunresolvedstates,manualmapping44px,desktop/tablet,noerrors"
+        },
+        {
+          "file": "work/test_patient_current.cjs",
+          "result": "pass",
+          "output": "tabDong 6\ntabAge 16\ntabVisit 14\ntabRegion 6\ntabValue 16\ntabRadius 2\nERRORS []\nSCATTER 4\nPASS heatmap, age contribution, cumulative totals, top10+other, unknown, zero denominator, tablet render\nPASS real Chart.js: all tabs, scatter, filters, sample notice, blank age, empty refresh, missing library cache"
+        }
+      ],
+      "finishedAt": "2026-10-24T04:14:42.403Z"
+    },
+    {
+      "round": 3,
+      "startedAt": "2026-10-24T04:14:42.403Z",
+      "htmlSha256": "d5548b3eab4a3458af2bfc95888276afa9d7659763e24127ce67c67864a5118c",
+      "checks": [
+        {
+          "file": "work/xls_real_import_audit_v383.cjs",
+          "result": "pass",
+          "output": "{\n  \"scope\": \"real local workbook; no geocoder/network patient requests\",\n  \"checkedAt\": \"2026-10-24T04:14:43.587Z\",\n  \"appTitle\": \"JINSUL MAP v3.8.3\",\n  \"appCodeSha256\": \"d5548b3eab4a3458af2bfc95888276afa9d7659763e24127ce67c67864a5118c\",\n  \"sheetjs\": \"0.18.5\",\n  \"fileBytes\": 3728970,\n  \"containerMagic\": \"d0cf11e0a1b11ae1\",\n  \"sheetCount\": 1,\n  \"sheetRows\": [\n    17058\n  ],\n  \"selectedIndex\": 0,\n  \"headerRow\": 1,\n  \"headers\": [\n    \"내원경로\",\n    \"차트번호\",\n    \"이름\",\n    \"나이\",\n    \"성별\",\n    \"보험유형\",\n    \"초재진구분\",\n    \"내원날짜\",\n    \"진료과목\",\n    \"담당의\",\n    \"구분\",\n    \"휴대폰번호\",\n    \"주소\"\n  ],\n  \"addressBaseIndices\": [\n    12\n  ],\n  \"detailIndex\": -1,\n  \"rawNonemptyDataRows\": 17057,\n  \"quality\": {\n    \"sourceRows\": 17057,\n    \"acceptedRows\": 17057,\n    \"missingIdRows\": 0,\n    \"headerRows\": 0,\n    \"repeatedRows\": 0\n  },\n  \"people\": {\n    \"total\": 2397,\n    \"addressPresent\": 2376,\n    \"addressMissing\": 21,\n    \"queryEligible\": 2315,\n    \"rejectedBeforeApi\": 61,\n    \"rejectedFractionOfAddressPresent\": 0.025673400673400674,\n    \"conflictingAddresses\": 0,\n    \"uniqueRawAddresses\": 2208,\n    \"uniqueEligibleRawAddresses\": 2163\n  },\n  \"queryVariantCounts\": {\n    \"1\": 480,\n    \"2\": 772,\n    \"3\": 1063\n  },\n  \"queryQueueMinimumStartSpacingSeconds\": 324.3,\n  \"rejectedShape\": {\n    \"containsDigit\": 14,\n    \"noDigit\": 47,\n    \"roadWithoutRecognizedBuilding\": 26,\n    \"hasDong\": 49,\n    \"trailingNumber\": 5,\n    \"hasPostalPrefix\": 0,\n    \"containsComma\": 0,\n    \"containsHyphen\": 4,\n    \"containsParen\": 0,\n    \"noWhitespace\": 19,\n    \"endsAdministrativeDong\": 28\n  },\n  \"actualProcessFilePath\": {\n    \"people\": 2397,\n    \"records\": 17057,\n    \"sameCounts\": true,\n    \"geocoderCalls\": 0,\n    \"scheduledButNotExecuted\": 2\n  }\n}"
+        },
+        {
+          "file": "work/test_emr_address_ui_v382.cjs",
+          "result": "pass",
+          "output": "PASS actual controls offline synthetic:8people,3resolved,5separateunresolvedstates,manualmapping44px,desktop/tablet,noerrors"
+        },
+        {
+          "file": "work/test_patient_current.cjs",
+          "result": "pass",
+          "output": "tabDong 6\ntabAge 16\ntabVisit 14\ntabRegion 6\ntabValue 16\ntabRadius 2\nERRORS []\nSCATTER 4\nPASS heatmap, age contribution, cumulative totals, top10+other, unknown, zero denominator, tablet render\nPASS real Chart.js: all tabs, scatter, filters, sample notice, blank age, empty refresh, missing library cache"
+        }
+      ],
+      "finishedAt": "2026-10-24T04:14:52.554Z"
+    }
+  ]
+}

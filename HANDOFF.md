@@ -1,3 +1,13 @@
+# 현재 기준 · JINSUL MAP 3.8.3
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+작업 체크아웃: ../statistics-lab-banner-release
+실제 XLS 주소 회귀: jinsulmap/ADDRESS_FIX_v3.8.3.md
+SDK 검색 옵션 소문자 수정, 처리중 지도 마커 즉시 표시, 번지 형식 보완. 실제 파일2397명/17057건 보존, 승인된 실제 주소표본30/30 성공. 디버깅3회·기능3회 실행. Worker/Secret 변경 없음.
+
+아래는 과거 기록입니다.
+
 # 현재 기준 · JINSUL MAP 3.8.2
 
 기준 파일: jinsulmap/jinsulmap.html

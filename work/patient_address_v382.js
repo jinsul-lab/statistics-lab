@@ -33,7 +33,9 @@ function patientAddressQueries(raw){
   let q=patientAddressText(raw).replace(/^\s*(?:\(\s*\d{5,6}\s*\)|\[\s*\d{5,6}\s*\]|\d{3}-\d{3}|\d{5})\s*/, '').replace(/,/g,' ').replace(/\s+/g,' ').trim();
   const aliases={'서울시':'서울특별시','서울':'서울특별시','경기':'경기도','부산':'부산광역시','대구':'대구광역시','인천':'인천광역시','광주':'광주광역시','대전':'대전광역시','울산':'울산광역시','세종':'세종특별자치시','충북':'충청북도','충남':'충청남도','전남':'전라남도','경북':'경상북도','경남':'경상남도','전북':'전북특별자치도','강원':'강원특별자치도','제주':'제주특별자치도'};
   q=q.replace(/^([^ ]+)\s/,(_,name)=>(aliases[name]||name)+' ');
-  q=q.replace(/([가-힣]+(?:대로|로|길))(?=\d)/g,'$1 ');
+  // Keep numbered street/legal-dong names intact (e.g. 테헤란로12길, 태평로1가).
+  q=q.replace(/([가-힣\d.]+(?:대로|로|길))(?=\d+(?:-\d+)?(?:\s|$))/g,'$1 ');
+  q=q.replace(/([가-힣][가-힣\d.]*?(?:동|리|가))\s*\(?(\d+(?:-\d+)?)\)?(?:번지)?(?=\s|$)/g,'$1 $2');
   const noBracket=q.replace(/\([^)]*\)|\[[^\]]*\]/g,' ').replace(/\s+/g,' ').trim();
   const building=noBracket.match(/^(.+?(?:대로|로|길)\s*\d+(?:-\d+)?)(?=\s|$)/)?.[1]||noBracket.match(/^(.+?(?:동|읍|면|리|가)\s+(?:산\s*)?\d+(?:-\d+)?)(?=\s|$)/)?.[1];
   return building?[...new Set([q,noBracket,building].filter(Boolean))].slice(0,3):[];
@@ -56,34 +58,56 @@ function patientRenderImportMapping(rows,headIdx,schema,override){
   const selects=[];for(const [labelText,selected] of [['기본 주소',override?.base??schema.bases[0]??-1],['상세 주소',override?.detail??schema.detail]]){const label=document.createElement('label'),select=document.createElement('select');label.append(document.createTextNode(labelText));const empty=document.createElement('option');empty.value='-1';empty.textContent=labelText==='기본 주소'?'자동 선택':'사용 안 함';select.append(empty);schema.head.forEach((title,i)=>{const option=document.createElement('option');option.value=String(i);option.textContent=(i+1)+'. '+String(title||'제목 없음');select.append(option);});select.value=String(selected);label.append(select);detail.append(label);selects.push(select);}
   const button=document.createElement('button');button.type='button';button.className='btn outline';button.textContent='지정한 주소 열로 다시 분석';button.onclick=()=>parsePatients(rows,{base:Number(selects[0].value),detail:Number(selects[1].value)});detail.append(button);node.append(detail);
 }
-function patientGeoRequest(method,args,token,timeout=8000){return new Promise(resolve=>{
+function patientGeoRequest(method,args,token,timeout=8000,analyzeType='EXACT'){return new Promise(resolve=>{
   let done=false;const finish=value=>{if(done)return;done=true;clearTimeout(timer);resolve(value);};const timer=setTimeout(()=>finish({state:'failed',reason:'응답 시간 초과'}),timeout);
-  try{geocoder[method](...args,(rows,status,pagination)=>{if(token!==patientLoadToken)return finish({state:'cancelled'});if(status===kakao.maps.services.Status.OK)finish({state:'ok',rows,pagination});else if(status===kakao.maps.services.Status.ZERO_RESULT)finish({state:'unresolved'});else finish({state:'failed',reason:'API 오류'});},method==='addressSearch'?{size:30,analyze_type:'EXACT'}:undefined);}catch{finish({state:'failed',reason:'주소 API 호출 오류'});}
+  try{geocoder[method](...args,(rows,status,pagination)=>{if(token!==patientLoadToken)return finish({state:'cancelled'});if(status===kakao.maps.services.Status.OK)finish({state:'ok',rows,pagination});else if(status===kakao.maps.services.Status.ZERO_RESULT)finish({state:'unresolved'});else finish({state:'failed',reason:'API 오류'});},method==='addressSearch'?{size:30,analyze_type:String(analyzeType).toLowerCase()}:undefined);}catch{finish({state:'failed',reason:'주소 API 호출 오류'});}
 });}
+function patientAddressComparable(value){
+  let text=patientAddressText(value).replace(/\([^)]*\)|\[[^\]]*\]/g,' ');
+  const aliases={'서울':'서울특별시','서울시':'서울특별시','경기':'경기도','부산':'부산광역시','대구':'대구광역시','인천':'인천광역시','광주':'광주광역시','대전':'대전광역시','울산':'울산광역시','세종':'세종특별자치시','충북':'충청북도','충남':'충청남도','전북':'전북특별자치도','전남':'전라남도','경북':'경상북도','경남':'경상남도','강원':'강원특별자치도','제주':'제주특별자치도'};
+  text=text.replace(/^([^ ]+)\s/,(_,name)=>(aliases[name]||name)+' ');
+  return text.replace(/[\s,]/g,'');
+}
+function patientSimilarAddressMatches(query,record){
+  const reference=patientAddressComparable(query);
+  return [record.address?.address_name,record.road_address?.address_name,record.address_name].filter(Boolean).some(value=>{
+    const candidate=patientAddressComparable(value);
+    // A suffix is allowed for an omitted province, never for a different house number.
+    return candidate===reference||candidate.endsWith(reference);
+  });
+}
 async function patientResolveAddress(raw,token){
   const queries=patientAddressQueries(raw);if(!patientAddressText(raw))return {state:'missing'};if(!queries.length)return {state:'insufficient'};
-  for(const query of queries){let response=await patientGeoRequest('addressSearch',[query],token);if(response.state==='failed'){await new Promise(r=>setTimeout(r,600));if(token!==patientLoadToken)return {state:'cancelled'};response=await patientGeoRequest('addressSearch',[query],token);}if(response.state==='cancelled'||response.state==='failed')return response;if(response.state!=='ok')continue;
+  const attempts=queries.map(query=>({query,mode:'EXACT'})).concat({query:queries.at(-1),mode:'SIMILAR'});
+  for(const {query,mode} of attempts){let response=await patientGeoRequest('addressSearch',[query],token,8000,mode);if(response.state==='failed'){await new Promise(r=>setTimeout(r,600));if(token!==patientLoadToken)return {state:'cancelled'};response=await patientGeoRequest('addressSearch',[query],token,8000,mode);}if(response.state==='cancelled'||response.state==='failed')return response;if(response.state!=='ok')continue;
     const records=response.rows||[],valid=records.filter(r=>!['REGION','ROAD'].includes(r.address_type)&&Number.isFinite(Number(r.x))&&Number.isFinite(Number(r.y))&&Number(r.x)>=124&&Number(r.x)<=132&&Number(r.y)>=32&&Number(r.y)<=39.9);
     if(!valid.length)continue;
     const locations=new Set(valid.map(r=>Number(r.x).toFixed(5)+','+Number(r.y).toFixed(5)));
     if(locations.size>1||response.pagination?.totalCount>records.length)return {state:'ambiguous'};
+    if(mode==='SIMILAR'&&!valid.every(record=>patientSimilarAddressMatches(query,record)))continue;
     const found=valid[0],a=found.address||{},road=found.road_address||{};let dong=a.region_3depth_h_name?[a.region_1depth_name,a.region_2depth_name,a.region_3depth_h_name].filter(Boolean).join(' '):'',basis=dong?'행정동':'';
     if(!dong&&typeof geocoder.coord2RegionCode==='function'){const region=await patientGeoRequest('coord2RegionCode',[Number(found.x),Number(found.y)],token);if(region.state==='cancelled')return region;const h=(region.rows||[]).find(r=>r.region_type==='H');if(h){dong=[h.region_1depth_name,h.region_2depth_name,h.region_3depth_name].filter(Boolean).join(' ');basis='행정동';}}
     if(!dong){const source=a.region_3depth_name?a:road;if(source.region_3depth_name){dong=[source.region_1depth_name,source.region_2depth_name,source.region_3depth_name].filter(Boolean).join(' ')+' (법정동)';basis='법정동';}}
-    return {state:'resolved',lat:Number(found.y),lng:Number(found.x),dong,basis,query};
+    return {state:'resolved',lat:Number(found.y),lng:Number(found.x),dong,basis,query,matchMode:mode};
   }return {state:'unresolved'};
 }
 function patientAttachGeo(p,result){
   p.geoState=result.state;p.geoReason=result.reason||'';if(result.state!=='resolved')return;
-  p.latlng=new kakao.maps.LatLng(result.lat,result.lng);p.dong=result.dong||'';p.dongBasis=result.basis;p.geocodedQuery=result.query;
+  p.latlng=new kakao.maps.LatLng(result.lat,result.lng);p.dong=result.dong||'';p.dongBasis=result.basis;p.geocodedQuery=result.query;p.geocodeMatchMode=result.matchMode;
   const color=REP_COLOR[p.type],svg='<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><circle cx="7" cy="7" r="6" fill="'+color+'" stroke="white" stroke-width="1"/></svg>';
   p.marker=new kakao.maps.Marker({position:p.latlng,image:new kakao.maps.MarkerImage('data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg),new kakao.maps.Size(14,14))});
   const iw=new kakao.maps.InfoWindow({content:'<div style="padding:5px;font-size:12px"><b>'+patientStatsEscape(p.id)+' '+patientStatsEscape(p.name)+'</b><br>'+patientTypeLabel(p.type)+'<br>기록 '+p.total+'건</div>',removable:true});kakao.maps.event.addListener(p.marker,'click',()=>iw.open(map,p.marker));
 }
+function patientShowResolvedMarkers(people){
+  if(typeof clusterer.addMarkers!=='function')return;
+  const circles=patientAnalysisCircles(),line=circles.length?new kakao.maps.Polyline():null;
+  const markers=people.filter(p=>p.marker&&p.latlng&&patientTypeSelected(p)&&(!circles.length||circles.some(c=>{line.setPath([c.center,p.latlng]);return line.getLength()<=c.radius;}))).map(p=>p.marker);
+  if(markers.length)clusterer.addMarkers(markers);
+}
 async function patientStartGeocoding(rows,token,retryOnly=false){
   const grouped=new Map();for(const p of rows){if(retryOnly&&!['failed','unresolved','ambiguous'].includes(p.geoState))continue;const key=patientAddressText(p.addr);p.geoState=key?'pending':'missing';if(!key)continue;if(!patientAddressQueries(key).length){p.geoState='insufficient';continue;}if(!grouped.has(key))grouped.set(key,[]);grouped.get(key).push(p);}
   patientRenderAddressStatus();const jobs=[...grouped],workers=[];let cursor=0,nextStart=0;
-  for(let i=0;i<Math.min(3,jobs.length);i++)workers.push((async()=>{while(cursor<jobs.length&&token===patientLoadToken){const [address,people]=jobs[cursor++],delay=Math.max(0,nextStart-Date.now());nextStart=Math.max(nextStart,Date.now())+150;if(delay)await new Promise(r=>setTimeout(r,delay));if(token!==patientLoadToken)return;const result=await patientResolveAddress(address,token);if(token!==patientLoadToken)return;people.forEach(p=>patientAttachGeo(p,result));patientRenderAddressStatus();}})());
+  for(let i=0;i<Math.min(3,jobs.length);i++)workers.push((async()=>{while(cursor<jobs.length&&token===patientLoadToken){const [address,people]=jobs[cursor++],delay=Math.max(0,nextStart-Date.now());nextStart=Math.max(nextStart,Date.now())+150;if(delay)await new Promise(r=>setTimeout(r,delay));if(token!==patientLoadToken)return;const result=await patientResolveAddress(address,token);if(token!==patientLoadToken)return;people.forEach(p=>patientAttachGeo(p,result));patientShowResolvedMarkers(people);patientRenderAddressStatus();}})());
   await Promise.all(workers);if(token!==patientLoadToken)return;applyFilter();if(rows.some(p=>p.latlng))$('btnFit').click();patientRenderAddressStatus();toast('주소 처리 완료 · 미확인 사유를 확인하세요.');
 }
 function patientAddressStatisticsNote(){

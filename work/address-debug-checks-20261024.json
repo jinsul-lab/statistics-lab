@@ -1,0 +1,76 @@
+{
+  "phase": "debug",
+  "htmlSha256": "d5548b3eab4a3458af2bfc95888276afa9d7659763e24127ce67c67864a5118c",
+  "environment": "local; actual file stays in memory; API responses synthetic in these scripts",
+  "runs": [
+    {
+      "round": 1,
+      "startedAt": "2026-10-24T04:14:18.437Z",
+      "htmlSha256": "d5548b3eab4a3458af2bfc95888276afa9d7659763e24127ce67c67864a5118c",
+      "checks": [
+        {
+          "file": "work/test_address_recovery_v383.cjs",
+          "result": "pass",
+          "output": "{\n  \"source\": \"actual inline HTML\",\n  \"synthetic\": true,\n  \"liveApi\": false,\n  \"passed\": 18,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "file": "work/test_emr_geo_v382.cjs",
+          "result": "pass",
+          "output": "PASS latest inline geography helpers: 49 assertions; 3 ordinary concurrent requests, raw-address dedup, missing/notfound/error/timeout/retry/stale, ambiguity, road/legal/admin fallback, 8people/14records oracle, coverage-before-radius and marker-independent circle count."
+        },
+        {
+          "file": "work/test_banner_layout_v380.cjs",
+          "result": "pass",
+          "output": "PASS banner grouping preserves200records, centers52pxapart, exactcoordinate grouping, no permanent labels, all script syntax"
+        }
+      ],
+      "finishedAt": "2026-10-24T04:14:19.293Z"
+    },
+    {
+      "round": 2,
+      "startedAt": "2026-10-24T04:14:19.295Z",
+      "htmlSha256": "d5548b3eab4a3458af2bfc95888276afa9d7659763e24127ce67c67864a5118c",
+      "checks": [
+        {
+          "file": "work/test_address_recovery_v383.cjs",
+          "result": "pass",
+          "output": "{\n  \"source\": \"actual inline HTML\",\n  \"synthetic\": true,\n  \"liveApi\": false,\n  \"passed\": 18,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "file": "work/test_emr_geo_v382.cjs",
+          "result": "pass",
+          "output": "PASS latest inline geography helpers: 49 assertions; 3 ordinary concurrent requests, raw-address dedup, missing/notfound/error/timeout/retry/stale, ambiguity, road/legal/admin fallback, 8people/14records oracle, coverage-before-radius and marker-independent circle count."
+        },
+        {
+          "file": "work/test_banner_layout_v380.cjs",
+          "result": "pass",
+          "output": "PASS banner grouping preserves200records, centers52pxapart, exactcoordinate grouping, no permanent labels, all script syntax"
+        }
+      ],
+      "finishedAt": "2026-10-24T04:14:20.149Z"
+    },
+    {
+      "round": 3,
+      "startedAt": "2026-10-24T04:14:20.149Z",
+      "htmlSha256": "d5548b3eab4a3458af2bfc95888276afa9d7659763e24127ce67c67864a5118c",
+      "checks": [
+        {
+          "file": "work/test_address_recovery_v383.cjs",
+          "result": "pass",
+          "output": "{\n  \"source\": \"actual inline HTML\",\n  \"synthetic\": true,\n  \"liveApi\": false,\n  \"passed\": 18,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "file": "work/test_emr_geo_v382.cjs",
+          "result": "pass",
+          "output": "PASS latest inline geography helpers: 49 assertions; 3 ordinary concurrent requests, raw-address dedup, missing/notfound/error/timeout/retry/stale, ambiguity, road/legal/admin fallback, 8people/14records oracle, coverage-before-radius and marker-independent circle count."
+        },
+        {
+          "file": "work/test_banner_layout_v380.cjs",
+          "result": "pass",
+          "output": "PASS banner grouping preserves200records, centers52pxapart, exactcoordinate grouping, no permanent labels, all script syntax"
+        }
+      ],
+      "finishedAt": "2026-10-24T04:14:20.996Z"
+    }
+  ]
+}
