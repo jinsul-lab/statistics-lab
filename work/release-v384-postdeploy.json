@@ -1,0 +1,44 @@
+{
+  "version": "3.8.4",
+  "commit": "30fde7e",
+  "environment": "Production GitHub Pages via in-app browser; public city-hall CSV only; same browser, banner data cache reused after first live load",
+  "sha256": "dcdd625999c7c51d13a499a898c95fe75b7acf09e95489266c5f225f065e4001",
+  "runs": [
+    {
+      "round": 1,
+      "startedAt": "2026-10-25T05:52:40.063Z",
+      "version": "JINSUL MAP v3.8.4",
+      "addressStatus": "주소 변환 4명 기준 · 좌표 확인 4 · 원주소 없음 0 · 처리 중 0 · 검색 불일치 0 · 조회 실패 0 · 다중 후보 0 · 번지/건물번호 부족 0 · 동 미확인 0명",
+      "filterChecks": true,
+      "statisticsKeyboard": true,
+      "hospitalKeyboard": true,
+      "bannerStatus": "현수막게시대 · 공식 API\n지도 범위 660건 · 대상 660건 · 묶음 43개\n전체 9,038건\n자료 기준일 2024-08-01 ~ 2026-09-19\n기관별 제공 범위가 달라 미표시가 시설 부재를 뜻하지 않습니다.",
+      "bannerOff": true,
+      "finishedAt": "2026-10-25T05:52:42.759Z"
+    },
+    {
+      "round": 2,
+      "startedAt": "2026-10-25T05:52:54.023Z",
+      "version": "JINSUL MAP v3.8.4",
+      "addressStatus": "주소 변환 4명 기준 · 좌표 확인 4 · 원주소 없음 0 · 처리 중 0 · 검색 불일치 0 · 조회 실패 0 · 다중 후보 0 · 번지/건물번호 부족 0 · 동 미확인 0명",
+      "filterChecks": true,
+      "statisticsKeyboard": true,
+      "hospitalKeyboard": true,
+      "bannerStatus": "현수막게시대 · 공식 API\n지도 범위 697건 · 대상 697건 · 묶음 48개\n전체 9,038건\n자료 기준일 2024-08-01 ~ 2026-09-19\n기관별 제공 범위가 달라 미표시가 시설 부재를 뜻하지 않습니다.",
+      "bannerOff": true,
+      "finishedAt": "2026-10-25T05:52:56.692Z"
+    },
+    {
+      "round": 3,
+      "startedAt": "2026-10-25T05:52:56.692Z",
+      "version": "JINSUL MAP v3.8.4",
+      "addressStatus": "주소 변환 4명 기준 · 좌표 확인 4 · 원주소 없음 0 · 처리 중 0 · 검색 불일치 0 · 조회 실패 0 · 다중 후보 0 · 번지/건물번호 부족 0 · 동 미확인 0명",
+      "filterChecks": true,
+      "statisticsKeyboard": true,
+      "hospitalKeyboard": true,
+      "bannerStatus": "현수막게시대 · 공식 API\n지도 범위 682건 · 대상 682건 · 묶음 45개\n전체 9,038건\n자료 기준일 2024-08-01 ~ 2026-09-19\n기관별 제공 범위가 달라 미표시가 시설 부재를 뜻하지 않습니다.",
+      "bannerOff": true,
+      "finishedAt": "2026-10-25T05:52:59.367Z"
+    }
+  ]
+}
