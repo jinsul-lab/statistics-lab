@@ -1,0 +1,32 @@
+const fs=require('fs'),assert=require('assert/strict'),{chromium}=require('C:/Users/withe/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const h=fs.readFileSync('jinsulmap/jinsulmap.html','utf8');
+(async()=>{
+ const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
+ const page=await browser.newPage({viewport:{width:1280,height:900}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route('**/*',r=>r.abort());
+ const body=h.slice(h.indexOf('<body>')+6,h.indexOf('<script>',h.indexOf('<body>')));
+ await page.setContent('<html><head>'+[...h.matchAll(/<style[^>]*>[\s\S]*?<\/style>/g)].map(m=>m[0]).join('')+'</head><body>'+body+'</body></html>');
+ const filters=h.slice(h.indexOf('function patientSyncFilterControls('),h.indexOf('function countInCircle('));
+ const tabs=h.slice(h.indexOf('window.switchTab ='),h.indexOf('/* ===========================   [상권 스캔',h.indexOf('window.switchTab =')));
+ await page.addScriptTag({content:`const $=id=>document.getElementById(id),toggleState={all:true,new_only:true,new_conv:true,bit_90:true,old:true};let updates=0;function applyFilter(){updates++};function maybeRenderExtraStats(){}function resizeAllStatCharts(){}`+filters+tabs});
+ await page.addScriptTag({content:h.match(/<script id="accessibleUI384">([\s\S]*?)<\/script>/)[1]});
+ await page.evaluate(()=>{initJinsulAccessibleUI();$('btnStats').onclick=()=>{$('statsModal').style.display='flex'};$('btnCloseScanReport').onclick=()=>{$('scanReportModal').style.display='none'};});
+ const all=page.locator('[data-toggle="all"]'),one=page.locator('[data-toggle="new_only"]');
+ await one.press('Space');assert.equal(await one.getAttribute('aria-checked'),'false');assert.equal(await all.getAttribute('aria-checked'),'mixed');
+ await all.press('Enter');assert.equal(await all.getAttribute('aria-checked'),'true');assert.equal(await one.getAttribute('aria-checked'),'true');
+ await all.click();assert.equal(await all.getAttribute('aria-checked'),'false');assert.equal(await one.getAttribute('aria-checked'),'false');
+ for(const key of ['new_only','new_conv','bit_90','old'])await page.locator('[data-toggle="'+key+'"]').click();assert.equal(await all.getAttribute('aria-checked'),'true');assert.equal(await page.evaluate(()=>updates),7);
+ assert.equal(await one.getAttribute('aria-label'),'신환 표기·1건');
+ await page.locator('#btnStats').click();await page.waitForFunction(()=>document.activeElement.classList.contains('statsClose'));
+ assert.equal(await page.locator('#statsModal').getAttribute('aria-hidden'),'false');
+ await page.locator('.statsClose').filter({visible:true}).first().press('Shift+Tab');assert(await page.evaluate(()=>document.getElementById('statsModal').contains(document.activeElement)));
+ await page.locator('#control-tabType').press('ArrowRight');assert.equal(await page.locator('#control-tabDong').getAttribute('aria-selected'),'true');assert(await page.locator('#tabDong').isVisible());
+ await page.evaluate(()=>switchTab('tabAge'));assert.equal(await page.locator('#control-tabAge').getAttribute('aria-selected'),'true');
+ await page.evaluate(()=>switchTab('invalid-pane'));assert(await page.locator('#tabAge').isVisible());
+ await page.locator('#control-tabAge').press('End');assert.equal(await page.locator('#control-tabLocalPopulation').getAttribute('aria-selected'),'true');
+ await page.evaluate(()=>{$('scanReportModal').style.display='flex'});await page.waitForFunction(()=>document.activeElement.id==='btnCloseScanReport');
+ await page.locator('#btnCloseScanReport').press('Escape');await page.waitForFunction(()=>document.getElementById('scanReportModal').style.display==='none');assert(await page.locator('#statsModal').isVisible());
+ await page.locator('#control-tabLocalPopulation').press('Escape');await page.waitForFunction(()=>document.activeElement.id==='btnStats');assert(!await page.locator('#statsModal').isVisible());
+ await page.locator('#btnStats').click();await page.evaluate(()=>switchTab('tabType'));
+ for(const size of [{width:375,height:812},{width:768,height:1024}]){await page.setViewportSize(size);const close=await page.locator('#statsModal .statsClose').boundingBox();assert(close.width>=44&&close.height>=44&&close.x>=0&&close.x+close.width<=size.width);await page.screenshot({path:'work/ui-v384-'+size.width+'.png'});}
+ assert.deepEqual(errors,[]);console.log('PASS filter mixed/all/none state + keyboard; programmatic/arrow tabs; nested dialog Escape/focus; 375/768 close target and rendering');await browser.close();
+})().catch(e=>{console.error(e);process.exitCode=1});

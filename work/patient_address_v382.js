@@ -104,13 +104,35 @@ function patientShowResolvedMarkers(people){
   const markers=people.filter(p=>p.marker&&p.latlng&&patientTypeSelected(p)&&(!circles.length||circles.some(c=>{line.setPath([c.center,p.latlng]);return line.getLength()<=c.radius;}))).map(p=>p.marker);
   if(markers.length)clusterer.addMarkers(markers);
 }
+function patientCancelProgressRefresh(){
+  if(window.patientProgressRefresh){clearTimeout(window.patientProgressRefresh.timer);window.patientProgressRefresh=null;}
+}
+function patientUpdateVisibleCounts(){
+  const visible=buildVisiblePatients();
+  $('statTotalUsers').innerText=visible.length.toLocaleString();
+  $('statTotalVisits').innerText=visible.reduce((sum,p)=>sum+(Number(p.total)||0),0).toLocaleString();
+}
+function patientRefreshProgress(token){
+  if(window.patientProgressRefresh?.token===token)return;
+  patientCancelProgressRefresh();
+  const task={token,timer:null};window.patientProgressRefresh=task;
+  task.timer=setTimeout(()=>{
+    if(window.patientProgressRefresh!==task)return;
+    window.patientProgressRefresh=null;
+    if(token!==patientLoadToken)return;
+    patientUpdateVisibleCounts();
+    if($('statsModal')?.style?.display==='flex')$('btnStats').click();
+  },750);
+}
 async function patientStartGeocoding(rows,token,retryOnly=false){
+  if(token!==patientLoadToken)return;
   const grouped=new Map();for(const p of rows){if(retryOnly&&!['failed','unresolved','ambiguous'].includes(p.geoState))continue;const key=patientAddressText(p.addr);p.geoState=key?'pending':'missing';if(!key)continue;if(!patientAddressQueries(key).length){p.geoState='insufficient';continue;}if(!grouped.has(key))grouped.set(key,[]);grouped.get(key).push(p);}
-  patientRenderAddressStatus();const jobs=[...grouped],workers=[];let cursor=0,nextStart=0;
-  for(let i=0;i<Math.min(3,jobs.length);i++)workers.push((async()=>{while(cursor<jobs.length&&token===patientLoadToken){const [address,people]=jobs[cursor++],delay=Math.max(0,nextStart-Date.now());nextStart=Math.max(nextStart,Date.now())+150;if(delay)await new Promise(r=>setTimeout(r,delay));if(token!==patientLoadToken)return;const result=await patientResolveAddress(address,token);if(token!==patientLoadToken)return;people.forEach(p=>patientAttachGeo(p,result));patientShowResolvedMarkers(people);patientRenderAddressStatus();}})());
-  await Promise.all(workers);if(token!==patientLoadToken)return;applyFilter();if(rows.some(p=>p.latlng))$('btnFit').click();patientRenderAddressStatus();toast('주소 처리 완료 · 미확인 사유를 확인하세요.');
+  patientCancelProgressRefresh();patientUpdateVisibleCounts();patientRenderAddressStatus();const jobs=[...grouped],workers=[];let cursor=0,nextStart=0;
+  for(let i=0;i<Math.min(3,jobs.length);i++)workers.push((async()=>{while(cursor<jobs.length&&token===patientLoadToken){const [address,people]=jobs[cursor++],delay=Math.max(0,nextStart-Date.now());nextStart=Math.max(nextStart,Date.now())+150;if(delay)await new Promise(r=>setTimeout(r,delay));if(token!==patientLoadToken)return;const result=await patientResolveAddress(address,token);if(token!==patientLoadToken)return;people.forEach(p=>patientAttachGeo(p,result));patientShowResolvedMarkers(people);patientRenderAddressStatus();patientRefreshProgress(token);}})());
+  await Promise.all(workers);if(token!==patientLoadToken)return;patientCancelProgressRefresh();applyFilter();if(rows.some(p=>p.latlng))$('btnFit').click();patientRenderAddressStatus();toast('주소 처리 완료 · 미확인 사유를 확인하세요.');
 }
 function patientAddressStatisticsNote(){
   const population=patients.filter(patientTypeSelected),hasRadius=patientAnalysisCircles().length>0;
   return patientAddressCoverageText(population)+(hasRadius?' · 반경 분석에서 좌표 미확인 '+population.filter(p=>!p.latlng).length+'명 제외. 이 환자들을 반경 밖으로 판단하지 않습니다.':'')+' · 지역 통계는 행정동 우선, 법정동 대체는 이름에 표시합니다.';
 }
+

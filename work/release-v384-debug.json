@@ -1,0 +1,167 @@
+{
+  "version": "3.8.4",
+  "phase": "debug",
+  "sha256": "dcdd625999c7c51d13a499a898c95fe75b7acf09e95489266c5f225f065e4001",
+  "environment": "Local synthetic/offline browser fixtures; no real patient data; live API checked separately",
+  "runs": [
+    {
+      "round": 1,
+      "startedAt": "2026-10-25T05:48:21.186Z",
+      "checks": [
+        {
+          "script": "work/test_patient_upgrade_v384.cjs",
+          "passed": true,
+          "output": "{\n  \"synthetic\": true,\n  \"liveApi\": false,\n  \"source\": \"actual inline HTML\",\n  \"passed\": 14,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "script": "work/test_site_upgrade_v384.cjs",
+          "passed": true,
+          "output": "PASS partial-only facility status survives snapshot, JSON round trip and exported sheet\nPASS truncated, failed and confirmed zero facilities remain distinct\nPASS missing and invalid distances do not enter the nearest bin; real zero remains eligible\nPASS saved null distances display as unknown and chart discloses exclusion\nPASS all-unknown distance chart is missing data; complete empty cohort is real zero\nPASS diagram numbers remain tied to table rows when coordinates are missing\nPASS diagram keeps the same 18-row limit as its table reference\nPASS HTML render escapes arbitrary labels while preserving distance meaning\n8 site/report regression checks passed (synthetic fixtures; no live API)."
+        },
+        {
+          "script": "work/test_map_upgrade_v384.cjs",
+          "passed": true,
+          "output": "{\"ok\":true,\"checks\":45,\"scope\":\"hospital search + banner lifecycle/provenance\",\"liveApi\":false}"
+        },
+        {
+          "script": "work/test_address_recovery_v383.cjs",
+          "passed": true,
+          "output": "{\n  \"source\": \"actual inline HTML\",\n  \"synthetic\": true,\n  \"liveApi\": false,\n  \"passed\": 18,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "script": "work/test_emr_geo_v382.cjs",
+          "passed": true,
+          "output": "PASS latest inline geography helpers: 49 assertions; 3 ordinary concurrent requests, raw-address dedup, missing/notfound/error/timeout/retry/stale, ambiguity, road/legal/admin fallback, 8people/14records oracle, coverage-before-radius and marker-independent circle count."
+        },
+        {
+          "script": "work/test_emr_address_import_v382.cjs",
+          "passed": true,
+          "output": "{\n  \"fixtureKind\": \"synthetic\",\n  \"passed\": 28,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "script": "work/test_clinic_integration_v378.cjs",
+          "passed": true,
+          "output": "{\n  \"ok\": true,\n  \"checks\": 69,\n  \"failures\": [],\n  \"source\": \"current v3.7.8 HTML with synthetic source and DOM fixtures\",\n  \"liveApi\": false,\n  \"htmlEdited\": false\n}"
+        },
+        {
+          "script": "work/test_senior_current.cjs",
+          "passed": true,
+          "output": "{\"ok\":true,\"checks\":204,\"source\":\"release HTML\",\"liveApi\":false}"
+        },
+        {
+          "script": "work/test_banner_layout_v380.cjs",
+          "passed": true,
+          "output": "PASS banner grouping preserves200records, centers52pxapart, exactcoordinate grouping, no permanent labels, all script syntax"
+        }
+      ],
+      "finishedAt": "2026-10-25T05:48:23.208Z",
+      "passed": true
+    },
+    {
+      "round": 2,
+      "startedAt": "2026-10-25T05:48:23.216Z",
+      "checks": [
+        {
+          "script": "work/test_patient_upgrade_v384.cjs",
+          "passed": true,
+          "output": "{\n  \"synthetic\": true,\n  \"liveApi\": false,\n  \"source\": \"actual inline HTML\",\n  \"passed\": 14,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "script": "work/test_site_upgrade_v384.cjs",
+          "passed": true,
+          "output": "PASS partial-only facility status survives snapshot, JSON round trip and exported sheet\nPASS truncated, failed and confirmed zero facilities remain distinct\nPASS missing and invalid distances do not enter the nearest bin; real zero remains eligible\nPASS saved null distances display as unknown and chart discloses exclusion\nPASS all-unknown distance chart is missing data; complete empty cohort is real zero\nPASS diagram numbers remain tied to table rows when coordinates are missing\nPASS diagram keeps the same 18-row limit as its table reference\nPASS HTML render escapes arbitrary labels while preserving distance meaning\n8 site/report regression checks passed (synthetic fixtures; no live API)."
+        },
+        {
+          "script": "work/test_map_upgrade_v384.cjs",
+          "passed": true,
+          "output": "{\"ok\":true,\"checks\":45,\"scope\":\"hospital search + banner lifecycle/provenance\",\"liveApi\":false}"
+        },
+        {
+          "script": "work/test_address_recovery_v383.cjs",
+          "passed": true,
+          "output": "{\n  \"source\": \"actual inline HTML\",\n  \"synthetic\": true,\n  \"liveApi\": false,\n  \"passed\": 18,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "script": "work/test_emr_geo_v382.cjs",
+          "passed": true,
+          "output": "PASS latest inline geography helpers: 49 assertions; 3 ordinary concurrent requests, raw-address dedup, missing/notfound/error/timeout/retry/stale, ambiguity, road/legal/admin fallback, 8people/14records oracle, coverage-before-radius and marker-independent circle count."
+        },
+        {
+          "script": "work/test_emr_address_import_v382.cjs",
+          "passed": true,
+          "output": "{\n  \"fixtureKind\": \"synthetic\",\n  \"passed\": 28,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "script": "work/test_clinic_integration_v378.cjs",
+          "passed": true,
+          "output": "{\n  \"ok\": true,\n  \"checks\": 69,\n  \"failures\": [],\n  \"source\": \"current v3.7.8 HTML with synthetic source and DOM fixtures\",\n  \"liveApi\": false,\n  \"htmlEdited\": false\n}"
+        },
+        {
+          "script": "work/test_senior_current.cjs",
+          "passed": true,
+          "output": "{\"ok\":true,\"checks\":204,\"source\":\"release HTML\",\"liveApi\":false}"
+        },
+        {
+          "script": "work/test_banner_layout_v380.cjs",
+          "passed": true,
+          "output": "PASS banner grouping preserves200records, centers52pxapart, exactcoordinate grouping, no permanent labels, all script syntax"
+        }
+      ],
+      "finishedAt": "2026-10-25T05:48:25.223Z",
+      "passed": true
+    },
+    {
+      "round": 3,
+      "startedAt": "2026-10-25T05:48:25.230Z",
+      "checks": [
+        {
+          "script": "work/test_patient_upgrade_v384.cjs",
+          "passed": true,
+          "output": "{\n  \"synthetic\": true,\n  \"liveApi\": false,\n  \"source\": \"actual inline HTML\",\n  \"passed\": 14,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "script": "work/test_site_upgrade_v384.cjs",
+          "passed": true,
+          "output": "PASS partial-only facility status survives snapshot, JSON round trip and exported sheet\nPASS truncated, failed and confirmed zero facilities remain distinct\nPASS missing and invalid distances do not enter the nearest bin; real zero remains eligible\nPASS saved null distances display as unknown and chart discloses exclusion\nPASS all-unknown distance chart is missing data; complete empty cohort is real zero\nPASS diagram numbers remain tied to table rows when coordinates are missing\nPASS diagram keeps the same 18-row limit as its table reference\nPASS HTML render escapes arbitrary labels while preserving distance meaning\n8 site/report regression checks passed (synthetic fixtures; no live API)."
+        },
+        {
+          "script": "work/test_map_upgrade_v384.cjs",
+          "passed": true,
+          "output": "{\"ok\":true,\"checks\":45,\"scope\":\"hospital search + banner lifecycle/provenance\",\"liveApi\":false}"
+        },
+        {
+          "script": "work/test_address_recovery_v383.cjs",
+          "passed": true,
+          "output": "{\n  \"source\": \"actual inline HTML\",\n  \"synthetic\": true,\n  \"liveApi\": false,\n  \"passed\": 18,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "script": "work/test_emr_geo_v382.cjs",
+          "passed": true,
+          "output": "PASS latest inline geography helpers: 49 assertions; 3 ordinary concurrent requests, raw-address dedup, missing/notfound/error/timeout/retry/stale, ambiguity, road/legal/admin fallback, 8people/14records oracle, coverage-before-radius and marker-independent circle count."
+        },
+        {
+          "script": "work/test_emr_address_import_v382.cjs",
+          "passed": true,
+          "output": "{\n  \"fixtureKind\": \"synthetic\",\n  \"passed\": 28,\n  \"failed\": 0,\n  \"failures\": []\n}"
+        },
+        {
+          "script": "work/test_clinic_integration_v378.cjs",
+          "passed": true,
+          "output": "{\n  \"ok\": true,\n  \"checks\": 69,\n  \"failures\": [],\n  \"source\": \"current v3.7.8 HTML with synthetic source and DOM fixtures\",\n  \"liveApi\": false,\n  \"htmlEdited\": false\n}"
+        },
+        {
+          "script": "work/test_senior_current.cjs",
+          "passed": true,
+          "output": "{\"ok\":true,\"checks\":204,\"source\":\"release HTML\",\"liveApi\":false}"
+        },
+        {
+          "script": "work/test_banner_layout_v380.cjs",
+          "passed": true,
+          "output": "PASS banner grouping preserves200records, centers52pxapart, exactcoordinate grouping, no permanent labels, all script syntax"
+        }
+      ],
+      "finishedAt": "2026-10-25T05:48:27.297Z",
+      "passed": true
+    }
+  ]
+}

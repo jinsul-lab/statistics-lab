@@ -1,0 +1,122 @@
+{
+  "version": "3.8.4",
+  "phase": "functional",
+  "sha256": "dcdd625999c7c51d13a499a898c95fe75b7acf09e95489266c5f225f065e4001",
+  "environment": "Local synthetic/offline browser fixtures; no real patient data; live API checked separately",
+  "runs": [
+    {
+      "round": 1,
+      "startedAt": "2026-10-25T05:48:31.613Z",
+      "checks": [
+        {
+          "script": "work/test_interaction_v384.cjs",
+          "passed": true,
+          "output": "PASS filter mixed/all/none state + keyboard; programmatic/arrow tabs; nested dialog Escape/focus; 375/768 close target and rendering"
+        },
+        {
+          "script": "work/test_patient_upgrade_ui_v384.cjs",
+          "passed": true,
+          "output": "PASS rendered patient progress: real Chart.js, preserved active tab, updated counts/charts, changed filter wins, reset cancels refresh and closes modal; synthetic offline only."
+        },
+        {
+          "script": "work/test_patient_current.cjs",
+          "passed": true,
+          "output": "tabDong 6\ntabAge 16\ntabVisit 14\ntabRegion 6\ntabValue 16\ntabRadius 2\nERRORS []\nSCATTER 4\nPASS heatmap, age contribution, cumulative totals, top10+other, unknown, zero denominator, tablet render\nPASS real Chart.js: all tabs, scatter, filters, sample notice, blank age, empty refresh, missing library cache"
+        },
+        {
+          "script": "work/test_analysis_v371.cjs",
+          "passed": true,
+          "output": "PASS exact patient identifier, explicit false flags, source record grouping, age boundaries\nPASS raw average, conversion denominator, chart/selector agreement, manual radius, distance boundaries, zero/missing, desktop/tablet"
+        },
+        {
+          "script": "work/test_emr_address_ui_v382.cjs",
+          "passed": true,
+          "output": "PASS actual controls offline synthetic:8people,3resolved,5separateunresolvedstates,manualmapping44px,desktop/tablet,noerrors"
+        },
+        {
+          "script": "work/test_site_upgrade_v384.cjs --render",
+          "passed": true,
+          "output": "PASS partial-only facility status survives snapshot, JSON round trip and exported sheet\nPASS truncated, failed and confirmed zero facilities remain distinct\nPASS missing and invalid distances do not enter the nearest bin; real zero remains eligible\nPASS saved null distances display as unknown and chart discloses exclusion\nPASS all-unknown distance chart is missing data; complete empty cohort is real zero\nPASS diagram numbers remain tied to table rows when coordinates are missing\nPASS diagram keeps the same 18-row limit as its table reference\nPASS HTML render escapes arbitrary labels while preserving distance meaning\n8 site/report regression checks passed (synthetic fixtures; no live API).\nPASS rendered synthetic report: desktop/tablet/375px, A4 print CSS, partial/unknown labels, no overflow or page errors"
+        }
+      ],
+      "finishedAt": "2026-10-25T05:48:50.736Z",
+      "passed": true
+    },
+    {
+      "round": 2,
+      "startedAt": "2026-10-25T05:48:50.749Z",
+      "checks": [
+        {
+          "script": "work/test_interaction_v384.cjs",
+          "passed": true,
+          "output": "PASS filter mixed/all/none state + keyboard; programmatic/arrow tabs; nested dialog Escape/focus; 375/768 close target and rendering"
+        },
+        {
+          "script": "work/test_patient_upgrade_ui_v384.cjs",
+          "passed": true,
+          "output": "PASS rendered patient progress: real Chart.js, preserved active tab, updated counts/charts, changed filter wins, reset cancels refresh and closes modal; synthetic offline only."
+        },
+        {
+          "script": "work/test_patient_current.cjs",
+          "passed": true,
+          "output": "tabDong 6\ntabAge 16\ntabVisit 14\ntabRegion 6\ntabValue 16\ntabRadius 2\nERRORS []\nSCATTER 4\nPASS heatmap, age contribution, cumulative totals, top10+other, unknown, zero denominator, tablet render\nPASS real Chart.js: all tabs, scatter, filters, sample notice, blank age, empty refresh, missing library cache"
+        },
+        {
+          "script": "work/test_analysis_v371.cjs",
+          "passed": true,
+          "output": "PASS exact patient identifier, explicit false flags, source record grouping, age boundaries\nPASS raw average, conversion denominator, chart/selector agreement, manual radius, distance boundaries, zero/missing, desktop/tablet"
+        },
+        {
+          "script": "work/test_emr_address_ui_v382.cjs",
+          "passed": true,
+          "output": "PASS actual controls offline synthetic:8people,3resolved,5separateunresolvedstates,manualmapping44px,desktop/tablet,noerrors"
+        },
+        {
+          "script": "work/test_site_upgrade_v384.cjs --render",
+          "passed": true,
+          "output": "PASS partial-only facility status survives snapshot, JSON round trip and exported sheet\nPASS truncated, failed and confirmed zero facilities remain distinct\nPASS missing and invalid distances do not enter the nearest bin; real zero remains eligible\nPASS saved null distances display as unknown and chart discloses exclusion\nPASS all-unknown distance chart is missing data; complete empty cohort is real zero\nPASS diagram numbers remain tied to table rows when coordinates are missing\nPASS diagram keeps the same 18-row limit as its table reference\nPASS HTML render escapes arbitrary labels while preserving distance meaning\n8 site/report regression checks passed (synthetic fixtures; no live API).\nPASS rendered synthetic report: desktop/tablet/375px, A4 print CSS, partial/unknown labels, no overflow or page errors"
+        }
+      ],
+      "finishedAt": "2026-10-25T05:49:09.614Z",
+      "passed": true
+    },
+    {
+      "round": 3,
+      "startedAt": "2026-10-25T05:49:09.622Z",
+      "checks": [
+        {
+          "script": "work/test_interaction_v384.cjs",
+          "passed": true,
+          "output": "PASS filter mixed/all/none state + keyboard; programmatic/arrow tabs; nested dialog Escape/focus; 375/768 close target and rendering"
+        },
+        {
+          "script": "work/test_patient_upgrade_ui_v384.cjs",
+          "passed": true,
+          "output": "PASS rendered patient progress: real Chart.js, preserved active tab, updated counts/charts, changed filter wins, reset cancels refresh and closes modal; synthetic offline only."
+        },
+        {
+          "script": "work/test_patient_current.cjs",
+          "passed": true,
+          "output": "tabDong 6\ntabAge 16\ntabVisit 14\ntabRegion 6\ntabValue 16\ntabRadius 2\nERRORS []\nSCATTER 4\nPASS heatmap, age contribution, cumulative totals, top10+other, unknown, zero denominator, tablet render\nPASS real Chart.js: all tabs, scatter, filters, sample notice, blank age, empty refresh, missing library cache"
+        },
+        {
+          "script": "work/test_analysis_v371.cjs",
+          "passed": true,
+          "output": "PASS exact patient identifier, explicit false flags, source record grouping, age boundaries\nPASS raw average, conversion denominator, chart/selector agreement, manual radius, distance boundaries, zero/missing, desktop/tablet"
+        },
+        {
+          "script": "work/test_emr_address_ui_v382.cjs",
+          "passed": true,
+          "output": "PASS actual controls offline synthetic:8people,3resolved,5separateunresolvedstates,manualmapping44px,desktop/tablet,noerrors"
+        },
+        {
+          "script": "work/test_site_upgrade_v384.cjs --render",
+          "passed": true,
+          "output": "PASS partial-only facility status survives snapshot, JSON round trip and exported sheet\nPASS truncated, failed and confirmed zero facilities remain distinct\nPASS missing and invalid distances do not enter the nearest bin; real zero remains eligible\nPASS saved null distances display as unknown and chart discloses exclusion\nPASS all-unknown distance chart is missing data; complete empty cohort is real zero\nPASS diagram numbers remain tied to table rows when coordinates are missing\nPASS diagram keeps the same 18-row limit as its table reference\nPASS HTML render escapes arbitrary labels while preserving distance meaning\n8 site/report regression checks passed (synthetic fixtures; no live API).\nPASS rendered synthetic report: desktop/tablet/375px, A4 print CSS, partial/unknown labels, no overflow or page errors"
+        }
+      ],
+      "finishedAt": "2026-10-25T05:49:27.211Z",
+      "passed": true
+    }
+  ]
+}

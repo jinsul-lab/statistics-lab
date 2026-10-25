@@ -1,3 +1,13 @@
+# 현재 기준 · JINSUL MAP 3.8.4
+
+기준 파일: jinsulmap/jinsulmap.html
+고정 URL: https://jinsul-lab.github.io/statistics-lab/jinsulmap/jinsulmap.html
+작업 체크아웃: ../statistics-lab-banner-release
+다방면 개선·검증: jinsulmap/UPGRADE_v3.8.4.md
+
+환자 진행 집계/필터/초기화, 입지자료 결측/일부 조회, 병원 검색 제한시간/키보드, 현수막 취소/출처 내보내기, 팝업·탭 조작 개선. 최종 수정본 디버깅3회·기능3회 통과. 운영 검증은 상세 보고서에 기록. Worker/Secret 변경 없음.
+
+아래는 과거 기록입니다.
 # 현재 기준 · JINSUL MAP 3.8.3
 
 기준 파일: jinsulmap/jinsulmap.html
